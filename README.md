@@ -1,13 +1,13 @@
 # csdvr
  calsim data vis in r. version 1.0_8.10.2018
  
-##### needs #####
+#### needs ####
 
 - WRIMS CalSim output in `.csv` format (not `.dss`). If csv file needed, specify `outputname.csv` instead of `outputname.dss` in WRIMS' Decision Variable (DV) field to return both `.csv` and `.dss` files via WRIMS versions 2018 or later (free from Caliornia DWR - email list distribution - link at bottom)
 - R and R libraries specified in `libs.r`
 - Accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
 
-##### steps #####
+#### steps ####
 
 1. Download  most recent csdvr_mm.dd.yyyy.zip as entire package to start from (~30 kb) 
 3. Drop your CalSim csvs in the `csv` folder 
@@ -20,7 +20,7 @@
 
 6. In `control.r`, run blocks from top down as needed: single run-clicks here let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables as `tibble`/`.csv` to examine certain DVs individually or together
 
-#### notes #####
+#### notes ####
 - assumes you know names of variables to search for, ie names of DVs, eg "s17". If not, consult `.wresl` or `.dss` files. Wish list: auto-completion of DV names while typing. `varcodes.csv` identifies some
 - as needed enter other name/nickname descriptions for dvs in `varcodes.csv` - only a few mapped currently, eg `Jones (CVP)` for `d419`. Some plots label the `df$dv`, the actual calsim name, and other `df$dv_name`, the nickname 
 - as needed/time allows save/generalize your working plots in `plotexportscripts` folder to add to collection of templates
