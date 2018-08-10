@@ -1,20 +1,19 @@
-# *step 2 #           #get libraries, define functions, read-in csvs with this block
+## block 1 ###        #get libraries, define functions, read-in csvs with this block
 {rm(list = ls())      #clear environment somewhat
-setwd("C:/Projects/rdev/cspp_aug18") #list home folder here and twice more just below
+setwd("C:/Projects/rdev/csdvr_aug18") #list home folder here and twice more just below
 source("libs.r")      #libraries
 source("fun_defs.r")  #functions
-source("csv_list.r")} #read-in calsimII output and give user-defined
-                      #scenario names (*step 1 - assign names in csv_list.r, then 
-                      #(if order matters) remember/cut and paste same to scenfacts.r
+source("csv_list.r")} #*step 1 - enter scenarios filenames and nicknames in csv_list.r, then 
+                      #(if order matters) paste same to scenfacts.r
                       
-## *2a ############################################ optional - batch export plots with this block  ###########################
-{setwd("C:/Projects/rdev/cspp_aug18") 
+## block 2 ############################################ optional - batch export plots with this block  ########################
+{setwd("C:/Projects/rdev/csdvr_aug18") 
 source("plotexportctrl.r")}  #pick which in plotexport.r get saved in `plots` folder 
 ##############################################################################################################################
 
-###############################################################  investigate DVs here manually  ##############################
-{setwd("C:/Projects/rdev/cspp_aug18") 
-## 3   ################################################## enter DVs here in lowercase, then run block     ####################
+## block 3   ##################################################  investigate DVs/DV groups here one at a time  ###############
+{setwd("C:/Projects/rdev/csdvr_aug18") 
+############################################################### enter DVs here in lowercase, then run block     ##############
 dvs <- c("del_cvp_total", "del_cvp_total_s")                                                                 #################
 ###########################################################   then run individual data sums/plots below    ################### 
 df <- create_df(df_csv) #creates data.frame
