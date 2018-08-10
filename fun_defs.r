@@ -100,7 +100,6 @@ create_df_diff <-function(df){
 ################################  #IDs wy change, ie from this year type to that & other related fields
 
 
-
 create_fallx2_df <- function(df) {
   df_fallx2 <- df %>% mutate(fx2spagwy = fx2sepaugwy(tstep), spagwy = sepaugwy(tstep)) %>% filter(spagwy>1922, spagwy<2003) %>%
     mutate(nxtscwyt = lead(scwyt,5)) %>%
@@ -146,8 +145,6 @@ adds44tos4 <- function(df) {
   s4$Value <- s4$Value + s44$Value
   df <- rbind(s4, dfnos4)
 }
-
-
 
 #################################
 #################################
@@ -249,7 +246,6 @@ sum984_taf <- function(df) {
   sum984 <- df %>% group_by(dv,scen) %>% summarize(sum984 = sum(taf)) %>% spread(dv,sum984)
   print(sum984)
 }
-
 
 
 #######################################
