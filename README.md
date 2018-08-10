@@ -10,7 +10,7 @@
 2. In `csv_list.r`, enter csv file names and give scenarios nicknames (ie plot labels, shorter the better: more room for data)
 
 
-3a.  If order matters for on-the-fly plots or batch plots, enter same nicknames to scenfacts.r, in order you prefer (top to bottom here will enforce top to bottom in legend). Otherwise skip step.  Default order without 2a is alphabetic or similar
+3a. If order matters for on-the-fly plots or batch plots, enter same nicknames to scenfacts.r, in order you prefer (top to bottom here will enforce top to bottom in legend). Otherwise skip step.  Default order without 2a is alphabetic or similar
 
 4. In `control.r`: in three places at top, enter the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
 
