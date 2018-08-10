@@ -11,7 +11,7 @@
 
 3. open control.r: in three places at top, spell the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
 
-4. in control.r, run blocks from top down as needed: single clicks there read in csvs, build `data.frames`, and either batch export plots or investigate certain decision variables (dvs). 
+4. in control.r, run blocks from top down as needed: single run-clicks there read in csvs, build `data.frames`, and either batch export plots or investigate certain decision variables (dvs). 
 
 #### notes #####
 - assumes you know names of variables to search for, ie names of calsim decision variables, eg "s44" (dss records reveal names conveniently), next steps are for auto-complete of dv names
