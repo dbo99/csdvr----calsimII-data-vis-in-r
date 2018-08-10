@@ -22,4 +22,6 @@
 - currently only handles one climate change scenario (ie tied to wyt.csv - adjustment needed to accommodate more)
 - default plot size is widescreen powerpoint. to change, search and replace (ie Ctrl-F `width = 13.333, height = 7.5`, replace all with 
   desired dimensions, eg `width = 10, height = 6` and filetype, eg .jpg, .pdf)
+  
+  https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2
 
