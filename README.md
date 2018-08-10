@@ -2,7 +2,7 @@
  calsimII data vis in r (csdvr). version august beta 18.
  
 ##### workflow #####
-0. requires .csv output by typing ".csv" instead of ".dss" in WRIMS (which will still output both for ".csv")
+0. requires .csv output by typing ".csv" instead of ".dss" in WRIMS dv field (which will still output both for ".csv")
 1. drop calsim csvs in `csv` folder
 2. in `csv_list.r`, spell csv file names and give scenarios nicknames
 
