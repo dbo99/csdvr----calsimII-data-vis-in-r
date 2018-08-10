@@ -5,7 +5,7 @@
 1. drop calsim csvs in csv folder
 2. in csv_list.r, spell csv file names and give scenarios nicknames
 
-2a. remember/cut-and-paste same nicknames to scenfacts.r (only necessary for batch plots or if order matters for on-the-fly plots, otherwise skip 2a. default without 2a is alphabetic or similar.)
+2a. remember/cut-and-paste same nicknames to scenfacts.r (only necessary for batch plots or if order matters for on-the-fly plots, otherwise skip 2a. default order without 2a is alphabetic or similar.)
 
 3. open control.r: spell working folder path (stand alone post-processor location or in a proj-specific folder?), in three places at top 
 
