@@ -1,11 +1,14 @@
 # csdvr
  calsim data vis in r. version 1.0_8.10.2018
  
-##### workflow #####
+##### needs #####
 
-0. Requires:
 - WRIMS CalSim output in `.csv` format (not `.dss`). If csv file needed, specify `outputname.csv` instead of `outputname.dss` in WRIMS' Decision Variable (DV) field to return both `.csv` and `.dss` files via WRIMS versions 2018 or later (free from Caliornia DWR - email list distribution - link at bottom)
+- R and R libraries specified in `libs.r`
 - Accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
+
+#### steps #####
+
 1. Download  most recent csdvr_mm.dd.yyyy.zip as entire package to start from (~30 kb) 
 3. Drop your CalSim csvs in the `csv` folder 
 2. In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels leave room for plot space
