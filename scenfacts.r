@@ -20,22 +20,11 @@ df$scen <- factor(df$scen, levels = c(
  #"OMRAct1OnlyMin5k"
  #))
                                       
+scendiffnames <- unique(c(as.character(df$scen))) 
+scendiffnames <- scendiffnames[scendiffnames != "baseline"]; # without elements that are "b"
+scendiffnames <- paste(scendiffnames, " - bl", sep="")
 
-df_diff$scen <- factor(df_diff$scen, levels = c(
-  
-"2_SHA_TF - bl" ,              
-"3_SHA_SL_TF_NDD - bl"  ,              
-#"4_SHA_TF_NDD - bl"   ,            
-#"5_SHA_SL_NDD - bl" ))           
-"6_SL_NDD - bl"   ,          
-#"7_SL_TF_NDD - bl"   ,         
-#"8_SHA_NDD - bl"   ,        
-#"9_SHA_SL - bl"     ,       
-#"10_TF_NDD - bl"     ,      
-#"11_SL_TF - bl"  ,     
-#"12_SHA_SL_TF - bl",
-"OMRAct1OnlyMin2k - bl" ))
-#"OMRAct1OnlyMin5k - bl"))
+df_diff$scen <- factor(df_diff$scen, levels = c(paste0(scendiffnames)))
 
 
 numnonbaselinescens <- length(unique(df_diff$scen))+1
