@@ -5,12 +5,12 @@
 
 0. Requires `.csv` output (no `.dss`). Typing `.csv` instead of `.dss` in WRIMS' dv field produces both a .csv and .dss output "dv" file. Requires WRIMS
    versions from 2018 or later
-1. Download csdvr_versiondate.zip as entire package (33 kb) 
-3. Drop calsimII csvs in `csv` folder
-2. In `csv_list.r`, enter csv file names and give scenarios nicknames (ie plot labels, shorter the better: more room for data)
+1. Download csdvr_versiondate.zip as entire package to start from (33 kb) 
+3. Drop your CalSimII csvs in `csv` folder (or CalSim 3.0 beta if just 1921 - 2003 range is OK)
+2. In `csv_list.r`, enter your csv file names and give scenarios nicknames (ie plot labels, shorter the better: more room for data)
 
 
-4. If order matters for on-the-fly plots or batch plots, enter same nicknames to scenfacts.r, in order you prefer (top to bottom here will enforce top to bottom in legend). Otherwise skip step.  Default order without 2a is alphabetic or similar
+4. If order matters for on-the-fly plots or batch plots, enter same nicknames to scenfacts.r, in order you prefer (top to bottom here will enforce top to bottom in legend). Otherwise skip step; default order without `scenfacts.r` tweaks is alphabetic
 
 5. In `control.r`: in three places at top, enter the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
 
