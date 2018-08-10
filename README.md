@@ -29,7 +29,7 @@
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
 - Accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
   
-  Access CalSim benchmark studies, contact info for WRIMS software:
+  Access CalSim benchmark studies and contact info for WRIMS software:
   
   https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2
 
