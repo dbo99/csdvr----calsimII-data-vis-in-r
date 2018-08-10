@@ -14,7 +14,7 @@
 
 5. In `control.r`: in three places at top, enter the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
 
-6. In `control.r`, run blocks from top down as needed: single run-clicks there let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or tables to examine certain decision variables (dvs)
+6. In `control.r`, run blocks from top down as needed: single run-clicks there let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables to examine certain decision variables (dvs)
 
 #### notes #####
 - assumes you know names of variables to search for, ie names of dvs, eg "s17" (dss records reveal names conveniently), next steps are for auto-completion of dv names while typing. `varcodes.csv` identifies some
