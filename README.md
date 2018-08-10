@@ -7,7 +7,7 @@
    versions from 2018 or later
 1. Download csdvr_versiondate.zip as entire package (33 kb) 
 3. Drop calsim csvs in `csv` folder
-2. In `csv_list.r`, enter csv file names and give scenarios nicknames
+2. In `csv_list.r`, enter csv file names and give scenarios nicknames (ie plot labels, shorter the better: more room for data)
 
 3a.  If order matters for on-the-fly plots or batch plots, enter same nicknames to scenfacts.r, in order you prefer (top to bottom here will enforce top to bottom in legend). Otherwise skip step.  Default order without 2a is alphabetic or similar
 
