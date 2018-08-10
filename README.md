@@ -7,7 +7,7 @@
 
 2a. remember/cut-and-paste same nicknames to scenfacts.r (only necessary for batch plots or if order matters for on-the-fly plots, otherwise skip 2a. default order without 2a is alphabetic or similar)
 
-3. open control.r: spell working folder path there (can be used as/in a  stand alone post-processor location or in a proj-specific folder?), in three places at top 
+3. open control.r: spell working folder path there (use as/in a stand alone post-processor location or in a proj-specific folder?), in three places at top 
 
 4. stay at control.r to run blocks from top down as needed: read in csvs, build data.frames, and either batch export plot templates or investigate certain DVs. 
 
