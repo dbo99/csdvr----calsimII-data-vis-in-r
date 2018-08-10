@@ -2,19 +2,21 @@
  calsimII data vis in r (csdvr). version august beta 18.
  
 ##### workflow #####
-0. requires .csv output by typing ".csv" instead of ".dss" in WRIMS dv field (which will still output both for ".csv")
+0. requires .csv output by typing `.csv` instead of `.dss` in WRIMS dv field (which will still output both if ".csv" used) (requires WRIMS 
+   2018 versions or newer)
 1. drop calsim csvs in `csv` folder
 2. in `csv_list.r`, spell csv file names and give scenarios nicknames
 
-2a.  if order matters for on-the-fly plots or batch plots, remember/cut-and-paste same nicknames to scenfacts.r,otherwise skip step. default order without 2a is alphabetic or similar)
+2a.  if order matters for on-the-fly plots or batch plots, remember/cut-and-paste same nicknames to scenfacts.r (scenario factors), otherwise skip step. default order without 2a is alphabetic or similar)
 
-3. open control.r: in three places at top, spell working folder path (use as/in a stand alone post-processor location or in a proj-specific folder, choice)
+3. open control.r: in three places at top, spell the working folder path (eg use as a stand alone post-processor location or in a proj-specific folder?)
 
-4. stay at control.r to run blocks from top down as needed: read in csvs, build data.frames, and either batch export plot templates or investigate certain DVs. 
+4. in control.r, run blocks from top down as needed: read in csvs, build data.frames, and either batch export plot templates or investigate certain DVs. 
 
-- need to know names of variables to search for, ie names of calsim decision variables, eg "s44" (dss records spell names)
-- as needed spell other english/nickname descriptions for dvs in varcodes.csv - only a few mapped currently, eg "Jones (CVP)" for "d419"
+#### notes #####
+- assumes you know names of variables to search for, ie names of calsim decision variables, eg "s44" (dss records spell names), next steps are for auto-complete of dv names
+- as needed spell other english/nickname descriptions for dvs in varcodes.csv - only a few mapped currently, eg "Jones (CVP)" for "d419". some plots label the `dv`, the actual calsim name, and other `dv_names', hte nickname. switch or make more as necessary.
 - as needed/time allows save/generalize your working plots in plot scripts folder to add to collection of templates
 - currently only handles one climate change scenario (ie tied to wyt.csv - adjustment needed to accomodate more)
-- default plot size is widescreen powerpoint. to change, search and replace (ie Ctrl-F "width = 13.333, height = 7.5" replace all to 
-  desired dimensions, and filetype, eg .jpg, .pdf)
+- default plot size is widescreen powerpoint. to change, search and replace (ie Ctrl-F "width = 13.333, height = 7.5", replace with 
+  desired dimensions, eg "width = 10, height = 6" and filetype, eg .jpg, .pdf)
