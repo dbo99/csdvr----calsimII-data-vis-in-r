@@ -1,7 +1,7 @@
 # csdvr
  calsim data vis in r. | 
  version 1.0_8.10.2018 | 
- filter, visualize, and analyze calsim output for any number of variables and moderate number of calsim scenarios (<40) | 
+ filter, visualize, and analyze calsim output for any number of variables and reasonable number of calsim scenarios | 
  export report/presentation ready images (eg jpgs, pdfs) or interactive plots (html)
  
 ### uses ###
