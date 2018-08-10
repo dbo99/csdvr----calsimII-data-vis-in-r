@@ -7,14 +7,14 @@
    versions from 2018 or later
 1. Download csdvr_versiondate.zip as entire package to start from (33 kb) 
 3. Drop your CalSimII csvs in `csv` folder (or CalSim 3.0 beta if just 1921 - 2003 range is OK)
-2. In `csv_list.r`, enter your csv file names and give scenarios nicknames (ie plot labels, shorter the better: more room for data)
+2. In `csv_list.r`, enter your csv file names and give scenarios nicknames (ie plot labels; short labels give more room for data)
 
 
-4. If order matters for on-the-fly plots or batch plots, enter same nicknames to scenfacts.r, in order you prefer (top to bottom here will enforce top to bottom in legend). Otherwise skip step; default order without `scenfacts.r` tweaks is alphabetic
+4. If scenario order matters for on-the-fly plots or batch plots, enter same nicknames to `scenfacts.r`, in order you prefer (top to bottom here yields top to bottom in legend). Otherwise skip step; default order without `scenfacts.r` tweaks is alphabetic
 
 5. In `control.r`: in three places at top, enter the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
 
-6. In `control.r`, run blocks from top down as needed: single run-clicks there let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables to examine certain decision variables (dvs)
+6. In `control.r`, run blocks from top down as needed: single run-clicks there let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables as `tibble`/`.csv`to examine certain decision variables (dvs)
 
 #### notes #####
 - assumes you know names of variables to search for, ie names of dvs, eg "s17" (dss records reveal names conveniently), next steps are for auto-completion of dv names while typing. `varcodes.csv` identifies some
