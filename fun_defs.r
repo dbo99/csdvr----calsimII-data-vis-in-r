@@ -250,15 +250,15 @@ sum984_taf <- function(df) {
 
 #######################################
 #######################################
-########  Plotting Functions   ########
-#######################################
+########  plotting functions   ########  # general order top to bottom is basic bar plots, timeseries line plots, exceedance lines and bars, 
+#######################################  # tiles/ridges timeseries, bell-shape pdf functions. "_d" suffix denotes a plot of differences.
 #######################################
 
 
 ##### annual stats ######
 
 ## Ann Avgs
-
+# plot bars of mean annual period average ("flow") in taf  # doesn't allow storage dvs
 pb_mn_ann_perav_taf <- function(df) {
 df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
 ggplot(aes(x = scen, y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
@@ -328,7 +328,7 @@ pb_mn_ann_perav_taf_nolab_rank <- function(df) {
 
 
 
-
+#plot bars mean annual eom stor  #rarely tells much
 pb_mn_ann_eomstor_taf <- function(df) {
 df %>% filter(kind == "storage") %>% group_by(dv, scen) %>% summarize(mnanntaf_eomstor =  mean(taf)) %>%
     ggplot(aes(x = scen, y = mnanntaf_eomstor,   fill = scen, label = round(mnanntaf_eomstor, 0))) +
@@ -339,6 +339,7 @@ df %>% filter(kind == "storage") %>% group_by(dv, scen) %>% summarize(mnanntaf_e
     ggtitle("mean annual storage (82 yrs)") + scale_fill_manual(values=df_cols)
 }
 
+#plot bars median annual
 pb_md_ann_perav_taf <- function(df) {
 df %>% filter(!kind == "storage") %>% group_by(dv, scen, wy) %>% summarize(sumperavtaf = sum(taf)) %>%
   summarize(mdannwytaf_perav = median(sumperavtaf)) %>% 
@@ -352,6 +353,7 @@ df %>% filter(!kind == "storage") %>% group_by(dv, scen, wy) %>% summarize(sumpe
 
 ### WYT Avgs ###
 
+# sac water year type
 pb_mn_scwyt_perav_taf <- function(df) {
   df %>% filter(!kind == "storage", fjwy>1921, fjwy<2003) %>% group_by(dv, scen, scwyt_scwytt) %>%  summarize(mnanntaf_perav_wyt =  12*mean(taf)) %>% 
   ggplot(aes(x = scwyt_scwytt, y = mnanntaf_perav_wyt, fill = scwyt_scwytt, label = round(mnanntaf_perav_wyt,0))) +
@@ -375,6 +377,7 @@ pb_mn_scwyt_perav_taf_nolab <- function(df) {
     scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) 
 } 
 
+#san joaquin water year type
 pb_mn_sjwyt_perav_taf <- function(df) {
   df %>% filter(!kind == "storage", fjwy>1921, fjwy<2003) %>% group_by(dv, scen, sjwyt_sjwytt) %>%  summarize(mnanntaf_perav_wyt =  12*mean(taf)) %>% 
     ggplot(aes(x = sjwyt_sjwytt, y = mnanntaf_perav_wyt, fill = sjwyt_sjwytt, label = round(mnanntaf_perav_wyt,0))) +
@@ -384,7 +387,7 @@ pb_mn_sjwyt_perav_taf <- function(df) {
     scale_fill_discrete(name = "sj wyt") + theme(axis.title.x=element_blank()) 
 } 
 
-pb_mn_scwyt2_perav_taf <- function(df) {
+pb_mn_scwyt2_perav_taf <- function(df) {  #coerces feb-jan water years to regular water years
   df %>% filter(!kind == "storage") %>% mutate(scwyt2 = as.character(scwyt2)) %>% group_by(dv, scen, scwyt2) %>%  summarize(mnanntaf_perav_wyt =  12*mean(taf)) %>% 
     ggplot(aes(x = scwyt2, y = mnanntaf_perav_wyt, fill = scwyt2, label = round(mnanntaf_perav_wyt,0))) +
     geom_bar(position = "dodge",stat = "identity") + 
@@ -1715,7 +1718,7 @@ p_ann_monfacetw_excd_cfs_d <- function(df) {
 #######  non-stor taf ridges  ##  #for one dv only!
 ################################
 
-
+# plot ridges pr
 pr_ts_taf <- function(df, yrmin, yrmax, scalingfactor) { #plots monthly output on y, colors by annual total
 df <-df  %>% group_by(scen, wy) %>% mutate(wy_taf = sum(taf))  
 sc <- (max(df$taf) / min(df$taf) * scalingfactor) # usually needs to be very low, say 0.00005 for c9
@@ -1844,7 +1847,7 @@ pr_ts_eomstormean_taf_d <- function(df, yrmin, yrmax, scalingfactor) { #plots mo
 #########################
 
 ## Monthly ## use for one dv only, otherwise too cluttered
-
+#plot box plot pbp
 pbp_mon_taf <- function(df) {
   
   df %>% group_by(wm, scen, dv)%>% mutate(scen_wm_dv= paste0(scen, "_", wm, "_", dv)) %>%
@@ -2017,6 +2020,7 @@ pbp_ann_perav_fjwysum_scwyt_taf_d <- function(df) {
 ## Plot dot plots
 #########################
 
+#plot dot plot pdp
 pdp_ann_perav_wysum_taf <- function(df, binwidth, dotsize) {
   
   df %>% filter(kind != "storage", wy > 1921, wy < 2004) %>% group_by(scen, dv, wy) %>%
