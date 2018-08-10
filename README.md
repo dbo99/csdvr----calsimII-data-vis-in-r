@@ -1,5 +1,5 @@
 # csdvr
- calsimII data vis in r (csdvr). version august beta 18.
+ calsimII data vis in r (csdvr). version august '18.
  
 ##### workflow #####
 0. requires .csv output by typing `.csv` instead of `.dss` in WRIMS' dv field (which will still output both if `.csv` used) (requires WRIMS 
