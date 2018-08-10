@@ -7,7 +7,7 @@
    versions from 2018 or later
 1. Download csdvr_versiondate.zip as entire package to start from (33 kb) 
 3. Drop your CalSimII csvs in `csv` folder (or CalSim 3.0 beta if just 1921 - 2003 range is OK)
-2. In `csv_list.r`, enter your csv file names and give scenarios nicknames (ie plot labels; short labels give more room for data)
+2. In `csv_list.r`, enter your csv file names and give scenarios nicknames (ie plot labels; short labels give room for the plot)
 
 
 4. If scenario order matters for on-the-fly plots or batch plots, enter same nicknames to `scenfacts.r`, in order you prefer (top to bottom here yields top to bottom in legend). Otherwise skip step; default order without `scenfacts.r` tweaks is alphabetic
