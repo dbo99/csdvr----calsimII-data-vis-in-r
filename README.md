@@ -3,7 +3,7 @@
  
 ##### workflow #####
 
-0. Requires `.csv` output (not `.dss`). Typing `.csv` instead of `.dss` in WRIMS' dv field produces both a .csv and .dss output "dv" file. Requires WRIMS
+0. Requires `.csv` output (not `.dss`). Typing `.csv` instead of `.dss` in WRIMS' dv field produces both a `.csv` and `.dss` output decision variable "dv" file. Requires WRIMS
    versions from 2018 or later
 1. Download csdvr_versiondate.zip as entire package to start from (33 kb) 
 3. Drop your CalSimII csvs in `csv` folder (or CalSim 3.0 beta if just 1921 - 2003 range is OK)
