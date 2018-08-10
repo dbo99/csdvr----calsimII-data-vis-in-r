@@ -1,4 +1,4 @@
-source("plotthemes.r")
+### Function Definitions ###
 
 #######################
 ### yrs, mons, units ##
@@ -2188,3 +2188,6 @@ pdr_ann_perav_mfwysum_taf_d <- function(df) {
     geom_point(data = df_mn, mapping = aes(x = annmean, y = scen, fill = dv), color = "black", shape = 21) 
 }
 
+source("plotthemes.r")
+
+## USBR draft - D. O'Connor 2018 ##
