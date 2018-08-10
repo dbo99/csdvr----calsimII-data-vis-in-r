@@ -5,7 +5,7 @@
 
 0. requires .csv output. typing `.csv` instead of `.dss` in WRIMS' dv field produces both a .csv and .dss output dv file. requires WRIMS 
    versions from 2018 or later.
-1. download csdvr.zip as entire package (2.8 mb) 
+1. download csdvr_versiondate.zip as entire package (33 kb) 
 3. drop calsim csvs in `csv` folder
 2. in `csv_list.r`, enter csv file names and give scenarios nicknames
 
