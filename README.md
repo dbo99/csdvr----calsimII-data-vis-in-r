@@ -2,8 +2,9 @@
  calsimII data vis in r (csdvr). version august beta 18.
  
 ##### workflow #####
-1. drop calsim csvs in csv folder
-2. in csv_list.r, spell csv file names and give scenarios nicknames
+0. requires .csv output by typing ".csv" instead of ".dss" in WRIMS (which will still output both)
+1. drop calsim csvs in `csv` folder
+2. in `csv_list.r`, spell csv file names and give scenarios nicknames
 
 2a.  if order matters for on-the-fly plots or batch plots, remember/cut-and-paste same nicknames to scenfacts.r,otherwise skip step. default order without 2a is alphabetic or similar)
 
