@@ -3,7 +3,7 @@
  
 ##### workflow - either just look at data or get final slides
 
-0. requires .csv output by typing `.csv` instead of `.dss` in WRIMS' dv field (which will still output both if `.csv` used) (requires WRIMS 
+0. requires .csv output. typing `.csv` instead of `.dss` in WRIMS' dv field produces both a .csv and .dss output dv file (requires WRIMS 
    2018 versions or newer)
 1. drop calsim csvs in `csv` folder
 2. in `csv_list.r`, enter csv file names and give scenarios nicknames
