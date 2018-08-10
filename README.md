@@ -8,7 +8,7 @@
 1. drop calsim csvs in `csv` folder
 2. in `csv_list.r`, enter csv file names and give scenarios nicknames
 
-2a.  if order matters for on-the-fly plots or batch plots, remember/cut-and-paste same nicknames to scenfacts.r (scenario factors), in order you prefer, otherwise skip step. default order without 2a is alphabetic or similar)
+2a.  if order matters for on-the-fly plots or batch plots, enter same nicknames to scenfacts.r (scenario factors), in order you prefer (top to bottom here will enforce top to bottom in legend), otherwise skip step. default order without 2a is alphabetic or similar)
 
 3. open control.r: in three places at top, enter the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
 
