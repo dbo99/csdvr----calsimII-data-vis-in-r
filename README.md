@@ -20,7 +20,7 @@
 - assumes you know names of variables to search for, ie names of dvs, eg "s17". If not, consult `.wresl` or `.dss` files. Wish list: auto-completion of dv names while typing. `varcodes.csv` identifies some
 - as needed enter other name/nickname descriptions for dvs in `varcodes.csv` - only a few mapped currently, eg `Jones (CVP)` for `d419`. Some plots label the `df$dv`, the actual calsim name, and other `df$dv_name`, the nickname 
 - as needed/time allows save/generalize your working plots in `plotexportscripts` folder to add to collection of templates
-- currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accommodate more)
+- currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more -- for any water  year type functions - others fine to compare)
 - default plot size is widescreen powerpoint. to change, search and replace (ie Ctrl-F `width = 13.333, height = 7.5`, replace all with 
   desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`)
   
