@@ -1,5 +1,5 @@
 # csdvr
- calsim data vis in r. version 8.10.2018
+ calsim data vis in r. version 1.0_8.10.2018
  
 ##### workflow #####
 
