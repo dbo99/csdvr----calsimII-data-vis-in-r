@@ -139,7 +139,7 @@ scale_y_reordered <- function(..., sep = "___") {
 # get actual Shasta volume for a raise scenario ##
 
 adds44tos4 <- function(df) {
-  s4  <- df %>% filter(Variable == "s4",  Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+  s4  <- df %>% filter(Variable == "s4",  Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 to get 984 months (date-time 24-hr)
   s44 <- df %>% filter(Variable == "s44", Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )
   dfnos4 <- df %>% filter(!Variable == "s4")
   s4$Value <- s4$Value + s44$Value
