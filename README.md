@@ -9,7 +9,7 @@
 
 2a.  if order matters for on-the-fly plots or batch plots, remember/cut-and-paste same nicknames to scenfacts.r (scenario factors), in order you prefer, otherwise skip step. default order without 2a is alphabetic or similar)
 
-3. open control.r: in three places at top, spell the working folder path (eg use as a stand alone post-processor location or in a proj-specific folder?)
+3. open control.r: in three places at top, spell the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
 
 4. in control.r, run blocks from top down as needed: single clicks there read in csvs, build `data.frames`, and either batch export plots or investigate certain decision variables (dvs). 
 
