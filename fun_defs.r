@@ -19,7 +19,7 @@ febjanwy <- function(date) {
 marfebwy <- function(date){    #cvp contract year
   ifelse(month(date) > 2, year(date), year(date)-1)}
 
-jandecwy <- function(date){  year(date)}
+jandecwy <- function(date){  year(date)} 
 
 fx2sepaugwy<- function(date) {
   ifelse(month(date) > 8, year(date), year(date)-1)}
@@ -30,9 +30,128 @@ sepaugwy <- function(date) {
 cfs_taf <- function(cfs,tstep) {cfs*1.98347*days_in_month(tstep)/1000}
 taf_cfs <- function(taf,tstep) {taf*1000/(1.98347*days_in_month(tstep))}
 
+
 #################################
 #################################
-###  Data Summarizing Funs # ####
+#####   data.frame create   #####
+#################################
+#################################
+
+create_df <-function(df_csv){
+  df <- df_csv %>% filter(Variable %in% dvs) %>%  transmute(scen = as.factor(scen), tstep = Date_Time,
+        wy = water_year(tstep), fjwy = febjanwy(tstep), mfwy = marfebwy(tstep), jdwy = year(tstep),
+        wm = water_month(tstep), m = month(tstep), tstep,  dv = Variable, kind = Kind, 
+        rawunit = Units, rawval = Value, mon = month.abb[m]  ,
+        taf = ifelse(rawunit == "cfs", cfs_taf(rawval,tstep), ifelse(rawunit == "taf", rawval, NA)),
+        cfs = ifelse(rawunit == "taf", taf_cfs(rawval,tstep), ifelse(rawunit == "cfs", rawval, NA)), 
+        yearmon = as.yearmon(tstep), tstep = ymd(tstep)) %>% filter(wy >= 1922) #ignore any pre-Oct-'21 data
+  
+  wyt <- read_csv("wyt.csv") %>% mutate(tstep = mdy(tstep)) #makes sure date reads in as date
+  scwyt_txt <- data.frame("scwyt" = c(1,2,3,4,5), "scwytt"=c("wt", "an", "bn", "dr", "cr"))
+  sjwyt_txt <- data.frame("sjwyt" = c(1,2,3,4,5), "sjwytt"=c("wt", "an", "bn", "dr", "cr"))
+  
+  df <- df %>% inner_join(wyt) %>% inner_join(scwyt_txt) %>% inner_join(sjwyt_txt) %>%
+    mutate(scwyt_scwytt = paste0(scwyt, "_", scwytt), sjwyt_sjwytt = paste0(sjwyt, "_", sjwytt))  %>%
+    mutate(scwyt = as.integer(scwyt), sjwyt = as.integer(sjwyt)) 
+  
+  df <- df %>%  mutate(nxtscwyt = lead(scwyt,5)) %>% 
+    mutate(nxtscwytt = ifelse(nxtscwyt == 1, "wt", ifelse(nxtscwyt == 2, "an", ifelse(nxtscwyt == 3, "bn", ifelse(nxtscwyt == 4, "dr", 
+    ifelse(nxtscwyt ==5, "cr", NA))))))  %>% mutate(scwyt2 = paste0(nxtscwyt, "_", nxtscwytt))
+  
+  varcode <- read_csv("varcodes.csv")
+  df <- df %>% left_join(varcode)
+  
+  lastwyt <- df %>% filter(scen == "baseline", yearmon == "Apr 2003") %>% select(scwyt2) #%>% paste0(lastwyt[1])
+  lastwyt <- lastwyt[1,]
+  df <- df %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt, scwyt2 )) 
+  
+}
+
+
+create_df_diff <-function(df){
+  baseline_df <- df %>% filter(scen == "baseline") %>% mutate(id = row_number())
+  
+  df_diff <- df %>% select(scen, taf, cfs, rawval) %>% group_by(scen) %>% mutate(id = row_number()) %>% 
+    left_join(baseline_df, by = "id", suffix = c("_scen", "_bl")) %>%  ungroup() %>%
+    mutate(taf = taf_scen - taf_bl, cfs = cfs_scen - cfs_bl, rawval = rawval_scen - rawval_bl, scen = paste0(scen_scen," - bl")) %>% select(-scen_scen, -scen_bl) %>%
+    filter(scen != "baseline - bl")
+  
+  
+  wyt <- read_csv("wyt.csv") %>% mutate(tstep = mdy(tstep)) #makes sure date reads in as date
+  scwyt_txt <- data.frame("scwyt" = c(1,2,3,4,5), "scwytt"=c("wt", "an", "bn", "dr", "cr"))
+  sjwyt_txt <- data.frame("sjwyt" = c(1,2,3,4,5), "sjwytt"=c("wt", "an", "bn", "dr", "cr"))
+  
+  df_diff  <- df_diff %>% inner_join(wyt) %>% inner_join(scwyt_txt) %>% inner_join(sjwyt_txt) %>%
+    mutate(scwyt_scwytt = paste0(scwyt, "_", scwytt), sjwyt_sjwytt = paste0(sjwyt, "_", sjwytt)) %>%
+    mutate(scwyt = as.integer(scwyt), sjwyt = as.integer(sjwyt)) 
+  
+  df_diff <- df_diff %>%  mutate(nxtscwyt = lead(scwyt,5)) %>%
+    mutate(nxtscwytt = ifelse(nxtscwyt == 1, "wt", ifelse(nxtscwyt == 2, "an", ifelse(nxtscwyt == 3, "bn", ifelse(nxtscwyt == 4, "dr", 
+                       ifelse(nxtscwyt ==5, "cr", NA))))))  %>% mutate(scwyt2 = paste0(nxtscwyt, "_", nxtscwytt))
+  
+  lastwyt_d <- df_diff %>% filter(yearmon == "Apr 2003") %>% select(scwyt2) #no baseline in df_diff, start w/df
+  lastwyt_d <- lastwyt_d[1,]
+  df_diff <- df_diff %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt_d, scwyt2 ))
+  
+}
+
+################################
+## add spec. scen data frame ###  #adds fall x2 attributes for fall to spring (set below at five (5 months) 
+################################  #IDs wy change, ie from this year type to that & other related fields
+
+
+
+create_fallx2_df <- function(df) {
+  df_fallx2 <- df %>% mutate(fx2spagwy = fx2sepaugwy(tstep), spagwy = sepaugwy(tstep)) %>% filter(spagwy>1922, spagwy<2003) %>%
+    mutate(nxtscwyt = lead(scwyt,5)) %>%
+    mutate(nxtscwytt = ifelse(nxtscwyt == 1, "wt", ifelse(nxtscwyt == 2, "an", ifelse(nxtscwyt == 3, "bn", ifelse(nxtscwyt == 4, "dr", 
+    ifelse(nxtscwyt ==5, "cr", NA)))))) %>%
+    mutate(fx2yt = ifelse(m == 9  & scwyt == 1, "wt", ifelse(m == 9 & scwyt == 2, "an", NA))) %>%
+    group_by(grp = cumsum(!is.na(fx2yt))) %>% mutate(fx2yt = replace(fx2yt, 2:pmin(9,n()), fx2yt[1])) %>% ungroup %>% select(-grp) %>%
+    mutate(fx2ytn = ifelse(fx2yt == "wt", 1, ifelse(fx2yt == "an", "2", NA))) %>%
+    mutate(facet = ifelse(fx2ytn >0, paste0(fx2yt, fx2spagwy, "_", nxtscwytt, spagwy), NA))%>%
+    mutate(facet2 = ifelse(fx2ytn >0, paste0(fx2ytn, "_",  nxtscwyt,"_", fx2spagwy, "_", spagwy), NA)) 
+  df_fallx2
+}
+
+########################################################################
+## reordering functions for ranking within facets ######################
+########################################################################
+
+reorder_within <- function(x, by, within, fun = mean, sep = "___", ...) {
+  new_x <- paste(x, within, sep = sep)
+  stats::reorder(new_x, by, FUN = fun)
+}
+
+scale_x_reordered <- function(..., sep = "___") {
+  reg <- paste0(sep, ".+$")
+  ggplot2::scale_x_discrete(labels = function(x) gsub(reg, "", x), ...)
+}
+
+scale_y_reordered <- function(..., sep = "___") {
+  reg <- paste0(sep, ".+$")
+  ggplot2::scale_y_discrete(labels = function(x) gsub(reg, "", x), ...)
+}
+
+###################
+### Misc. functions
+###################
+
+# get actual Shasta volume for a raise scenario ##
+
+adds44tos4 <- function(df) {
+  s4  <- df %>% filter(Variable == "s4",  Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+  s44 <- df %>% filter(Variable == "s44", Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )
+  dfnos4 <- df %>% filter(!Variable == "s4")
+  s4$Value <- s4$Value + s44$Value
+  df <- rbind(s4, dfnos4)
+}
+
+
+
+#################################
+#################################
+###  Data Summarizing Funs # ####  #makes tables not plots. plot functions are below these.
 #################################
 #################################
 
@@ -171,8 +290,6 @@ pb_mn_ann_perav_taf_rank <- function(df) {
     scale_fill_manual(values=df_cols) +
     ggtitle("mean annual (82 yrs)")
 }
-
-
 
 
 pb_mn_ann_perav_taf_hlab <- function(df) {
@@ -2074,128 +2191,4 @@ pdr_ann_perav_mfwysum_taf_d <- function(df) {
     ggtitle("81 mar-feb water year totals, difference from baseline")+
     geom_point(data = df_mn, mapping = aes(x = annmean, y = scen, fill = dv), color = "black", shape = 21) 
 }
-#################################
-#################################
-#####   data.frame create   #####
-#################################
-#################################
- 
-create_df <-function(df_csv){
-df <- df_csv %>% filter(Variable %in% dvs) %>%  transmute(scen = as.factor(scen), tstep = Date_Time,
-      wy = water_year(tstep), fjwy = febjanwy(tstep), mfwy = marfebwy(tstep), jdwy = year(tstep),
-      wm = water_month(tstep), m = month(tstep), tstep,  dv = Variable, kind = Kind, 
-      rawunit = Units, rawval = Value, mon = month.abb[m]  ,
-      taf = ifelse(rawunit == "cfs", cfs_taf(rawval,tstep),
-                   ifelse(rawunit == "taf", rawval, NA)),
-      cfs = ifelse(rawunit == "taf", taf_cfs(rawval,tstep),
-                   ifelse(rawunit == "cfs", rawval, NA)), 
-      yearmon = as.yearmon(tstep), tstep = ymd(tstep)) %>%
-      filter(wy >= 1922) #ignore any pre-Oct-'21 data
 
-wyt <- read_csv("wyt.csv") %>% mutate(tstep = mdy(tstep)) #makes sure date read in as date
-scwyt_txt <- data.frame("scwyt" = c(1,2,3,4,5), "scwytt"=c("wt", "an", "bn", "dr", "cr"))
-sjwyt_txt <- data.frame("sjwyt" = c(1,2,3,4,5), "sjwytt"=c("wt", "an", "bn", "dr", "cr"))
-
-df <- df %>% inner_join(wyt) %>% inner_join(scwyt_txt) %>% inner_join(sjwyt_txt) %>%
-  mutate(scwyt_scwytt = paste0(scwyt, "_", scwytt), sjwyt_sjwytt = paste0(sjwyt, "_", sjwytt))  %>%
-  mutate(scwyt = as.integer(scwyt), sjwyt = as.integer(sjwyt)) 
-
-df <- df %>%  mutate(nxtscwyt = lead(scwyt,5)) %>%
-  mutate(nxtscwytt = ifelse(nxtscwyt == 1, "wt", ifelse(nxtscwyt == 2, "an", ifelse(nxtscwyt == 3, "bn", ifelse(nxtscwyt == 4, "dr", 
-  ifelse(nxtscwyt ==5, "cr", NA))))))  %>% mutate(scwyt2 = paste0(nxtscwyt, "_", nxtscwytt))
-
-varcode <- read_csv("varcodes.csv")
-df <- df %>% left_join(varcode)
-
-lastwyt <- df %>% filter(scen == "baseline", yearmon == "Apr 2003") %>% select(scwyt2) #%>% paste0(lastwyt[1])
-lastwyt <- lastwyt[1,]
-df <- df %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt, scwyt2 )) 
-
-
-}
-
-
-create_df_diff <-function(df){
-baseline_df <- df %>% filter(scen == "baseline") %>% mutate(id = row_number())
-
-df_diff <- df %>% select(scen, taf, cfs, rawval) %>%
-  group_by(scen) %>% 
-  mutate(id = row_number()) %>% 
-  left_join(baseline_df, by = "id", suffix = c("_scen", "_bl")) %>% 
-  ungroup() %>%
-  mutate(taf = taf_scen - taf_bl,
-         cfs = cfs_scen - cfs_bl,
-         rawval = rawval_scen - rawval_bl,
-         scen = paste0(scen_scen," - bl")) %>% 
-  select(-scen_scen, -scen_bl) %>%
-  filter(scen != "baseline - bl")
-
-
-wyt <- read_csv("wyt.csv") %>% mutate(tstep = mdy(tstep)) #makes sure date reads in as date
-scwyt_txt <- data.frame("scwyt" = c(1,2,3,4,5), "scwytt"=c("wt", "an", "bn", "dr", "cr"))
-sjwyt_txt <- data.frame("sjwyt" = c(1,2,3,4,5), "sjwytt"=c("wt", "an", "bn", "dr", "cr"))
-
-df_diff  <- df_diff %>% inner_join(wyt) %>% inner_join(scwyt_txt) %>% inner_join(sjwyt_txt) %>%
-  mutate(scwyt_scwytt = paste0(scwyt, "_", scwytt), sjwyt_sjwytt = paste0(sjwyt, "_", sjwytt)) %>%
-  mutate(scwyt = as.integer(scwyt), sjwyt = as.integer(sjwyt)) 
-
-df_diff <- df_diff %>%  mutate(nxtscwyt = lead(scwyt,5)) %>%
-  mutate(nxtscwytt = ifelse(nxtscwyt == 1, "wt", ifelse(nxtscwyt == 2, "an", ifelse(nxtscwyt == 3, "bn", ifelse(nxtscwyt == 4, "dr", 
-  ifelse(nxtscwyt ==5, "cr", NA))))))  %>% mutate(scwyt2 = paste0(nxtscwyt, "_", nxtscwytt))
-
-lastwyt_d <- df_diff %>% filter(yearmon == "Apr 2003") %>% select(scwyt2) #no baseline in df_diff, start w/df
-lastwyt_d <- lastwyt_d[1,]
-df_diff <- df_diff %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt_d, scwyt2 ))
-
-}
-
-################################
-## add spec. scen data frame ###
-################################
-
-
-create_fallx2_df <- function(df) {
-  df_fallx2 <- df %>% mutate(fx2spagwy = fx2sepaugwy(tstep), spagwy = sepaugwy(tstep)) %>% filter(spagwy>1922, spagwy<2003) %>%
-    mutate(nxtscwyt = lead(scwyt,5)) %>%
-    mutate(nxtscwytt = ifelse(nxtscwyt == 1, "wt", ifelse(nxtscwyt == 2, "an", ifelse(nxtscwyt == 3, "bn", ifelse(nxtscwyt == 4, "dr", 
-                                                                                                                  ifelse(nxtscwyt ==5, "cr", NA)))))) %>%
-    mutate(fx2yt = ifelse(m == 9  & scwyt == 1, "wt", ifelse(m == 9 & scwyt == 2, "an", NA))) %>%
-    group_by(grp = cumsum(!is.na(fx2yt))) %>% mutate(fx2yt = replace(fx2yt, 2:pmin(9,n()), fx2yt[1])) %>% ungroup %>% select(-grp) %>%
-    mutate(fx2ytn = ifelse(fx2yt == "wt", 1, ifelse(fx2yt == "an", "2", NA))) %>%
-    mutate(facet = ifelse(fx2ytn >0, paste0(fx2yt, fx2spagwy, "_", nxtscwytt, spagwy), NA))%>%
-    mutate(facet2 = ifelse(fx2ytn >0, paste0(fx2ytn, "_",  nxtscwyt,"_", fx2spagwy, "_", spagwy), NA)) 
-  df_fallx2
-  }
-
-########################################################################
-## reordering functions for ranking within facets ######################
-########################################################################
-
-reorder_within <- function(x, by, within, fun = mean, sep = "___", ...) {
-  new_x <- paste(x, within, sep = sep)
-  stats::reorder(new_x, by, FUN = fun)
-}
-
-scale_x_reordered <- function(..., sep = "___") {
-  reg <- paste0(sep, ".+$")
-  ggplot2::scale_x_discrete(labels = function(x) gsub(reg, "", x), ...)
-}
-
-scale_y_reordered <- function(..., sep = "___") {
-  reg <- paste0(sep, ".+$")
-  ggplot2::scale_y_discrete(labels = function(x) gsub(reg, "", x), ...)
-}
-
-###################
-### Misc. functions
-###################
-
-# get actual Shasta volume for a raise scenario ##
-
-adds44tos4 <- function(df) {
-  s4  <- df %>% filter(Variable == "s4",  Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
-  s44 <- df %>% filter(Variable == "s44", Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )
-  dfnos4 <- df %>% filter(!Variable == "s4")
-  s4$Value <- s4$Value + s44$Value
-  df <- rbind(s4, dfnos4)
-}
