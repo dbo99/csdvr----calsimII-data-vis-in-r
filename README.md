@@ -1,5 +1,5 @@
 # csdvr
- calsim data vis in r. | version 1.0_8.10.2018 | visualize and analyze calsim output | export ready-to-go slides
+ calsim data vis in r. | version 1.0_8.10.2018 | visualize and analyze calsim output | export report/presentation ready slides
  
 ### uses ###
 
