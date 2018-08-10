@@ -20,7 +20,7 @@
 6. In `control.r`, run blocks from top down as needed: single run-clicks here let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables as `tibble`/`.csv` to examine certain DVs individually or together
 
 #### notes ####
-- assumes you know names of DVs to view, eg "s8" for Folsom Lake. If not, consult `.wresl` or `.dss` files. To-do list: auto-fill DV names while typing. `varcodes.csv` identifies some
+- assumes you know names of DVs to view, eg "s8" for Folsom Lake. If not, consult `.wresl` or `.dss` files. To-do list: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs
 - as needed enter other name/nickname descriptions for dvs in `varcodes.csv` - only a few mapped currently, eg `Jones (CVP)` for `d419`. Some plots label the `df$dv`, the actual calsim name, and other `df$dv_name`, the nickname 
 - as needed/time allows save/generalize your working plots in `plotexportscripts` folder to add to collection of templates
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more -- for any water  year type functions - other functions still applicable as is if multiple climate scenarios used)
