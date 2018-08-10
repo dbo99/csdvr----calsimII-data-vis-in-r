@@ -20,7 +20,7 @@
 
 5. In `control.r`: in three places at top, enter the working folder path (eg, this program (the working folder) could live somewhere as a stand alone post-processor and another could be in a project folder for a specific project - user preference
 
-6. In `control.r`, run blocks from top down as needed: single run-clicks here let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables as `tibble`/`.csv` to examine certain DVs individually or together
+6. In `control.r`, run blocks from top down as needed: single run-clicks here let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables as `tibble`/`.csv` to examine certain DVs individually or together, by running the individual functions listed
 
 #### notes ####
 - assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not, consult `.wresl` or `.dss` files. To-do list: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
