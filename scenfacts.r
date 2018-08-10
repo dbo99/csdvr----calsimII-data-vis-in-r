@@ -19,8 +19,8 @@ df$scen <- factor(df$scen, levels = c(
  "OMRAct1OnlyMin2k"))
  #"OMRAct1OnlyMin5k"
  #))
-                                      
-scendiffnames <- unique(c(as.character(df$scen))) 
+          
+scendiffnames <- levels((df$scen))                             
 scendiffnames <- scendiffnames[scendiffnames != "baseline"]; # without elements that are "b"
 scendiffnames <- paste(scendiffnames, " - bl", sep="")
 
