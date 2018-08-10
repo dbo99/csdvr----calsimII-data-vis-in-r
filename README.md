@@ -1,7 +1,9 @@
 # csdvr
  calsimII data vis in r (csdvr). version august '18.
  
-##### workflow ##### - three or four steps depending if you want to just look at data or have final slides
+##### workflow ##### - 
+## three or four steps depending if you want to just look at data or have final slides
+
 0. requires .csv output by typing `.csv` instead of `.dss` in WRIMS' dv field (which will still output both if `.csv` used) (requires WRIMS 
    2018 versions or newer)
 1. drop calsim csvs in `csv` folder
