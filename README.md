@@ -11,9 +11,9 @@
 
 3a.  if order matters for on-the-fly plots or batch plots, enter same nicknames to scenfacts.r, in order you prefer (top to bottom here will enforce top to bottom in legend). otherwise skip step.  default order without 2a is alphabetic or similar)
 
-4. open control.r: in three places at top, enter the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
+4. in `control.r`: in three places at top, enter the working folder path (eg use as a stand alone post-processor location or in a project-specific folder?)
 
-5. in control.r, run blocks from top down as needed: single run-clicks there let you read in csvs, build `data.frames`, and either batch export plots or investigate certain decision variables (dvs). 
+5. in `control.r`, run blocks from top down as needed: single run-clicks there let you read in csvs, build `data.frames`, and either batch export plots or investigate certain decision variables (dvs). 
 
 #### notes #####
 - assumes you know names of variables to search for, ie names of dvs, eg "s17" (dss records reveal names conveniently), next steps are for auto-completion of dv names while typing
