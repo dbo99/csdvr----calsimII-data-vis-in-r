@@ -4,7 +4,7 @@
 ##### workflow #####
 
 0. Requires:
-- WRIMS CalSim output in `.csv` format (not `.dss`). Specifying `.csv` instead of `.dss` in WRIMS' dv field produces both `.csv` and `.dss` output decision variable "dv" files
+- WRIMS CalSim output in `.csv` format (not `.dss`). Specifying `.csv` instead of `.dss` in WRIMS' DV field produces both `.csv` and `.dss` output decision variable "DV" files
 - Requires WRIMS versions from 2018 or later
 - Accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
 1. Download  most recent csdvr_mm.dd.yyyy.zip as entire package to start from (~30 kb) 
@@ -16,10 +16,10 @@
 
 5. In `control.r`: in three places at top, enter the working folder path (eg, the program (folder) could live somewhere as a stand alone post-processor and another could be in a project folder for a specific project - user preference.
 
-6. In `control.r`, run blocks from top down as needed: single run-clicks here let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables as `tibble`/`.csv` to examine certain decision variables (dvs) individually or together
+6. In `control.r`, run blocks from top down as needed: single run-clicks here let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables as `tibble`/`.csv` to examine certain DVs individually or together
 
 #### notes #####
-- assumes you know names of variables to search for, ie names of dvs, eg "s17". If not, consult `.wresl` or `.dss` files. Wish list: auto-completion of dv names while typing. `varcodes.csv` identifies some
+- assumes you know names of variables to search for, ie names of DVs, eg "s17". If not, consult `.wresl` or `.dss` files. Wish list: auto-completion of DV names while typing. `varcodes.csv` identifies some
 - as needed enter other name/nickname descriptions for dvs in `varcodes.csv` - only a few mapped currently, eg `Jones (CVP)` for `d419`. Some plots label the `df$dv`, the actual calsim name, and other `df$dv_name`, the nickname 
 - as needed/time allows save/generalize your working plots in `plotexportscripts` folder to add to collection of templates
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more -- for any water  year type functions - other functions still applicable as is if multiple climate scenarios used)
