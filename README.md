@@ -4,7 +4,7 @@
 ### needs ###
 
 - WRIMS CalSim output in `.csv` format (not `.dss`). If csv file needed, specify `outputname.csv` instead of `outputname.dss` in WRIMS' `Dvar DSS file:` field to return both `.csv` and `.dss` files via WRIMS versions 2018 or later (free from California Dept. of Water Resources - email list distribution - see link at bottom for request)
-- R and R libraries specified in `libs.r`
+- R and R libraries specified in `libs.r` . Probably relies most on `dplyr` and `ggplot2` from the `tidyverse`
 
 ### steps ###
 
