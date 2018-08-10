@@ -3,7 +3,7 @@
  
 ### needs ###
 
-- WRIMS CalSim decision variable ("DV") output in `.csv` format (not `.dss`). If csv file needed, specify `outputfilename.csv` instead of `outputfilename.dss` in WRIMS' `Dvar DSS file:` field to return both `.csv` and `.dss` files via WRIMS versions 2018 or later (free from California Dept. of Water Resources - email list distribution - see link at bottom for request)
+- WRIMS CalSim decision variable ("DV") output in `.csv` format (not `.dss`). If csv file needed, specify `outputfilename.csv` instead of `outputfilename.dss` in WRIMS' `Dvar DSS file:` field to return both `.csv` and `.dss` files via WRIMS versions 2018 or later (free from California Dept. of Water Resources, see link at bottom for request - currently through email list distribution)
 - R, and R libraries specified in `libs.r` . Probably relies most on `dplyr` and `ggplot2` libraries, both conveniently in the `tidyverse` library.
 
 ### steps ###
