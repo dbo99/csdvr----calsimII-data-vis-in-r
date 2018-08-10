@@ -21,7 +21,7 @@ df_diff <- create_df_diff(df) #creates data.frame of differences. preserves orig
 source("scenfacts.r")} #sets plot's scenario and legend *orders*, plot order can be overriden below with "_rank". eg order
                                                             #usually unimportant for modeler, important for presentation slide.
 
-# 4 # ######################################################### now apply functions ##########################################
+##############################################################  apply individual functions  below  ###########################
 #####################################################################
 ####    plotting functions     ######################################
 #####################################################################
