@@ -5,7 +5,6 @@
 
 - WRIMS CalSim output in `.csv` format (not `.dss`). If csv file needed, specify `outputname.csv` instead of `outputname.dss` in WRIMS' Decision Variable (DV) field to return both `.csv` and `.dss` files via WRIMS versions 2018 or later (free from Caliornia DWR - email list distribution - link at bottom)
 - R and R libraries specified in `libs.r`
-- Accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
 
 ### steps ###
 
@@ -26,6 +25,7 @@
 - as needed/time allows save/generalize your working plots in `plotexportscripts` folder to add to collection of templates
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more -- for any water  year type functions - other functions still applicable as is if multiple climate scenarios used)
 - default plot size is widescreen to exactly fit `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
+- Accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
   
   Access CalSim benchmark studies:
   
