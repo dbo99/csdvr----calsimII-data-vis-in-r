@@ -17,7 +17,7 @@
 6. In `control.r`, run blocks from top down as needed: single run-clicks here let you read in csvs, build `data.frame`s, and either batch export `ggplot2` or `plotly` plots or see/export tables as `tibble`/`.csv`, to examine certain decision variables (dvs)
 
 #### notes #####
-- assumes you know names of variables to search for, ie names of dvs, eg "s17". If not, consult `.wresl` or `.dss` files. wish-list: auto-completion of dv names while typing. `varcodes.csv` identifies some
+- assumes you know names of variables to search for, ie names of dvs, eg "s17". If not, consult `.wresl` or `.dss` files. Planned: auto-completion of dv names while typing. `varcodes.csv` identifies some
 - as needed enter other name/nickname descriptions for dvs in `varcodes.csv` - only a few mapped currently, eg `Jones (CVP)` for `d419`. some plots label the `df$dv`, the actual calsim name, and other `df$dv_name`, the nickname
 - as needed/time allows save/generalize your working plots in `plotexportscripts` folder to add to collection of templates
 - currently only handles one climate change scenario (ie tied to wyt.csv - adjustment needed to accommodate more)
