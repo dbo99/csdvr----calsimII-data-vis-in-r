@@ -27,8 +27,8 @@
 - as needed/time allows save/generalize your working plots in `plotexportscripts` folder to add to collection of templates
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
-- Accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
-- Currently lacks any diagnostics on "controls" - hoping to add directly in `.wresl` files for ease in csdvr, other post-processors, in future
+- accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
+- currently lacks any diagnostics on "controls" - hoping to add directly in `.wresl` files for ease in csdvr, other post-processors, in future
   
   Access CalSim benchmark studies and contact info for WRIMS software:
   
