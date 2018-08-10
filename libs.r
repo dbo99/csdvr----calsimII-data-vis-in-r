@@ -6,5 +6,5 @@ library(lubridate) # for easy dates #should be part of tidyverse, but seems some
 library(cowplot)   # not used in core files, but makes easy stacking plots, with plot_grid, eg plot <- plot_grid(p1, p2, ncol = 1) #or nrow = 2, or both (2x2), good default plot aesthetics
 library(ggridges)  # ridge plots!
 library(viridis)   # nice color scale, robust to colorblindness
-library(RColorBrewer) #more color stuff
-library(scales)    # call scale colors before plot, add baseline black to
+library(RColorBrewer) # more color stuff
+library(scales)    # more color stuff
