@@ -1,5 +1,5 @@
 # cspp
- calsimII r post processor (csrpp). version august beta 18.
+ calsimII data vis in r (csdvr). version august beta 18.
  
 ##### workflow #####
 1. drop calsim csvs in csv folder
