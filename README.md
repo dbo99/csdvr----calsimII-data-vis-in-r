@@ -20,7 +20,7 @@
 
 5. In `control.r`: enter same working folder path in three places (blocks) at the top of the file (first ~20 lines)
 
-6. In `control.r`, run these blocks from top down as needed: single clicks here let you read in csvs (run "block 1"; do minimally as ~1/6 min read-in per scenario), build `data.frame`s, and generate plots in batches with pre-defined templates (run "block 2"), or individually (with some pre-defined tables too, eg `tibble`,`.csv`) with individual functions (run "block 3" and any function listed below).
+6. In `control.r`, run these blocks from top down as needed: single clicks here let you read in csvs (run "block 1"; do sparingly as ~1/6 min read-in time per scenario), build `data.frame`s, and generate plots in batches with pre-defined templates (run "block 2"), or individually (with some pre-defined tables too, eg `tibble`,`.csv`) with individual functions (run "block 3" and any function listed below).
 
 #### notes ####
 - assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do list: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
