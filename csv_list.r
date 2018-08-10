@@ -1,6 +1,9 @@
 setwd("./csv")
+# current WRIMS column IDs are
+## ID | Timsestep | Units | Date_Time | Variable | Kind | Value ##
+
 # list CalSim dv .csv file name and name scenarios on each line
-# use any number (32 scenarios is most tried - formatting challenges there - needs no label functions)
+# use any number (32 scenarios is max tried - formatting challenges there - use no label functions)
 # note column "ID" vs "id" - older WRIMS outputs "ID", newer"id" - need to match them below as necessary)
 # for shasta raises, add `%>% adds44tos4()` to end of line
 
