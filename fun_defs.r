@@ -61,7 +61,7 @@ create_df <-function(df_csv){
   varcode <- read_csv("varcodes.csv")
   df <- df %>% left_join(varcode)
   
-  lastwyt <- df %>% filter(scen == "baseline", yearmon == "Apr 2003") %>% select(scwyt2) #%>% paste0(lastwyt[1])
+  lastwyt <- df %>% filter(scen == "baseline", yearmon == "Apr 2003") %>% select(scwyt2) 
   lastwyt <- lastwyt[1,]
   df <- df %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt, scwyt2 )) 
   
