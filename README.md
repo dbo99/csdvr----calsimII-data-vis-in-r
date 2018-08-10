@@ -5,7 +5,7 @@
 
 0. Requires `.csv` output (not `.dss`). Specifying `.csv` instead of `.dss` in WRIMS' dv field produces both a `.csv` and `.dss` output decision variable "dv" file. Requires WRIMS versions from 2018 or later. Accepts either CalSimII or CalSim 3.0 output, but set up currently only for CalSimII's time range.
 1. Download  most recent csdvr_mm.dd.yyyy.zip as entire package to start from (~30 kb) 
-3. Drop your CalSim csvs in `csv` folder 
+3. Drop your CalSim csvs in the `csv` folder 
 2. In `csv_list.r`, enter your csv file names and give scenarios nicknames (ie plot labels; short labels give room for the plot)
 
 
