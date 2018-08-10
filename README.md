@@ -7,7 +7,7 @@
 - R and R libraries specified in `libs.r`
 - Accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
 
-#### steps ####
+### steps ###
 
 1. Download  most recent csdvr_mm.dd.yyyy.zip as entire package to start from (~30 kb) 
 3. Drop your CalSim csvs in the `csv` folder 
