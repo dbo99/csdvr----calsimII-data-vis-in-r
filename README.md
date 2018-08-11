@@ -27,7 +27,7 @@
    In `control.r`, three main choices/blocks to run:
 
 ##### 1 #####
- read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each) (option to append)
+ read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each) (option to append). 2 & 3 need 1 run first.
   
 ##### 2 #####
  generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
