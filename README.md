@@ -11,7 +11,8 @@
 
 ### steps ###
 
-A. Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb) 
+#### A #### 
+Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb) 
 
 B. Place your CalSim csvs in the `csv` folder 
 
