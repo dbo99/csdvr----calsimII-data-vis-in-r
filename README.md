@@ -10,7 +10,7 @@
 `scen_facts.r` | tell order to plot scenarios in (ie left to right data/top to bottom legend)
 `control.r` | main user interface - actually read-in data and analyze or batch export plots
 `plotexport.r` | turn on/off which plot scripts to run for exporting (want huge set or just a few?)
-`fun_defs.r` | almost all data/plotting functions defined here - add new ones here
+`fun_defs.r` | data summary/plotting function definitions - add new ones here
 
 ## Uses ##
 
