@@ -1593,7 +1593,7 @@ pb_eomay_stor_scwyt_taf_d <- function(df) {
   
   ggplot(df_bars, aes(x, eomay_stor, fill = scwyt_scwytt, label = fjwy))  +geom_bar(stat = "identity", position = "dodge") +
     facet_grid(dv~scen) + scale_fill_discrete(name = "sac wyt") + labs(x = "CalSim Feb-Jan Yrs") + theme_gray() +
-    scale_y_continuous(sec.axis = dup_axis()) + labs(y = "end of may storage (taf) [difference]") +
+    scale_y_continuous(sec.axis = dup_axis()) + labs(y = "taf [difference]") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall May Avg. Diff."), color = "dark blue") +
     scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of may storages, difference")#+geom_text(angle = 90) #unselect for year labels
@@ -1610,7 +1610,7 @@ pb_eosep_stor_scwyt_taf_d <- function(df) {
   
   ggplot(df_bars, aes(x, eomay_stor, fill = scwyt_scwytt, label = fjwy))  +geom_bar(stat = "identity", position = "dodge") +
     facet_grid(dv~scen) + scale_fill_discrete(name = "sac wyt") + labs(x = "CalSim Feb-Jan Yrs") + theme_gray() +
-    scale_y_continuous(sec.axis = dup_axis()) + labs(y = "end of september storage (taf) [difference]") +
+    scale_y_continuous(sec.axis = dup_axis()) + labs(y = "taf [difference]") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall Sept. Avg. Diff"), color = "dark blue") +
     scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of sept. storages, difference")#+geom_text(angle = 90) #unselect for year labels
