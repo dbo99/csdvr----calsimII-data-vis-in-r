@@ -5,7 +5,7 @@
   setwd("..")
   source("scenfacts.r")
   p <- 
-    #choose label style or rank choice; labels good for few scenarios, maybe too busy for many scenarios
+    #choose label style or ranked; labels good for few scenarios, maybe too busy for many scenarios
     
     #pb_mn_ann_perav_taf_d(df_diff) + 
     #pb_mn_ann_perav_taf_d_hlab(df_diff) +
