@@ -23,7 +23,7 @@
 6. In `control.r`, run these blocks from top down as needed: single clicks here let you read in csvs (run "block 1"; do sparingly as ~1/6 min read-in time per scenario), build `data.frame`s, and generate plots in batches with pre-defined templates (run "block 2"), or individually (with some pre-defined tables too, eg `tibble`,`.csv`) with individual functions (run "block 3" and any function listed below).
 
 #### notes ####
-- assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do list: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
+- assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
 - save new finished plot scripts in `plotexportscripts` folder to add to collection of templates
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
