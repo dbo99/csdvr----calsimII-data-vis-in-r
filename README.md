@@ -19,17 +19,16 @@
 
 ### steps ###
 
-#### A *download* `csdvr_date.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots)
+*download* `csdvr_date.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots)
    https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_11Aug2018.zip
 
-#### B *drop* your calsim csvs in `csv` folder 
+*drop* your calsim csvs in `csv` folder 
 
-#### C *point to* files and *ID* scenarios in `csv_list.r`: enter each csv file name (eg `040812_BO_Y1a1.csv`) and give a nickname (eg `Scen1_Y1A1`)
+*point to* files and *ID* scenarios in `csv_list.r`: enter each csv file name (eg `040812_BO_Y1a1.csv`) and give a nickname (eg `Scen1_Y1A1`)
 
+*specify* plotting order of scenarios (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` produces top to bottom order in plot legend. nickname spelling in `scenfacts.r` must match in `csv_list.r`)
 
-#### D *specify* plotting order of scenarios (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` produces top to bottom order in plot legend. nickname spelling in `scenfacts.r` must match in `csv_list.r`)
-
-#### E ####   in `control.r`:
+*from* `control.r`:
 
 ##### 1 #####
  read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~0.5 gb each) (option to append sequentially in `csv._list.r`). 2a & 2b need 1 run first.
