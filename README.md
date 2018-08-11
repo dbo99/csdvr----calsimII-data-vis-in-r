@@ -28,12 +28,7 @@
 
 *specify plotting order of scenarios* (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` produces top to bottom order in plot legend. nickname spelling in `scenfacts.r` must match in `csv_list.r`)
 
-*from* `control.r`:
-
-
-
-
-from `control.r`  | action
+`control.r`  | action
 ------------ | -------------
 `1` | read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~0.5 gb each) (option to append sequentially in `csv._list.r`). 2a & 2b need 1 run first.
 `2a` | generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
