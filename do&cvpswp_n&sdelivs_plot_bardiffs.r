@@ -1,11 +1,10 @@
+setwd(here()) 
+
 ### Ann sum ###
 
 
 {dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
-df <- create_df(df_csv) 
-df_diff <- create_df_diff(df)
-setwd("..")
-source("scenfacts.r")
+  source("df_create.r")
 
 
  #choose one
@@ -20,8 +19,8 @@ source("scenfacts.r")
   theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))+ 
   #scale_color_manual(values=df_diff_cols) + scale_fill_manual(values=df_diff_cols) +
   theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank())
-  setwd("./plots")
+  setwd(here("plots"))
 ggsave("do&cvpswp_n&sdelivs_plot_bardiffs.jpg", dpi = 300, width = 13.333, height = 7.5, units = "in") 
-setwd('..')
-setwd("./plotexportscripts")
+
 }
+setwd(here("plotexportscripts"))
