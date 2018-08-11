@@ -11,17 +11,17 @@
 
 ### steps ###
 
-a. Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb) 
+A. Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb) 
 
-b. Place your CalSim csvs in the `csv` folder 
+B. Place your CalSim csvs in the `csv` folder 
 
-c. In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
+C. In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
 
 
-d. If scenario/legend order matters for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in order you prefer: top to bottom in `scenfacts.r` yields top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
+D. If scenario/legend order matters for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in order you prefer: top to bottom in `scenfacts.r` yields top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
 
-e. In `control.r`, three main choices/blocks to run:
-  (block 1) read in csv data (do sparingly as ~1/6 min read-in time per scenario), libraries, and functions
+E. In `control.r`, three main choices/blocks to run:
+  (block 1) read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario)
   (block 2) generate plots in batches with pre-defined templates for common DVs of interest -- calls scripts of many plots
   (block 3) generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual functions below
 
