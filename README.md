@@ -29,9 +29,11 @@ In `control.r`, three main choices/blocks to run:
 ##### 1 #####
 read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each)
   
-2: generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
+##### 2 #####
+generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
   
-3: generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual (80+) functions listed
+##### 3 #####
+generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual (80+) functions listed
    below these blocks
 
 #### notes ####
