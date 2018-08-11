@@ -33,8 +33,8 @@ read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in ti
 generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
   
 ##### 3 #####
-generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual (80+) functions listed
-   below these blocks
+generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual functions listed
+   below these blocks (80+)
 
 #### notes ####
 - assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
