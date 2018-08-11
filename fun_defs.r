@@ -46,9 +46,9 @@ create_df <-function(df_csv){
         cfs = ifelse(rawunit == "taf", taf_cfs(rawval,tstep), ifelse(rawunit == "cfs", rawval, NA)), 
         yearmon = as.yearmon(tstep), tstep = ymd(tstep)) %>% filter(wy >= 1922) #ignore any pre-Oct-'21 data
   
-  wyt <- read_csv("wyt.csv") %>% mutate(tstep = mdy(tstep)) #makes sure date reads in as date
-  scwyt_txt <- data.frame("scwyt" = c(1,2,3,4,5), "scwytt"=c("wt", "an", "bn", "dr", "cr"))
-  sjwyt_txt <- data.frame("sjwyt" = c(1,2,3,4,5), "sjwytt"=c("wt", "an", "bn", "dr", "cr"))
+     wyt <- read_csv("wyt.csv") %>% mutate(tstep = mdy(tstep)) #makes sure date reads in as date
+     scwyt_txt <- data.frame("scwyt" = c(1,2,3,4,5), "scwytt"=c("wt", "an", "bn", "dr", "cr"))
+     sjwyt_txt <- data.frame("sjwyt" = c(1,2,3,4,5), "sjwytt"=c("wt", "an", "bn", "dr", "cr"))
   
   df <- df %>% inner_join(wyt) %>% inner_join(scwyt_txt) %>% inner_join(sjwyt_txt) %>%
     mutate(scwyt_scwytt = paste0(scwyt, "_", scwytt), sjwyt_sjwytt = paste0(sjwyt, "_", sjwytt))  %>%
@@ -73,13 +73,14 @@ create_df_diff <-function(df){
   
   df_diff <- df %>% select(scen, taf, cfs, rawval) %>% group_by(scen) %>% mutate(id = row_number()) %>% 
     left_join(baseline_df, by = "id", suffix = c("_scen", "_bl")) %>%  ungroup() %>%
-    mutate(taf = taf_scen - taf_bl, cfs = cfs_scen - cfs_bl, rawval = rawval_scen - rawval_bl, scen = paste0(scen_scen," - bl")) %>% select(-scen_scen, -scen_bl) %>%
+    mutate(taf = taf_scen - taf_bl, cfs = cfs_scen - cfs_bl, rawval = rawval_scen - rawval_bl, scen = paste0(scen_scen," - bl")) %>%
+    select(-scen_scen, -scen_bl) %>%
     filter(scen != "baseline - bl")
   
   
-  wyt <- read_csv("wyt.csv") %>% mutate(tstep = mdy(tstep)) #makes sure date reads in as date
-  scwyt_txt <- data.frame("scwyt" = c(1,2,3,4,5), "scwytt"=c("wt", "an", "bn", "dr", "cr"))
-  sjwyt_txt <- data.frame("sjwyt" = c(1,2,3,4,5), "sjwytt"=c("wt", "an", "bn", "dr", "cr"))
+   wyt <- read_csv("wyt.csv") %>% mutate(tstep = mdy(tstep)) #makes sure date reads in as date
+   scwyt_txt <- data.frame("scwyt" = c(1,2,3,4,5), "scwytt"=c("wt", "an", "bn", "dr", "cr"))
+   sjwyt_txt <- data.frame("sjwyt" = c(1,2,3,4,5), "sjwytt"=c("wt", "an", "bn", "dr", "cr"))
   
   df_diff  <- df_diff %>% inner_join(wyt) %>% inner_join(scwyt_txt) %>% inner_join(sjwyt_txt) %>%
     mutate(scwyt_scwytt = paste0(scwyt, "_", scwytt), sjwyt_sjwytt = paste0(sjwyt, "_", sjwytt)) %>%
@@ -93,10 +94,11 @@ create_df_diff <-function(df){
   lastwyt_d <- lastwyt_d[1,]
   df_diff <- df_diff %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt_d, scwyt2 ))
   
+  #source("scenfacts.r") 
 }
 
 ################################
-## add spec. scen data frame ###  #adds fall x2 attributes for fall to spring (set below at five (5 months) 
+## add spec. scen data frame ###  #adds fall x2 attributes for fall to spring (set below at five (5) month period of interest
 ################################  #IDs wy change, ie from this year type to that & other related fields
 
 
@@ -139,7 +141,7 @@ scale_y_reordered <- function(..., sep = "___") {
 # get actual Shasta volume for a raise scenario ##
 
 adds44tos4 <- function(df) {
-  s4  <- df %>% filter(Variable == "s4",  Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 to get 984 months (date-time 24-hr)
+  s4  <- df %>% filter(Variable == "s4",  Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 to get 984 months (24-hr date-time)
   s44 <- df %>% filter(Variable == "s44", Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )
   dfnos4 <- df %>% filter(!Variable == "s4")
   s4$Value <- s4$Value + s44$Value
@@ -394,7 +396,7 @@ pb_mn_scwyt2_perav_taf <- function(df) {  #coerces feb-jan water years to regula
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf") + 
     #geom_text(color = "dark blue", angle = 90) +
-    facet_grid(dv~scen) +ggtitle(paste0(df$dv[1]), " mean annual vol. by sacramento 8RI wyt (82 yrs)") +
+    facet_grid(dv~scen) +ggtitle("mean annual vol. by sac 8RI wyt adj (82 yrs)") +
     scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     scale_y_continuous(expand = c(0.01,0.01))
@@ -564,7 +566,7 @@ pb_mn_scwyt2_perav_taf_d <- function(df) {
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf [difference]") + 
     #geom_text(color = "dark blue", angle = 90) +
-    facet_grid(dv~scen) +ggtitle(paste0(df$dv[1]), " mean annual difference by sacramento 8RI wyt (82 yrs)") +
+    facet_grid(dv~scen) +ggtitle(paste0(df$dv[1]), " mean annual difference by sac. 8RI wyt (82 yrs)") +
     scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     scale_y_continuous(expand = c(0.01,0.01))
@@ -1172,7 +1174,8 @@ df %>% filter(rawunit != "km") %>% group_by(scen, dv) %>% arrange(dv, desc(taf))
       excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = taf, color = scen,
       linetype = dv)) + geom_line() + labs(x = "probability of exceedance", y = "taf -- monthly [difference]")+
       theme_gray()+ 
-    guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("984 months, difference")
+    guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
+    ggtitle("984 months, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 p_mon_excd2_taf_d <- function(df) {
@@ -1180,7 +1183,7 @@ p_mon_excd2_taf_d <- function(df) {
   excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = taf, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "taf -- monthly [difference]")+
     theme_gray()+guides(colour = guide_legend(override.aes = list(size=2))) + facet_grid(~dv) +  
-    theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("984 months, difference")
+    theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("984 months, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 
@@ -1189,7 +1192,7 @@ df %>% filter(kind != "storage", rawunit != "km") %>% group_by(scen, dv) %>% arr
      excdxaxis = cfs_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = cfs, color = scen,
     linetype = dv)) + geom_line() + labs(x = "probability of exceedance", y = "monthly average cfs [difference]")+
     theme_gray()  + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("984 months, difference")
+    ggtitle("984 months, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 p_mon_excd2_cfs_d <- function(df) {
@@ -1197,7 +1200,7 @@ p_mon_excd2_cfs_d <- function(df) {
          excdxaxis = cfs_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = cfs, color = scen)) + geom_line() +
          labs(x = "probability of exceedance", y = "monthly average cfs [difference]")  + facet_grid(~dv) + 
          theme_gray()  + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-         ggtitle("984 months, difference")
+         ggtitle("984 months, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 p_ann_wysum_excd_taf_d <- function(df)  {
@@ -1206,7 +1209,7 @@ df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, wy) %>% summarize(wytafsu
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = wytafsum, color = scen,
     linetype = dv)) + geom_line() + labs(x = "probability of exceedance", y = "taf -- water year sum (82 yrs) [difference]")+
     theme_gray()+ guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("82 oct-sep totals, difference")
+    ggtitle("82 oct-sep totals, difference")+ scale_color_manual(values = df_diff_cols)
 }
 
 p_ann_wysum_excd2_taf_d <- function(df)  {
@@ -1216,7 +1219,7 @@ p_ann_wysum_excd2_taf_d <- function(df)  {
     labs(x = "probability of exceedance", y = "taf [difference]")+
     theme_gray()+ guides(colour = guide_legend(override.aes = list(size=2))) + facet_grid(~dv_name) +  
     theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("82 oct-sep totals, difference")
+    ggtitle("82 oct-sep totals, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 p_ann_fjwysum_excd_taf_d <- function(df) {
@@ -1225,7 +1228,7 @@ df %>% filter(rawunit == "cfs", fjwy > 1921, fjwy < 2003) %>% group_by(scen, dv,
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = fjwytafsum, color = scen,
     linetype = dv)) + geom_line() + labs(x = "probability of exceedance", y = "taf -- feb - jan year sum (81 yrs) [difference]")+
     theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("81 feb-jan totals, difference")
+    ggtitle("81 feb-jan totals, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 p_ann_fjwysum_excd2_taf_d <- function(df) {
@@ -1234,7 +1237,7 @@ p_ann_fjwysum_excd2_taf_d <- function(df) {
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = fjwytafsum, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "taf -- feb - jan year sum (81 yrs) [difference]") + facet_grid(~dv) + 
     theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("81 feb-jan totals, difference")
+    ggtitle("81 feb-jan totals, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 
@@ -1244,7 +1247,7 @@ df %>% filter(rawunit == "cfs", mfwy > 1921, mfwy < 2003) %>% group_by(scen, dv,
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = mfwytafsum, color = scen, 
     linetype = dv)) + geom_line() + labs(x = "probability of exceedance", y = "taf -- mar - feb year sum (81 yrs) [difference]")+
     theme_gray()  +  guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("81 mar-feb totals, difference")
+    ggtitle("81 mar-feb totals, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 p_ann_mfwysum_excd2_taf_d <- function(df) {
@@ -1253,7 +1256,7 @@ p_ann_mfwysum_excd2_taf_d <- function(df) {
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = mfwytafsum, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "taf -- mar - feb year sum (81 yrs) [difference]") + facet_grid(~dv) + 
     theme_gray()  +  guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("81 mar-feb totals, difference")
+    ggtitle("81 mar-feb totals, difference") + scale_color_manual(values = df_diff_cols)
 }
 
 p_ann_jdwysum_excd_taf_d <- function(df) {
@@ -1628,7 +1631,8 @@ p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>%
     ggplot(aes(x = excdxaxis, y = taf, color = scen)) + geom_line() + 
     labs(x = "probability of exceedance", y = "taf") +
     facet_grid(dv~mon) +scale_x_continuous(breaks = c(0.50), sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month") + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) 
+    ggtitle("monthly exceedance by month") + 
+   scale_color_manual(values=df_cols) + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) 
   
 p   
 }
@@ -1640,7 +1644,9 @@ p_ann_monfacetg_excd_taf_d <- function(df) {
     ggplot(aes(x = excdxaxis, y = taf, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "taf [difference]") +
     facet_grid(dv~mon) +scale_x_continuous(breaks = c(0.50), sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month, difference from baseline") + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+    ggtitle("monthly exceedance by month, difference from baseline") +
+   
+    scale_color_manual(values=df_diff_cols) + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
   p   
 }
 
@@ -1652,7 +1658,8 @@ p_ann_monfacetw_excd_taf <- function(df) {
     ggplot(aes(x = excdxaxis, y = taf, color = scen)) + geom_line() + 
     labs(x = "probability of exceedance", y = "taf") +
     facet_wrap(~mon, ncol =3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month") + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+    ggtitle("monthly exceedance by month") + 
+    scale_color_manual(values=df_cols) + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
   p   
 }
 
@@ -1663,7 +1670,9 @@ p_ann_monfacetw_excd_taf_d <- function(df) {
     ggplot(aes(x = excdxaxis, y = taf, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "taf [difference]") +
     facet_wrap(~mon, ncol = 3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month, difference from baseline") + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+    ggtitle("monthly exceedance by month, difference from baseline") + 
+    scale_color_manual(values=df_diff_cols) + theme_gray() + 
+    guides(colour = guide_legend(override.aes = list(size=2)))
   p   
 }
 
@@ -1675,7 +1684,9 @@ p_ann_monfacetg_excd_cfs <- function(df) {
     ggplot(aes(x = excdxaxis, y = cfs, color = scen)) + geom_line() + 
     labs(x = "probability of exceedance", y = "monthly average cfs") +
     facet_grid(dv~mon) +scale_x_continuous(breaks = c(0.50), sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month") + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) 
+    ggtitle("monthly exceedance by month") + theme_gray()  + 
+    scale_color_manual(values=df_cols)+ 
+    guides(colour = guide_legend(override.aes = list(size=2))) 
   
   p   
 }
@@ -1687,7 +1698,9 @@ p_ann_monfacetg_excd_cfs_d <- function(df) {
     ggplot(aes(x = excdxaxis, y = cfs, color = scen)) + geom_line() +
   labs(x = "probability of exceedance", y = "monthly average cfs [difference]") +
     facet_grid(dv~mon) +scale_x_continuous(breaks = c(0.50), sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month, difference from baseline") + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+    ggtitle("monthly exceedance by month, difference from baseline") + 
+    scale_color_manual(values=df_diff_cols) +theme_gray() + 
+    guides(colour = guide_legend(override.aes = list(size=2)))
   p   
 }
 
@@ -1699,7 +1712,8 @@ p_ann_monfacetw_excd_cfs <- function(df) {
     ggplot(aes(x = excdxaxis, y = cfs, color = scen)) + geom_line() + 
     labs(x = "probability of exceedance", y = "monthly average cfs") +
     facet_wrap(~mon, ncol =3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month") + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+    ggtitle("monthly exceedance by month") + theme_gray() + 
+    scale_color_manual(values=df_cols) + guides(colour = guide_legend(override.aes = list(size=2)))
   p   
 }
 
@@ -1710,7 +1724,9 @@ p_ann_monfacetw_excd_cfs_d <- function(df) {
     ggplot(aes(x = excdxaxis, y = cfs, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "monthly average cfs [difference]") +
     facet_wrap(~mon, ncol = 3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month, difference from baseline") + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+    ggtitle("monthly exceedance by month, difference from baseline") + theme_gray() +
+    scale_color_manual(values=df_diff_cols) + 
+    guides(colour = guide_legend(override.aes = list(size=2)))
   p   
 }
 

@@ -13,14 +13,14 @@ csv2  <- read_csv ("2_SHA_TF.csv"   )  %>% mutate(scen = "2_SHA_TF") %>% select(
 csv3  <- read_csv ("3_SHA_SL_TF_NDD.csv"   )  %>% mutate(scen = "3_SHA_SL_TF_NDD") %>% select(-ID, -Timestep) %>% adds44tos4()
 #csv4  <- read_csv ("4_SHA_TF_NDD.csv"   )  %>% mutate(scen = "4_SHA_TF_NDD") %>% select(-ID, -Timestep) %>% adds44tos4()
 #csv5  <- read_csv ("5_SHA_SL_NDD.csv"   )  %>% mutate(scen = "5_SHA_SL_NDD") %>% select(-ID, -Timestep) %>% adds44tos4()
-csv6  <- read_csv ("6_SL_NDD.csv"   )  %>% mutate(scen = "6_SL_NDD") %>% select(-ID, -Timestep)
+#csv6  <- read_csv ("6_SL_NDD.csv"   )  %>% mutate(scen = "6_SL_NDD") %>% select(-ID, -Timestep)
 #csv7  <- read_csv ("7_SL_TF_NDD.csv"   )  %>% mutate(scen = "7_SL_TF_NDD") %>% select(-ID, -Timestep)
 #csv8  <- read_csv ("8_SHA_NDD.csv"   )  %>% mutate(scen = "8_SHA_NDD") %>% select(-ID, -Timestep) %>% adds44tos4()
 #csv9  <- read_csv ("9_SHA_SL.csv"   )  %>% mutate(scen = "9_SHA_SL") %>% select(-ID, -Timestep) %>% adds44tos4()
 #csv10 <- read_csv ("10_TF_NDD.csv"   )  %>% mutate(scen = "10_TF_NDD") %>% select(-ID, -Timestep)
 #csv11 <- read_csv ("11_SL_TF.csv"   )  %>% mutate(scen = "11_SL_TF") %>% select(-ID, -Timestep)
 #csv12 <- read_csv ("12_SHA_SL_TF.csv"   )  %>% mutate(scen = "12_SHA_SL_TF") %>% select(-ID, -Timestep )%>% adds44tos4()
-csv13 <- read_csv ("omr_Act1only_min2k.csv"   )  %>% mutate(scen = "OMRAct1OnlyMin2k") %>% select(-id, -Timestep )%>% adds44tos4()
+#csv13 <- read_csv ("omr_Act1only_min2k.csv"   )  %>% mutate(scen = "OMRAct1OnlyMin2k") %>% select(-id, -Timestep )%>% adds44tos4()
 #csv14 <- read_csv ("omr_Act1only_min5k.csv"   )  %>% mutate(scen = "OMRAct1OnlyMin5k") %>% select(-id, -Timestep )%>% adds44tos4()
 
 
