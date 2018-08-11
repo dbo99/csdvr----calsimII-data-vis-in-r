@@ -21,7 +21,7 @@
    in `csv_list.r`, enter each csv file name (eg `040812_BO_Y1a1.csv`) and a nickname (eg `Scen1_Y1A1`). nicknames make room for plot space
 
 #### D #### 
-   if scenario/legend order matters for audience (public mtg vs. quick check), enter same nicknames in `scenfacts.r` in user-defined order: top to bottom in `scenfacts.r` gives top to bottom order in legend. otherwise skip step; default order without  giving explicit order is alphabetic
+   if scenario/legend order matters for audience (public mtg vs. quick check), enter same nicknames in `scenfacts.r` in user-defined order: top to bottom in `scenfacts.r` gives top to bottom order in legend. otherwise skip step; default order without  giving explicit order is alphabetic. batch plots need order specified. 
 
 #### E ####
    in `control.r`, three main choices/blocks to run:
