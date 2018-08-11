@@ -17,7 +17,7 @@
    https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_11Aug2018.zip
 
 #### B #### 
-   drop your calsim csvs in its `csv` folder 
+   drop your calsim csvs in `csv` folder 
 
 #### C #### 
    point to files and identify scenarios: in `csv_list.r`, enter each csv file name (eg `040812_BO_Y1a1.csv`) and give a nickname (eg `Scen1_Y1A1`) to make room for plot space
