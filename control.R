@@ -1,18 +1,20 @@
-## block 1 ###        #get libraries, define functions, read-in csvs with this block
+## block 1 ###  run first  ##   #get libraries, define functions, read-in csvs with this block
 {rm(list = ls())      #clear environment somewhat
 source("libs.r")      #libraries
-setwd(here())         #set this file's (control.r's) folder as the main folder path
-source("fun_defs.r")  #functions
+#setwd("C:/yourfolder/another/perhapsanother/workingfoldertoset")
+setwd(here())         #set working folder - either start new RStudio Project w/ working directory or
+                      #set working directory manually, run above or Session>Set Working Directory>Choose Dir.
+source("fun_defs.r")  #function definitions
 source("csv_list.r")  #*step 1 - enter scenarios filenames and nicknames in csv_list.r, 
-                      #then list preferred ordering of scenarios in scenfacts.r
+                      #then list preferred ordering of same nickmanes in scenfacts.r
 }                      
-## block 2 ############################################ optional - batch export plots with this block  #######################
-source("plotexportctrl.r")  #pick which in plotexportctrl.r get saved in `plots` folder 
+## block 2a ############################################ optional - batch export plots with this block  #######################
+source("plotexport.r")  #pick which in plotexport.r get saved in `plots` folder 
 ##############################################################################################################################                                                                                                                  ###############
 
-## block 3   ################################################    investigate DVs/DV groups here one at a time:      ##########
-########################  pick variables  ###############            enter DVs in lowercase & run block               ########
-{dvs <- c("s8"                 )                                                           #####                                
+## block 2b   ################################################    investigate DVs/DV groups here one at a time:      ##########
+##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block              ####
+{dvs <- c("s8"                 )                                                                                          
 ########################################################           then apply individual functions  below                #####
 source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) ######
 ##############################################################################################################################

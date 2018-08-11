@@ -1,3 +1,4 @@
+## these will need a one-time install first - code block at bottom - then nothing more required here
 library(tidyverse) # gets dplyr, ggplot2, readr, lubridate -- install by pasting install.packages("tidyverse") into console  (https://www.tidyverse.org/ - wonderful libraries!)
 library(magrittr)  # %<>% pipes!  
 library(zoo)       # used for mon-years in timeseries plots  
@@ -8,4 +9,17 @@ library(ggridges)  # ridge plots!
 library(viridis)   # nice color scale, robust to colorblindness
 library(RColorBrewer) # more color stuff
 library(scales)    # more color stuff
-library(here)      # for relative path names and easier sharing
+library(here)      # for relative path names and better csdvr portability - not implemented fully in scripts - still testing
+
+
+#install.packages("tidyverse") 
+#install.packages("magrittr")   
+#install.packages("zoo")       
+#install.packages("plotly")    
+#install.packages("lubridate") 
+#install.packages("cowplot")    
+#install.packages("ggridges")  
+#install.packages("viridis")    
+#install.packages("RColorBrewer")
+#install.packages("scales")    
+#install.packages("here")      

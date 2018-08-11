@@ -17,7 +17,7 @@ setwd(here())
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) + #switch
     theme(strip.text.x = element_text(angle = 90, vjust = 0))
 z
-setwd(here("plots"))
+setwd(here("plots", "delivplot_cvpgrp_diffs"))
 ggsave( "deliv_cvpsubgroupdiffs.jpg", dpi = 300, width = 13, height = 8, units = "in") 
 z <- ggplotly(z)
 htmlwidgets::saveWidget(as_widget(z), "deliv_cvpsubgroupdiffs.html")

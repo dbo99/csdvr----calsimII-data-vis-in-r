@@ -19,7 +19,7 @@ setwd(here())
   theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))+ 
   #scale_color_manual(values=df_diff_cols) + scale_fill_manual(values=df_diff_cols) +
   theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank())
-  setwd(here("plots"))
+  setwd(here("plots", "do&cvpswp_n&sdelivs_plot_bardiffs"))
 ggsave("do&cvpswp_n&sdelivs_plot_bardiffs.jpg", dpi = 300, width = 13.333, height = 7.5, units = "in") 
 
 }

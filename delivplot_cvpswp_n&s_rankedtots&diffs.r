@@ -33,7 +33,7 @@ z2
 
 z <- plot_grid(z1, z2, nrow = 2, rel_heights = c(1,2.5))
 z <- plot_grid(z, zleg, nrow = 1, rel_widths = c(6,1))
-setwd(here("plots"))
+setwd(here("plots", "delivplot_cvpswp_n&s_rankedtots&diffs"))
 ggsave("deliv_cvpswp_n&s_rankedtots&diffs.jpg", dpi = 300, width = 13.333, height = 8, units = "in") 
 
 setwd(here("plotexportscripts"))
