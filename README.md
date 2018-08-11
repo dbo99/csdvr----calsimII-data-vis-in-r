@@ -11,13 +11,13 @@
 `control.r` | main user interface - actually read-in data and analyze or batch export plots
 `plotexport.r` | turn on/off which plot scripts to run for exporting (want huge set or just a few?)
 
-### uses ###
+## Uses ##
 
 - WRIMS2 CalSim decision variable ("DV") output in `.csv` format.
    If csv file(s) needed, enter in 2018 or later versions of WRIMS2's GUI's `Dvar DSS file:`'s field: `outputfilename.csv` instead of: `outputfilename.dss` (both will be created using `.csv` alone). WRIMS2 is free from California Dept. of Water Resources, see link at bottom for request - currently distrubuted via email list
 - R, and R libraries specified in `libs.r`. Probably relies most on `dplyr` and `ggplot2` of the `tidyverse`
 
-### steps ###
+## Steps ##
 
 **Download** `csdvr_date.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots)
    https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_11Aug2018.zip
@@ -34,7 +34,7 @@
 `2a` | **generates plots in batches** with pre-defined templates for common DVs of interest -- call scripts of plots
 `2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest with individual functions listed below this block (~80)
 
-#### notes ####
+### notes ###
 - assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
 - save new finished plot scripts in `plotexportscripts` folder to add to collection of templates
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
