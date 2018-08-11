@@ -27,7 +27,7 @@ If scenario/legend order matters for on-the-fly plots or batch plots, enter same
 In `control.r`, three main choices/blocks to run:
 
 ##### 1 #####
-read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each)
+read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each) (option to append)
   
 ##### 2 #####
 generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
