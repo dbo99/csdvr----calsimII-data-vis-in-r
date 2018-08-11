@@ -21,7 +21,7 @@
 ## Steps ##
 
 **Download** `csdvr_date.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots)
-   https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_11Aug2018.zip
+   https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_aug18.zip
 
 **Drop** your calsim csvs in `csv` folder 
 
