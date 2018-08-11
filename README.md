@@ -6,7 +6,7 @@
 
    key file  | use
 ------------ | -------------
-`csv_list.r` | point to csv file names and give them scenario nicknames
+`csv_list.r` | list csv file names and give them scenario nicknames
 `scen_facts.r` | tell order to plot scenarios in (ie left to right data/top to bottom legend)
 `control.r` | main user interface - actually read-in data and analyze or batch export plots
 `plotexport.r` | turn on/off which plot scripts to run for exporting (want huge set or just a few?)
