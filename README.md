@@ -30,7 +30,7 @@
 
 `control.r`  | action
 ------------ | -------------
-`1` | **reads in libraries,  functions, and csv data** (do sparingly as ~1/6 min read-in time per scenario) (~0.5 gb each) (option to append sequentially in **`csv._list.r`**). 2a & 2b need 1 run first.
+`1` | **reads in libraries,  functions, and csv data** (do first then sparingly as ~1/6 min read-in time per scenario) (~0.5 gb each) (option to append sequentially in **`csv._list.r`**). 2a & 2b need 1 run first.
 `2a` | **generates plots in batches** with pre-defined templates for common DVs of interest -- call scripts of plots
 `2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest with individual functions listed below this block (~80)
 
