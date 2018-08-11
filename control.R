@@ -1,30 +1,28 @@
 ## block 1 ###        #get libraries, define functions, read-in csvs with this block
 {rm(list = ls())      #clear environment somewhat
-setwd("C:/Projects/rdev/csdvr_aug18") #list home folder here and twice more just below
 source("libs.r")      #libraries
+setwd(here())         #set this file's (control.r's) folder as the parent folder
 source("fun_defs.r")  #functions
-source("csv_list.r")} #*step 1 - enter scenarios filenames and nicknames in csv_list.r, then 
-                      #(if order matters) paste same to scenfacts.r
+source("csv_list.r")} #*step 1 - enter scenarios filenames and nicknames in csv_list.r, 
+                      #then (if order matters) paste same to scenfacts.r
                       
-## block 2 ############################################ optional - batch export plots with this block  ########################
-{setwd("C:/Projects/rdev/csdvr_aug18") 
-source("plotexportctrl.r")}  #pick which in plotexport.r get saved in `plots` folder 
-##############################################################################################################################
+## block 2 ############################################ optional - batch export plots with this block  ###########
+{source("plotexportctrl.r")}  #pick which in plotexport.r get saved in `plots` folder 
 
-## block 3   ##################################################  investigate DVs/DV groups here one at a time  ###############
-{setwd("C:/Projects/rdev/csdvr_aug18") 
-############################################################### enter DVs here in lowercase, then run block     ##############
-dvs <- c("del_cvp_total", "del_cvp_total_s")                                                                 #################
-###########################################################   then run individual data sums/plots below    ################### 
-df <- create_df(df_csv) #creates data.frame
+##############################################################################################################################                                                                                                                  ###############
+## block 3   ###############################################  investigate DVs/DV groups here one at a time:       ############
+############################################################  enter DVs here in lowercase, then run block         ############
+{dvs <- c("del_cvp_total", "del_cvp_total_s"                 )                                                                                           
+############################################################  then run individual data sums/plots functions below ############
+df <- create_df(df_csv)       #creates data.frame
 df_diff <- create_df_diff(df) #creates data.frame of differences. preserves original values if needed for math, labels, etc
-source("scenfacts.r")} #sets plot's scenario and legend *orders*, plot order can be overriden below with "_rank". eg order
-                                                            #usually unimportant for modeler, important for presentation slide.
+source("scenfacts.r")}        #sets plot's scenario and legend *orders*, plot order can be overriden below with "_rank"    ###
+                                                           
 
 ##############################################################  apply individual functions  below  ###########################
-#####################################################################
-####    plotting functions     ######################################
-#####################################################################
+##############################################################################################################################
+####    plotting functions    ################################ data summaries w/o plots toward bottom ########################
+##############################################################################################################################
 
 ##########################
 ## overall stats - bars ##

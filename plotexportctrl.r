@@ -1,6 +1,6 @@
 # choose what plots/plotgroups, run whole block
 
-{setwd("./plotexportscripts")
+{setwd(here("plotexportscripts"))
 
 # previous bunchings  
 source("june2018plots.r") #all sorts, takes a minute takes 20 s?
@@ -19,7 +19,7 @@ source("doplot_many.r") #all sorts, takes 20 s?
 
 #### deliveries & outflow together ###
 source("do&cvpswp_n&sdelivs_plot_bardiffs.r") #one or a few plots, instant
-
+setwd(here())
 
 }
 

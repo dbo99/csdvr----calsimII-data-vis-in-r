@@ -8,4 +8,4 @@ library(ggridges)  # ridge plots!
 library(viridis)   # nice color scale, robust to colorblindness
 library(RColorBrewer) # more color stuff
 library(scales)    # more color stuff
-library(here)      # fpr relative path names and easier sharing
+library(here)      # for relative path names and easier sharing

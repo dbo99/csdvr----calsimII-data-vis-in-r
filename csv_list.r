@@ -1,11 +1,11 @@
-setwd("./csv")
+setwd(here("csv"))
 # current WRIMS column IDs are
 ## ID | Timsestep | Units | Date_Time | Variable | Kind | Value ##
 
 # list CalSim dv .csv file name and name scenarios on each line
 # use any number (32 scenarios is max tried - formatting challenges there - use no label functions)
-# note column "ID" vs "id" - older WRIMS outputs "ID", newer"id" - need to match them below as necessary)
-# for shasta raises, add `%>% adds44tos4()` to end of line
+# note column "ID" vs "id" - older WRIMS outputs "ID", newer"id" 
+# for Shasta raise scenarios, add `%>% adds44tos4()` at end of line
 
 #csv0  <- read_csv ("filename.csv"   )  %>% mutate(scen = "nickname") %>% select(-id, -Timestep)
 csv1  <- read_csv ("0_FO_04012018_b2fix.csv"   )  %>% mutate(scen = "baseline") %>% select(-id, -Timestep)
@@ -26,7 +26,7 @@ csv13 <- read_csv ("omr_Act1only_min2k.csv"   )  %>% mutate(scen = "OMRAct1OnlyM
 
 df_csv <- mget(ls(pattern="csv*")) %>%  bind_rows()  # recognizes above new csv# data.frames and combines into one
 rm(list = ls()[grep("^csv", ls())])  #removes single csvs to unclutter (deletes everything starting with `csv`)
-setwd('..')
+setwd(here())
 
 # if just appending to df_csv to an already big list, can avoid re-reading in all with:
 
@@ -34,5 +34,5 @@ setwd('..')
 #df_csv <- rbind(df_csv, df_csv_toadd)
 
 
-
+# ignore possible occassional error: "Error in names(frame) <- `*vtmp*` : names() applied to a non-vector"
 
