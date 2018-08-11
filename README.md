@@ -15,7 +15,7 @@
    download most recent csdvr: `csdvr_mm.dd.yyyy.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots) 
 
 #### B #### 
-   place your CalSim csvs in the `csv` folder 
+   drop your calsim csvs in the `csv` folder 
 
 #### C #### 
    in `csv_list.r`, enter each csv file name (eg `040812_BO_Y1a1.csv`) and a nickname (eg `Scen1_Y1A1`). nicknames make room for plot space
