@@ -21,7 +21,7 @@ df$scen <- factor(df$scen, levels = c(
  #))
           
 scendiffnames <- levels((df$scen))                             
-scendiffnames <- scendiffnames[scendiffnames != "baseline"]; # without elements that are "b"
+scendiffnames <- scendiffnames[scendiffnames != "baseline"]; 
 scendiffnames <- paste(scendiffnames, " - bl", sep="")
 
 df_diff$scen <- factor(df_diff$scen, levels = c(paste0(scendiffnames)))
