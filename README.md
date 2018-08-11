@@ -7,7 +7,7 @@
    key file  | use
 ------------ | -------------
 csv_list.r | point to your file names of csvs and give them scenario nicknames
-scen_facts.r | tell order to plot scenarios in (ie left to right/top to bottom in legend)
+scen_facts.r | tell order to plot scenarios in (ie left to right data/top to bottom legend)
 control.r | main user interface - actually read-in data and analyze or batch export plots
 
 ### uses ###
