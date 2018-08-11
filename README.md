@@ -4,6 +4,11 @@
  analyze calsim output for large numbers of variables or scenarios | 
  export report or presentation ready plot images (jpgs, pdfs, etc) or interactive plots (html)  | developed by Bureau of Reclamation staff 
  
+ First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+ 
 ### uses ###
 
 - WRIMS2 CalSim decision variable ("DV") output in `.csv` format.
