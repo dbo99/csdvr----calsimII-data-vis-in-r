@@ -14,14 +14,17 @@
 #### A #### 
 Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb) 
 
-B. Place your CalSim csvs in the `csv` folder 
+#### B #### 
+Place your CalSim csvs in the `csv` folder 
 
-C. In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
+#### C #### 
+In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
 
+#### D #### 
+If scenario/legend order matters for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in order you prefer: top to bottom in `scenfacts.r` yields top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
 
-D. If scenario/legend order matters for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in order you prefer: top to bottom in `scenfacts.r` yields top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
-
-E. In `control.r`, three main choices/blocks to run:
+#### E ####
+In `control.r`, three main choices/blocks to run:
 
 1: read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each)
   
