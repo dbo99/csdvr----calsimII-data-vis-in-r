@@ -2,7 +2,7 @@
  calsim data vis (post-processor) in r | 
  version 1.0_8.10.2018 | 
  analyze calsim output for large numbers of variables or scenarios | 
- export report or presentation ready plot images (eg jpgs, pdfs) or interactive plots (html)  | developed by Bureau of Reclamation staff 
+ export report or presentation ready plot images (jpgs, pdfs, etc) or interactive plots (html)  | developed by Bureau of Reclamation staff 
  
 ### uses ###
 
