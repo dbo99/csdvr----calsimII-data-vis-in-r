@@ -8,7 +8,7 @@
 
 - WRIMS2 CalSim decision variable ("DV") output in `.csv` format.
   If csv file(s) needed, specify in 2018 or later versions of WRIMS2's GUI's `Dvar DSS file:`'s field: `outputfilename.csv` instead of: `outputfilename.dss` (both will be created using `.csv` alone). WRIMS2 is free from California Dept. of Water Resources, see link at bottom for request - currently distrubuted via email list
-- R, and R libraries specified in `libs.r`. Probably relies most on `dplyr` and `ggplot2` libraries of the `tidyverse`
+- R, and R libraries specified in `libs.r`. Probably relies most on `dplyr` and `ggplot2` of the `tidyverse`
 
 ### steps ###
 
