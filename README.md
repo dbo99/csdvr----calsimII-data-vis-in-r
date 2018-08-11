@@ -26,7 +26,7 @@
 
 *point to files and ID scenarios* in `csv_list.r`: enter each csv file name (eg `040812_BO_Y1a1.csv`) and give a nickname (eg `Scen1_Y1A1`)
 
-*specify plotting order of scenarios* (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` produces top to bottom order in plot legend. nickname spelling in `scenfacts.r` must match in `csv_list.r`)
+*specify plotting order of scenarios* (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` produces top to bottom order in plot legend. nickname spelling in `scenfacts.r` must match `csv_list.r`)
 
 `control.r`  | action
 ------------ | -------------
