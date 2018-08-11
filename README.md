@@ -12,7 +12,9 @@
 ### steps ###
 
 a. Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb) 
+
 b. Place your CalSim csvs in the `csv` folder 
+
 c. In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
 
 
