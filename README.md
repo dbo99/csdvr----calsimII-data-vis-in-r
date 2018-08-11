@@ -2,7 +2,7 @@
  CalSim data vis in R | 
  version 1.0_8.10.2018 | 
  filter and visualize CalSim output for any number of variables and reasonable number of CalSim scenarios | 
- export report/presentation ready plot images (eg jpgs, pdfs) or interactive plots (html)  | developed by Bureau of Reclamation staff | no geospatial
+ export report or presentation ready plot images (eg jpgs, pdfs) or interactive plots (html)  | developed by Bureau of Reclamation staff 
  
 ### uses ###
 
@@ -29,6 +29,7 @@
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
 - accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
 - currently lacks any diagnostics on "controls" - hoping to add directly in `.wresl` files for ease in csdvr, other post-processors, in future
+- currently lacks any geospatial ability
   
   Access CalSim benchmark studies and contact info for WRIMS software:
   
