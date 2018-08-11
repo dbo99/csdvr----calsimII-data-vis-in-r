@@ -22,11 +22,11 @@ D. If scenario/legend order matters for on-the-fly plots or batch plots, enter s
 
 E. In `control.r`, three main choices/blocks to run:
 
-  1: read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario)
+  - 1: read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario)
   
-  2: generate plots in batches with pre-defined templates for common DVs of interest -- calls scripts of many plots
+  - 2: generate plots in batches with pre-defined templates for common DVs of interest -- calls scripts of many plots
   
-  3: generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual functions below
+  - 3: generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual functions listed
 
 #### notes ####
 - assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
