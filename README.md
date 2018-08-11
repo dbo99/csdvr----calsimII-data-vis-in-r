@@ -1,7 +1,7 @@
 # csdvr
  calsim data vis (post-processor) in r | 
  version 1.0_8.10.2018 | 
- visualize calsim output for large numbers of variables or scenarios | 
+ analyze calsim output for large numbers of variables or scenarios | 
  export report or presentation ready plot images (eg jpgs, pdfs) or interactive plots (html)  | developed by Bureau of Reclamation staff 
  
 ### uses ###
