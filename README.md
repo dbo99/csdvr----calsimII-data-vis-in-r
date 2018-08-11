@@ -3,12 +3,13 @@
  version 1.0_8.10.2018 | 
  analyze calsim output for large numbers of variables or scenarios | 
  export report or presentation ready plot images (jpgs, pdfs, etc) or interactive plots (html)  | developed by Bureau of Reclamation staff 
- 
- First Header | Second Header
+
+   key file  | use
 ------------ | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
- 
+csv_list.r | point to your file names of csvs and give them scenario nicknames
+scen_facts.r | tell order to plot scenarios in (ie break default alphabetic)
+control.r | main user interface - actually read-in data and analyze or batch export plots
+
 ### uses ###
 
 - WRIMS2 CalSim decision variable ("DV") output in `.csv` format.
