@@ -12,19 +12,19 @@
 ### steps ###
 
 #### A #### 
-   Download most recent csdvr scripts: `csdvr_mm.dd.yyyy.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots) 
+   download most recent csdvr scripts: `csdvr_mm.dd.yyyy.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots) 
 
 #### B #### 
-   Place your CalSim csvs in the `csv` folder 
+   place your CalSim csvs in the `csv` folder 
 
 #### C #### 
-   In `csv_list.r`, enter each csv file name (eg `040812_BO_Y1a1.csv`) and a nickame (eg `Scen1_Y1A1`). Short labels make room for plot space
+   in `csv_list.r`, enter each csv file name (eg `040812_BO_Y1a1.csv`) and a nickame (eg `Scen1_Y1A1`). short labels make room for plot space
 
 #### D #### 
-   If scenario/legend order matters for audience for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in user-defined order: top to bottom in `scenfacts.r` gives top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
+   if scenario/legend order matters for audience for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in user-defined order: top to bottom in `scenfacts.r` gives top to bottom order in legend. otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
 
 #### E ####
-   In `control.r`, three main choices/blocks to run:
+   in `control.r`, three main choices/blocks to run:
 
 ##### 1 #####
  read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each) (option to append). 2 & 3 need 1 run first.
