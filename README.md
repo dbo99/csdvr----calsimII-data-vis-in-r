@@ -35,8 +35,8 @@
 `2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest with individual functions listed below this block (~80)
 
 ### notes ###
-- assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
-- save new finished plot scripts in `plotexportscripts` folder to add to collection of templates
+- assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files.  `varcodes.csv` identifies some dvname-commonname pairs, add more as desired. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name (standardizing in progress)
+- save new finished plot scripts in `plotexportscripts` folder to add to collection of templates & add folder of file name
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
 - accepts either CalSimII or CalSim 3.0 output, but set up currently for CalSimII's time range only
