@@ -11,16 +11,17 @@
 
 ### steps ###
 
-1. Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb) 
-3. Place your CalSim csvs in the `csv` folder 
-2. In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
+a. Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb) 
+b. Place your CalSim csvs in the `csv` folder 
+c. In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
 
 
-4. If scenario/legend order matters for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in order you prefer: top to bottom in `scenfacts.r` yields top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
+d. If scenario/legend order matters for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in order you prefer: top to bottom in `scenfacts.r` yields top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
 
-5. In `control.r`: enter same working folder path in three places (blocks) at the top of the file (first ~20 lines)
-
-6. In `control.r`, run these blocks from top down as needed: single clicks here let you read in csvs (run "block 1"; do sparingly as ~1/6 min read-in time per scenario), build `data.frame`s, and generate plots in batches with pre-defined templates (run "block 2"), or individually (with some pre-defined tables too, eg `tibble`,`.csv`) with individual functions (run "block 3" and any function listed below).
+e. In `control.r`, three main choices/blocks to run:
+  (block 1) read in csv data (do sparingly as ~1/6 min read-in time per scenario), libraries, and functions
+  (block 2) generate plots in batches with pre-defined templates for common DVs of interest -- calls scripts of many plots
+  (block 3) generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual functions below
 
 #### notes ####
 - assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
