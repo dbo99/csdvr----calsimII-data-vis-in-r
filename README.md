@@ -47,5 +47,6 @@
   Access CalSim benchmark studies and contact info for WRIMS software:
   
   https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2
-
+--------------------------------------------
 | developed by Bureau of Reclamation staff |
+--------------------------------------------
