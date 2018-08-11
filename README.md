@@ -12,28 +12,28 @@
 ### steps ###
 
 #### A #### 
-    Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb without sample plots, ~15 mb with) 
+   Download  most recent `csdvr_mm.dd.yyyy.zip` (~30 kb without sample plots, ~15 mb with) 
 
 #### B #### 
-Place your CalSim csvs in the `csv` folder 
+   Place your CalSim csvs in the `csv` folder 
 
 #### C #### 
-In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
+   In `csv_list.r`, enter your complete csv file names (eg `040812_BO_Y1a1.csv`) and enter scenario nicknames (eg `Scen1_Y1A1`). Short labels make room for plot space
 
 #### D #### 
-If scenario/legend order matters for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in order you prefer: top to bottom in `scenfacts.r` yields top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
+   If scenario/legend order matters for on-the-fly plots or batch plots, enter same nicknames in `scenfacts.r` in order you prefer: top to bottom in `scenfacts.r` yields top to bottom order in legend. Otherwise skip step; default order without specification in `scenfacts.r` is alphabetic
 
 #### E ####
-In `control.r`, three main choices/blocks to run:
+   In `control.r`, three main choices/blocks to run:
 
 ##### 1 #####
-read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each) (option to append)
+ read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~500 mb each) (option to append)
   
 ##### 2 #####
-generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
+ generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
   
 ##### 3 #####
-generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual functions listed
+ generate individual plots or data summaries (eg `tibble`,`.csv`) for any DVs of interest with individual functions listed
    below these blocks (80+)
 
 #### notes ####
