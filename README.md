@@ -19,20 +19,20 @@
 
 ### steps ###
 
-*download* `csdvr_date.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots)
+**download** `csdvr_date.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots)
    https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_11Aug2018.zip
 
-*drop* your calsim csvs in `csv` folder 
+**drop** your calsim csvs in `csv` folder 
 
-*point to files and ID scenarios* in `csv_list.r`: enter each csv file name (eg `040812_BO_Y1a1.csv`) and give a nickname (eg `Scen1_Y1A1`)
+**point to files and ID scenarios** in `csv_list.r`: enter each csv file name (eg `040812_BO_Y1a1.csv`) and give a nickname (eg `Scen1_Y1A1`)
 
-*specify plotting order of scenarios* (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` produces top to bottom order in plot legend. nickname spelling in `scenfacts.r` must match those in `csv_list.r`)
+**specify plotting order of scenarios** (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` produces top to bottom order in plot legend. nickname spelling in `scenfacts.r` must match those in `csv_list.r`)
 
 `control.r`  | action
 ------------ | -------------
-`1` | read in libraries,  functions, and csv data (do sparingly as ~1/6 min read-in time per scenario) (~0.5 gb each) (option to append sequentially in `csv._list.r`). 2a & 2b need 1 run first.
-`2a` | generate plots in batches with pre-defined templates for common DVs of interest -- call scripts of plots
-`2b` | generate individual data summaries (ie tabular as `tibble`,`.csv`) or plots for any DVs of interest with individual functions listed below this block (~80)
+`1` | **reads in libraries,  functions, and csv data** (do sparingly as ~1/6 min read-in time per scenario) (~0.5 gb each) (option to append sequentially in `csv._list.r`). 2a & 2b need 1 run first.
+`2a` | **generates plots in batches** with pre-defined templates for common DVs of interest -- call scripts of plots
+`2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest with individual functions listed below this block (~80)
 
 #### notes ####
 - assumes you know names of DVs to view, eg Folsom Lake is `S8`. If not consult `.wresl` or `.dss` files. To-do: auto-fill DV names while typing. `varcodes.csv` identifies some dvname-commonname pairs, add more as needed. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name 
