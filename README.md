@@ -52,10 +52,10 @@
   
 ## functions ##
 
-##  Data Summary Functions ##
+##  Data Summary Functions - use `df` and `df_diff` interchangeably##
 add `%>% write.csv("csvname.csv")` to any to export
 
-### Annual Avgs - use `df` and `df_diff` interchangeably ###
+### Annual Avgs  ###
    function  | for
 ------------ | -------------
 mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
@@ -70,7 +70,7 @@ md_ann_perav_native(df) | median annual flow/delivery in calsim native units
 ### WYT Avgs ###
    function  | for
 ------------ | -------------
-mn_ann_scwyt_perav_taf(df) | meann annual flow/delivery total by sacramento year type in taf
+mn_ann_scwyt_perav_taf(df) | mean annual flow/delivery total by sacramento year type in taf
 mn_ann_scwyt_perav_taf(df_diff) | meann annual difference rel. to baseline for flow/delivery total by sacramento year type in taf
 mn_ann_perav_sjwyt_taf(df) | meann annual flow/delivery total by san joaquin year type in taf
 mn_ann_perav_sjwyt_taf(df_diff)| meann annual flow/delivery total by san soaquin year type in taf
@@ -101,34 +101,33 @@ showtstepsallscensover(df, 10) | shows all time steps all scenarios are over
 mn984_taf(df) | mean monthly value
 sum984_taf(df) | sum of all months
   
-  
-  
-  
-  
-  
- ##############################################################################################################################
-####    plotting functions    ################################ data summaries w/o plots toward bottom ########################
-##############################################################################################################################
+##  Plotting Functions - use suffix `_d` (adds appropriate "[difference]" on axis label) and `df_diff` together for difference plots, no suffix and `df` for non-difference plots ##
 
-##########################
-## overall stats - bars ##
-##########################
 
-### Ann Avgs ###
+### Annual Avgs - pb - Plot Bars  ###
+   function  | for
+------------ | -------------
+pb_mn_ann_perav_taf(df) |   bar of mean annuals with vertical labels (good for many scenarios)
+pb_mn_ann_perav_taf_nolab(df) | bars of mean annuals without labels
+pb_mn_ann_perav_taf_nolab_rank(df) | bar charts of mean annuals without labels, ranked highest to lowest left to right
+pb_mn_ann_perav_taf_hlab(df) | bars of mean annuals with labels (good for few scenarios)
+pb_md_ann_perav_taf(df) | bars of annual medians with vertical labels (good for many scenarios)
+pb_mn_ann_eomstor_taf(df) |  bars of mean annual end of month storages (rarely used)
 
-#plot bars of mean annual period average 
-pb_mn_ann_perav_taf(df) |    #if blank, verify not a storage
-pb_mn_ann_perav_taf_nolab(df) |
-pb_mn_ann_perav_taf_nolab_rank(df) |
-pb_mn_ann_perav_taf_hlab(df) |
-pb_md_ann_perav_taf(df) | 
-pb_mn_ann_eomstor_taf(df) |  #if blank, verify not a non-storage (same for rest)
+## WYT Avgs ##
+   function  | for
+------------ | -------------
+pb_mn_scwyt_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
+pb_mn_scwyt_perav_taf_nolab(df) | label-less bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
+pb_mn_scwyt2_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
+pb_mn_sjwyt_perav_taf(df) | bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
 
-### WYT Avgs ###
-pb_mn_scwyt_perav_taf(df) |
-pb_mn_scwyt_perav_taf_nolab(df) |
-pb_mn_scwyt2_perav_taf(df) | #scwyt2 breaks feb-jan water years - uses oct-seps like cwf hearings
-pb_mn_sjwyt_perav_taf(df) |
+
+
+
+
+
+
 
 
 ### month specific storage ###
