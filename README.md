@@ -71,8 +71,8 @@ md_ann_perav_native(df) | median annual flow/delivery in calsim native units
    function  | for
 ------------ | -------------
 mn_ann_scwyt_perav_taf(df) | mean annual flow/delivery total by sacramento year type in taf
-mn_ann_scwyt_perav_taf(df_diff) | meann annual difference rel. to baseline for flow/delivery total by sacramento year type in taf
-mn_ann_perav_sjwyt_taf(df) | meann annual flow/delivery total by san joaquin year type in taf
+mn_ann_scwyt_perav_taf(df_diff) | mean annual difference rel. to baseline for flow/delivery total by sacramento year type in taf
+mn_ann_perav_sjwyt_taf(df) | mean annual flow/delivery total by san joaquin year type in taf
 mn_ann_perav_sjwyt_taf(df_diff)| meann annual flow/delivery total by san joaquin year type in taf
 
 ### global mins and maxs ###
@@ -171,7 +171,7 @@ pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storag
    function  | for
 ------------ | -------------
 p_mon_excd_taf(df) |   monthly exceedance in taf
-p_mon_excd2_taf(df) |  monthly exceedance in taf style 2 (subplots for each dv)
+p_mon_excd2_taf(df) |  monthly exceedance in taf style 2 (plot for each dv)
 p_mon_excd_cfs(df) |   monthly exceedance in cfs
 p_mon_excd2_cfs(df) | monthly exceedance in cfs style 2 (subplots for each dv)
 p_mon_excd_native(df) |  monthly exceedance in calsim native units, eg EC, km get unit 'unassigned'
@@ -180,17 +180,17 @@ p_mon_excd2_native(df) | monthly exceedance in calsim native units style 2 eg EC
 ### annual ### 
    function  | for
 ------------ | -------------
-p_ann_wysum_excd_taf(df) |    annual exceedance - 82 oct-sept totals
-p_ann_wysum_excd2_taf(df) |   annual exceedance - 82 oct-sept totals, in columns (style 2)
-p_ann_wysum_excd3_taf(df) |   annual exceedance - 82 oct-sept totals, in rows (style 3)
+p_ann_wysum_excd_taf(df) |    annual exceedance - 82 oct-sep totals
+p_ann_wysum_excd2_taf(df) |   annual exceedance - 82 oct-sep totals, in columns (style 2)
+p_ann_wysum_excd3_taf(df) |   annual exceedance - 82 oct-sep totals, in rows (style 3)
 p_ann_fjwysum_excd_taf(df) |  annual exceedance - 81 feb-jan totals
-p_ann_fjwysum_excd2_taf(df) | annual exceedance - 81 feb-jan totals, columns
+p_ann_fjwysum_excd2_taf(df) | annual exceedance - 81 feb-jan totals, style 2
 p_ann_mfwysum_excd_taf(df) |  annual exceedance - 81 mar-feb totals (regular cvp contract)
-p_ann_mfwysum_excd2_taf(df) | annual exceedance - 81 mar-feb totals (regular cvp contract), in columns
+p_ann_mfwysum_excd2_taf(df) | annual exceedance - 81 mar-feb totals (regular cvp contract), style 2
 p_ann_jdwysum_excd_taf(df) |  annual exceedance - 81 jan-dec totals (regular cvp contract)
-p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (regular cvp contract), in columns
-p_ann_wymn_excd_taf(df) |     annual exceedance -  82 oct-sept means
-p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sept means, in columns 
+p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (regular cvp contract), style 2
+p_ann_wymn_excd_taf(df) |     annual exceedance -  82 oct-sep means
+p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sep means, style 2 
 
 
 ################
@@ -199,23 +199,23 @@ p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sept means, in columns
 
 ## monthly ## 
 
-p_mon_excd_taf_d(df_diff) 
-p_mon_excd2_taf_d(df_diff)
-p_mon_excd_cfs_d(df_diff) 
-p_mon_excd2_cfs_d(df_diff)
+p_mon_excd_taf_d(df_diff) | monthly exceedance of differences in taf
+p_mon_excd2_taf_d(df_diff)| monthly exceedance of differences in taf, style 2 
+p_mon_excd_cfs_d(df_diff) | monthly exceedance of differences in cfs
+p_mon_excd2_cfs_d(df_diff)| monthly exceedance of differences in cfs, style 2
 
 ## annual ## 
 
-p_ann_wysum_excd_taf_d(df_diff) 
-p_ann_wysum_excd2_taf_d(df_diff) #if more than 1 DV, separates DVs into seperate plots
-p_ann_fjwysum_excd_taf_d(df_diff)
-p_ann_fjwysum_excd2_taf_d(df_diff)
-p_ann_mfwysum_excd_taf_d(df_diff) 
-p_ann_mfwysum_excd2_taf_d(df_diff) 
-p_ann_jdwysum_excd_taf_d(df_diff) 
-p_ann_jdwysum_excd2_taf_d(df_diff) 
-p_ann_wymn_excd_taf_d(df_diff) 
-p_ann_wymn_excd2_taf_d(df_diff)
+p_ann_wysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep totals
+p_ann_wysum_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep totals, style 2
+p_ann_fjwysum_excd_taf_d(df_diff)| annual exceedance - differences of 82 feb-jan totals
+p_ann_fjwysum_excd2_taf_d(df_diff)| annual exceedance - differences of 82 feb-jan totals, style 2
+p_ann_mfwysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 mar-feb totals
+p_ann_mfwysum_excd2_taf_d(df_diff) | annual exceedance - differences of 82 mar-feb totals, style 2
+p_ann_jdwysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 jan-dec totals
+p_ann_jdwysum_excd2_taf_d(df_diff) | annual exceedance - differences of 82 jan-dec totals, style 2
+p_ann_wymn_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep means
+p_ann_wymn_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep means, style 2
 
 #########################
 ## exceedance, WYT grid
@@ -230,10 +230,10 @@ p_ann_fjwysum_sjwyt_excd2_taf(df) |
 ## excd diff, WYT grid
 #########################
 
-p_ann_fjwysum_scwyt_excd_taf_d(df_diff)   
-p_ann_fjwysum_scwyt_excd2_taf_d(df_diff)  
-p_ann_fjwysum_sjwyt_excd_taf_d(df_diff)   
-p_ann_fjwysum_sjwyt_excd2_taf_d(df_diff)  
+p_ann_fjwysum_scwyt_excd_taf_d(df_diff) |  
+p_ann_fjwysum_scwyt_excd2_taf_d(df_diff) |
+p_ann_fjwysum_sjwyt_excd_taf_d(df_diff) | 
+p_ann_fjwysum_sjwyt_excd2_taf_d(df_diff)|  
 
 ###############################
 ## exceedance, month grid, linear
