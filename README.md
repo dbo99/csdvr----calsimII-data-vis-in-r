@@ -53,7 +53,7 @@
 
 #  Data Summary Functions
 - use `df` and `df_diff` interchangeably
-- add `%>% write.csv("csvname.csv")` after any to export to working directory
+- add `%>% write.csv("csvname.csv")` after any to export `DVsummary.csv` to working directory
 
 ### annual avgs  ###
    function  | for
