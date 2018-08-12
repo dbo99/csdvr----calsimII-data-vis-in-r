@@ -104,8 +104,8 @@ sum984_taf(df) | sum of all months
 #  Plotting Functions #
 - use suffix `_d` (adds appropriate "[difference]" on axis label) and `df_diff` together for difference plots, and no suffix and `df` for non-difference plots
 
-## bar plots ## 
-### pb - plot Bars - annual mean  ###
+## bar plots - annual means and medians ## 
+### pb - plot bars - annual mean  ###
    function  | for
 ------------ | -------------
 pb_mn_ann_perav_taf(df) |   bars of mean annuals with vertical labels (good for many scenarios)
@@ -128,8 +128,7 @@ pb_mn_sjwyt_perav_taf(df) | bars of mean annual flow/delivery total by san joaqu
 pb_mn_eomay_stor_taf(df) | bars of mean end of may storage
 pb_mn_eosep_stor_taf(df) | bars of mean end of september storage
 
-## bar plots - difference relative to baseline ## 
-### ann avgs ###
+### pb - plot bars - annual mean differences   ###
    function  | for
 ------------ | -------------
 pb_mn_ann_perav_taf_d(df_diff) | difference bars of mean annuals with vertical labels (good for many scenarios)
@@ -137,7 +136,7 @@ pb_mn_ann_perav_taf_d_hlab(df_diff) | difference bars of mean annuals with horiz
 pb_md_ann_perav_taf_d(df_diff) | difference bars of annual medians with vertical labels 
 pb_mn_ann_perav_taf_d_nolab_rank(df_diff) | difference bas of mean annuals without labels, ranked highest to lowest left to right
 
-### wyt avgs ###
+### pb - plot bars - annual mean by wyt differences ###
    function  | for
 ------------ | -------------
 pb_mn_scwyt_perav_taf_d(df_diff)| difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
@@ -146,7 +145,7 @@ pb_mn_scwyt_perav_taf_d_hlab(df_diff) | horizontally labeled difference bars of 
 pb_mn_scwyt2_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
 pb_mn_sjwyt_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
 
-### month specific diff ###
+### month-specific mean difference ###
    function  | for
 ------------ | -------------
 pb_eosep_stor_taf_d(df_diff) | difference bars of mean end of may storage
@@ -166,17 +165,17 @@ pb_eomay_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storag
 pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
 
 
-## probability of exceedance, line plots  ## 
+## line plots - monthly and annual probability of exceedance ## 
 
 ### monthly ### 
    function  | for
 ------------ | -------------
-p_mon_excd_taf(df) |          # no "2", dvs together
-p_mon_excd2_taf(df) |         # with "2" - dvs apart (facetted) 
-p_mon_excd_cfs(df) |
-p_mon_excd2_cfs(df) |
-p_mon_excd_native(df) |       # use for non cfs/taf terms, eg EC, km
-p_mon_excd2_native(df) |
+p_mon_excd_taf(df) |   monthly exceedance in taf
+p_mon_excd2_taf(df) |  monthly exceedance in taf style 2 (subplots for each dv)
+p_mon_excd_cfs(df) |   monthly exceedance in cfs
+p_mon_excd2_cfs(df) | monthly exceedance in cfs style 2 (subplots for each dv)
+p_mon_excd_native(df) |  monthly exceedance in calsim native units, eg EC, km get unit 'unassigned'
+p_mon_excd2_native(df) | monthly exceedance in calsim native units style 2 eg EC, km get unit 'unassigned'
 
 ### annual ### 
    function  | for
