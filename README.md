@@ -56,7 +56,8 @@
 
 
 ## annual Avgs ##
-function | action
+   function  | for
+------------ | -------------
 mn_ann_perav_taf(df) | mean annual total period avg (flow/delivery) in taf #%>% write.csv("csvname.csv")   
 md_ann_perav_taf(df) |    #median annual avg flow/delivery
 mn_ann_eomstor_taf(df) |  #mean annual storage #if nothing/error shows up, no storages were selected (same for below and vice-versa)
