@@ -53,16 +53,16 @@
 ## functions ##
 
 #  Data Summary Functions #
-
+add `%>% write.csv("csvname.csv")` to any to export
 
 ## annual Avgs ##
    function  | for
 ------------ | -------------
-mn_ann_perav_taf(df) | mean annual total period avg (flow/delivery) in taf #%>% write.csv("csvname.csv")   
-md_ann_perav_taf(df) |    #median annual avg flow/delivery
-mn_ann_eomstor_taf(df) |  #mean annual storage #if nothing/error shows up, no storages were selected (same for below and vice-versa)
-mn_ann_perav_native(df) |
-md_ann_perav_native(df) |
+mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
+md_ann_perav_taf(df) |  median annual flow/delivery in taf
+mn_ann_eomstor_taf(df) | mean annual end of month storage (if nothing: makes sure a storage term selected)
+mn_ann_perav_native(df) | mean annual flow/delivery in calsim native units
+md_ann_perav_native(df) | median annual flow/delivery in calsim native units
 
 ## annual Avg diffs ##
 
