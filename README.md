@@ -33,7 +33,7 @@
 ------------ | -------------
 `1` | **read in libraries,  functions, and csv data** (do first then sparingly as ~1/6 min read-in time per scenario) (~0.5 gb `.csv` each) (option to append in **`csv._list.r`**). 2a & 2b need 1 run first.
 `2a` | **generate plots in batches** with pre-defined templates for common DVs of interest -- call scripts of plots
-`2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest with individual functions listed below this block (~80)
+`2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest by searching for DVs here and by running individual functions listed below this block (~80)
 
 ### notes ###
 - assumes DV name familiarity, eg Folsom Lake is `s8`. If not consult `.wresl` or `.dss` files.  `varcodes.csv` identifies some dvname-commonname pairs, add more as desired. Some plots label the `df$dv`, the actual CalSim name, and others the `df$dv_name`, the common name (standardizing in progress)
