@@ -55,7 +55,7 @@
 - use `df` and `df_diff` interchangeably #
 - add `%>% write.csv("csvname.csv")` after any to export to working directory
 
-### Annual Avgs  ###
+### annual avgs  ###
    function  | for
 ------------ | -------------
 mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
@@ -67,7 +67,7 @@ mn_ann_eomstor_taf(df_diff) | mean annual diff. rel. to baseline for end of mont
 mn_ann_perav_native(df) | mean annual flow/delivery in calsim native units
 md_ann_perav_native(df) | median annual flow/delivery in calsim native units
 
-### WYT Avgs ###
+### wyt avgs ###
    function  | for
 ------------ | -------------
 mn_ann_scwyt_perav_taf(df) | mean annual flow/delivery total by sacramento year type in taf
@@ -75,13 +75,13 @@ mn_ann_scwyt_perav_taf(df_diff) | meann annual difference rel. to baseline for f
 mn_ann_perav_sjwyt_taf(df) | meann annual flow/delivery total by san joaquin year type in taf
 mn_ann_perav_sjwyt_taf(df_diff)| meann annual flow/delivery total by san joaquin year type in taf
 
-### Period of record minimums and maximums ###
+### global minimums and maximums ###
    function  | for
 ------------ | -------------
 max_mon_native(df) | maximum monthly value of all months
 min_mon_native(df) | minimum monthly value of all months
 
-### Mean End of May, End of September Storage ###
+### mean end of may, end of september storage ###
    function  | for
 ------------ | -------------
 eo_may_stor_taf(df) | mean end of may storage
@@ -95,7 +95,7 @@ eo_sep_stor_taf(df_diff) | mean difference relative to baseline for mean end of 
 showtstepsallscensunder(df, 800) | shows all time steps all scenarios are under ("find first month in run when"
 showtstepsallscensover(df, 10) | shows all time steps all scenarios are over
 
-### Period of record mean/total ###
+### Period of Record mean, total ###
    function  | for
 ------------ | -------------
 mn984_taf(df) | mean monthly value
@@ -104,8 +104,8 @@ sum984_taf(df) | sum of all months
 #  Plotting Functions #
 - use suffix `_d` (adds appropriate "[difference]" on axis label) and `df_diff` together for difference plots, and no suffix and `df` for non-difference plots
 
-## Bar Plots ## 
-### pb - Plot Bars - annual mean  ###
+## bar plots ## 
+### pb - plot Bars - annual mean  ###
    function  | for
 ------------ | -------------
 pb_mn_ann_perav_taf(df) |   bars of mean annuals with vertical labels (good for many scenarios)
@@ -114,7 +114,7 @@ pb_mn_ann_perav_taf_nolab_rank(df) | bar of mean annuals without labels, ranked 
 pb_mn_ann_perav_taf_hlab(df) | bars of mean annuals with horizontal labels (good for few scenarios)
 pb_md_ann_perav_taf(df) | bars of annual medians with vertical labels 
 
-### pb - Plot Bars - annual mean by water year type ###
+### pb - plot bars - annual mean by wyt ###
    function  | for
 ------------ | -------------
 pb_mn_scwyt_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
@@ -122,14 +122,14 @@ pb_mn_scwyt_perav_taf_nolab(df) | label-less bars of mean annual flow/delivery t
 pb_mn_scwyt2_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
 pb_mn_sjwyt_perav_taf(df) | bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
 
-### pb - Plot Bars - monthly mean ###
+### pb - plot pars - monthly mean ###
    function  | for
 ------------ | -------------
 pb_mn_eomay_stor_taf(df) | bars of mean end of may storage
 pb_mn_eosep_stor_taf(df) | bars of mean end of september storage
 
-## Bar Plots - difference relative to baseline ## 
-### Ann Avgs ###
+## bar plots - difference relative to baseline ## 
+### ann avgs ###
    function  | for
 ------------ | -------------
 pb_mn_ann_perav_taf_d(df_diff) | difference bars of mean annuals with vertical labels (good for many scenarios)
@@ -137,7 +137,7 @@ pb_mn_ann_perav_taf_d_hlab(df_diff) | difference bars of mean annuals with horiz
 pb_md_ann_perav_taf_d(df_diff) | difference bars of annual medians with vertical labels 
 pb_mn_ann_perav_taf_d_nolab_rank(df_diff) | difference bas of mean annuals without labels, ranked highest to lowest left to right
 
-### WYT Avgs ###
+### wyt avgs ###
    function  | for
 ------------ | -------------
 pb_mn_scwyt_perav_taf_d(df_diff)| difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
@@ -153,8 +153,7 @@ pb_eosep_stor_taf_d(df_diff) | difference bars of mean end of may storage
 pb_eomay_stor_taf_d(df_diff)  | difference bars of mean end of may storage
 
 
-## Bar Plots - all years shown by water year type with means ## 
-### Ann Avgs ###
+## bar plots - all years - ranked by water year type showing overall and wyt means ## 
    function  | for
 ------------ | -------------
 pb_ann_fjwysum_scwyt_taf(df) | ranked bars of feb-jan totals by sacramento water year type
@@ -167,7 +166,7 @@ pb_eomay_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storag
 pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
 
 
-## Probability of Exceedance, Line Plots  ## 
+## probability of exceedance, line plots  ## 
 
 ### monthly ### 
    function  | for
