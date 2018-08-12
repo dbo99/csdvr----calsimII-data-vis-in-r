@@ -59,7 +59,7 @@ add `%>% write.csv("csvname.csv")` to any to export
    function  | for
 ------------ | -------------
 mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
-mn_ann_perav_taf(df_diff) |  mean annual diff. rel. to baseline for period avg (flow/delivery) in taf (
+mn_ann_perav_taf(df_diff) |  mean annual diff. rel. to baseline for period avg (flow/delivery) in taf
 md_ann_perav_taf(df) |  median annual flow/delivery in taf
 md_ann_perav_taf(df_diff) |  median annual diff. rel. to baseline for flow/delivery in taf
 mn_ann_eomstor_taf(df) | mean annual end of month storage (if nothing: makes sure a storage term selected)
@@ -75,28 +75,31 @@ mn_ann_scwyt_perav_taf(df_diff) | meann annual difference rel. to baseline for f
 mn_ann_perav_sjwyt_taf(df) | meann annual flow/delivery total by san joaquin year type in taf
 mn_ann_perav_sjwyt_taf(df_diff)| meann annual flow/delivery total by san soaquin year type in taf
 
-## month extremes ##
+## Period of record minimums and maximums ##
+   function  | for
+------------ | -------------
+max_mon_native(df) | maximum monthly value of all months
+min_mon_native(df) | minimum monthly value of all months
 
-max_mon_native(df) |
-min_mon_native(df) |
+## Mean End of May, End of September Storage ##
+   function  | for
+------------ | -------------
+eo_may_stor_taf(df) | mean end of may storage
+eo_sep_stor_taf(df) | mean end of septemeber storage
+eo_may_stor_taf(df_diff) | mean difference relative to baseline for mean end of may storage
+eo_sep_stor_taf(df_diff) | mean difference relative to baseline for mean end of septemeber storage
 
-### eo may & eo sep storage ###
-
-eo_may_stor_taf(df) | #if error or nothing shows up, no storage terms were selected (same with plots)
-eo_sep_stor_taf(df) |
-
-eo_may_stor_taf(df_diff) 
-eo_sep_stor_taf(df_diff)
-
-### find timesteps ###  for single DV only! 
-
-showtstepsallscensunder(df, 800) #shows all time steps all scens are <##, lists left to right
-showtstepsallscensover(df, 10)
+## find timesteps - for single DV only! ## 
+   function  | for
+------------ | -------------
+showtstepsallscensunder(df, 800) | shows all time steps all scenarios are under ("find first month in run when"
+showtstepsallscensover(df, 10) | shows all time steps all scenarios are over
 
 ## Period of record mean/total
-
-mn984_taf(df) |
-sum984_taf(df) | 
+   function  | for
+------------ | -------------
+mn984_taf(df) | mean monthly value
+sum984_taf(df) | sum of all months
   
   
   
