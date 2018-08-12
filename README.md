@@ -173,7 +173,7 @@ pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storag
 p_mon_excd_taf(df) |   monthly exceedance in taf
 p_mon_excd2_taf(df) |  monthly exceedance in taf style 2 (plot for each dv)
 p_mon_excd_cfs(df) |   monthly exceedance in cfs
-p_mon_excd2_cfs(df) | monthly exceedance in cfs style 2 (subplots for each dv)
+p_mon_excd2_cfs(df) | monthly exceedance in cfs style 2 (plot for each dv)
 p_mon_excd_native(df) |  monthly exceedance in calsim native units, eg EC, km get unit 'unassigned'
 p_mon_excd2_native(df) | monthly exceedance in calsim native units style 2 eg EC, km get unit 'unassigned'
 
@@ -192,20 +192,17 @@ p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (regular cvp
 p_ann_wymn_excd_taf(df) |     annual exceedance -  82 oct-sep means
 p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sep means, style 2 
 
-
-################
-## excd diff  ##
-################
-
-## monthly ## 
-
+## monthly difference ## 
+   function  | for
+------------ | -------------
 p_mon_excd_taf_d(df_diff) | monthly exceedance of differences in taf
 p_mon_excd2_taf_d(df_diff)| monthly exceedance of differences in taf, style 2 
 p_mon_excd_cfs_d(df_diff) | monthly exceedance of differences in cfs
 p_mon_excd2_cfs_d(df_diff)| monthly exceedance of differences in cfs, style 2
 
-## annual ## 
-
+## annual difference ## 
+   function  | for
+------------ | -------------
 p_ann_wysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep totals
 p_ann_wysum_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep totals, style 2
 p_ann_fjwysum_excd_taf_d(df_diff)| annual exceedance - differences of 82 feb-jan totals
@@ -217,37 +214,35 @@ p_ann_jdwysum_excd2_taf_d(df_diff) | annual exceedance - differences of 82 jan-d
 p_ann_wymn_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep means
 p_ann_wymn_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep means, style 2
 
-#########################
-## exceedance, WYT grid
-#########################
 
+## annual by wyt grid ##
+   function  | for
+------------ | -------------
 p_ann_fjwysum_scwyt_excd_taf(df) |    # no "2", dvs together
 p_ann_fjwysum_scwyt_excd2_taf(df) |   # with "2" - dvs apart (facetted)  
 p_ann_fjwysum_sjwyt_excd_taf(df) |    
 p_ann_fjwysum_sjwyt_excd2_taf(df) |   
 
-#########################
-## excd diff, WYT grid
-#########################
 
+## annual by wyt grid, difference ##
+   function  | for
+------------ | -------------
 p_ann_fjwysum_scwyt_excd_taf_d(df_diff) |  
 p_ann_fjwysum_scwyt_excd2_taf_d(df_diff) |
 p_ann_fjwysum_sjwyt_excd_taf_d(df_diff) | 
 p_ann_fjwysum_sjwyt_excd2_taf_d(df_diff)|  
 
-###############################
-## exceedance, month grid, linear
-###############################
-
+## plot for each month, linear
+   function  | for
+------------ | -------------
 p_ann_monfacetg_excd_taf(df) |
 p_ann_monfacetg_excd_taf_d(df_diff)
 p_ann_monfacetg_excd_cfs(df) |
 p_ann_monfacetg_excd_cfs_d(df_diff)
 
-###############################
-## excd diff, month grid, matrix
-###############################
-
+## plot for each month, matrix ##
+   function  | for
+------------ | -------------
 p_ann_monfacetw_excd_taf(df) |
 p_ann_monfacetw_excd_taf_d(df_diff)
 p_ann_monfacetw_excd_cfs(df) |
