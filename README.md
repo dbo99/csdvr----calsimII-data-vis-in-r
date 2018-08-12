@@ -52,7 +52,7 @@
   
 
 #  Data Summary Functions
-- use `df` and `df_diff` interchangeably #
+- use `df` and `df_diff` interchangeably
 - add `%>% write.csv("csvname.csv")` after any to export to working directory
 
 ### annual avgs  ###
@@ -180,17 +180,17 @@ p_mon_excd2_native(df) | monthly exceedance in calsim native units style 2 eg EC
 ### annual ### 
    function  | for
 ------------ | -------------
-p_ann_wysum_excd_taf(df) |    #82 totals
-p_ann_wysum_excd2_taf(df) |   # by columns
-p_ann_wysum_excd3_taf(df) |   # by rows
-p_ann_fjwysum_excd_taf(df) |  #81 feb-jan totals
-p_ann_fjwysum_excd2_taf(df) | 
-p_ann_mfwysum_excd_taf(df) |  #81 mar-feb totals (regular cvp contract)
-p_ann_mfwysum_excd2_taf(df) | 
-p_ann_jdwysum_excd_taf(df) |  #81 cal yr totals (regular swp contract)
-p_ann_jdwysum_excd2_taf(df) | 
-p_ann_wymn_excd_taf(df) |     #82 means
-p_ann_wymn_excd2_taf(df) |    
+p_ann_wysum_excd_taf(df) |    annual exceedance - 82 oct-sept totals
+p_ann_wysum_excd2_taf(df) |   annual exceedance - 82 oct-sept totals, in columns (style 2)
+p_ann_wysum_excd3_taf(df) |   annual exceedance - 82 oct-sept totals, in rows (style 3)
+p_ann_fjwysum_excd_taf(df) |  annual exceedance - 81 feb-jan totals
+p_ann_fjwysum_excd2_taf(df) | annual exceedance - 81 feb-jan totals, columns
+p_ann_mfwysum_excd_taf(df) |  annual exceedance - 81 mar-feb totals (regular cvp contract)
+p_ann_mfwysum_excd2_taf(df) | annual exceedance - 81 mar-feb totals (regular cvp contract), in columns
+p_ann_jdwysum_excd_taf(df) |  annual exceedance - 81 jan-dec totals (regular cvp contract)
+p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (regular cvp contract), in columns
+p_ann_wymn_excd_taf(df) |     annual exceedance -  82 oct-sept means
+p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sept means, in columns 
 
 
 ################
