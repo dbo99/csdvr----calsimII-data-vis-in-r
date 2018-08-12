@@ -72,7 +72,7 @@ md_ann_perav_native(df) | median annual flow/delivery in calsim native units
 mn_ann_scwyt_perav_taf(df) | mean annual flow/delivery total by sacramento year type in taf
 mn_ann_scwyt_perav_taf(df_diff) | meann annual difference rel. to baseline for flow/delivery total by sacramento year type in taf
 mn_ann_perav_sjwyt_taf(df) | meann annual flow/delivery total by san joaquin year type in taf
-mn_ann_perav_sjwyt_taf(df_diff)| meann annual flow/delivery total by san soaquin year type in taf
+mn_ann_perav_sjwyt_taf(df_diff)| meann annual flow/delivery total by san joaquin year type in taf
 
 ### Period of record minimums and maximums ###
    function  | for
@@ -101,10 +101,10 @@ mn984_taf(df) | mean monthly value
 sum984_taf(df) | sum of all months
   
 #  Plotting Functions #
-- use suffix `_d` (adds appropriate "[difference]" on axis label) and `df_diff` together for difference plots, and no suffix and `df` for non-difference plots #
+- use suffix `_d` (adds appropriate "[difference]" on axis label) and `df_diff` together for difference plots, and no suffix and `df` for non-difference plots
 
 ## Bar Plots ## 
-### pb - Plot Bars - annual  ###
+### pb - Plot Bars - annual mean  ###
    function  | for
 ------------ | -------------
 pb_mn_ann_perav_taf(df) |   bars of mean annuals with vertical labels (good for many scenarios)
@@ -113,7 +113,7 @@ pb_mn_ann_perav_taf_nolab_rank(df) | bar of mean annuals without labels, ranked 
 pb_mn_ann_perav_taf_hlab(df) | bars of mean annuals with horizontal labels (good for few scenarios)
 pb_md_ann_perav_taf(df) | bars of annual medians with vertical labels 
 
-### pb - Plot Bars - annual - by water year type ###
+### pb - Plot Bars - annual mean by water year type ###
    function  | for
 ------------ | -------------
 pb_mn_scwyt_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
@@ -143,12 +143,27 @@ pb_mn_scwyt_perav_taf_d(df_diff)| difference bars of mean annual flow/delivery t
 pb_mn_scwyt_perav_taf_d_nolab(df_diff) | label-less difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
 pb_mn_scwyt_perav_taf_d_hlab(df_diff) | horizontally labeled difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
 pb_mn_scwyt2_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
-pb_mn_sjwyt_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
+pb_mn_sjwyt_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
 
 ### month specific diff ###
-
+   function  | for
+------------ | -------------
 pb_eosep_stor_taf_d(df_diff) | difference bars of mean end of may storage
 pb_eomay_stor_taf_d(df_diff)  | difference bars of mean end of may storage
+
+
+## Bar Plots - all years shown by water year type with means ## 
+### Ann Avgs ###
+   function  | for
+------------ | -------------
+pb_ann_fjwysum_scwyt_taf(df) | ranked bars by sacramento water year type
+pb_ann_fjwysum_sjwyt_taf(df) | ranked bars by san joaquin water year type
+pb_ann_fjwysum_scwyt_taf_d(df_diff) |
+pb_ann_fjwysum_sjwyt_taf_d(df_diff) |
+pb_eomay_stor_scwyt_taf(df) |
+pb_eosep_stor_scwyt_taf(df) |
+pb_eomay_stor_scwyt_taf_d(df_diff) |
+pb_eosep_stor_scwyt_taf_d(df_diff) |
 
 
 #######################################################################
@@ -241,39 +256,7 @@ p_ann_monfacetw_excd_taf_d(df_diff)
 p_ann_monfacetw_excd_cfs(df) |
 p_ann_monfacetw_excd_cfs_d(df_diff)
 
-#######################################################################
-#######################################################################
-## exceedance bars         ############################################
-#######################################################################
-#######################################################################
 
-#################################
-## WYT sums, sequential bars
-#################################
-
-pb_ann_fjwysum_scwyt_taf(df) |
-pb_ann_fjwysum_sjwyt_taf(df) |
-
-##################################
-## WYT sums, sequential bars, diff
-##################################
-
-pb_ann_fjwysum_scwyt_taf_d(df_diff)
-pb_ann_fjwysum_sjwyt_taf_d(df_diff)
-
-##################################
-## WYT stors, sequential bars
-##################################
-
-pb_eomay_stor_scwyt_taf(df) |
-pb_eosep_stor_scwyt_taf(df) |
-
-###################################
-## WYT stors, sequential bars, diff
-###################################
-
-pb_eomay_stor_scwyt_taf_d(df_diff)
-pb_eosep_stor_scwyt_taf_d(df_diff)
 
 #######################################################################
 #######################################################################
