@@ -51,8 +51,9 @@
   https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2
   
 
-#  Data Summary Functions - use `df` and `df_diff` interchangeably #
-add `%>% write.csv("csvname.csv")` to any to export
+#  Data Summary Functions
+- use `df` and `df_diff` interchangeably #
+- add `%>% write.csv("csvname.csv")` after any to export to working directory
 
 ### Annual Avgs  ###
    function  | for
@@ -156,24 +157,21 @@ pb_eomay_stor_taf_d(df_diff)  | difference bars of mean end of may storage
 ### Ann Avgs ###
    function  | for
 ------------ | -------------
-pb_ann_fjwysum_scwyt_taf(df) | ranked bars by sacramento water year type
-pb_ann_fjwysum_sjwyt_taf(df) | ranked bars by san joaquin water year type
-pb_ann_fjwysum_scwyt_taf_d(df_diff) |
-pb_ann_fjwysum_sjwyt_taf_d(df_diff) |
-pb_eomay_stor_scwyt_taf(df) |
-pb_eosep_stor_scwyt_taf(df) |
-pb_eomay_stor_scwyt_taf_d(df_diff) |
-pb_eosep_stor_scwyt_taf_d(df_diff) |
+pb_ann_fjwysum_scwyt_taf(df) | ranked bars of feb-jan totals by sacramento water year type
+pb_ann_fjwysum_sjwyt_taf(df) | ranked bars of feb-jan totals by san joaquin water year type
+pb_ann_fjwysum_scwyt_taf_d(df_diff) | ranked difference bars of feb-jan totals by sacramento water year type
+pb_ann_fjwysum_sjwyt_taf_d(df_diff) | ranked difference bars of feb-jan totals by san joaquin water year type
+pb_eomay_stor_scwyt_taf(df) | ranked bars of end of may storages by sacramento water year type
+pb_eosep_stor_scwyt_taf(df) | ranked bars of end of september storages by sacramento water year type
+pb_eomay_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
+pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
 
 
-#######################################################################
-#######################################################################
-## exceedance lines ###################################################
-#######################################################################
-#######################################################################
+## Probability of Exceedance, Line Plots  ## 
 
-## monthly ## 
-
+### monthly ### 
+   function  | for
+------------ | -------------
 p_mon_excd_taf(df) |          # no "2", dvs together
 p_mon_excd2_taf(df) |         # with "2" - dvs apart (facetted) 
 p_mon_excd_cfs(df) |
@@ -181,8 +179,9 @@ p_mon_excd2_cfs(df) |
 p_mon_excd_native(df) |       # use for non cfs/taf terms, eg EC, km
 p_mon_excd2_native(df) |
 
-## annual ## 
-
+### annual ### 
+   function  | for
+------------ | -------------
 p_ann_wysum_excd_taf(df) |    #82 totals
 p_ann_wysum_excd2_taf(df) |   # by columns
 p_ann_wysum_excd3_taf(df) |   # by rows
