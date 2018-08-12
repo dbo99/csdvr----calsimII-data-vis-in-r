@@ -75,7 +75,7 @@ mn_ann_scwyt_perav_taf(df_diff) | meann annual difference rel. to baseline for f
 mn_ann_perav_sjwyt_taf(df) | meann annual flow/delivery total by san joaquin year type in taf
 mn_ann_perav_sjwyt_taf(df_diff)| meann annual flow/delivery total by san joaquin year type in taf
 
-### global minimums and maximums ###
+### global mins and maxs ###
    function  | for
 ------------ | -------------
 max_mon_native(df) | maximum monthly value of all months
