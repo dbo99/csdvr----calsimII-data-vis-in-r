@@ -52,33 +52,28 @@
   
 ## functions ##
 
-#  Data Summary Functions #
+##  Data Summary Functions ##
 add `%>% write.csv("csvname.csv")` to any to export
 
-## annual Avgs ##
+### Annual Avgs ###
    function  | for
 ------------ | -------------
 mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
+mn_ann_perav_taf(df_diff) |  mean annual diff. rel. to baseline for period avg (flow/delivery) in taf (
 md_ann_perav_taf(df) |  median annual flow/delivery in taf
+md_ann_perav_taf(df_diff) |  median annual diff. rel. to baseline for flow/delivery in taf
 mn_ann_eomstor_taf(df) | mean annual end of month storage (if nothing: makes sure a storage term selected)
+mn_ann_eomstor_taf(df_diff) | mean annual diff. rel. to baseline for end of month storage (if nothing: makes sure a storage term selected)
 mn_ann_perav_native(df) | mean annual flow/delivery in calsim native units
 md_ann_perav_native(df) | median annual flow/delivery in calsim native units
 
-## annual Avg diffs ##
-
-mn_ann_perav_taf(df_diff) # %>% write.csv("enterdv(s)_mnanntaf_perav_diff.csv")
-md_ann_perav_taf(df_diff)
-mn_ann_eomstor_taf(df_diff)
-
-## WYT Avgs ##
-
-#sac
-mn_ann_scwyt_perav_taf(df) |
-mn_ann_scwyt_perav_taf(df_diff)
-
-## sj
-mn_ann_perav_sjwyt_taf(df) |
-mn_ann_perav_sjwyt_taf(df_diff)
+### WYT Avgs ###
+   function  | for
+------------ | -------------
+mn_ann_scwyt_perav_taf(df) | meann annual flow/delivery total by sacramento year type in taf
+mn_ann_scwyt_perav_taf(df_diff) | meann annual difference rel. to baseline for flow/delivery total by sacramento year type in taf
+mn_ann_perav_sjwyt_taf(df) | meann annual flow/delivery total by san joaquin year type in taf
+mn_ann_perav_sjwyt_taf(df_diff)| meann annual flow/delivery total by san soaquin year type in taf
 
 ## month extremes ##
 
