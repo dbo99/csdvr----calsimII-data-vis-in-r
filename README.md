@@ -55,7 +55,7 @@
 ##  Data Summary Functions ##
 add `%>% write.csv("csvname.csv")` to any to export
 
-### Annual Avgs ###
+### Annual Avgs - use `df` and `df_diff` interchangeably ###
    function  | for
 ------------ | -------------
 mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
