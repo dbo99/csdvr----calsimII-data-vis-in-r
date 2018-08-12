@@ -23,7 +23,7 @@
 **Download** `csdvr_date.zip` (~15 mb: ~30 kb of scripts, ~15 mb of sample plots)
    https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_aug18.zip
 
-**Drop** your calsim csvs in `csv` folder (or save them their initially from WRIMS2)
+**Drop** your calsim csvs in `csv` folder (or save them there initially from WRIMS2)
 
 **Point to files and ID scenarios** in **`csv_list.r`**: enter each csv file name (eg `040812_bo_y1a1.csv`) and give unique nickname (eg `Scen1_Y1A1`) for each
 
