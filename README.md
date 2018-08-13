@@ -103,7 +103,7 @@ showtstepsallscensover(df, 10) | shows all time steps all scenarios are over
 mn984_taf(df) | mean monthly value
 sum984_taf(df) | sum of all months
   
-#  Plotting Functions #
+#  Plotting Functions - stats at top, timeseries below#
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
 - apply function with suffix *`_d`* (adds appropriate "[difference]" on axis label) on `data.frame` `df_diff` for difference plots (ie `df` and `df_diff` not used interchangeably as in above data summary functions)
 
