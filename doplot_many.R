@@ -5,11 +5,11 @@ setwd(here())
 #sample plot functions
 #prast_mon_ts_taf(df)
 #prast_ann_ts_sum_taf(df)
-#prast_annmonmean_ts_mn_taf(df)
+#prast_ann_ts_mn_taf(df)
 ##diff#
 #prast_mon_ts_taf_d(df_diff)
 #prast_ann_ts_sum_taf_d(df_diff)
-#prast_annmonmean_ts_mn_taf_d(df_diff)
+#prast_ann_ts_mn_taf_d(df_diff)
 #
 #ptile_mon_ts_taf(df)
 #ptile_ann_ts_sum_taf(df)
@@ -303,7 +303,7 @@ setwd(here())
   
   
   
-  p_ann_monfacetw_excd_taf(df) + ggtitle("Total Delta Outflow by Month") +
+  p_monfacetw_excd_taf(df) + ggtitle("Total Delta Outflow by Month") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))+ 
     scale_color_manual(values=df_cols) 
   setwd(here("plots", "doplot_many"))
@@ -318,7 +318,7 @@ setwd(here())
   
   
   
-  p_ann_monfacetw_excd_taf_d(df_diff) + ggtitle("Total Delta Outflow by Month, Difference from Baseline")+
+  p_monfacetw_excd_taf_d(df_diff) + ggtitle("Total Delta Outflow by Month, Difference from Baseline")+
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))+ 
     scale_color_manual(values=df_diff_cols) 
   setwd(here("plots", "doplot_many"))
@@ -333,7 +333,7 @@ setwd(here())
   
   
   
-  p_ann_monfacetw_excd_cfs(df) + ggtitle("Total Delta Outflow by Month (cfs)") +
+  p_monfacetw_excd_cfs(df) + ggtitle("Total Delta Outflow by Month (cfs)") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))+ 
     scale_color_manual(values=df_cols) 
   setwd(here("plots", "doplot_many"))
@@ -348,7 +348,7 @@ setwd(here())
   
   
   
-  p_ann_monfacetw_excd_cfs_d(df_diff) + ggtitle("Total Delta Outflow by Month, Difference from Baseline (cfs)")+
+  p_monfacetw_excd_cfs_d(df_diff) + ggtitle("Total Delta Outflow by Month, Difference from Baseline (cfs)")+
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))+ 
     scale_color_manual(values=df_diff_cols) 
   setwd(here("plots", "doplot_many"))

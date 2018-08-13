@@ -181,7 +181,7 @@ setwd(here())
 source("df_create.r")
 
 
-p_ann_monfacetw_excd_cfs(df) + ggtitle("Total Delta Outflow, 984 months") +
+p_monfacetw_excd_cfs(df) + ggtitle("Total Delta Outflow, 984 months") +
 theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))
 setwd(here("plots", "july2018plots"))
 ggsave(paste0(paste(dvs,collapse="&"), "_mongridexcdw.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
@@ -194,7 +194,7 @@ setwd(here())
   source("df_create.r")
   
   
-  p_ann_monfacetw_excd_cfs_d(df_diff) + ggtitle("Total Delta Outflow, 984 months, difference from baseline") +
+  p_monfacetw_excd_cfs_d(df_diff) + ggtitle("Total Delta Outflow, 984 months, difference from baseline") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))
   setwd(here("plots", "july2018plots"))
   ggsave(paste0(paste(dvs,collapse="&"), "_mongridexcdw_diff.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
@@ -208,7 +208,7 @@ setwd(here())
   source("df_create.r")
   
   
-  p_ann_monfacetg_excd_cfs(df) + ggtitle("Total Delta Outflow, 984 months") +
+  p_monfacetg_excd_cfs(df) + ggtitle("Total Delta Outflow, 984 months") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm")) #+ scale_colour_manual(values=df_cols ) 
   setwd(here("plots", "july2018plots"))
   ggsave(paste0(paste(dvs,collapse="&"), "_mongridexcdgrid.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
@@ -221,7 +221,7 @@ setwd(here())
   source("df_create.r")
   
   
-  p_ann_monfacetg_excd_cfs_d(df_diff) + ggtitle("Total Delta Outflow, 984 months, difference from baseline") +
+  p_monfacetg_excd_cfs_d(df_diff) + ggtitle("Total Delta Outflow, 984 months, difference from baseline") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))
   setwd(here("plots", "july2018plots"))
   ggsave(paste0(paste(dvs,collapse="&"), "_mongridexcdgrid_diff.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
@@ -236,7 +236,7 @@ setwd(here())
   source("df_create.r")
   
   
-  p_ann_monfacetw_excd_cfs(df) + ggtitle("Old and Middle River, 984 months") +
+  p_monfacetw_excd_cfs(df) + ggtitle("Old and Middle River, 984 months") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm")) 
   setwd(here("plots", "july2018plots"))
   ggsave(paste0(paste(dvs,collapse="&"), "_mongridexcdwrap.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
@@ -250,7 +250,7 @@ setwd(here())
   
   
 
-  p_ann_monfacetw_excd_cfs_d(df_diff) + ggtitle("Old and Middle River, 984 months, difference from baseline") +
+  p_monfacetw_excd_cfs_d(df_diff) + ggtitle("Old and Middle River, 984 months, difference from baseline") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))
   
   setwd(here("plots", "july2018plots"))
@@ -266,7 +266,7 @@ setwd(here())
   source("df_create.r")
   
   
-  p_ann_monfacetg_excd_cfs(df) + ggtitle("Old and Middle River, 984 months") +
+  p_monfacetg_excd_cfs(df) + ggtitle("Old and Middle River, 984 months") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm")) 
   setwd(here("plots", "july2018plots"))
   ggsave(paste0(paste(dvs,collapse="&"), "_mongridexcdgrid.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
@@ -280,7 +280,7 @@ setwd(here())
   
   
   ymin <- min(df$cfs)
-  p_ann_monfacetg_excd_cfs_d(df_diff) + ggtitle("Old and Middle River, 984 months,  difference from baseline") +
+  p_monfacetg_excd_cfs_d(df_diff) + ggtitle("Old and Middle River, 984 months,  difference from baseline") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))
   setwd(here("plots", "july2018plots"))
   ggsave(paste0(paste(dvs,collapse="&"), "_mongridexcdgrid_diff.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
