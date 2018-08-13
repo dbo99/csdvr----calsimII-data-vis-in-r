@@ -172,9 +172,9 @@ pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of september 
    function  | for
 ------------ | -------------
 p_mon_excd_taf(df) |   monthly exceedance in taf
-p_mon_excd2_taf(df) |  monthly exceedance in taf style 2 (plot for each dv)
+p_mon_excd2_taf(df) |  monthly exceedance in taf, style 2 (plot for each dv)
 p_mon_excd_cfs(df) |   monthly exceedance in cfs
-p_mon_excd2_cfs(df) | monthly exceedance in cfs style 2 (plot for each dv)
+p_mon_excd2_cfs(df) | monthly exceedance in cfs, style 2 
 p_mon_excd_native(df) |  monthly exceedance in calsim native units, eg EC, km get unit 'unassigned'
 p_mon_excd2_native(df) | monthly exceedance in calsim native units style 2 eg EC, km get unit 'unassigned'
 
