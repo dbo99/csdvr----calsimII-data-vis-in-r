@@ -4,9 +4,6 @@
  analyze calsim output for large numbers of variables or scenarios | 
  export report or presentation ready plot images (jpgs, pdfs, etc) or interactive html plots  
 
-![What is this](s4_anntotaldiffsrankedbysacwyt.jpg.png)
-![Alt text](relative/path/to/s4_anntotaldiffsrankedbysacwyt.jpg?raw=true "Title")
-
    key file  | use
 ------------ | -------------
 `csv_list.r` | list csv file names and give unique nicknames
