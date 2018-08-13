@@ -103,7 +103,7 @@ showtstepsallscensover(df, 10) | shows all time steps all scenarios are over
 mn984_taf(df) | mean monthly value
 sum984_taf(df) | sum of all months
   
-#  Plotting Functions - stats first then timeseries twd bottom #
+#  Plotting - stats first then timeseries towardd bottom #
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
 - apply function with suffix *`_d`* (adds appropriate "[difference]" on axis label) on `data.frame` `df_diff` for difference plots (ie `df` and `df_diff` not used interchangeably as in above data summary functions)
 
@@ -293,8 +293,7 @@ pdr_ann_perav_wysum_taf_d(df_diff)| as above, difference
 pdr2_ann_perav_wysum_taf_d(df_diff)|as above,  difference
 pdr_ann_perav_mfwysum_taf_d(df_diff)| as above,  difference
 
-
-# timeseries #
+# Timeseries #
 
 ## monthly - line ## 
    function  | for
@@ -331,10 +330,10 @@ p_ann_ts_sum_taf_d (df_diff, 1975, 1978) | timeseries of differences of annual t
 p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)| timeseries of differences of annual means
 pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences of annual totals, taf
 
-###################################
-## timeseries ridges###############  # for one dv only! #
-###################################
 
+## timeseries ridges ## for one dv only! ##
+   function  | for
+------------ | -------------
  - plot ggridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
     function  | for
 ------------ | -------------
@@ -343,10 +342,10 @@ pr_ts_taf_d(df_diff, 1921, 2007, 0.009)| whole monthly timeseries of differences
 pr_ts_eomstormean_taf(df, 1970, 1995, 0.00001)| whole monthly timeseries of storage - color scale: mean end of month (dont add storage)
 pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)| whole monthly timeseries of difference of storage. divergent scale
 
-###################################
-## timeseries tiles ###############  
-###################################
 
+## timeseries rasters (grid view) #
+   function  | for
+------------ | -------------
 prast_mon_ts_taf(df) | timeseries raster of monthly in taf
 prast_ann_ts_sum_taf(df) | timeseries raster (stripes) of water year totals (sums) in taf
 prast_ann_ts_mn_taf(df) | timeseries raster (stripes) of water year means in taf
