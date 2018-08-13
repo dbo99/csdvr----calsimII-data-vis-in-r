@@ -54,7 +54,7 @@ click `2b` | **generate individual data summaries** (ie tabular as `tibble`,`.cs
 
 #  Data Summary Functions
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
-- use `df` and `df_diff` interchangeably
+- use `samefunction(df)` for regular output and `samefunction(df_diff)` for the scenario minus baseline difference
 - add `%>% write.csv("processedDV(s)ofinterest.csv")` after any to export `processedDV(s)ofinterest.csv` to working directory
 
 ### annual avgs  ###
