@@ -55,7 +55,7 @@
 #  Data Summary Functions
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
 - use `df` and `df_diff` interchangeably
-- add `%>% write.csv("csvname.csv")` after any to export `DVsummary.csv` to working directory
+- add `%>% write.csv("processedDV(s)ofinterest.csv")` after any to export `processedDV(s)ofinterest.csv` to working directory
 
 ### annual avgs  ###
    function  | for
@@ -166,7 +166,6 @@ pb_eosep_stor_scwyt_taf(df) | ranked bars of end of september storages by sacram
 pb_eomay_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
 pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
 
-
 ## line plots - monthly and annual probability of exceedance ## 
 
 ### monthly ### 
@@ -194,7 +193,7 @@ p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (regular cvp
 p_ann_wymn_excd_taf(df) |     annual exceedance -  82 oct-sep means
 p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sep means, style 2 
 
-## monthly difference ## 
+### monthly difference ###
    function  | for
 ------------ | -------------
 p_mon_excd_taf_d(df_diff) | monthly exceedance of differences in taf
@@ -202,7 +201,7 @@ p_mon_excd2_taf_d(df_diff)| monthly exceedance of differences in taf, style 2
 p_mon_excd_cfs_d(df_diff) | monthly exceedance of differences in cfs
 p_mon_excd2_cfs_d(df_diff)| monthly exceedance of differences in cfs, style 2
 
-## annual difference ## 
+### annual difference ### 
    function  | for
 ------------ | -------------
 p_ann_wysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep totals
@@ -217,64 +216,56 @@ p_ann_wymn_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep m
 p_ann_wymn_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep means, style 2
 
 
-## annual by wyt grid ##
+### annual by wyt grid ###
    function  | for
 ------------ | -------------
-p_ann_fjwysum_scwyt_excd_taf(df) |    # no "2", dvs together
-p_ann_fjwysum_scwyt_excd2_taf(df) |   # with "2" - dvs apart (facetted)  
-p_ann_fjwysum_sjwyt_excd_taf(df) |    
-p_ann_fjwysum_sjwyt_excd2_taf(df) |   
+p_ann_fjwysum_scwyt_excd_taf(df) |    6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt
+p_ann_fjwysum_scwyt_excd2_taf(df) |   6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt, style 2 
+p_ann_fjwysum_sjwyt_excd_taf(df) |    6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt
+p_ann_fjwysum_sjwyt_excd2_taf(df) |   6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt, style 2
 
 
-## annual by wyt grid, difference ##
+### annual by wyt grid, difference ###
    function  | for
 ------------ | -------------
-p_ann_fjwysum_scwyt_excd_taf_d(df_diff) |  
-p_ann_fjwysum_scwyt_excd2_taf_d(df_diff) |
-p_ann_fjwysum_sjwyt_excd_taf_d(df_diff) | 
-p_ann_fjwysum_sjwyt_excd2_taf_d(df_diff)|  
+p_ann_fjwysum_scwyt_excd_taf_d(df_diff) |  difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt
+p_ann_fjwysum_scwyt_excd2_taf_d(df_diff) | difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt, style 2 
+p_ann_fjwysum_sjwyt_excd_taf_d(df_diff) | difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt
+p_ann_fjwysum_sjwyt_excd2_taf_d(df_diff)|  difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt, style 2
 
-## plot for each month, linear
+### plot for each month, linear ###
    function  | for
 ------------ | -------------
-p_ann_monfacetg_excd_taf(df) |
-p_ann_monfacetg_excd_taf_d(df_diff)
-p_ann_monfacetg_excd_cfs(df) |
-p_ann_monfacetg_excd_cfs_d(df_diff)
+p_ann_monfacetg_excd_taf(df) | 12 plots of individual months in a line (Grid) in taf 
+p_ann_monfacetg_excd_taf_d(df_diff)| difference - 12 plots of individual months in a line in taf
+p_ann_monfacetg_excd_cfs(df) | 12 plots of individual months in a line in cfs
+p_ann_monfacetg_excd_cfs_d(df_diff)| difference - 12 plots of individual months in a line in cfs
 
-## plot for each month, matrix ##
+### plot for each month, matrix ###
    function  | for
 ------------ | -------------
-p_ann_monfacetw_excd_taf(df) |
-p_ann_monfacetw_excd_taf_d(df_diff)
-p_ann_monfacetw_excd_cfs(df) |
-p_ann_monfacetw_excd_cfs_d(df_diff)
+p_ann_monfacetw_excd_taf(df) | 12 plots of individual months in a matrix (Wrap) in taf
+p_ann_monfacetw_excd_taf_d(df_diff) | difference - 12 plots of individual months in a matrix in taf
+p_ann_monfacetw_excd_cfs(df) | 12 plots of individual months in a matrix in cfs
+p_ann_monfacetw_excd_cfs_d(df_diff) | difference - 12 plots of individual months in a matrix in cfs
+
+## tukey box plots - monthly and annual probability of exceedance ## 
+
+### monthly ###
+- pbly best for only one dv (quickly too busy) 
+- good for plotly/ggplotly - medians/hinges/outliars hoverable
+   function  | for
+------------ | -------------
+pbp_mon_taf(df) |        
+pbp_mon_taf_d(df_diff)  | 
+pbp_mon_scwyt_taf(df) |  
+pbp_mon_scwyt_taf_d(df_diff) |
 
 
+### annual  ###
 
-#######################################################################
-#######################################################################
-##   box plots    #####################################################
-#######################################################################
-#######################################################################
-
-##################################
-### monthly ######################
-##################################
-
-#plot box plot monthly taf 
-pbp_mon_taf(df) |        #pbly best for only one dv, (very busy) #good for plotly - medians/hinges/outliars hoverable
-pbp_mon_scwyt_taf(df) |  #pbly best for only one dv
-
-## diff ##
-pbp_mon_taf_d(df_diff)  
-pbp_mon_scwyt_taf_d(df_diff)
-
-
-##################################
-### annual  ######################
-##################################
-
+   function  | for
+------------ | -------------
 pbp_ann_perav_wysum_taf(df) |
 pbp_ann_perav_fjwysum_taf(df) |
 pbp_ann_perav_fjwysum_scwyt_taf(df) |
