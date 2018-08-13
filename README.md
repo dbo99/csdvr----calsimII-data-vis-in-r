@@ -148,7 +148,7 @@ pb_mn_scwyt_perav_taf_d_hlab(df_diff) | horizontally labeled difference bars of 
 pb_mn_scwyt2_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
 pb_mn_sjwyt_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
 
-### month-specific mean difference ###
+### month-specific mean differences ###
    function  | for
 ------------ | -------------
 pb_eomay_stor_taf_d(df_diff)  | difference bars of mean end of may storage
@@ -216,7 +216,7 @@ p_ann_wymn_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep m
 p_ann_wymn_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep means, style 2
 
 
-### annual by wyt grid - line###
+### annual by wyt grid - line ###
    function  | for
 ------------ | -------------
 p_ann_fjwysum_scwyt_excd_taf(df) |    6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt
@@ -301,19 +301,18 @@ pdr_ann_perav_mfwysum_taf_d(df_diff)| as above,  difference
 ## monthly - line ## 
    function  | for
 ------------ | -------------
-p_mon_ts_taf(df, 1921, 2004)  |
-p_mon_ts_may_taf(df, 1929, 1937) |
-p_mon_ts_sep_taf(df, 1929, 1937) |
-p_mon_ts_taf_maysseps_taf(df, 1922, 2003) |
-
-p_mon_ts_cfs(df, 1920, 2003) |
-p_mon_ts_native(df, 1930, 1935) |
+p_mon_ts_taf(df, 1921, 2004)  | monthly timeseries from start to end year, taf
+p_mon_ts_may_taf(df, 1929, 1937) | monthly timeseries of just mays from start to end year, taf
+p_mon_ts_sep_taf(df, 1929, 1937) | monthly timeseries of just seps from start to end year, taf
+p_mon_ts_taf_maysseps_taf(df, 1922, 2003) |  monthly timeseries of just mays & seps from start to end year, taf
+p_mon_ts_cfs(df, 1920, 2003) | monthly timeseries from start to end year, cfs
+p_mon_ts_native(df, 1930, 1935) | monthly timeseries from start to end year, native calsim unit
 
 ## annual - line ## 
 
-p_ann_ts_sum_taf(df, 1977, 1978) |
-p_ann_ts_sum_native(df, 1930, 1990)|
-p_annmonmean_ts_mn_taf (df, 1922, 1990) |
+p_ann_ts_sum_taf(df, 1977, 1978) | timeseries of annual totals, taf
+p_ann_ts_sum_native(df, 1930, 1990)| timeseries of annual totals, native calsim unit
+p_annmonmean_ts_mn_taf (df, 1922, 1990) | timeseries of annual mean, taf
 
 ##################################
 ## timeseries difference #########
