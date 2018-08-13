@@ -254,6 +254,7 @@ p_ann_monfacetw_excd_cfs_d(df_diff) | difference - 12 plots of individual months
 ### monthly - box plots ###
 - pbly best for only one dv (too busy) 
 - good for plotly/ggplotly - medians/hinges/outliars hoverable
+
    function  | for
 ------------ | -------------
 pbp_mon_taf(df) |  monthly taf box plots      
