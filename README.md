@@ -38,6 +38,7 @@
 `2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest by searching for DVs here and by running individual functions listed below this block (~80)
 
 ### notes ###
+- above steps will export batches of plots. functions are listed below only for reference and new analysis.
 - assumes DV name familiarity, eg Folsom Lake is `s8`. If not consult `.wresl` or `.dss` files.  `varcodes.csv` identifies some dvname-commonname pairs, add more as desired. By defaults plots label the `df$dv`, the actual CalSim name, not the `df$dv_name`, the common name (development of a switch is in progress)
 - save new finished plot scripts in `plotexportscripts` folder to add to collection of templates & add folder of file name
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
