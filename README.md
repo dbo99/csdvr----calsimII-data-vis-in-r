@@ -23,7 +23,7 @@
 **Download** `csdvr_date.zip` (~15.03 mb: ~15 mb of sample plots, ~30 kb of scripts)
    https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_aug18.zip
 
-**Drop** your calsim csvs in `csv` folder (or save them there initially from WRIMS2).
+**Drop** your calsim csvs in `csv` folder (or save them there initially from WRIMS2)
 
 **Open RStudio and files** by clicking on `control.r`, then open  `csv_list.r` and `scen_facts.r`
 
