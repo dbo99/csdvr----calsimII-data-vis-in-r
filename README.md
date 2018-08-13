@@ -149,9 +149,8 @@ pb_mn_sjwyt_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery 
 ### month-specific mean difference ###
    function  | for
 ------------ | -------------
-pb_eosep_stor_taf_d(df_diff) | difference bars of mean end of may storage
 pb_eomay_stor_taf_d(df_diff)  | difference bars of mean end of may storage
-
+pb_eosep_stor_taf_d(df_diff) | difference bars of mean end of september storage
 
 ## bar plots - all years - ranked by water year type showing overall and wyt means ## 
    function  | for
