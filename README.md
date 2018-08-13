@@ -332,8 +332,6 @@ pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences o
 
 
 ## timeseries ridges - pr - plot ridges - one dv only! ##
-   function  | for
------------- | -------------
  - plot ridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
     function  | for
 ------------ | -------------
