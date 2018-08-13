@@ -168,7 +168,7 @@ pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storag
 
 ## line plots - monthly and annual probability of exceedance ## 
 
-### monthly ### 
+### monthly - line ### 
    function  | for
 ------------ | -------------
 p_mon_excd_taf(df) |   monthly exceedance in taf
@@ -178,7 +178,7 @@ p_mon_excd2_cfs(df) | monthly exceedance in cfs style 2 (plot for each dv)
 p_mon_excd_native(df) |  monthly exceedance in calsim native units, eg EC, km get unit 'unassigned'
 p_mon_excd2_native(df) | monthly exceedance in calsim native units style 2 eg EC, km get unit 'unassigned'
 
-### annual ### 
+### annual - line ### 
    function  | for
 ------------ | -------------
 p_ann_wysum_excd_taf(df) |    annual exceedance - 82 oct-sep totals
@@ -193,7 +193,7 @@ p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (regular cvp
 p_ann_wymn_excd_taf(df) |     annual exceedance -  82 oct-sep means
 p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sep means, style 2 
 
-### monthly difference ###
+### monthly difference - line ###
    function  | for
 ------------ | -------------
 p_mon_excd_taf_d(df_diff) | monthly exceedance of differences in taf
@@ -201,7 +201,7 @@ p_mon_excd2_taf_d(df_diff)| monthly exceedance of differences in taf, style 2
 p_mon_excd_cfs_d(df_diff) | monthly exceedance of differences in cfs
 p_mon_excd2_cfs_d(df_diff)| monthly exceedance of differences in cfs, style 2
 
-### annual difference ### 
+### annual difference - line ### 
    function  | for
 ------------ | -------------
 p_ann_wysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep totals
@@ -216,7 +216,7 @@ p_ann_wymn_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep m
 p_ann_wymn_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep means, style 2
 
 
-### annual by wyt grid ###
+### annual by wyt grid - line###
    function  | for
 ------------ | -------------
 p_ann_fjwysum_scwyt_excd_taf(df) |    6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt
@@ -225,7 +225,7 @@ p_ann_fjwysum_sjwyt_excd_taf(df) |    6 plots (5 wyts and 1 overall) of feb-jan 
 p_ann_fjwysum_sjwyt_excd2_taf(df) |   6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt, style 2
 
 
-### annual by wyt grid, difference ###
+### annual by wyt grid, difference - line ###
    function  | for
 ------------ | -------------
 p_ann_fjwysum_scwyt_excd_taf_d(df_diff) |  difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt
@@ -233,7 +233,7 @@ p_ann_fjwysum_scwyt_excd2_taf_d(df_diff) | difference - 6 plots (5 wyts and 1 ov
 p_ann_fjwysum_sjwyt_excd_taf_d(df_diff) | difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt
 p_ann_fjwysum_sjwyt_excd2_taf_d(df_diff)|  difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt, style 2
 
-### plot for each month, linear ###
+### plot for each month, linear - line ###
    function  | for
 ------------ | -------------
 p_ann_monfacetg_excd_taf(df) | 12 plots of individual months in a line (Grid) in taf 
@@ -241,7 +241,7 @@ p_ann_monfacetg_excd_taf_d(df_diff)| difference - 12 plots of individual months 
 p_ann_monfacetg_excd_cfs(df) | 12 plots of individual months in a line in cfs
 p_ann_monfacetg_excd_cfs_d(df_diff)| difference - 12 plots of individual months in a line in cfs
 
-### plot for each month, matrix ###
+### plot for each month, matrix - line ###
    function  | for
 ------------ | -------------
 p_ann_monfacetw_excd_taf(df) | 12 plots of individual months in a matrix (Wrap) in taf
@@ -251,7 +251,7 @@ p_ann_monfacetw_excd_cfs_d(df_diff) | difference - 12 plots of individual months
 
 ## tukey box plots - pbp - plot box plots ## 
 
-### monthly ###
+### monthly - box plots ###
 - pbly best for only one dv (too busy) 
 - good for plotly/ggplotly - medians/hinges/outliars hoverable
    function  | for
@@ -262,7 +262,7 @@ pbp_mon_scwyt_taf(df) |  monthly taf box plots by sacramento water year type
 pbp_mon_scwyt_taf_d(df_diff) |  monthly taf box plots of differences by sacramento water year type
 
 
-### annual  ###
+### annual - box plots ###
    function  | for
 ------------ | -------------
 pbp_ann_perav_wysum_taf(df) | box plots of water year totals
@@ -298,42 +298,42 @@ pdr_ann_perav_mfwysum_taf_d(df_diff)| as above,  difference
 
 # timeseries #
 
-## line - monthly ## 
+## monthly - line ## 
    function  | for
 ------------ | -------------
-p_mon_ts_taf(df, 1921, 2004)  #+ coord_cartesian(ylim=c(0, 500)) #+ geom_text() 
-p_mon_ts_may_taf(df, 1929, 1937) 
-p_mon_ts_sep_taf(df, 1929, 1937) 
-p_mon_ts_taf_maysseps_taf(df, 1922, 2003) 
+p_mon_ts_taf(df, 1921, 2004)  |
+p_mon_ts_may_taf(df, 1929, 1937) |
+p_mon_ts_sep_taf(df, 1929, 1937) |
+p_mon_ts_taf_maysseps_taf(df, 1922, 2003) |
 
-p_mon_ts_cfs(df, 1920, 2003) 
-p_mon_ts_native(df, 1930, 1935) #if nothing shows up, no key DVs are in cfs or taf (eg EC or KM) (same for all _natives)
+p_mon_ts_cfs(df, 1920, 2003) |
+p_mon_ts_native(df, 1930, 1935) |
 
-## line - annual ## 
+## annual - line ## 
 
-p_ann_ts_sum_taf(df, 1977, 1978) 
-p_ann_ts_sum_native(df, 1930, 1990)
-p_annmonmean_ts_mn_taf (df, 1922, 1990) 
+p_ann_ts_sum_taf(df, 1977, 1978) |
+p_ann_ts_sum_native(df, 1930, 1990)|
+p_annmonmean_ts_mn_taf (df, 1922, 1990) |
 
 ##################################
 ## timeseries difference #########
 ##################################
 
-## line - monthly ## 
+## monthly - line ## 
 
 #plot monthly timeseries taf difference
-p_mon_ts_taf_d (df_diff, 1922, 1925)  #+ coord_cartesian(ylim=c(-75, 250)) 
-p_mon_ts2_taf_d (df_diff, 1922, 2003)
-p_mon_ts3_taf_d (df_diff, 1922, 2003)
-p_mon_ts_cfs_d (df_diff, 1922, 2003)
-p_mon_ts_native_d(df_diff, 1922, 1923)
-p_mon_ts2_native_d(df_diff, 1921, 1930)
+p_mon_ts_taf_d (df_diff, 1922, 1925)|
+p_mon_ts2_taf_d (df_diff, 1922, 2003)|
+p_mon_ts3_taf_d (df_diff, 1922, 2003)|
+p_mon_ts_cfs_d (df_diff, 1922, 2003)|
+p_mon_ts_native_d(df_diff, 1922, 1923)|
+p_mon_ts2_native_d(df_diff, 1921, 1930)|
 
-## line - annual ##
+## annual - line ##
 
-p_ann_ts_sum_taf_d (df_diff, 1975, 1978) 
-pb_ann_ts_sum_taf_d(df_diff, 1922, 2003) #for one dv only, otherwise averaged  
-p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5) 
+p_ann_ts_sum_taf_d (df_diff, 1975, 1978) |
+pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)|
+p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)| 
 
 
 ###################################
@@ -343,10 +343,10 @@ p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)
 
 #plot ridges (plots monthly y, colors by wy sum) (data, yrmin, yrmax, scaling factor). for one dv only (otherwise averaged)
 pr_ts_taf(df, 1921, 2007, 0.0003) #+ ggtitle("del_cvp_total_s 1922 - 2003")#will plot up to yrmax-1 (max yr not plotted, doesn't always fit) (ggridges bug)
-pr_ts_taf_d(df_diff, 1921, 2007, 0.009) #+ ggtitle("del_cvp_total_s 1922 - 2003 [difference from baseline]")
+pr_ts_taf_d(df_diff, 1921, 2007, 0.009)| #+ ggtitle("del_cvp_total_s 1922 - 2003 [difference from baseline]")
 
-pr_ts_eomstormean_taf(df, 1970, 1995, 0.00001) #will plot up to yrmax-1 (max yr not plotted, doesn't always fit) (ggridges bug)
-pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)
+pr_ts_eomstormean_taf(df, 1970, 1995, 0.00001)| #will plot up to yrmax-1 (max yr not plotted, doesn't always fit) (ggridges bug)
+pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)|
 
 ###################################
 ## timeseries tiles ###############  
@@ -356,15 +356,15 @@ prast_mon_ts_taf(df) |
 prast_ann_ts_sum_taf(df) |
 prast_annmonmean_ts_mn_taf(df) |
 
-prast_mon_ts_taf_d(df_diff)
-prast_ann_ts_sum_taf_d(df_diff)
-prast_annmonmean_ts_mn_taf_d(df_diff)
+prast_mon_ts_taf_d(df_diff)|
+prast_ann_ts_sum_taf_d(df_diff)|
+prast_annmonmean_ts_mn_taf_d(df_diff)|
 
 ptile_mon_ts_taf(df) |
 ptile_ann_ts_sum_taf(df) |
 ptile_annmonmean_ts_mn_taf(df) |
 
-ptile_mon_ts_taf_d(df_diff)
-ptile_ann_ts_sum_taf_d(df_diff)
-ptile_annmonmean_ts_mn_taf_d(df_diff)
+ptile_mon_ts_taf_d(df_diff)|
+ptile_ann_ts_sum_taf_d(df_diff)|
+ptile_annmonmean_ts_mn_taf_d(df_diff)|
 
