@@ -9,7 +9,7 @@
 `csv_list.r` | list csv file names and give unique nicknames
 `scen_facts.r` | give an order to plot scenarios in (ie left to right data/top to bottom legend)
 `control.r` | main user interface - actually read-in data and analyze or batch export plots
-`plotexport.r` | select which plot scripts to run for export (wait 1-2 minutes for a huge set or need some instantly?)
+`plotexport.r` | select which plot scripts to run for export (wait 1-2 minutes for a huge set or view some instantly?)
 `fun_defs.r` | data summary/plotting function definitions
 
 ## Uses ##
