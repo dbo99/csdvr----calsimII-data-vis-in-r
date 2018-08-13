@@ -105,7 +105,7 @@ sum984_taf(df) | sum of all months
   
 #  Plotting - stats first then timeseries toward bottom #
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
-- apply function with suffix *`_d`* (adds appropriate "[difference]" on axis label) on `data.frame` `df_diff` for difference plots (ie `df` and `df_diff` not used interchangeably as in above data summary functions)
+- use functions with suffix *`_d`* on `data.frame` `df_diff` for difference plots (ie unlike above a separate function assumed for each `df` and `df_diff` )
 
 ## bar plots - annual means and medians ## 
 ### pb - plot bars - annual mean  ###
