@@ -51,8 +51,8 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
   
   https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2
   
-
-#  Data Summary Functions
+# Functions
+#  Data Summary 
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
 - use `samefunction(df)` for regular output and `samefunction(df_diff)` for the scenario minus baseline difference
 - add `%>% write.csv("processedDVsofinterest.csv")` after any to export `processedDVsofinterest.csv` to working directory
