@@ -345,7 +345,7 @@ pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)| whole monthly timeseries o
 ## timeseries rasters (grid view) #
    function  | for
 ------------ | -------------
-prast_mon_ts_taf(df) | timeseries raster of monthly in taf
+prast_mon_ts_taf(df) | timeseries raster of monthly taf
 prast_ann_ts_sum_taf(df) | timeseries raster (stripes) of water year totals (sums) in taf
 prast_ann_ts_mn_taf(df) | timeseries raster (stripes) of water year means in taf
 prast_mon_ts_taf_d(df_diff)| timeseries raster of monthly difference in taf
