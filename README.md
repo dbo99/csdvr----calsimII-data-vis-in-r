@@ -206,12 +206,12 @@ p_mon_excd2_cfs_d(df_diff)| monthly exceedance of differences in cfs, style 2
 ------------ | -------------
 p_ann_wysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep totals
 p_ann_wysum_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep totals, style 2
-p_ann_fjwysum_excd_taf_d(df_diff)| annual exceedance - differences of 82 feb-jan totals
-p_ann_fjwysum_excd2_taf_d(df_diff)| annual exceedance - differences of 82 feb-jan totals, style 2
-p_ann_mfwysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 mar-feb totals
-p_ann_mfwysum_excd2_taf_d(df_diff) | annual exceedance - differences of 82 mar-feb totals, style 2
-p_ann_jdwysum_excd_taf_d(df_diff) | annual exceedance - differences of 82 jan-dec totals
-p_ann_jdwysum_excd2_taf_d(df_diff) | annual exceedance - differences of 82 jan-dec totals, style 2
+p_ann_fjwysum_excd_taf_d(df_diff)| annual exceedance - differences of 81 feb-jan totals
+p_ann_fjwysum_excd2_taf_d(df_diff)| annual exceedance - differences of 81 feb-jan totals, style 2
+p_ann_mfwysum_excd_taf_d(df_diff) | annual exceedance - differences of 81 mar-feb totals
+p_ann_mfwysum_excd2_taf_d(df_diff) | annual exceedance - differences of 81 mar-feb totals, style 2
+p_ann_jdwysum_excd_taf_d(df_diff) | annual exceedance - differences of 81 jan-dec totals
+p_ann_jdwysum_excd2_taf_d(df_diff) | annual exceedance - differences of 81 jan-dec totals, style 2
 p_ann_wymn_excd_taf_d(df_diff) | annual exceedance - differences of 82 oct-sep means
 p_ann_wymn_excd2_taf_d(df_diff)| annual exceedance - differences of 82 oct-sep means, style 2
 
