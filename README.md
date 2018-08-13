@@ -69,7 +69,7 @@ mn_ann_eomstor_taf(df_diff) | mean annual diff. rel. to baseline for end of mont
 mn_ann_perav_native(df) | mean annual flow/delivery in calsim native units
 md_ann_perav_native(df) | median annual flow/delivery in calsim native units
 
-### wyt avgs ###
+### water year type avgs ###
    function  | for
 ------------ | -------------
 mn_ann_scwyt_perav_taf(df) | mean annual flow/delivery total by sacramento year type in taf
@@ -117,7 +117,7 @@ pb_mn_ann_perav_taf_nolab_rank(df) | bar of mean annuals without labels, ranked 
 pb_mn_ann_perav_taf_hlab(df) | bars of mean annuals with horizontal labels (good for few scenarios)
 pb_md_ann_perav_taf(df) | bars of annual medians with vertical labels 
 
-### pb - plot bars - annual mean by wyt ###
+### pb - plot bars - annual mean by water year type ###
    function  | for
 ------------ | -------------
 pb_mn_scwyt_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
