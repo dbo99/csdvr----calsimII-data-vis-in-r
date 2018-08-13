@@ -309,31 +309,30 @@ p_mon_ts_cfs(df, 1920, 2003) | monthly timeseries from start to end year, cfs
 p_mon_ts_native(df, 1930, 1935) | monthly timeseries from start to end year, native calsim unit
 
 ## annual - line ## 
-
+   function  | for
+------------ | -------------
 p_ann_ts_sum_taf(df, 1977, 1978) | timeseries of annual totals, taf
 p_ann_ts_sum_native(df, 1930, 1990)| timeseries of annual totals, native calsim unit
-p_annmonmean_ts_mn_taf (df, 1922, 1990) | timeseries of annual mean, taf
+p_annmean_ts_mn_taf (df, 1922, 1990) | timeseries of annual mean, taf
 
-##################################
-## timeseries difference #########
-##################################
 
-## monthly - line ## 
+## monthly difference - line ## 
+   function  | for
+------------ | -------------
+p_mon_ts_taf_d (df_diff, 1922, 1925)| monthly timeseries of difference from start to end year, taf
+p_mon_ts2_taf_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, taf, style 2
+p_mon_ts3_taf_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, taf, style 3
+p_mon_ts_cfs_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, cfs
+p_mon_ts_native_d(df_diff, 1922, 1923)| monthly timeseries of difference from start to end year, native
+p_mon_ts2_native_d(df_diff, 1921, 1930)|monthly timeseries of difference from start to end year, native, style 2
 
-#plot monthly timeseries taf difference
-p_mon_ts_taf_d (df_diff, 1922, 1925)|
-p_mon_ts2_taf_d (df_diff, 1922, 2003)|
-p_mon_ts3_taf_d (df_diff, 1922, 2003)|
-p_mon_ts_cfs_d (df_diff, 1922, 2003)|
-p_mon_ts_native_d(df_diff, 1922, 1923)|
-p_mon_ts2_native_d(df_diff, 1921, 1930)|
+## annual difference - line and bar ##
+   function  | for
+------------ | -------------
 
-## annual - line ##
-
-p_ann_ts_sum_taf_d (df_diff, 1975, 1978) |
-pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)|
-p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)| 
-
+p_ann_ts_sum_taf_d (df_diff, 1975, 1978) | timeseries of differences of annual totals, taf
+p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)| timeseries of differences of annual means
+pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences of annual totals, taf
 
 ###################################
 ## timeseries ridges###############  # for one dv only! #
