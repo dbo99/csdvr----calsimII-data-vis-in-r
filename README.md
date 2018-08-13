@@ -164,7 +164,7 @@ pb_ann_fjwysum_sjwyt_taf_d(df_diff) | ranked difference bars of feb-jan totals b
 pb_eomay_stor_scwyt_taf(df) | ranked bars of end of may storages by sacramento water year type
 pb_eosep_stor_scwyt_taf(df) | ranked bars of end of september storages by sacramento water year type
 pb_eomay_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
-pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
+pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of september storages by sacramento water year type
 
 ## line plots - monthly and annual probability of exceedance ## 
 
