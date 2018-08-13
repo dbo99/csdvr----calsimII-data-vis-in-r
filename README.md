@@ -274,8 +274,6 @@ pbp_ann_perav_fjwysum_scwyt_taf_d(df_diff)| box plots of differences of feb-jan 
 pbp_ann_perav_mfwysum_taf(df) | box plots of mar-feb totals
 pbp_ann_perav_mfwysum_taf_d(df_diff) box plots of mar-feb totals
 
-
-
 ## tukey box plots with data points shown (and mean) - pdp - plot dot plots ## 
    function  | for
 ------------ | -------------
@@ -329,7 +327,6 @@ p_mon_ts2_native_d(df_diff, 1921, 1930)|monthly timeseries of difference from st
 ## annual difference - line and bar ##
    function  | for
 ------------ | -------------
-
 p_ann_ts_sum_taf_d (df_diff, 1975, 1978) | timeseries of differences of annual totals, taf
 p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)| timeseries of differences of annual means
 pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences of annual totals, taf
@@ -338,13 +335,13 @@ pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences o
 ## timeseries ridges###############  # for one dv only! #
 ###################################
 
-
-#plot ridges (plots monthly y, colors by wy sum) (data, yrmin, yrmax, scaling factor). for one dv only (otherwise averaged)
-pr_ts_taf(df, 1921, 2007, 0.0003) #+ ggtitle("del_cvp_total_s 1922 - 2003")#will plot up to yrmax-1 (max yr not plotted, doesn't always fit) (ggridges bug)
-pr_ts_taf_d(df_diff, 1921, 2007, 0.009)| #+ ggtitle("del_cvp_total_s 1922 - 2003 [difference from baseline]")
-
-pr_ts_eomstormean_taf(df, 1970, 1995, 0.00001)| #will plot up to yrmax-1 (max yr not plotted, doesn't always fit) (ggridges bug)
-pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)|
+ - plot ggridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
+    function  | for
+------------ | -------------
+pr_ts_taf(df, 1921, 2007, 0.0003)| fit) | whole monthly timeseries stacked on one page - color scale: water year totals (sums)
+pr_ts_taf_d(df_diff, 1921, 2007, 0.009)| whole monthly timeseries of differences. divergent scale
+pr_ts_eomstormean_taf(df, 1970, 1995, 0.00001)| whole monthly timeseries of storage - color scale: mean end of month (dont add storage)
+pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)| whole monthly timeseries of difference of storage. divergent scale
 
 ###################################
 ## timeseries tiles ###############  
