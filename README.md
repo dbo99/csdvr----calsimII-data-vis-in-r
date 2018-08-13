@@ -332,7 +332,7 @@ pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences o
 
 
 ## timeseries ridges - pr - plot ridges - one dv only! ##
-- plot ridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
+plot ridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
    function  | for
 ------------ | -------------
 pr_ts_taf(df, 1921, 2007, 0.0003)| whole monthly timeseries stacked on one page - color scale: water year totals (sums)
