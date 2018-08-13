@@ -283,12 +283,12 @@ pdp_ann_perav_mfwysum_taf(df, 1,5)| dot plot of mar-feb year totals
 pdp_ann_perav_mfwysum_taf_d(df_diff, 1,5)| dot plot of difference of mar-feb year totals
 
 
-##   bell plots  (pdfs) - pdr - plot density ridges ##
+##   bell plots  (probability density) - pdr - plot density ridges ##
    function  | for
 ------------ | -------------
-pdr_ann_perav_wysum_taf(df) | bell curve with individual water year distribution shown, .25, .5, & .75 quantiles, w/mean (cirle symbol)
+pdr_ann_perav_wysum_taf(df) | bell curve with individual water year distribution shown, .25, .5, & .75 quantiles, w/mean (circle symbol)
 pdr2_ann_perav_wysum_taf(df) | bell curve with individual year distribution shown, .25, .5, & .75 quantiles, w/mean labelled, separate scenario colors
-pdr_ann_perav_mfwysum_taf(df) | bell curve with individual mar-feb year distribution shown, .25, .5, & .75 quantiles, w/mean (cirle symbol)
+pdr_ann_perav_mfwysum_taf(df) | bell curve with individual mar-feb year distribution shown, .25, .5, & .75 quantiles, w/mean (circle symbol)
 pdr_ann_perav_wysum_taf_d(df_diff)| as above, difference
 pdr2_ann_perav_wysum_taf_d(df_diff)|as above,  difference
 pdr_ann_perav_mfwysum_taf_d(df_diff)| as above,  difference
@@ -331,10 +331,10 @@ p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)| timeseries of differences of annual
 pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences of annual totals, taf
 
 
-## timeseries ridges ## for one dv only! ##
+## timeseries ridges - pr - plot ridges - one dv only! ##
    function  | for
 ------------ | -------------
- - plot ggridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
+ - plot ridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
     function  | for
 ------------ | -------------
 pr_ts_taf(df, 1921, 2007, 0.0003)| fit) | whole monthly timeseries stacked on one page - color scale: water year totals (sums)
