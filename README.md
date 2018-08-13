@@ -186,10 +186,10 @@ p_ann_wysum_excd2_taf(df) |   annual exceedance - 82 oct-sep totals, in columns 
 p_ann_wysum_excd3_taf(df) |   annual exceedance - 82 oct-sep totals, in rows (style 3)
 p_ann_fjwysum_excd_taf(df) |  annual exceedance - 81 feb-jan totals
 p_ann_fjwysum_excd2_taf(df) | annual exceedance - 81 feb-jan totals, style 2
-p_ann_mfwysum_excd_taf(df) |  annual exceedance - 81 mar-feb totals (regular cvp contract)
-p_ann_mfwysum_excd2_taf(df) | annual exceedance - 81 mar-feb totals (regular cvp contract), style 2
-p_ann_jdwysum_excd_taf(df) |  annual exceedance - 81 jan-dec totals (regular cvp contract)
-p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (regular cvp contract), style 2
+p_ann_mfwysum_excd_taf(df) |  annual exceedance - 81 mar-feb totals (popular cvp contract)
+p_ann_mfwysum_excd2_taf(df) | annual exceedance - 81 mar-feb totals (popular cvp contract), style 2
+p_ann_jdwysum_excd_taf(df) |  annual exceedance - 81 jan-dec totals (popular swp contract)
+p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (popular swp contract), style 2
 p_ann_wymn_excd_taf(df) |     annual exceedance -  82 oct-sep means
 p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sep means, style 2 
 
