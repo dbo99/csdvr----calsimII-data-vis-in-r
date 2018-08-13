@@ -105,7 +105,7 @@ sum984_taf(df) | sum of all months
   
 #  Plotting Functions #
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
-- use suffix *`_d`* (adds appropriate "[difference]" on axis label) with `data.frame` `df_diff` together for difference plots, and no suffix and `df` for non-difference plots
+- apply function with suffix *`_d`* (adds appropriate "[difference]" on axis label) on `data.frame` `df_diff` for difference plots (ie `df` and `df_diff` not used interchangeably as in above data summary functions)
 
 ## bar plots - annual means and medians ## 
 ### pb - plot bars - annual mean  ###
