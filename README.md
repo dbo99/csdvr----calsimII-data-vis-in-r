@@ -18,7 +18,7 @@
    If csv file(s) needed, enter in 2018 or later versions of WRIMS2's GUI's `Dvar DSS file:`'s field: `outputfilename.csv` instead of: `outputfilename.dss` (both will be created using `.csv` alone). WRIMS2 is free from California Dept. of Water Resources, see link at bottom for request - currently distrubuted via email list
 - R, and R libraries specified in `libs.r`. Relies heavily on `dplyr` and `ggplot2` of the [`tidyverse`](https://www.tidyverse.org/)
 
-## Steps ##
+## To Use ##
 
 **Download** `csdvr_date.zip` (~15.03 mb: ~15 mb of sample plots, ~30 kb of scripts)
    https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/master/csdvr_aug18.zip
