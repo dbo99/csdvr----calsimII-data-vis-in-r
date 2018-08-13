@@ -347,19 +347,19 @@ pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)| whole monthly timeseries o
 ## timeseries tiles ###############  
 ###################################
 
-prast_mon_ts_taf(df) |
-prast_ann_ts_sum_taf(df) |
-prast_annmonmean_ts_mn_taf(df) |
+prast_mon_ts_taf(df) | timeseries raster of monthly in taf
+prast_ann_ts_sum_taf(df) | timeseries raster (stripes) of water year totals (sums) in taf
+prast_ann_ts_mn_taf(df) | timeseries raster (stripes) of water year means in taf
 
-prast_mon_ts_taf_d(df_diff)|
-prast_ann_ts_sum_taf_d(df_diff)|
-prast_annmonmean_ts_mn_taf_d(df_diff)|
+prast_mon_ts_taf_d(df_diff)| timeseries raster of monthly difference in taf
+prast_ann_ts_sum_taf_d(df_diff)|timeseries raster of annual total difference in taf
+prast_ann_ts_mn_taf_d(df_diff)| timeseries raster of annual mean difference in taf
 
-ptile_mon_ts_taf(df) |
-ptile_ann_ts_sum_taf(df) |
-ptile_annmonmean_ts_mn_taf(df) |
+ptile_mon_ts_taf(df) | timeseries tile of monthly in taf - tile adds ability to color cell outline, eg highlight Wet & AN only
+ptile_ann_ts_sum_taf(df) | timeseries tile (stripes) of water year totals (sums) in taf
+prast_ann_ts_mn_taf(df) |  timeseries tile (stripes) of water year means in taf
 
-ptile_mon_ts_taf_d(df_diff)|
-ptile_ann_ts_sum_taf_d(df_diff)|
-ptile_annmonmean_ts_mn_taf_d(df_diff)|
+ptile_mon_ts_taf_d(df_diff)|timeseries tile of monthly difference in taf
+ptile_ann_ts_sum_taf_d(df_diff)|timeseries tile of annual total difference in taf
+ptile_annmonmean_ts_mn_taf_d(df_diff)|timeseries tile of annual mean difference in ta
 
