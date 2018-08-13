@@ -53,7 +53,7 @@
   
 
 #  Data Summary Functions
-## select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s, then apply" ##
+#### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s, then apply: ####
 - use `df` and `df_diff` interchangeably
 - add `%>% write.csv("csvname.csv")` after any to export `DVsummary.csv` to working directory
 
@@ -104,7 +104,7 @@ mn984_taf(df) | mean monthly value
 sum984_taf(df) | sum of all months
   
 #  Plotting Functions #
-## select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s, then apply" ##
+#### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s, then apply: ####
 - use suffix *`_d`* (adds appropriate "[difference]" on axis label) and `df_diff` together for difference plots, and no suffix and `df` for non-difference plots
 
 ## bar plots - annual means and medians ## 
