@@ -332,10 +332,10 @@ pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences o
 
 
 ## timeseries ridges - pr - plot ridges - one dv only! ##
- - plot ridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
+- plot ridges (plots monthly y, colors by wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
    function  | for
 ------------ | -------------
-pr_ts_taf(df, 1921, 2007, 0.0003)| fit) | whole monthly timeseries stacked on one page - color scale: water year totals (sums)
+pr_ts_taf(df, 1921, 2007, 0.0003)| whole monthly timeseries stacked on one page - color scale: water year totals (sums)
 pr_ts_taf_d(df_diff, 1921, 2007, 0.009)| whole monthly timeseries of differences. divergent scale
 pr_ts_eomstormean_taf(df, 1970, 1995, 0.00001)| whole monthly timeseries of storage - color scale: mean end of month (dont add storage)
 pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)| whole monthly timeseries of difference of storage. divergent scale
