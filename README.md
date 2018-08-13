@@ -61,8 +61,8 @@
    function  | for
 ------------ | -------------
 mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
-mn_ann_perav_taf(df_diff) |  mean annual diff. rel. to baseline for period avg (flow/delivery) in taf
-md_ann_perav_taf(df) |  median annual flow/delivery in taf
+eg mn_ann_perav_taf(df_diff) |  mean annual diff. rel. to baseline for period avg (flow/delivery) in taf
+md_ann_perav_taf() |  median annual flow/delivery in taf
 md_ann_perav_taf(df_diff) |  median annual diff. rel. to baseline for flow/delivery in taf
 mn_ann_eomstor_taf(df) | mean annual end of month storage (if nothing: makes sure a storage term selected)
 mn_ann_eomstor_taf(df_diff) | mean annual diff. rel. to baseline for end of month storage (if nothing: makes sure a storage term selected)
@@ -249,52 +249,45 @@ p_ann_monfacetw_excd_taf_d(df_diff) | difference - 12 plots of individual months
 p_ann_monfacetw_excd_cfs(df) | 12 plots of individual months in a matrix in cfs
 p_ann_monfacetw_excd_cfs_d(df_diff) | difference - 12 plots of individual months in a matrix in cfs
 
-## tukey box plots - monthly and annual probability of exceedance ## 
+## tukey box plots - pbp - plot box plots ## 
 
 ### monthly ###
-- pbly best for only one dv (quickly too busy) 
+- pbly best for only one dv (too busy) 
 - good for plotly/ggplotly - medians/hinges/outliars hoverable
    function  | for
 ------------ | -------------
-pbp_mon_taf(df) |        
-pbp_mon_taf_d(df_diff)  | 
-pbp_mon_scwyt_taf(df) |  
-pbp_mon_scwyt_taf_d(df_diff) |
+pbp_mon_taf(df) |  monthly taf box plots      
+pbp_mon_taf_d(df_diff)  | monthly taf box plots of differences
+pbp_mon_scwyt_taf(df) |  monthly taf box plots by sacramento water year type
+pbp_mon_scwyt_taf_d(df_diff) |  monthly taf box plots of differences by sacramento water year type
 
 
 ### annual  ###
-
    function  | for
 ------------ | -------------
-pbp_ann_perav_wysum_taf(df) |
-pbp_ann_perav_fjwysum_taf(df) |
-pbp_ann_perav_fjwysum_scwyt_taf(df) |
-pbp_ann_perav_mfwysum_taf(df) |
-## diff ##
-pbp_ann_perav_wysum_taf_d(df_diff)
-pbp_ann_perav_fjwysum_taf_d(df_diff)
-pbp_ann_perav_fjwysum_scwyt_taf_d(df_diff)
-pbp_ann_perav_mfwysum_taf_d(df_diff)
+pbp_ann_perav_wysum_taf(df) | box plots of water year totals
+pbp_ann_perav_wysum_taf_d(df_diff)| box plots of differences of water year totals
+pbp_ann_perav_fjwysum_taf(df) | box plots of feb-jan totals
+pbp_ann_perav_fjwysum_taf_d(df_diff) | box plots of differences of feb-jan totals
+pbp_ann_perav_fjwysum_scwyt_taf(df) | box plots of feb-jan totals by sacramento water year type
+pbp_ann_perav_fjwysum_scwyt_taf_d(df_diff)| box plots of differences of feb-jan totals by sacramento water year type
+pbp_ann_perav_mfwysum_taf(df) | box plots of mar-feb totals
+pbp_ann_perav_mfwysum_taf_d(df_diff) box plots of mar-feb totals
 
-#######################################################################
-#######################################################################
-##   dots and boxes (w/means labeled)   ###############################
-#######################################################################
-#######################################################################
 
-pdp_ann_perav_wysum_taf(df, 1, 5) #dataframe, binwidth, dotsize
-pdp_ann_perav_mfwysum_taf(df, 1,5)
 
-pdp_ann_perav_wysum_taf_d(df_diff, 1, 5)
-pdp_ann_perav_mfwysum_taf_d(df_diff, 1,5)
+## tukey box plots with data points shown (and mean) - pdp - plot dot plots ## 
+   function  | for
+------------ | -------------
+#pdp_ann_perav_wysum_taf(df, binwidth, dotsize) | dot plot of water year totals
+pdp_ann_perav_wysum_taf_d(df_diff, 1, 5)| dot plot of difference of water year totals
+pdp_ann_perav_mfwysum_taf(df, 1,5)| dot plot of mar-feb year totals
+pdp_ann_perav_mfwysum_taf_d(df_diff, 1,5)| dot plot of difference of mar-feb year totals
 
-#######################################################################
-#######################################################################
-##   translucent distributions  (density ridges)  #####################
-#######################################################################
-#######################################################################
 
-#plot density ridge
+##   bell plots  (pdfs) - pdr - plot density ridges ##
+   function  | for
+------------ | -------------
 pdr_ann_perav_wysum_taf(df) |
 pdr2_ann_perav_wysum_taf(df) |
 pdr_ann_perav_mfwysum_taf(df) |
