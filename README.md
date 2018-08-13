@@ -279,7 +279,7 @@ pbp_ann_perav_mfwysum_taf_d(df_diff) box plots of mar-feb totals
 ## tukey box plots with data points shown (and mean) - pdp - plot dot plots ## 
    function  | for
 ------------ | -------------
-#pdp_ann_perav_wysum_taf(df, binwidth, dotsize) | dot plot of water year totals
+pdp_ann_perav_wysum_taf(df, binwidth, dotsize) | dot plot of water year totals
 pdp_ann_perav_wysum_taf_d(df_diff, 1, 5)| dot plot of difference of water year totals
 pdp_ann_perav_mfwysum_taf(df, 1,5)| dot plot of mar-feb year totals
 pdp_ann_perav_mfwysum_taf_d(df_diff, 1,5)| dot plot of difference of mar-feb year totals
@@ -288,22 +288,19 @@ pdp_ann_perav_mfwysum_taf_d(df_diff, 1,5)| dot plot of difference of mar-feb yea
 ##   bell plots  (pdfs) - pdr - plot density ridges ##
    function  | for
 ------------ | -------------
-pdr_ann_perav_wysum_taf(df) |
-pdr2_ann_perav_wysum_taf(df) |
-pdr_ann_perav_mfwysum_taf(df) |
+pdr_ann_perav_wysum_taf(df) | bell curve with individual water year distribution shown, .25, .5, & .75 quantiles, w/mean (cirle symbol)
+pdr2_ann_perav_wysum_taf(df) | bell curve with individual year distribution shown, .25, .5, & .75 quantiles, w/mean labelled, separate scenario colors
+pdr_ann_perav_mfwysum_taf(df) | bell curve with individual mar-feb year distribution shown, .25, .5, & .75 quantiles, w/mean (cirle symbol)
+pdr_ann_perav_wysum_taf_d(df_diff)| as above, difference
+pdr2_ann_perav_wysum_taf_d(df_diff)|as above,  difference
+pdr_ann_perav_mfwysum_taf_d(df_diff)| as above,  difference
 
-pdr_ann_perav_wysum_taf_d(df_diff)
-pdr2_ann_perav_wysum_taf_d(df_diff)
-pdr_ann_perav_mfwysum_taf_d(df_diff)
 
-#######################################################################
-#######################################################################
-## timeseries #########################################################
-#######################################################################
-#######################################################################
+# timeseries #
 
-## monthly ## 
-
+## line - monthly ## 
+   function  | for
+------------ | -------------
 p_mon_ts_taf(df, 1921, 2004)  #+ coord_cartesian(ylim=c(0, 500)) #+ geom_text() 
 p_mon_ts_may_taf(df, 1929, 1937) 
 p_mon_ts_sep_taf(df, 1929, 1937) 
@@ -312,7 +309,7 @@ p_mon_ts_taf_maysseps_taf(df, 1922, 2003)
 p_mon_ts_cfs(df, 1920, 2003) 
 p_mon_ts_native(df, 1930, 1935) #if nothing shows up, no key DVs are in cfs or taf (eg EC or KM) (same for all _natives)
 
-## annual ## 
+## line - annual ## 
 
 p_ann_ts_sum_taf(df, 1977, 1978) 
 p_ann_ts_sum_native(df, 1930, 1990)
@@ -322,7 +319,7 @@ p_annmonmean_ts_mn_taf (df, 1922, 1990)
 ## timeseries difference #########
 ##################################
 
-## monthly ## 
+## line - monthly ## 
 
 #plot monthly timeseries taf difference
 p_mon_ts_taf_d (df_diff, 1922, 1925)  #+ coord_cartesian(ylim=c(-75, 250)) 
@@ -332,7 +329,7 @@ p_mon_ts_cfs_d (df_diff, 1922, 2003)
 p_mon_ts_native_d(df_diff, 1922, 1923)
 p_mon_ts2_native_d(df_diff, 1921, 1930)
 
-## annual ##
+## line - annual ##
 
 p_ann_ts_sum_taf_d (df_diff, 1975, 1978) 
 pb_ann_ts_sum_taf_d(df_diff, 1922, 2003) #for one dv only, otherwise averaged  
