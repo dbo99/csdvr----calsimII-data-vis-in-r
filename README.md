@@ -1,4 +1,4 @@
-# **csdvr**
+# **:earth_americas:csdvr:earth_americas:** #
  calsim data visualizer (post-processor) in R | 
  version 1.0_8.10.2018 | 
  analyze calsim output for large numbers of variables or scenarios | 
@@ -33,7 +33,7 @@
 
 `control.r`  | action
 ------------ | -------------
-run-click `1` | **read in libraries,  functions, and csv data** (do first then sparingly as ~1/6 min read-in time per scenario) (~0.5 gb `.csv` each) (option to append in **`csv._list.r`**). 2a & 2b need 1 run first.
+run-click `1` | **read in libraries,  functions, and csv data** (do first then sparingly as ~1/6 min read-in time per scenario) (~0.5 gb `.csv` each) (option to append in `csv._list.r`). 2a & 2b need 1 run first.
 run-click `2a` | **generate plots in batches** with pre-defined templates for common DVs of interest -- call scripts of plots
 run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest by searching for DVs here and by running individual functions listed below
 
