@@ -59,7 +59,9 @@ create_df <-function(df_csv){
     ifelse(nxtscwyt ==5, "cr", NA))))))  %>% mutate(scwyt2 = paste0(nxtscwyt, "_", nxtscwytt))
   
   varcode <- read_csv("varcodes.csv")
-  df <- df %>% left_join(varcode)
+  df <- df %>% left_join(varcode) 
+
+  df <- df %>% mutate(dv_name = ifelse(is.na(dv_name), dv, dv_name))
   
   lastwyt <- df %>% filter(scen == "baseline", yearmon == "Apr 2003") %>% select(scwyt2) 
   lastwyt <- lastwyt[1,]
@@ -93,8 +95,13 @@ create_df_diff <-function(df){
   lastwyt_d <- df_diff %>% filter(yearmon == "Apr 2003") %>% select(scwyt2) #no baseline in df_diff, start w/df
   lastwyt_d <- lastwyt_d[1,]
   df_diff <- df_diff %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt_d, scwyt2 ))
+
+  #varcode <- read_csv("varcodes.csv")
+  #df_diff <- df_diff %>% left_join(varcode) 
+  #
+  #df_diff$dv <- ifelse(is.na(df_diff$dv), df_diff$dv, df_diff$dv)
   
-  #source("scenfacts.r") 
+  
 }
 
 ################################
@@ -275,13 +282,13 @@ ggplot(aes(x = scen, y = mnanntaf_perav, fill = scen, label = round(mnanntaf_per
   } 
 
 pb_mn_ann_perav_taf_rank <- function(df) {
-  df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
-    ggplot(aes(x = reorder_within(scen, -mnanntaf_perav, dv_name), y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) +
+  df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+    ggplot(aes(x = reorder_within(scen, -mnanntaf_perav, dv), y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) +
     geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf") + geom_text(color = "dark blue", angle = 90, hjust = 1) + 
     scale_x_reordered() +
-    facet_wrap(~dv_name, nrow = 1, scales = "free_x") +
+    facet_wrap(~dv, nrow = 1, scales = "free_x") +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
@@ -291,11 +298,11 @@ pb_mn_ann_perav_taf_rank <- function(df) {
 
 
 pb_mn_ann_perav_taf_hlab <- function(df) {
-  df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+  df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
     ggplot(aes(x = scen, y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf") + geom_text(color = "dark blue", angle = 0, vjust = 0.5) + 
-    facet_grid(~dv_name) +
+    facet_grid(~dv) +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
@@ -303,11 +310,11 @@ pb_mn_ann_perav_taf_hlab <- function(df) {
 } 
 
 pb_mn_ann_perav_taf_nolab <- function(df) {
-  df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+  df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
     ggplot(aes(x = scen, y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf") + 
-    facet_grid(~dv_name) +
+    facet_grid(~dv) +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
@@ -315,12 +322,12 @@ pb_mn_ann_perav_taf_nolab <- function(df) {
 }
 
 pb_mn_ann_perav_taf_nolab_rank <- function(df) {
-  df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
-    ggplot(aes(x = reorder_within(scen, -mnanntaf_perav, dv_name), y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
+  df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+    ggplot(aes(x = reorder_within(scen, -mnanntaf_perav, dv), y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf") + 
     scale_x_reordered() +
-    facet_wrap(~dv_name, nrow = 1, scales = "free_x") +
+    facet_wrap(~dv, nrow = 1, scales = "free_x") +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
@@ -363,9 +370,11 @@ pb_mn_scwyt_perav_taf <- function(df) {
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf") + 
     geom_text(color = "dark blue", angle = 90) +
-    facet_grid(scen~dv) +ggtitle("81 feb-jan totals") +
+    ggtitle("81 feb-jan totals") +
     facet_grid(dv~scen) +
-    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank())
+    theme(axis.title.x=element_blank()) + 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") + 
+    theme(strip.text.y = element_text(angle = 0))
 } 
 
 pb_mn_scwyt_perav_taf_nolab <- function(df) {
@@ -374,9 +383,9 @@ pb_mn_scwyt_perav_taf_nolab <- function(df) {
     geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf") + 
-    facet_grid(scen~dv) +ggtitle("81 feb-jan totals") +
+    ggtitle("81 feb-jan totals") +
     facet_grid(dv~scen) +
-    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) 
 } 
 
 #san joaquin water year type
@@ -386,7 +395,8 @@ pb_mn_sjwyt_perav_taf <- function(df) {
     geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("mean sj wyt per avg taf") + geom_text(color = "dark blue", angle = 90) +facet_grid(dv~scen) +ggtitle("81 feb-jan totals")+
-    scale_fill_discrete(name = "sj wyt") + theme(axis.title.x=element_blank()) 
+    scale_fill_discrete(name = "sj wyt") + theme(axis.title.x=element_blank()) + 
+    scale_fill_manual(values=wyt_cols, name = "sj wyt")
 } 
 
 pb_mn_scwyt2_perav_taf <- function(df) {  #coerces feb-jan water years to regular water years
@@ -399,7 +409,8 @@ pb_mn_scwyt2_perav_taf <- function(df) {  #coerces feb-jan water years to regula
     facet_grid(dv~scen) +ggtitle("mean annual vol. by sac 8RI wyt adj (82 yrs)") +
     scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
-    scale_y_continuous(expand = c(0.01,0.01))
+    scale_y_continuous(expand = c(0.01,0.01)) + 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt")
 }
 #### month specific ####
 
@@ -427,11 +438,11 @@ pb_mn_eosep_stor_taf <- function(df) {
 ######
 
 pb_mn_ann_perav_taf_d <- function(df) {
-df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
     ggplot(aes(x = scen, y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2)))+ theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf [difference]")  + geom_text(color = "dark blue", angle = 90, hjust = 1)+
-    facet_grid(~dv_name) + 
+    facet_grid(~dv) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
     #theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     ggtitle("mean annual difference (82 yrs)") + scale_fill_manual(values=df_diff_cols)
@@ -440,13 +451,13 @@ df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mna
 
 
 pb_mn_ann_perav_taf_d_rank <- function(df) {
-  df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
-    ggplot(aes(x = reorder_within(scen, -mnanntaf_perav, dv_name), y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) +
+  df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+    ggplot(aes(x = reorder_within(scen, -mnanntaf_perav, dv), y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) +
     geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf") + geom_text(color = "dark blue", angle = 90, hjust = 1) + 
     scale_x_reordered() +
-    facet_wrap(~dv_name, nrow = 1, scales = "free_x") +
+    facet_wrap(~dv, nrow = 1, scales = "free_x") +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
@@ -455,11 +466,11 @@ pb_mn_ann_perav_taf_d_rank <- function(df) {
 }
 
 pb_mn_ann_perav_taf_d_hlab <- function(df) {
-  df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+  df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
     ggplot(aes(x = scen, y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2)))+ theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf [difference]")  + geom_text(color = "dark blue", angle = 0, vjust = 0.5)+
-    facet_grid(~dv_name) + 
+    facet_grid(~dv) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     ggtitle("mean annual difference (82 yrs)") + scale_fill_manual(values=df_diff_cols)
@@ -467,23 +478,23 @@ pb_mn_ann_perav_taf_d_hlab <- function(df) {
 
 
 pb_mn_ann_perav_taf_d_nolab <- function(df) {
-  df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+  df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
     ggplot(aes(x = scen, y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2)))+ theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf [difference]")  + 
-    facet_grid(~dv_name) + 
+    facet_grid(~dv) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     ggtitle("mean annual difference (82 yrs)") + scale_fill_manual(values=df_diff_cols)
 } 
 
 pb_mn_ann_perav_taf_d_nolab_rank <- function(df) {
-  df %>% filter(!kind == "storage") %>% group_by(dv_name, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
-    ggplot(aes(x = reorder_within(scen, -mnanntaf_perav, dv_name), y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
+  df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf_perav =  12*mean(taf))  %>%
+    ggplot(aes(x = reorder_within(scen, -mnanntaf_perav, dv), y = mnanntaf_perav, fill = scen, label = round(mnanntaf_perav, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf [difference]") + 
     scale_x_reordered() +
-    facet_wrap(~dv_name, nrow = 1, scales = "free_x") +
+    facet_wrap(~dv, nrow = 1, scales = "free_x") +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
@@ -519,7 +530,8 @@ pb_mn_scwyt_perav_taf_d <- function(df) {
     facet_grid(dv~scen) +
     #facet_grid(scen~dv) +
     ggtitle("mean sac wyt annual difference (82 yrs)") +
-    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) 
+    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) +
+    scale_fill_manual(values=wyt_cols) 
 } 
 
 pb_mn_scwyt_perav_taf_d_nolab <- function(df) {
@@ -532,7 +544,7 @@ pb_mn_scwyt_perav_taf_d_nolab <- function(df) {
     facet_grid(dv~scen) +
     #facet_grid(scen~dv) +
     ggtitle("mean sac wyt annual difference (82 yrs)") +
-    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) 
 } 
 
 pb_mn_scwyt_perav_taf_d_hlab <- function(df) {
@@ -544,8 +556,8 @@ pb_mn_scwyt_perav_taf_d_hlab <- function(df) {
     geom_text(color = "dark blue", angle = 0, vjust = 1) +
     facet_grid(dv~scen) +
     #facet_grid(scen~dv) +
-    ggtitle("mean sac wyt annual difference (82 yrs)") +
-    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) 
+    ggtitle("mean sac wyt annual difference (82 yrs)") + 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) 
 } 
 
 
@@ -555,8 +567,8 @@ pb_mn_sjwyt_perav_taf_d <- function(df) {
     geom_bar(position = "dodge",stat = "identity") + 
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf [difference]") + geom_text(color = "dark blue", angle = 90) +facet_grid(dv~scen) +
-    ggtitle("mean sj wyt difference (82 yrs)")+
-    scale_fill_discrete(name = "sj wyt") + theme(axis.title.x=element_blank()) 
+    ggtitle("mean sj wyt difference (82 yrs)")+ 
+    scale_fill_manual(values=wyt_cols, name = "sj wyt") + theme(axis.title.x=element_blank()) 
 } 
 
 pb_mn_scwyt2_perav_taf_d <- function(df) {
@@ -566,8 +578,8 @@ pb_mn_scwyt2_perav_taf_d <- function(df) {
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf [difference]") + 
     #geom_text(color = "dark blue", angle = 90) +
-    facet_grid(dv~scen) +ggtitle(paste0(df$dv[1]), " mean annual difference by sac. 8RI wyt (82 yrs)") +
-    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) +
+    facet_grid(dv~scen) +ggtitle(paste0(df$dv[1]), " mean annual difference by sac. 8RI wyt (82 yrs)") + 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     scale_y_continuous(expand = c(0.01,0.01))
 }
@@ -575,7 +587,7 @@ pb_mn_scwyt2_perav_taf_d <- function(df) {
 
 #### month specific difference ####
 
-pb_eosep_stor_d_taf <- function(df) {
+pb_eosep_stor_taf_d <- function(df) {
    df %>% filter(kind == "storage", m== 9) %>% group_by(dv, scen) %>% summarize(eo_sep_stor =  round(mean(taf), 0)) %>% 
     ggplot(aes(x = scen, y = eo_sep_stor , fill = scen, label = round(eo_sep_stor, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))+ theme(plot.margin=grid::unit(c(8,8,8,8), "mm"))+
@@ -584,7 +596,7 @@ pb_eosep_stor_d_taf <- function(df) {
     scale_fill_manual(values=df_diff_cols)
 }
 
-pb_eomay_stor_d_taf <- function(df) {
+pb_eomay_stor_taf_d <- function(df) {
    df %>% filter(kind == "storage", m== 5) %>% group_by(dv, scen) %>% summarize(eo_may_stor =  round(mean(taf), 0)) %>% 
     ggplot(aes(x = scen, y = eo_may_stor,  fill = scen, label = round(eo_may_stor, 0))) + geom_bar(position = "dodge",stat = "identity") + 
     theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))+ theme(plot.margin=grid::unit(c(8,8,8,8), "mm"))+
@@ -654,7 +666,7 @@ df %>% filter(!kind == "storage") %>% group_by(scen, dv, wy) %>% summarize(wytaf
     ggtitle("water year sums, taf")  + scale_color_manual(values = df_cols) 
 }
 
-p_annmonmean_ts_mn_taf <- function(df, yrmin, yrmax) {
+p_annmean_ts_mn_taf <- function(df, yrmin, yrmax) {
   df %>% filter(rawunit == "cfs"|rawunit == "taf") %>% group_by(scen, dv, wy) %>% summarize(wytafmean =  mean(taf)) %>% 
     ggplot(aes(x = wy, y = wytafmean, color = scen, linetype = dv, label = round(wytafmean, 0))) + geom_line() + 
     scale_x_continuous(limits = c(yrmin, yrmax), expand = c(0.01, 0.01))+
@@ -806,7 +818,7 @@ prast_ann_ts_sum_taf <- function(df) {
 }
 
 ## annual mon mean
-prast_annmonmean_ts_mn_taf <- function(df) {
+prast_ann_ts_mn_taf <- function(df) {
   df %>% group_by(wy, scen, dv) %>% summarize(annmontafmean = mean(taf)) %>% mutate(wyscen = paste0(wy,scen)) %>%
   ggplot(aes(x=wy, y = 1,  fill = annmontafmean))  +
     geom_raster() + 
@@ -860,7 +872,7 @@ prast_ann_ts_sum_taf_d <- function(df) {
 }
 
 ## annual mon mean
-prast_annmonmean_ts_mn_taf_d <- function(df) {
+prast_ann_ts_mn_taf_d <- function(df) {
   df %>% group_by(wy, scen, dv) %>% summarize(annmontafmean = mean(taf)) %>% mutate(wyscen = paste0(wy,scen)) %>%
     ggplot(aes(x=wy, y = 1,  fill = annmontafmean))  +
     geom_raster() + 
@@ -1017,10 +1029,10 @@ df %>% filter(rawunit != "km")%>% group_by(scen, dv) %>% arrange(dv, desc(taf)) 
 }
 
 p_mon_excd2_taf <- function(df) { #remove linetype = scen
-  df %>% filter(rawunit != "km")%>% group_by(scen, dv_name) %>% arrange(dv_name, desc(taf)) %>% mutate(taf_dv_rank = row_number(),
+  df %>% filter(rawunit != "km")%>% group_by(scen, dv) %>% arrange(dv, desc(taf)) %>% mutate(taf_dv_rank = row_number(),
         excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = taf, color = scen, linetype = scen)) + geom_line() + labs(x = "probability of exceedance", y = "taf -- monthly")+theme_gray() +
     guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-      ggtitle("984 months (taf)") + facet_grid(~dv_name) + scale_color_manual(values = df_cols)
+      ggtitle("984 months (taf)") + facet_grid(~dv) + scale_color_manual(values = df_cols)
 }
 
 p_mon_excd_cfs <- function(df) {
@@ -1102,7 +1114,7 @@ p_ann_fjwysum_excd2_taf <- function(df) {
     group_by(scen, dv) %>% arrange(dv, desc(fjwytafsum)) %>% mutate(taf_dv_rank = row_number(),
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = fjwytafsum, color = scen)) + geom_line() + 
     labs(x = "probability of exceedance", y = "taf")+
-    theme_gray() +  guides(colour = guide_legend(override.aes = list(size=2))) + facet_grid(~dv) + 
+    theme_gray() +  guides(colour = guide_legend(override.aes = list(size=2))) + facet_wrap(~dv) + 
     theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("81 feb-jan totals") + scale_color_manual(values = df_cols)
 }
 
@@ -1121,7 +1133,7 @@ p_ann_mfwysum_excd2_taf <- function(df) {
     group_by(scen, dv) %>% arrange(dv, desc(mfwytafsum)) %>% mutate(taf_dv_rank = row_number(),
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = mfwytafsum, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "taf ")+
-    theme_gray() +  guides(colour = guide_legend(override.aes = list(size=2))) + facet_grid(~dv) +  
+    theme_gray() +  guides(colour = guide_legend(override.aes = list(size=2))) + facet_wrap(~dv) +  
     theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("81 mar-feb totals") + scale_color_manual(values = df_cols)
 }
 
@@ -1140,7 +1152,7 @@ p_ann_jdwysum_excd2_taf <- function(df) {
     group_by(scen, dv) %>% arrange(dv, desc(jdwytafsum)) %>% mutate(taf_dv_rank = row_number(),
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = jdwytafsum, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "taf")+
-    theme_gray() +  guides(colour = guide_legend(override.aes = list(size=2))) + facet_grid(~dv) +  
+    theme_gray() +  guides(colour = guide_legend(override.aes = list(size=2))) + facet_wrap(~dv) +  
     theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("81 jan-dec totals") + scale_color_manual(values = df_cols)
 }
 
@@ -1213,11 +1225,11 @@ df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, wy) %>% summarize(wytafsu
 }
 
 p_ann_wysum_excd2_taf_d <- function(df)  {
-  df %>% filter(rawunit == "cfs") %>% group_by(scen, dv_name, wy) %>% summarize(wytafsum =  sum(taf)) %>%
-    group_by(scen, dv_name) %>% arrange(dv_name, desc(wytafsum)) %>% mutate(taf_dv_rank = row_number(),
+  df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, wy) %>% summarize(wytafsum =  sum(taf)) %>%
+    group_by(scen, dv) %>% arrange(dv, desc(wytafsum)) %>% mutate(taf_dv_rank = row_number(),
     excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = wytafsum, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "taf [difference]")+
-    theme_gray()+ guides(colour = guide_legend(override.aes = list(size=2))) + facet_grid(~dv_name) +  
+    theme_gray()+ guides(colour = guide_legend(override.aes = list(size=2))) + facet_grid(~dv) +  
     theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ggtitle("82 oct-sep totals, difference") + scale_color_manual(values = df_diff_cols)
 }
@@ -1624,7 +1636,7 @@ pb_eosep_stor_scwyt_taf_d <- function(df) {
 
 ## Month facets - dvs apart
  # facet grid
-p_ann_monfacetg_excd_taf <- function(df) {
+p_monfacetg_excd_taf <- function(df) {
 
 p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>% 
     arrange(dv, desc(taf)) %>% mutate(taf_dv_rank = row_number(),excdxaxis = taf_dv_rank/(n()+1)) %>% 
@@ -1637,7 +1649,7 @@ p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>%
 p   
 }
 
-p_ann_monfacetg_excd_taf_d <- function(df) {
+p_monfacetg_excd_taf_d <- function(df) {
   
   p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>% 
     arrange(dv, desc(taf)) %>% mutate(taf_dv_rank = row_number(),excdxaxis = taf_dv_rank/(n()+1)) %>% 
@@ -1651,7 +1663,7 @@ p_ann_monfacetg_excd_taf_d <- function(df) {
 }
 
 # facet wrap
-p_ann_monfacetw_excd_taf <- function(df) {
+p_monfacetw_excd_taf <- function(df) {
   
   p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>% 
     arrange(dv, desc(taf)) %>% mutate(taf_dv_rank = row_number(),excdxaxis = taf_dv_rank/(n()+1)) %>% 
@@ -1663,7 +1675,7 @@ p_ann_monfacetw_excd_taf <- function(df) {
   p   
 }
 
-p_ann_monfacetw_excd_taf_d <- function(df) {
+p_monfacetw_excd_taf_d <- function(df) {
   
   p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>% 
     arrange(dv, desc(taf)) %>% mutate(taf_dv_rank = row_number(),excdxaxis = taf_dv_rank/(n()+1)) %>% 
@@ -1677,7 +1689,7 @@ p_ann_monfacetw_excd_taf_d <- function(df) {
 }
 
 ## cfs ## 
-p_ann_monfacetg_excd_cfs <- function(df) {
+p_monfacetg_excd_cfs <- function(df) {
   
   p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>% 
     arrange(dv, desc(cfs)) %>% mutate(cfs_dv_rank = row_number(),excdxaxis = cfs_dv_rank/(n()+1)) %>% 
@@ -1691,7 +1703,7 @@ p_ann_monfacetg_excd_cfs <- function(df) {
   p   
 }
 
-p_ann_monfacetg_excd_cfs_d <- function(df) {
+p_monfacetg_excd_cfs_d <- function(df) {
   
   p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>% 
     arrange(dv, desc(cfs)) %>% mutate(cfs_dv_rank = row_number(),excdxaxis = cfs_dv_rank/(n()+1)) %>% 
@@ -1705,7 +1717,7 @@ p_ann_monfacetg_excd_cfs_d <- function(df) {
 }
 
 # facet wrap
-p_ann_monfacetw_excd_cfs <- function(df) {
+p_monfacetw_excd_cfs <- function(df) {
   
   p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>% 
     arrange(dv, desc(cfs)) %>% mutate(cfs_dv_rank = row_number(),excdxaxis = cfs_dv_rank/(n()+1)) %>% 
@@ -1717,7 +1729,7 @@ p_ann_monfacetw_excd_cfs <- function(df) {
   p   
 }
 
-p_ann_monfacetw_excd_cfs_d <- function(df) {
+p_monfacetw_excd_cfs_d <- function(df) {
   
   p <- df %>% filter(rawunit == "cfs") %>% group_by(scen, dv, mon)  %>% 
     arrange(dv, desc(cfs)) %>% mutate(cfs_dv_rank = row_number(),excdxaxis = cfs_dv_rank/(n()+1)) %>% 
@@ -1758,31 +1770,9 @@ ggplot(df, aes(wm, wy, height = taf, group=as.factor(wy), fill = wy_taf))+
   ggtitle(paste0(df$dv[1],"  ", yrmin, " - ", yrmaxtitle))
 }
 
-pr_ts_taf_d <- function(df, yrmin, yrmax, scalingfactor) { #plots monthly output on y, colors by annual total
-  df_diff <-df_diff  %>% mutate(abstaf = abs(taf)) %>% group_by(scen, wy) %>% mutate(wytaf_diff = sum(abstaf)) 
-  sc <- (max(df_diff$taf) / min(df_diff$taf) * scalingfactor) # usually needs to be very low, say 0.00005 for c9
-  
-  minh <- max(df_diff$taf)
-  yrmaxtitle <- yrmax-1
-  yrmintitle <- yrmin+1
-  ggplot(df_diff, aes(wm, wy, height = taf, group=as.factor(wy), fill = wytaf_diff))+
-    geom_ridgeline( stat = "identity", show.legend = T, scale = sc, alpha = 0.8, min_height = -minh) + 
-    facet_grid(~scen) +
-    scale_fill_viridis() + theme_gray() +
-    scale_x_continuous(expand = c(0.02, 0.02),
-                       breaks = c(1,2,3,4,5,6,7,8,9,10,11,12),
-                       labels = c("O", "N", "D", "J", "F", "M", "A","M","J","J","A","S"),
-                       sec.axis = dup_axis()) +
-    scale_y_continuous(expand = c(0.02, 0.02),
-                       limits  =c(yrmin,yrmax), 
-                       breaks = seq(from = 1922, to = 2002, by = 2),
-                       labels = seq(from = 1922, to = 2002, by = 2),
-                       sec.axis = dup_axis())  +
-    theme(axis.title.x = element_blank(), axis.title.y = element_blank()) +
-    ggtitle(paste0(df_diff$dv[1], " [difference]", yrmintitle, " - ", yrmaxtitle))
-}
 
-pr2_ts_taf_d <- function(df, yrmin, yrmax, scalingfactor) { #plots monthly output on y, colors by annual total
+
+pr_ts_taf_d <- function(df, yrmin, yrmax, scalingfactor) { #plots monthly output on y, colors by annual total
   df_diff <- df_diff %>% group_by(scen, wy, dv) %>% mutate(anntaf_diff = sum(taf)) 
   sc <- (max(df_diff$taf) / min(df_diff$taf) * scalingfactor) # usually needs to be very low, say 0.00005 for c9
   
@@ -1884,7 +1874,8 @@ ggplot(aes(x = wm, y = taf, color = scen, group = scen_wm_dv)) + geom_boxplot(ou
    scale_x_continuous(expand = c(0.01, 0.01),limits = c(0.5,12.5), breaks = c(1:12),
   labels = c('O', 'N', 'D', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S'),sec.axis = dup_axis(name = NULL) )+
     labs(y = "taf") + 
-    facet_grid(dv~ scwyt_scwytt  )+ theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("monthly distribution by sac wyt")
+    facet_grid(dv~ scwyt_scwytt  )+ theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
+    ggtitle("monthly distribution by sac wyt") 
 }
 
 
@@ -1985,8 +1976,8 @@ pbp_ann_perav_wysum_taf_d <- function(df) {
     labs(y = "taf [difference]") + 
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     ggtitle("82 water year totals, difference from baseline")+ stat_summary(fun.y=mean, geom="point", 
-    shape=18, color= "dark blue") + stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", color = "dark blue",
-                                           angle = 0,  vjust = 1.25)
+    shape=18, color= "dark blue") + stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", 
+    color = "dark blue", angle = 0,  vjust = 1.25)
 }
 
 pbp_ann_perav_fjwysum_taf_d <- function(df) {
@@ -2144,9 +2135,9 @@ pdr_ann_perav_mfwysum_taf <- function(df) {
 
 
 pdr2_ann_perav_wysum_taf <- function(df) {
-  df_mn <- df %>% group_by(dv_name,scen) %>% summarize(annmean = 12*mean(taf))
-  df_md <- df %>% group_by(dv_name,scen,wy) %>% summarize(wysumtaf = sum(taf)) %>% group_by(scen, dv_name) %>% summarize(median = median(wysumtaf)) 
-  df %>% filter(kind != "storage") %>% group_by(scen, dv_name, wy) %>% summarize(wytafsum = sum(taf)) %>%
+  df_mn <- df %>% group_by(dv,scen) %>% summarize(annmean = 12*mean(taf))
+  df_md <- df %>% group_by(dv,scen,wy) %>% summarize(wysumtaf = sum(taf)) %>% group_by(scen, dv) %>% summarize(median = median(wysumtaf)) 
+  df %>% filter(kind != "storage") %>% group_by(scen, dv, wy) %>% summarize(wytafsum = sum(taf)) %>%
     ggplot(aes(x=wytafsum, y=scen, color=scen,  fill=scen), point_color="gray") +
     geom_density_ridges(geom = "density_ridges_gradient", calc_ecdf = TRUE, jittered_points=TRUE, scale = .95, rel_min_height = .01,
     point_shape = "|", point_size = 3, size = 0.25, quantile_lines = TRUE, quantiles = 4,
@@ -2156,7 +2147,7 @@ pdr2_ann_perav_wysum_taf <- function(df) {
     theme_ridges(center = TRUE) + ggtitle("82 water year totals")  +
     geom_point(data = df_mn, mapping = aes(x = annmean, y = scen, fill = scen), color = "black", shape = 21, size = 2) +
     geom_text(data = df_md, mapping = aes(x = median, y = scen, fill = scen, label = round(median,0)), color = "red", shape = 21, size = 6) +
-    facet_wrap(~dv_name)
+    facet_wrap(~dv)
 }
 ## diff ##
 
