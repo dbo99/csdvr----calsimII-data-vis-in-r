@@ -286,7 +286,7 @@ pdp_ann_perav_mfwysum_taf_d(df_diff, 1,5)| dot plot of difference of mar-feb yea
 ##   bell plots  (probability density) - pdr - plot density ridges ##
    function  | for
 ------------ | -------------
-pdr_ann_perav_wysum_taf(df) | bell curve with individual water year distribution shown, .25, .5, & .75 quantiles, w/mean (circle symbol)
+pdr_ann_perav_wysum_taf(df) | bell curve with individual water year distribution shown (ticks), .25, .5, & .75 quantiles (vertical lines), w/mean (circle symbol)
 pdr2_ann_perav_wysum_taf(df) | bell curve with individual year distribution shown, .25, .5, & .75 quantiles, w/mean labelled, separate scenario colors
 pdr_ann_perav_mfwysum_taf(df) | bell curve with individual mar-feb year distribution shown, .25, .5, & .75 quantiles, w/mean (circle symbol)
 pdr_ann_perav_wysum_taf_d(df_diff)| as above, difference
