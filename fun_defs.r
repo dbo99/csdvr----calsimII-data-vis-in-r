@@ -374,7 +374,8 @@ pb_mn_scwyt_perav_taf <- function(df) {
     facet_grid(dv~scen) +
     theme(axis.title.x=element_blank()) + 
     scale_fill_manual(values=wyt_cols, name = "sac wyt") + 
-    theme(strip.text.y = element_text(angle = 0))
+    theme(strip.text.y = element_text(angle = 0))+ 
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
 } 
 
 pb_mn_scwyt_perav_taf_nolab <- function(df) {
@@ -385,7 +386,9 @@ pb_mn_scwyt_perav_taf_nolab <- function(df) {
     ylab("taf") + 
     ggtitle("81 feb-jan totals") +
     facet_grid(dv~scen) +
-    scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) + 
+    theme(strip.text.y = element_text(angle = 0)) + 
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
 } 
 
 #san joaquin water year type
@@ -396,7 +399,8 @@ pb_mn_sjwyt_perav_taf <- function(df) {
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("mean sj wyt per avg taf") + geom_text(color = "dark blue", angle = 90) +facet_grid(dv~scen) +ggtitle("81 feb-jan totals")+
     scale_fill_discrete(name = "sj wyt") + theme(axis.title.x=element_blank()) + 
-    scale_fill_manual(values=wyt_cols, name = "sj wyt")
+    scale_fill_manual(values=wyt_cols, name = "sj wyt") + 
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
 } 
 
 pb_mn_scwyt2_perav_taf <- function(df) {  #coerces feb-jan water years to regular water years
@@ -407,7 +411,7 @@ pb_mn_scwyt2_perav_taf <- function(df) {  #coerces feb-jan water years to regula
     ylab("taf") + 
     #geom_text(color = "dark blue", angle = 90) +
     facet_grid(dv~scen) +ggtitle("mean annual vol. by sac 8RI wyt adj (82 yrs)") +
-    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) +
+    scale_fill_discrete(name = "sac wyt") + 
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     scale_y_continuous(expand = c(0.01,0.01)) + 
     scale_fill_manual(values=wyt_cols, name = "sac wyt")
@@ -420,9 +424,8 @@ pb_mn_eomay_stor_taf <- function(df) {
     theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))+ theme(plot.margin=grid::unit(c(8,8,8,8), "mm"))+
     ylab("eo may avg taf") + geom_text(color = "dark blue", angle = 90) + facet_grid(~dv) +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
-    ggtitle("mean eo may storage (82 yrs)") + scale_fill_manual(values=df_cols)
+    ggtitle("mean eo may storage (82 yrs)") + scale_fill_manual(values=df_cols) 
 }
-
 pb_mn_eosep_stor_taf <- function(df) {
   df %>% filter(kind == "storage", m == 9) %>% group_by(dv, scen) %>% summarize(eo_may_stor =  round(mean(taf), 0)) %>% 
     ggplot(aes(x = scen, y = eo_may_stor,  fill = scen, label = round(eo_may_stor, 0))) + geom_bar(position = "dodge",stat = "identity") + 
@@ -530,8 +533,10 @@ pb_mn_scwyt_perav_taf_d <- function(df) {
     facet_grid(dv~scen) +
     #facet_grid(scen~dv) +
     ggtitle("mean sac wyt annual difference (82 yrs)") +
-    scale_fill_discrete(name = "sac wyt") + theme(axis.title.x=element_blank()) +
-    scale_fill_manual(values=wyt_cols) 
+    scale_fill_discrete(name = "sac wyt")   +
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+    scale_fill_manual(values=wyt_cols) + 
+    theme(strip.text.y = element_text(angle = 0)) 
 } 
 
 pb_mn_scwyt_perav_taf_d_nolab <- function(df) {
@@ -544,7 +549,9 @@ pb_mn_scwyt_perav_taf_d_nolab <- function(df) {
     facet_grid(dv~scen) +
     #facet_grid(scen~dv) +
     ggtitle("mean sac wyt annual difference (82 yrs)") +
-    scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt")   +
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) + 
+    theme(strip.text.y = element_text(angle = 0)) 
 } 
 
 pb_mn_scwyt_perav_taf_d_hlab <- function(df) {
@@ -557,7 +564,9 @@ pb_mn_scwyt_perav_taf_d_hlab <- function(df) {
     facet_grid(dv~scen) +
     #facet_grid(scen~dv) +
     ggtitle("mean sac wyt annual difference (82 yrs)") + 
-    scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt")   +
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) + 
+    theme(strip.text.y = element_text(angle = 0)) 
 } 
 
 
@@ -568,7 +577,9 @@ pb_mn_sjwyt_perav_taf_d <- function(df) {
     theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     ylab("taf [difference]") + geom_text(color = "dark blue", angle = 90) +facet_grid(dv~scen) +
     ggtitle("mean sj wyt difference (82 yrs)")+ 
-    scale_fill_manual(values=wyt_cols, name = "sj wyt") + theme(axis.title.x=element_blank()) 
+    scale_fill_manual(values=wyt_cols, name = "sj wyt")  +
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) + 
+    theme(strip.text.y = element_text(angle = 0)) 
 } 
 
 pb_mn_scwyt2_perav_taf_d <- function(df) {
@@ -581,7 +592,8 @@ pb_mn_scwyt2_perav_taf_d <- function(df) {
     facet_grid(dv~scen) +ggtitle(paste0(df$dv[1]), " mean annual difference by sac. 8RI wyt (82 yrs)") + 
     scale_fill_manual(values=wyt_cols, name = "sac wyt") + theme(axis.title.x=element_blank()) +
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
-    scale_y_continuous(expand = c(0.01,0.01))
+    scale_y_continuous(expand = c(0.01,0.01)) + 
+    theme(strip.text.y = element_text(angle = 0)) 
 }
 
 
@@ -1477,7 +1489,9 @@ ggplot(df_bars, aes(x, fjwytafsum, fill = scwyt_scwytt, label = fjwy))  +geom_ba
   facet_grid(dv~scen) + scale_fill_discrete(name = "sac wyt") + labs(x = "CalSim Feb-Jan Yrs") + theme_gray() +
   scale_y_continuous(sec.axis = dup_axis(name = NULL)) + labs(y = "feb - jan wy sum (taf)") + geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
   geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall Ann. Average"), color = "dark blue") +
-  scale_linetype_manual(name = " ", values = c(2, 2))+ggtitle("sac wyt sums and means") #+geom_text(angle = 90) #unselect for year labels
+  scale_linetype_manual(name = " ", values = c(2, 2))+ggtitle("sac wyt sums and means") + 
+  scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+  scale_color_manual(values=wyt_cols, name = "sac wyt") 
 }
 
 pb_ann_fjwysum_sjwyt_taf <- function(df) {
@@ -1494,7 +1508,9 @@ pb_ann_fjwysum_sjwyt_taf <- function(df) {
     scale_y_continuous(sec.axis = dup_axis(name = NULL)) + labs(y = "feb - jan wy sum (taf)") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = sjwyt_sjwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall Ann. Average"), color = "dark blue") +
-    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("sj wyt sums and means") #+geom_text(angle = 90) #unselect for year labels
+    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("sj wyt sums and means") + 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+    scale_color_manual(values=wyt_cols, name = "sac wyt") 
 }
 
 ## storage ## 
@@ -1513,7 +1529,9 @@ pb_eomay_stor_scwyt_taf <- function(df) {
     scale_y_continuous(sec.axis = dup_axis()) + labs(y = "end of may storage (taf)") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall May Average"), color = "dark blue") +
-    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of may storages") #+geom_text(angle = 90) #unselect for year labels
+    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of may storages") + 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+    scale_color_manual(values=wyt_cols, name = "sac wyt") 
 }
 
 pb_eosep_stor_scwyt_taf <- function(df) {
@@ -1530,7 +1548,9 @@ pb_eosep_stor_scwyt_taf <- function(df) {
     scale_y_continuous(sec.axis = dup_axis()) + labs(y = "end of september storage (taf)") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall Sept. Average"), color = "dark blue") +
-    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of september storages")#+geom_text(angle = 90) #unselect for year labels
+    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of september storages")+ 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+    scale_color_manual(values=wyt_cols, name = "sac wyt") 
 }
 
 pb_eoaug_stor_scwyt_taf <- function(df) {
@@ -1547,7 +1567,9 @@ pb_eoaug_stor_scwyt_taf <- function(df) {
     scale_y_continuous(sec.axis = dup_axis()) + labs(y = "end of august storage (taf)") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall Aug. Average"), color = "dark blue") +
-    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of august storages")#+geom_text(angle = 90) #unselect for year labels
+    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of august storages")+ 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+    scale_color_manual(values=wyt_cols, name = "sac wyt") 
 }
 
 
@@ -1571,7 +1593,9 @@ pb_ann_fjwysum_scwyt_taf_d <- function(df) {
     scale_y_continuous(sec.axis = dup_axis()) + labs(y = "feb - jan wy sum (taf) [difference]") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall Avg. Ann. Diff"), color = "dark blue") +
-    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("sac wyt sums and means, difference")#+geom_text(angle = 90) #unselect for year labels
+    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("sac wyt sums and means, difference")+ 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+    scale_color_manual(values=wyt_cols, name = "sac wyt") 
 } 
 
 pb_ann_fjwysum_sjwyt_taf_d <- function(df) {
@@ -1588,7 +1612,9 @@ pb_ann_fjwysum_sjwyt_taf_d <- function(df) {
     scale_y_continuous(sec.axis = dup_axis()) + labs(y = "feb - jan wy sum (taf) [difference]") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = sjwyt_sjwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall Avg. Ann. Diff."), color = "dark blue") +
-    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("sj wyt sums means, difference")#+geom_text(angle = 90) #unselect for year labels
+    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("sj wyt sums means, difference")+ 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+    scale_color_manual(values=wyt_cols, name = "sac wyt") 
     
   }
 
@@ -1608,24 +1634,30 @@ pb_eomay_stor_scwyt_taf_d <- function(df) {
     scale_y_continuous(sec.axis = dup_axis()) + labs(y = "end of may storage (taf) [difference]") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall May Avg. Diff."), color = "dark blue") +
-    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of may storages, difference")#+geom_text(angle = 90) #unselect for year labels
+    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of may storages, difference")+ 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+    scale_color_manual(values=wyt_cols, name = "sac wyt") 
 }
 
 pb_eosep_stor_scwyt_taf_d <- function(df) {
-  df_bars <- df %>% filter(kind == "storage", fjwy>1921, fjwy<2003, wm == 12) %>% group_by(scen, dv, fjwy, scwyt_scwytt) %>%
+  df_bars <- df %>% filter(kind == "storage", fjwy>1921, fjwy<2003, wm == 12) %>% group_by(scen, dv, dv_name, fjwy, scwyt_scwytt) %>%
     summarize(eomay_stor =  taf) %>%
-    group_by(scen, dv, scwyt_scwytt) %>% arrange(dv, desc(eomay_stor)) %>%
-    mutate(taf_dv_rank = row_number()) %>% group_by(scen, dv, scwyt_scwytt) %>% arrange(scwyt_scwytt, desc(eomay_stor)) %>%
+    group_by(scen, dv, dv_name, scwyt_scwytt) %>% arrange(dv, desc(eomay_stor)) %>%
+    mutate(taf_dv_rank = row_number()) %>% group_by(scen, dv, dv_name, scwyt_scwytt) %>% arrange(scwyt_scwytt, desc(eomay_stor)) %>%
     group_by(scen,dv) %>% mutate(x = row_number())
-  df_bars_mns <- df_bars %>% group_by(scen, dv, scwyt_scwytt) %>% summarize(mean = mean(eomay_stor))
-  df_bars_mn <- df_bars %>% group_by(scen, dv) %>% summarize(mean = mean(eomay_stor))
+  df_bars_mns <- df_bars %>% group_by(scen, dv, dv_name, scwyt_scwytt) %>% summarize(mean = mean(eomay_stor))
+  df_bars_mn <- df_bars %>% group_by(scen, dv, dv_name) %>% summarize(mean = mean(eomay_stor))
   
   ggplot(df_bars, aes(x, eomay_stor, fill = scwyt_scwytt, label = fjwy))  +geom_bar(stat = "identity", position = "dodge") +
-    facet_grid(dv~scen) + scale_fill_discrete(name = "sac wyt") + labs(x = "CalSim Feb-Jan Yrs") + theme_gray() +
+    facet_grid(dv_name~scen) + scale_fill_discrete(name = "sac wyt") + labs(x = "CalSim Feb-Jan Yrs") + theme_gray() +
     scale_y_continuous(sec.axis = dup_axis()) + labs(y = "end of september storage (taf) [difference]") +
     geom_hline(data = df_bars_mns, mapping = aes(yintercept = mean, color = scwyt_scwytt), show.legend = FALSE) +
     geom_hline(data = df_bars_mn, mapping = aes(yintercept = mean, linetype = "Overall Sept. Avg. Diff"), color = "dark blue") +
-    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of sept. storages, difference")#+geom_text(angle = 90) #unselect for year labels
+    scale_linetype_manual(name = " ", values = c(2, 2)) +ggtitle("82 end of sept. storages, difference") + 
+    scale_fill_manual(values=wyt_cols, name = "sac wyt") +
+    scale_color_manual(values=wyt_cols, name = "sac wyt") + 
+    theme(strip.text.y = element_text(angle = 0))
+    
 }
 
 ###################################################
@@ -1834,7 +1866,7 @@ pr_ts_eomstormean_taf_d <- function(df, yrmin, yrmax, scalingfactor) { #plots mo
   ggplot(df_diff, aes(wm, wy, height = -taf, group=as.factor(wy), fill = mnabseomtaf_d))+
     geom_ridgeline( stat = "identity", show.legend = T, scale = sc, alpha = 0.8, min_height = -mh) + 
     facet_grid(~scen) +
-    scale_fill_viridis() + theme_gray() +
+    scale_fill_gradient2()  + theme_gray() +
     scale_x_continuous(expand = c(0.05, 0.05),
                        breaks = c(1,2,3,4,5,6,7,8,9,10,11,12),
                        labels = c("O", "N", "D", "J", "F", "M", "A","M","J","J","A","S"),
@@ -1862,7 +1894,8 @@ pbp_mon_taf <- function(df) {
                        labels = c('O', 'N', 'D', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S'),sec.axis = dup_axis(name = NULL) ) +
     labs(y = "taf", x  = NULL) + facet_grid(~dv) +
     scale_y_continuous(sec.axis = dup_axis(name = NULL))+
-    theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("monthly distribution (984 months)")
+    theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("monthly distribution (984 months)")+ 
+    scale_color_manual(values=df_cols)
 }
 
 ## Monthly by Sac WYT ##
@@ -1875,7 +1908,8 @@ ggplot(aes(x = wm, y = taf, color = scen, group = scen_wm_dv)) + geom_boxplot(ou
   labels = c('O', 'N', 'D', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S'),sec.axis = dup_axis(name = NULL) )+
     labs(y = "taf") + 
     facet_grid(dv~ scwyt_scwytt  )+ theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("monthly distribution by sac wyt") 
+    ggtitle("monthly distribution by sac wyt") + 
+    scale_color_manual(values=df_cols)
 }
 
 
@@ -1890,7 +1924,8 @@ pbp_mon_taf_d <- function(df) {
     labs(y = "taf [difference]", x  = NULL) + facet_grid(~dv) + 
     theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
     scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly distribution (984 months), difference")
+    ggtitle("monthly distribution (984 months), difference") + 
+    scale_color_manual(values=df_diff_cols)
 }
 
 ## Monthly difference by Sac WYT ##
@@ -1903,7 +1938,8 @@ pbp_mon_scwyt_taf_d <- function(df) {  #use for one dv only, otherwise too clutt
                        labels = c('O', 'N', 'D', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S'),sec.axis = dup_axis(name = NULL) )+
     labs(y = "taf [difference]") + 
     facet_grid(dv~ scwyt_scwytt  )+ theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-    ggtitle("monthly distribution by sac wyt, difference from baseline")
+    ggtitle("monthly distribution by sac wyt, difference from baseline") + 
+    scale_color_manual(values=df_diff_cols)
 }
 
 
@@ -1920,7 +1956,8 @@ pbp_ann_perav_wysum_taf <- function(df) {
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     ggtitle("82 water year totals") + stat_summary(fun.y=mean, geom="point", shape=18, color= "dark blue") + 
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", color = "dark blue", angle = 0,
-                 vjust = 1.25)
+                 vjust = 1.25) + 
+    scale_color_manual(values=df_cols)
 }
 
 pbp_ann_perav_fjwysum_taf <- function(df) {
@@ -1934,7 +1971,8 @@ pbp_ann_perav_fjwysum_taf <- function(df) {
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) + 
     ggtitle("81 feb-jan water year totals") + stat_summary(fun.y=mean, geom="point", shape=18, color= "red") + 
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", color = "red", angle = 90,
-                 hjust = -0.5)
+                 hjust = -0.5) + 
+    scale_color_manual(values=df_cols)
 }
 
 pbp_ann_perav_mfwysum_taf <- function(df) {
@@ -1948,7 +1986,8 @@ pbp_ann_perav_mfwysum_taf <- function(df) {
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) + 
     ggtitle("81 mar-feb water year totals")+ stat_summary(fun.y=mean, geom="point", shape=18, color= "red") + 
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", color = "red", angle = 90,
-                 hjust = -0.5)
+                 hjust = -0.5) + 
+    scale_color_manual(values=df_cols)
 }
 
 pbp_ann_perav_fjwysum_scwyt_taf <- function(df) {
@@ -1962,7 +2001,8 @@ pbp_ann_perav_fjwysum_scwyt_taf <- function(df) {
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) + 
     ggtitle("81 feb-jan water year totals b ysac wyt")+ stat_summary(fun.y=mean, geom="point", shape=18, color= "red") + 
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", color = "red", angle = 90,
-                 hjust = -0.5)
+                 hjust = -0.5) + 
+    scale_color_manual(values=df_cols)
 }
 
 ## Diffs ##
@@ -1977,7 +2017,8 @@ pbp_ann_perav_wysum_taf_d <- function(df) {
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     ggtitle("82 water year totals, difference from baseline")+ stat_summary(fun.y=mean, geom="point", 
     shape=18, color= "dark blue") + stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", 
-    color = "dark blue", angle = 0,  vjust = 1.25)
+    color = "dark blue", angle = 0,  vjust = 1.25) + 
+    scale_color_manual(values=df_diff_cols)
 }
 
 pbp_ann_perav_fjwysum_taf_d <- function(df) {
@@ -1992,7 +2033,8 @@ pbp_ann_perav_fjwysum_taf_d <- function(df) {
     ggtitle("81 feb-jan water year totals, difference from baseline") + stat_summary(fun.y=mean,
     geom="point", shape=18, color= "red") + 
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", color = "red",angle = 90,
-                 hjust = -0.5)
+                 hjust = -0.5) + 
+    scale_color_manual(values=df_diff_cols)
 }
 
 pbp_ann_perav_mfwysum_taf_d <- function(df) {
@@ -2007,7 +2049,8 @@ pbp_ann_perav_mfwysum_taf_d <- function(df) {
     ggtitle("81 mar-feb water year totals, difference from baseline")+ stat_summary(fun.y=mean,
     geom="point", shape=18, color= "red") + 
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", color = "red",angle = 90,
-                 hjust = -0.5)
+                 hjust = -0.5) + 
+    scale_color_manual(values=df_diff_cols)
 }
 
 pbp_ann_perav_fjwysum_scwyt_taf_d <- function(df) {
@@ -2020,7 +2063,8 @@ pbp_ann_perav_fjwysum_scwyt_taf_d <- function(df) {
     labs(y = "feb-jan water year total (taf) [difference]") + 
     theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) + 
     ggtitle("81 feb-jan water year totals by sac wyt, difference from baseline")+ stat_summary(fun.y=mean,
-    geom="point", shape=18, color= "red") 
+    geom="point", shape=18, color= "red")  + 
+    scale_color_manual(values=df_diff_cols)
 }
 
 #########################
@@ -2042,7 +2086,8 @@ pdp_ann_perav_wysum_taf <- function(df, binwidth, dotsize) {
     ggtitle("82 water year totals") + stat_summary(fun.y=mean, geom="point", shape=18,
                                                                size=4, color= "dark blue") +
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", size=4, color = "dark blue",
-                 vjust = -0.5)
+                 vjust = -0.5)  + 
+    scale_color_manual(values=df_cols)
 }
 
 pdp_ann_perav_mfwysum_taf <- function(df, binwidth, dotsize) {
@@ -2059,7 +2104,8 @@ pdp_ann_perav_mfwysum_taf <- function(df, binwidth, dotsize) {
     ggtitle("81 mar-feb water year totals") + stat_summary(fun.y=mean, geom="point", shape=18,
     size=4, color= "red") +
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", size=4, color = "red",
-                 vjust = -0.5)
+                 vjust = -0.5) + 
+    scale_color_manual(values=df_cols)
 }
 ## diff ##
 
@@ -2077,7 +2123,8 @@ pdp_ann_perav_wysum_taf_d <- function(df, binwidth, dotsize) {
     ggtitle("82 water years totals, difference from baseline") + stat_summary(fun.y=mean, geom="point", shape=18,
                                                              size=4, color= "red") +
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", size=4, color = "red",
-                 vjust = -0.5)
+                 vjust = -0.5) + 
+    scale_color_manual(values=df_diff_cols)
 }
 
 pdp_ann_perav_mfwysum_taf_d <- function(df, binwidth, dotsize) {
@@ -2094,7 +2141,8 @@ pdp_ann_perav_mfwysum_taf_d <- function(df, binwidth, dotsize) {
     ggtitle("81 mar-feb water year totals, difference from baseline") + stat_summary(fun.y=mean, geom="point", shape=18,
                                                                size=4, color= "red") +
     stat_summary(aes(label=round(..y..,0)), fun.y=mean, geom="text", size=4, color = "red",
-                 vjust = -0.5)
+                 vjust = -0.5)  + 
+    scale_color_manual(values=df_diff_cols)
 }
 
 #########################
@@ -2199,6 +2247,186 @@ pdr_ann_perav_mfwysum_taf_d <- function(df) {
     geom_point(data = df_mn, mapping = aes(x = annmean, y = scen, fill = dv), color = "black", shape = 21) 
 }
 
-source("plotthemes.r")
+#######################################################################################
+########## Plot themes, rarely used, varieties of theme_black allow black background,
+########## good for viridis & color blind 
+#######################################################################################
+
+theme_black = function(base_size = 12, base_family = "") 
+  
+  theme_grey(base_size = base_size, base_family = base_family) %+replace%
+  
+  theme(
+    # Specify axis options
+    axis.line = element_blank(),  
+    axis.text.x = element_text(size = base_size*0.8, color = "white", lineheight = 0.9),  
+    axis.text.y = element_text(size = base_size*0.8, color = "white", lineheight = 0.9),  
+    axis.ticks = element_line(color = "white", size  =  0.2),  
+    axis.title.x = element_text(size = base_size, color = "white", margin = margin(0, 10, 0, 0)),  
+    axis.title.y = element_text(size = base_size, color = "white", angle = 90, margin = margin(0, 10, 0, 0)),  
+    axis.ticks.length = unit(0.3, "lines"),   
+    # Specify legend options
+    legend.background = element_rect(color = NA, fill = "black"),  
+    legend.key = element_rect(color = "white",  fill = "black"),  
+    legend.key.size = unit(1.2, "lines"),  
+    legend.key.height = NULL,  
+    legend.key.width = NULL,      
+    legend.text = element_text(size = base_size*0.8, color = "white"),  
+    legend.title = element_text(size = base_size*0.8, face = "bold", hjust = 0, color = "white"),  
+    legend.position = "right",  
+    legend.text.align = NULL,  
+    legend.title.align = NULL,  
+    legend.direction = "vertical",  
+    legend.box = NULL, 
+    # Specify panel options
+    panel.background = element_rect(fill = "black", color  =  NA),  
+    panel.border = element_rect(fill = NA, color = "white"),  
+    panel.grid.major = element_blank(),#element_line(color = "grey35"),  
+    panel.grid.minor = element_blank(),#element_line(color = "grey20"),  
+    panel.margin = unit(0.5, "lines"),   
+    # Specify facetting options
+    strip.background = element_rect(fill = "grey30", color = "grey10"),  
+    strip.text.x = element_text(size = base_size*0.8, color = "white"),  
+    strip.text.y = element_text(size = base_size*0.8, color = "white",angle = -90),  
+    # Specify plot options
+    plot.background = element_rect(color = "black", fill = "black"),  
+    plot.title = element_text(size = base_size*1.2, color = "white"),  
+    plot.margin = unit(rep(1, 4), "lines")
+    
+  )
+
+
+theme_black2 = function(base_size = 12, base_family = "") 
+  
+  theme_grey(base_size = base_size, base_family = base_family) %+replace%
+  
+  theme(
+    # Specify axis options
+    axis.line = element_blank(),  
+    axis.text.x = element_text(size = base_size*0.8, color = "white", lineheight = 0.9),  
+    axis.text.y = element_text(size = base_size*0.8, color = "white", lineheight = 0.9),  
+    axis.ticks = element_line(color = "white", size  =  0.2),  
+    axis.title.x = element_text(size = base_size, color = "white", margin = margin(0, 10, 0, 0)),  
+    axis.title.y = element_text(size = base_size, color = "white", angle = 90, margin = margin(0, 10, 0, 0)),  
+    axis.ticks.length = unit(0.3, "lines"),   
+    # Specify legend options
+    legend.background = element_rect(color = NA, fill = "black"),  
+    legend.key = element_rect(color = "white",  fill = "black"),  
+    legend.key.size = unit(1.2, "lines"),  
+    legend.key.height = NULL,  
+    legend.key.width = NULL,      
+    legend.text = element_text(size = base_size*0.8, color = "white"),  
+    legend.title = element_text(size = base_size*0.8, face = "bold", hjust = 0, color = "white"),  
+    legend.position = "right",  
+    legend.text.align = NULL,  
+    legend.title.align = NULL,  
+    legend.direction = "vertical",  
+    legend.box = NULL, 
+    # Specify panel options
+    panel.background = element_rect(fill = "black", color  =  NA),  
+    panel.border = element_rect(fill = NA, color = "white"),  
+    panel.grid.major = element_line(color = "grey35"),  
+    panel.grid.minor = element_line(color = "grey35"),  #origgrey20
+    panel.margin = unit(0.5, "lines"),   
+    # Specify facetting options
+    strip.background = element_rect(fill = "grey35", color = "grey10"),  
+    #orig grey 30
+    strip.text.x = element_text(size = base_size*0.8, color = "white"),  
+    strip.text.y = element_text(size = base_size*0.8, color = "white",angle = -90),  
+    # Specify plot options
+    plot.background = element_rect(color = "black", fill = "black"),  
+    plot.title = element_text(size = base_size*1.2, color = "white"),  
+    plot.margin = unit(rep(1, 4), "lines")
+    
+  )
+
+theme_allblack = function(base_size = 12, base_family = "") 
+  
+  theme_grey(base_size = base_size, base_family = base_family) %+replace%
+  
+  theme(
+    # Specify axis options
+    axis.line = element_blank(),  
+    axis.text.x = element_text(size = base_size*0.8, color = "black", lineheight = 0.9),  
+    axis.text.y = element_text(size = base_size*0.8, color = "black", lineheight = 0.9),  
+    axis.ticks = element_line(color = "black", size  =  0.2),  
+    axis.title.x = element_text(size = base_size, color = "black", margin = margin(0, 10, 0, 0)),  
+    axis.title.y = element_text(size = base_size, color = "black", angle = 90, margin = margin(0, 10, 0, 0)),  
+    axis.ticks.length = unit(0.3, "lines"),   
+    # Specify legend options
+    legend.background = element_rect(color = NA, fill = "black"),  
+    legend.key = element_rect(color = "black",  fill = "black"),  
+    legend.key.size = unit(1.2, "lines"),  
+    legend.key.height = NULL,  
+    legend.key.width = NULL,      
+    legend.text = element_text(size = base_size*0.8, color = "black"),  
+    legend.title = element_text(size = base_size*0.8, face = "bold", hjust = 0, color = "black"),  
+    legend.position = "right",  
+    legend.text.align = NULL,  
+    legend.title.align = NULL,  
+    legend.direction = "vertical",  
+    legend.box = NULL, 
+    # Specify panel options
+    panel.background = element_rect(fill = "black", color  =  NA),  
+    panel.border = element_rect(fill = NA, color = "black"),  
+    panel.grid.major = element_line(color = "black"),  
+    panel.grid.minor = element_line(color = "black"),  #origgrey20
+    panel.margin = unit(0.5, "lines"),   
+    # Specify facetting options
+    strip.background = element_rect(fill = "black", color = "black"),  
+    #orig grey 30
+    strip.text.x = element_text(size = base_size*0.8, color = "black"),  
+    strip.text.y = element_text(size = base_size*0.8, color = "black",angle = -90),  
+    # Specify plot options
+    plot.background = element_rect(color = "black", fill = "black"),  
+    plot.title = element_text(size = base_size*1.2, color = "black"),  
+    plot.margin = unit(rep(1, 4), "lines")
+    
+  )
+
+theme_black3 = function(base_size = 12, base_family = "") 
+  
+  theme_grey(base_size = base_size, base_family = base_family) %+replace%
+  
+  theme(
+    # Specify axis options
+    axis.line = element_blank(),  
+    axis.text.x = element_text(size = base_size*0.8, color = "white", lineheight = 0.9),  
+    axis.text.y = element_text(size = base_size*0.8, color = "white", lineheight = 0.9),  
+    axis.ticks = element_line(color = "white", size  =  0.2),  
+    axis.title.x = element_text(size = base_size, color = "white", margin = margin(0, 10, 0, 0)),  
+    axis.title.y = element_text(size = base_size, color = "white", angle = 90, margin = margin(0, 10, 0, 0)),  
+    axis.ticks.length = unit(0.3, "lines"),   
+    # Specify legend options
+    legend.background = element_rect(color = NA, fill = NA),  
+    legend.key = element_rect(color = "white",  fill = "black"),  
+    legend.key.size = unit(1.2, "lines"),  
+    legend.key.height = NULL,  
+    legend.key.width = NULL,      
+    legend.text = element_text(size = base_size*0.8, color = "white"),  
+    legend.title = element_text(size = base_size*0.8, face = "bold", hjust = 0, color = "white"),  
+    legend.position = "right",  
+    legend.text.align = NULL,  
+    legend.title.align = NULL,  
+    legend.direction = "vertical",  
+    legend.box = NULL, 
+    # Specify panel options
+    panel.background = element_rect(fill = "black", color  =  NA),  
+    panel.border = element_rect(fill = NA, color = "white"),  
+    panel.grid.major = element_line(color = "grey35"),  
+    panel.grid.minor = element_line(color = "grey35"),  #origgrey20
+    panel.margin = unit(0.5, "lines"),   
+    # Specify facetting options
+    strip.background = element_rect(fill = "grey35", color = "grey10"),  
+    #orig grey 30
+    strip.text.x = element_text(size = base_size*0.8, color = "white"),  
+    strip.text.y = element_text(size = base_size*0.8, color = "white",angle = -90),  
+    # Specify plot options
+    plot.background = element_rect(color = "black", fill = "black"),  
+    plot.title = element_text(size = base_size*1.2, color = "white"),  
+    plot.margin = unit(rep(1, 4), "lines")
+    
+  )
+
 
 ## USBR draft - D. O'Connor 2018 ##

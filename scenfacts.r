@@ -34,7 +34,9 @@ df_cols <- c(black, df_diff_cols)
 
 df$scwyt_scwytt <- factor(df$scwyt_scwytt, levels = c("1_wt", "2_an", "3_bn", "4_dr", "5_cr"))
 
-wyt_cols <- c("#3333CC", "#6666CC", "#FFCC99", "#CC9999", "#996666")
+#wyt_cols <- c("#3333CC", "#6666CC", "#FFCCCC", "#CC9999", "#996666")
+wyt_cols <- c("#0571b0", "#92c5de", "#fddbc7", "#f4a582", "#ca0020")
+
 
 # this groups some cvp and swp totals
 #df$dv_name <- factor(df$dv_name, levels = c("Trinity (CVP)", "Shasta (CVP)", "Folsom (CVP)", "CVP San Luis", "Oroville (SWP)", "SWP San Luis"  ,  "Delta Outflow", "CVP Total",

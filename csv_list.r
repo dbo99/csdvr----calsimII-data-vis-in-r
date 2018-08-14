@@ -25,7 +25,7 @@ csv3  <- read_csv ("3_SHA_SL_TF_NDD.csv"   )  %>% mutate(scen = "3_SHA_SL_TF_NDD
 
 
 df_csv <- mget(ls(pattern="csv*")) %>%  bind_rows()  # recognizes above new csv# data.frames and combines into one
-rm(list = ls()[grep("^csv", ls())])  #removes single csvs to unclutter (deletes everything starting with `csv`)
+rm(list = ls()[grep("^csv", ls())])  #releases single csvs from memory - deletes everything starting with `csv`)
 setwd(here())
 
 # if just appending to df_csv to an already big list, can avoid re-reading in all with:
