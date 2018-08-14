@@ -342,7 +342,7 @@ pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005)| whole monthly timeseries o
 - plots monthly y, color scaled to  wy sum) (dataframe, yrmin, yrmax, scaling factor). for one dv only (no room for two) (otherwise averaged)
 
 
-## timeseries rasters (grid view) #
+## timeseries grids #
    function  | for
 ------------ | -------------
 prast_mon_ts_taf(df) | timeseries raster of monthly taf
