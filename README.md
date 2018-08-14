@@ -25,7 +25,7 @@
 
 **Drop** your calsim csvs in `csv` folder (or write there directly from WRIMS2)
 
-**Open RStudio and files** by clicking on `control.r`, then open  `csv_list.r` and `scen_facts.r`
+**Open RStudio and files** by clicking on **`control.r`**, then open  **`csv_list.r`** and **`scen_facts.r`**
 
 **Point to files and ID scenarios** in **`csv_list.r`**: enter each csv file name (eg `040812_bo_y1a1.csv`) and give unique nickname to each (eg `Scen1_Y1A1`)
 
