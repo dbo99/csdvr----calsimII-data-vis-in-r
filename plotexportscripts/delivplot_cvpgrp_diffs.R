@@ -2,6 +2,25 @@ setwd(here())
 
   dvs <- c("del_cvp_psc_n", "del_cvp_pmi_n", "del_cvp_pag_n", "del_cvp_prf_n","del_cvp_pex_s", "del_cvp_pmi_s", "del_cvp_pag_s", "del_cvp_prf_s")
   source("df_create.r")
+  
+  
+  
+  df_diff$dv <- df_diff$dv_name
+  
+  # orders dv_names here
+  df$dv <- factor(df$dv, levels = c("Trinity (CVP)", "Shasta (CVP)", "Folsom (CVP)", "CVP San Luis", "Oroville (SWP)", "SWP San Luis"  ,  "Delta Outflow", "CVP Total",
+                                              "CVP NOD", "CVP SOD", "SWP Total", "SWP NOD", "SWP SOD", "NOD CVP Settlement",
+                                              "NOD CVP M&I", "NOD CVP Ag. Service", "NOD CVP Refuge",
+                                              "SOD CVP Exchange","SOD CVP M&I", "SOD CVP Ag. Service", "SOD CVP Refuge"))
+  df_diff$dv <- factor(df_diff$dv, levels = c("Trinity (CVP)", "Shasta (CVP)", "Folsom (CVP)", "CVP San Luis", "Oroville (SWP)", "SWP San Luis","Delta Outflow", "CVP Total",
+                                              "CVP NOD", "CVP SOD", "SWP Total","SWP NOD", "SWP SOD", "NOD CVP Settlement",
+                                              "NOD CVP M&I", "NOD CVP Ag. Service", "NOD CVP Refuge",
+                                              "SOD CVP Exchange","SOD CVP M&I", "SOD CVP Ag. Service", "SOD CVP Refuge"))
+  
+  
+  
+  
+  
   z <- 
     #choose label style or ranked; labels good for few scenarios, maybe too busy for many scenarios
     
@@ -22,4 +41,4 @@ ggsave( "deliv_cvpsubgroupdiffs.jpg", dpi = 300, width = 13, height = 8, units =
 z <- ggplotly(z)
 htmlwidgets::saveWidget(as_widget(z), "deliv_cvpsubgroupdiffs.html")
 setwd(here("plotexportscripts"))
-rm(list = ls()[grep("^z", ls())])
+rm(list = ls()[grep("^z", ls())]) #beware removes variables beginning with z
