@@ -357,6 +357,6 @@ ptile_ann_ts_sum_taf(df) | timeseries tile (stripes) of water year totals (sums)
 prast_ann_ts_mn_taf(df) |  timeseries tile (stripes) of water year means in taf
 ptile_mon_ts_taf_d(df_diff)|timeseries tile of monthly difference in taf
 ptile_ann_ts_sum_taf_d(df_diff)|timeseries tile of annual total difference in taf
-ptile_annmonmean_ts_mn_taf_d(df_diff)|timeseries tile of annual mean difference in ta
+ptile_annmonmean_ts_mn_taf_d(df_diff)|timeseries tile of annual mean difference in taf
 
 # **:earth_americas: csdvr :earth_americas:** #
