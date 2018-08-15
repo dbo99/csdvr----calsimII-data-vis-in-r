@@ -476,7 +476,7 @@ setwd(here())
 
   
   
-  pr2_ts_taf_d(df_diff, 1921, 2007, 0.0035) + ggtitle("Annual Total Delta Outflow, 82 CalSim years, Difference from Baseline")+
+  pr_ts_taf_d(df_diff, 1921, 2007, 0.0035) + ggtitle("Annual Total Delta Outflow, 82 CalSim years, Difference from Baseline")+
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))+ 
     scale_color_manual(values=df_diff_cols)
   setwd(here("plots", "doplot_many"))

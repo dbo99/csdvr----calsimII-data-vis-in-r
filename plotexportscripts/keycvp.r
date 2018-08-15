@@ -512,48 +512,53 @@ setwd(here())
   setwd(here())
 }
 
-{dvs <- c("s4")
+{
+dvs <- c("del_cvp_total_s")
+  
+
   source("df_create.r")
-pr_ts_eomstormean_taf_d(df_diff, 1922, 2004, 0.0005) + #scaling factor at end - adjust manually for height
-
-  theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  
-setwd(here("plots", "july2018plots"))
-ggsave(paste0(paste(dvs,collapse="&"), "_DiffRidges.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
-
-setwd(here())
-
-}
-
-
-{dvs <- c("c406")
-  source("df_create.r")
-  pr_ts_taf_d(df_diff, 1922, 2004, 0.006) + #scaling factor at end - adjust manually for height
-    
+  
+  
+  p_ann_fjwysum_scwyt_excd_taf(df) + ggtitle("CVP SOD") +
     theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  
   setwd(here("plots", "july2018plots"))
-  ggsave(paste0(paste(dvs,collapse="&"), "_DiffRidges.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  ggsave(paste0(paste(dvs,collapse="&"), "2x3excdgrid.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+{
+  dvs <- c("del_cvp_total_s", "del_cvp_total_n")
+  
+  
+  source("df_create.r")
+  
+  
+  p_ann_fjwysum_scwyt_excd_taf(df) + ggtitle("CVP NOD & SOD by Sac WYT") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "2x3excdgrid.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
   
   setwd(here())
 }
 
 
-{dvs <- c("del_cvp_total_s")
-  source("df_create.r")
-  pb_ann_fjwysum_scwyt_taf(df) +
-    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  
-  setwd(here("plots", "july2018plots"))
-  ggsave(paste0(paste(dvs,collapse="&"), "_yeartotalsrankedbysacwyt.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+{
+  dvs <- c("del_cvp_total_s", "del_cvp_total_n")
   
-  setwd(here())
-}
-
-
-{dvs <- c("s4")
+  
   source("df_create.r")
-  pb_eosep_stor_scwyt_taf_d(df_diff)+
-    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))   + facet_grid(dv_name~scen)
+  df$dv <- df$dv_name
+  
+  # orders dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df$dv <- factor(df$dv, levels = c( "CVP NOD", "CVP SOD"))
+  
+  
+  p_ann_fjwysum_scwyt_excd2_taf(df) + ggtitle("CVP NOD & SOD by Sac WYT") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
   setwd(here("plots", "july2018plots"))
-  ggsave(paste0(paste(dvs,collapse="&"), "_anntotaldiffsrankedbysacwyt.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  ggsave(paste0(paste(dvs,collapse="&"), "2x3excdgrid_style2.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
   
   setwd(here())
 }

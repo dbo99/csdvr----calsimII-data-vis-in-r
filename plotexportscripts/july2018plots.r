@@ -512,4 +512,278 @@ setwd(here())
   setwd(here())
 }
 
+{
+dvs <- c("del_cvp_total_s")
+  
+
+  source("df_create.r")
+  
+  
+  p_ann_fjwysum_scwyt_excd_taf(df) + ggtitle("Annual total: CVP SOD") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_2x3excdgrid.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+{
+  dvs <- c("del_cvp_total_s", "del_cvp_total_n")
+  
+  
+  source("df_create.r")
+  
+  
+  p_ann_fjwysum_scwyt_excd_taf(df) + ggtitle("Annual totals: CVP NOD & SOD by Sac WYT") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "2x3excdgrid.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+{
+  dvs <- c("del_cvp_total_s", "del_cvp_total_n")
+  
+  
+  source("df_create.r")
+  
+  
+  p_ann_fjwysum_scwyt_excd_taf_d(df_diff) + ggtitle("Annual total, CVP NOD & SOD by Sac WYT, difference from baseline") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_2x3excdgriddiff.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+{
+  dvs <- c("del_cvp_total_s", "del_cvp_total_n")
+  
+  
+  source("df_create.r")
+  df$dv <- df$dv_name
+  
+  # order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df$dv <- factor(df$dv, levels = c( "CVP NOD", "CVP SOD"))
+  
+  
+  p_ann_fjwysum_scwyt_excd2_taf(df) + ggtitle("CVP NOD & SOD by Sac WYT") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_2x3excdgrid_style2.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+{
+  dvs <- c("del_cvp_total_s", "del_cvp_total_n")
+  
+  
+  source("df_create.r")
+  df_diff$dv <- df_diff$dv_name
+  
+  # order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df_diff$dv <- factor(df_diff$dv, levels = c( "CVP NOD", "CVP SOD"))
+  
+  
+  p_ann_fjwysum_scwyt_excd2_taf_d(df_diff)  + ggtitle("CVP NOD & SOD by Sac WYT, difference from baseline") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_2x3excdgriddiff_style2.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+
+
+{
+  dvs <- c("d418", "d419")
+  
+  
+  source("df_create.r")
+  df$dv <- df$dv_name
+  
+  # order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df$dv <- factor(df$dv, levels = c( "Jones Pumping (CVP)", "Banks Pumping (SWP)"))
+  
+  
+  p_ann_fjwysum_scwyt_excd2_taf(df)  + ggtitle("Annual SOD Exports") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_2x3excdgrid_style2.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+
+
+
+
+{
+  dvs <- c("d418", "d419")
+  
+  
+  source("df_create.r")
+  df_diff$dv <- df_diff$dv_name
+  
+  # order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df_diff$dv <- factor(df_diff$dv, levels = c( "Jones Pumping (CVP)", "Banks Pumping (SWP)"))
+  
+  
+  p_ann_fjwysum_scwyt_excd2_taf_d(df_diff)  + ggtitle("Annual SOD Exports, difference from baseline") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_2x3excdgriddiff_style2.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+{
+  dvs <- c("d418")
+  
+  
+  source("df_create.r")
+  df_diff$dv <- df_diff$dv_name
+  
+  # order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df_diff$dv <- factor(df_diff$dv, levels = c( "Jones Pumping (CVP)"))
+  
+  
+  pr_ts_taf_d(df_diff, 1921, 2007, 0.005)  + ggtitle("Jones Pumping, difference from baseline") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_ridgediffs.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+{dvs <- c("d419")
+
+
+source("df_create.r")
+df_diff$dv <- df_diff$dv_name
+
+# order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+df_diff$dv <- factor(df_diff$dv, levels = c( "Banks Pumping (CVP)"))
+
+
+pr_ts_taf_d(df_diff, 1921, 2007, 0.005)  + ggtitle("Banks Pumping, difference from baseline") +
+  theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+  theme(strip.text.y = element_text(angle = 0))
+setwd(here("plots", "july2018plots"))
+ggsave(paste0(paste(dvs,collapse="&"), "_ridgediffs.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+
+setwd(here())
+}
+
+{
+  dvs <- c("d418")
+  
+  
+  source("df_create.r")
+  df_diff$dv <- df_diff$dv_name
+  
+  # order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df_diff$dv <- factor(df_diff$dv, levels = c( "Jones Pumping (CVP)"))
+  
+  
+  prast_mon_ts_taf_d(df_diff)  + ggtitle("Jones Pumping, difference from baseline") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_monrastdiffs.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+{
+  dvs <- c("d418")
+  
+  
+  source("df_create.r")
+  df_diff$dv <- df_diff$dv_name
+  
+  # order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df_diff$dv <- factor(df_diff$dv, levels = c( "Jones Pumping (CVP)"))
+  
+  
+  prast_ann_ts_sum_taf_d(df_diff)  + ggtitle("Annual Jones Pumping, difference from baseline") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_annrastdiffs.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
+  
+  setwd(here())
+}
+
+
+
+
+
+{
+  dvs <- c("s1", "s4", "s8", "s11")
+  
+  
+  source("df_create.r")
+  df$dv <- df$dv_name
+  
+  # order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  df$dv <- factor(df$dv, levels = c( "Trinity (CVP)", "Shasta (CVP)", "Folsom (CVP)", "CVP San Luis"))
+  
+  
+  z <- p_mon_ts_taf(df, 1921, 2004)   + ggtitle("NOD & CVP San Luis Storage") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  z
+  ggsave(paste0(paste(dvs,collapse="&"), "_mon_timeseries_taf.jpg"), dpi = 300, width = 49.99, height = 13, units = "in")
+  
+ 
+z
+
+z <- ggplotly(z)
+htmlwidgets::saveWidget(as_widget(z), paste0(paste(dvs,collapse="&"), "_mon_timeseries_taf.html"))
+setwd(here())
+rm(list = ls()[grep("^z", ls())]) #beware removes variables beginning with z
+
+}
+
+{
+  dvs <- c("s1", "s4", "s8", "s11")
+  
+  
+  source("df_create.r")
+  #df_diff$dv <- df_diff$dv_name
+  #
+  ## order dv_names here. varcodes.csv defines these names - need to be in varcodes.csv first
+  #df_diff$dv <- factor(df_diff$dv, levels = c( "Trinity (CVP)", "Shasta (CVP)", "Folsom (CVP)", "CVP San Luis"))
+  
+  
+  z <- p_mon_ts_taf_d(df_diff, 1921, 2004)   + ggtitle("NOD & CVP San Luis Storage, Difference") +
+    theme(plot.margin=grid::unit(c(6,6,6,6), "mm"))  + 
+    theme(strip.text.y = element_text(angle = 0))
+  setwd(here("plots", "july2018plots"))
+  z
+  ggsave(paste0(paste(dvs,collapse="&"), "_mon_timeseries_taf_diff.jpg"), dpi = 300, width = 49.99, height = 13, units = "in")
+  
+  
+  z
+  
+  z <- ggplotly(z)
+  htmlwidgets::saveWidget(as_widget(z), paste0(paste(dvs,collapse="&"), "_mon_timeseries_taf_diff.html"))
+  setwd(here())
+  rm(list = ls()[grep("^z", ls())]) #beware removes variables beginning with z
+  
+}
+
+
+
+
+####### Last Row below ##############
 setwd(here("plotexportscripts"))
