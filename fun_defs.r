@@ -1,8 +1,8 @@
 ### Function Definitions ###
 
-#######################
-### yrs, mons, units ##
-#######################
+#####################################
+### year and month classifications ##
+#####################################
 
 water_year <- function(date) {
   ifelse(month(date) < 10, year(date), year(date)+1)}
@@ -16,7 +16,7 @@ fx2_month <-function(date) {
 febjanwy <- function(date) {  
   ifelse(month(date) > 1, year(date), year(date)-1)}
 
-marfebwy <- function(date){    #cvp contract year
+marfebwy <- function(date){    #typical cvp contract year
   ifelse(month(date) > 2, year(date), year(date)-1)}
 
 jandecwy <- function(date){  year(date)} 
@@ -72,7 +72,7 @@ create_df <-function(df_csv){
 
 create_df_diff <-function(df){
   baseline_df <- df %>% filter(scen == "baseline") %>% mutate(id = row_number())
-  
+
   df_diff <- df %>% select(scen, taf, cfs, rawval) %>% group_by(scen) %>% mutate(id = row_number()) %>% 
     left_join(baseline_df, by = "id", suffix = c("_scen", "_bl")) %>%  ungroup() %>%
     mutate(taf = taf_scen - taf_bl, cfs = cfs_scen - cfs_bl, rawval = rawval_scen - rawval_bl, scen = paste0(scen_scen," - bl")) %>%
@@ -96,12 +96,7 @@ create_df_diff <-function(df){
   lastwyt_d <- lastwyt_d[1,]
   df_diff <- df_diff %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt_d, scwyt2 ))
 
-  #varcode <- read_csv("varcodes.csv")
-  #df_diff <- df_diff %>% left_join(varcode) 
-  #
-  #df_diff$dv <- ifelse(is.na(df_diff$dv), df_diff$dv, df_diff$dv)
-  
-  
+
 }
 
 ################################
@@ -149,11 +144,35 @@ scale_y_reordered <- function(..., sep = "___") {
 
 adds44tos4 <- function(df) {
   s4  <- df %>% filter(Variable == "s4",  Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 to get 984 months (24-hr date-time)
-  s44 <- df %>% filter(Variable == "s44", Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )
+  s44 <- df %>% filter(Variable == "s44", Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 to get 984 months (24-hr date-time)
   dfnos4 <- df %>% filter(!Variable == "s4")
   s4$Value <- s4$Value + s44$Value
   df <- rbind(s4, dfnos4)
 }
+
+addxtoy_csv <- function(csv, dvx, dvy) {
+  #############eg %>% addxdvtoydv_ony_csv("s44", "s4)
+
+  assignxasy <- csv %>% filter(Variable == paste(dvx)) %>%
+                        mutate(Variable = paste(dvy)) 
+
+  setDT(csv)
+  setDT(assignxasy)
+  ##add y2 to y1 by matching 
+  csv[assignxasy, Value := Value + i.Value, on=.(Date_Time, Variable, scen)]
+  
+}
+  #setDF(df)
+ #df
+ #df <- data.frame(df)
+ #df
+ #df <- data.frame(df) 
+ #df
+ #rm(list = ls()[grep("^z", ls())]) #beware: removes variables beginning with z
+ 
+
+
+
 
 #################################
 #################################
@@ -941,9 +960,9 @@ ptile_ann_ts_sum_taf <- function(df) {
 }
 
 ## annual mon mean
-ptile_annmonmean_ts_mn_taf <- function(df) {
-  df %>% group_by(wy, scen, dv) %>% summarize(annmontafmean = mean(taf)) %>% mutate(wyscen = paste0(wy,scen)) %>%
-    ggplot(aes(x=wy, y = 1,  fill = annmontafmean))  +
+ptile_ann_mean_ts_mn_taf <- function(df) {
+  df %>% group_by(wy, scen, dv) %>% summarize(anntafmean = mean(taf)) %>% mutate(wyscen = paste0(wy,scen)) %>%
+    ggplot(aes(x=wy, y = 1,  fill = anntafmean))  +
     geom_tile() + 
     scale_x_continuous(breaks = c(1922, 1930, 1940,1950, 1960, 1970, 1980, 1990, 2003),
                        labels = c("'22", "'30", "'40","'50", "'60", "'70", "'80", "'90", "'03"), sec.axis = dup_axis(name = NULL),
@@ -994,9 +1013,9 @@ ptile_ann_ts_sum_taf_d <- function(df) {
 
 
 ## annual mon mean
-ptile_annmonmean_ts_mn_taf_d <- function(df) {
-  df %>% group_by(wy, scen, dv) %>% summarize(annmontafmean = mean(taf)) %>% mutate(wyscen = paste0(wy,scen)) %>%
-    ggplot(aes(x=wy, y = 1,  fill = annmontafmean))  +
+ptile_ann_ts_mn_taf_d <- function(df) {
+  df %>% group_by(wy, scen, dv) %>% summarize(anntafmean = mean(taf)) %>% mutate(wyscen = paste0(wy,scen)) %>%
+    ggplot(aes(x=wy, y = 1,  fill = anntafmean))  +
     geom_tile() + 
     scale_x_continuous(breaks = c(1922, 1930, 1940,1950, 1960, 1970, 1980, 1990, 2003),
                        labels = c("'22", "'30", "'40","'50", "'60", "'70", "'80", "'90", "'03"), sec.axis = dup_axis(name = NULL),
@@ -1338,7 +1357,8 @@ df_0_5 <- rbind(df_0, df_1_5) %>%  ggplot(aes(x = excdxaxis, y = wytafsum, color
                                               linetype = dv)) + geom_line() + geom_point(size =0.5) +labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum") +
   facet_wrap(~scwyt_scwytt, ncol = 3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
   ggtitle("sac wyt sums (81 yrs)")
-df_0_5 +  theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+df_0_5 +  theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + 
+  scale_color_manual(values=df_cols) 
 }
 
 ## Sac WYT taf - dvs apart
@@ -1353,7 +1373,8 @@ p_ann_fjwysum_scwyt_excd2_taf <- function(df)  {
   df_0_5 <- rbind(df_0, df_1_5) %>%  ggplot(aes(x = excdxaxis, y = wytafsum, color = scen)) + geom_line() + geom_point(size =0.5) +labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum") +
     facet_grid(dv~scwyt_scwytt) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
     ggtitle("sac wyt sums (81 yrs)")
-  df_0_5 +  theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+  df_0_5 +  theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + 
+    scale_color_manual(values=df_cols) 
 }
 
 p_ann_fjwysum_scwyt_excd_taf <- function(df)  {
@@ -1368,7 +1389,8 @@ p_ann_fjwysum_scwyt_excd_taf <- function(df)  {
                                                 linetype = dv)) + geom_line() + geom_point(size =0.5) +labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum") +
     facet_wrap(~scwyt_scwytt, ncol = 3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
     ggtitle("sac wyt sums (81 yrs)")
-  df_0_5 +  theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+  df_0_5 +  theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + 
+    scale_color_manual(values=df_cols) 
 }
 
 ## SJ WYT taf - dvs together
@@ -1383,7 +1405,8 @@ df_0_5 <- rbind(df_0, df_1_5) %>%  ggplot(aes(x = excdxaxis, y = wytafsum, color
                                               linetype = dv)) + geom_line() + geom_point(size =0.5) +labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum") +
           facet_wrap(~sjwyt_sjwytt, ncol = 3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
           ggtitle("sjr wyt sums (81 yrs)")
-df_0_5 + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm"))
+df_0_5 + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm"))+ 
+  scale_color_manual(values=df_cols) 
 }
 
 ## SJ WYT taf - dvs apart
@@ -1397,7 +1420,8 @@ p_ann_fjwysum_sjwyt_excd2_taf <- function(df) {
   df_0_5 <- rbind(df_0, df_1_5) %>%  ggplot(aes(x = excdxaxis, y = wytafsum, color = scen)) + geom_line() + geom_point(size =0.5) +labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum") +
     facet_grid(dv~sjwyt_sjwytt) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
     ggtitle("sjr wyt sums (81 yrs)")
-  df_0_5 + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm"))
+  df_0_5 + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) + 
+    scale_color_manual(values=df_cols) 
 }
 
 
@@ -1418,7 +1442,8 @@ p_ann_fjwysum_scwyt_excd_taf_d <- function(df) {
     labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum [difference]") +
     facet_wrap(~scwyt_scwytt, ncol = 3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
     ggtitle("sac wyt sums, difference (81 yrs)")
-  df_0_5  + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+  df_0_5  + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + 
+    scale_color_manual(values=df_diff_cols) 
 }
 
 
@@ -1437,7 +1462,8 @@ p_ann_fjwysum_scwyt_excd2_taf_d <- function(df) {
     labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum [difference]") +
     facet_grid(dv~scwyt_scwytt) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
     ggtitle("sac wyt sums, difference (81 yrs)")
-  df_0_5  + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2)))
+  df_0_5  + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) +   
+    scale_color_manual(values=df_diff_cols) 
 }
 
 
@@ -1453,7 +1479,8 @@ df_0_5 <- rbind(df_0, df_1_5) %>%  ggplot(aes(x = excdxaxis, y = wytafsum, color
           linetype = dv)) + geom_line() + geom_point(size =0.5) +labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum [difference]") +
           facet_wrap(~sjwyt_sjwytt, ncol = 3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
           ggtitle("sj wyt sums, difference (81 yrs)")
-df_0_5 + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm"))
+df_0_5 + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +   
+  scale_color_manual(values=df_diff_cols) 
 }
 
 ## SJ WYT taf - dvs apart
@@ -1467,7 +1494,8 @@ p_ann_fjwysum_sjwyt_excd2_taf_d <- function(df) {
   df_0_5 <- rbind(df_0, df_1_5) %>%  ggplot(aes(x = excdxaxis, y = wytafsum, color = scen)) + geom_line() + geom_point(size =0.5) +labs(x = "probability of exceedance", y = "taf -- feb - jan water year sum [difference]") +
     facet_grid(dv~sjwyt_sjwytt) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
       ggtitle("sj wyt sums, difference (81 yrs)")
-  df_0_5 + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm"))
+  df_0_5 + theme_gray() + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +   
+    scale_color_manual(values=df_diff_cols) 
 }
 
 ###################################################

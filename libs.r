@@ -1,4 +1,5 @@
 ## these will need a one-time install first - code block at bottom - then nothing more required here
+library(data.table) #speedy joins, good for derived timeseries
 library(tidyverse) # gets dplyr, ggplot2, readr, lubridate -- install by pasting install.packages("tidyverse") into console  (https://www.tidyverse.org/ - wonderful libraries!)
 library(magrittr)  # %<>% pipes!  
 library(zoo)       # used for mon-years in timeseries plots  
@@ -23,3 +24,4 @@ library(here)      # for relative path names and better csdvr portability - not 
 #install.packages("RColorBrewer")
 #install.packages("scales")    
 #install.packages("here")      
+#install.packages("data.table") 

@@ -1,23 +1,26 @@
-## block 1 ###  run first  ##   #get libraries, define functions, read-in csvs with this block
+## block 1 ###  run first  ##   #call libraries, define functions, read-in csvs, build df_csv.
 {rm(list = ls())      #clear environment somewhat
 source("libs.r")      #library dependencies
-setwd(here())         #.here file in the top folder sets relative wd
+setwd(here())         #.here file in the top folder sets relative wd #rerun to reset to here
 #setwd("C:/yourfolder/another/perhapsanother/thisfolder") run if above setwd fails
 source("fun_defs.r")  #function definitions
 source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in csv_list.r, 
                       #then list preferred ordering of same nickmanes in scenfacts.r
-}                      
+}                     
 ## block 2a ####################################################   batch export plots with this block  #######################
-source("plotexport.r")  #pick which plots/grps of plots in plotexport.r get saved in `plots` folder 
+{source("plotexport.r")}  #pick which plots/grps of plots in plotexport.r get saved in `plots` folder 
 ##############################################################################################################################                                                                                                                  ###############
 
-## block 2b   ################################################    investigate DVs/DV groups here one at a time:      ##########
-##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block              ####
-{dvs <- c("c9"               )                                                                                          
+##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one at a time:      ##########
+##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow, use _native
+{dvs <- c(  "s4")                                                                                          
 ########################################################           then apply individual functions  below                #####
-source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) ######
+source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) (###### (original values also copied to df_diff)
 ##############################################################################################################################
+p_mon_ts_taf_d (df_diff, 1921, 2004)  
+p_mon_ts_taf(df, 1921, 2004)  #+ coord_cartesian(ylim=c(0, 500)) #+ geom_text() 
 
+#p_mon_ts_taf_d(df_diff, 1921, 2004)
 
 ##############################################################################################################################
 ####    plotting functions    ################################ data summaries w/o plots toward bottom ########################
@@ -285,7 +288,7 @@ p_annmean_ts_mn_taf (df, 1922, 1923)
 ## monthly ## 
 
 #plot monthly timeseries taf difference
-p_mon_ts_taf_d (df_diff, 1922, 1925)  #+ coord_cartesian(ylim=c(-75, 250)) 
+p_mon_ts_taf_d (df_diff, 1921, 2004)  #+ coord_cartesian(ylim=c(-75, 250)) 
 p_mon_ts2_taf_d (df_diff, 1922, 2003)
 p_mon_ts3_taf_d (df_diff, 1922, 2003)
 p_mon_ts_cfs_d (df_diff, 1922, 2003)
