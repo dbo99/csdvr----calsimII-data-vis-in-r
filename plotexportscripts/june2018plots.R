@@ -1,6 +1,7 @@
 setwd(here()) 
 
 ### Ann sum ###
+{
 dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
 
 source("df_create.r")
@@ -11,10 +12,11 @@ setwd(here("plots", "june2018plots"))
 ggsave(paste0(paste(dvs,collapse="&"), "_Outflow&DelivBars.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
 
 setwd(here()) 
-
+}
 
 
 ### Ann sum ###
+{
 dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
   
   source("df_create.r")
@@ -25,9 +27,10 @@ dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_sw
   ggsave(paste0(paste(dvs,collapse="&"), "_Outflow&DelivBarDiffs.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
   
   setwd(here()) 
-
+}
 
 ### Ann sum ###
+{
 dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
   
   source("df_create.r")
@@ -39,8 +42,10 @@ setwd(here("plots", "june2018plots"))
   ggsave(paste0(paste(dvs,collapse="&"), "_Outflow&Deliv_scwyt_Bars.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in")
   
   setwd(here()) 
+}
 
-
+### Ann sum diff ###
+{
 dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
   
   source("df_create.r")
@@ -52,9 +57,9 @@ dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_sw
   ggsave(paste0(paste(dvs,collapse="&"), "_Outflow&Deliv_Scwyt_BarDiffs.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
   
   setwd(here()) 
-  
+}  
 
-
+{
 dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
   
   source("df_create.r")
@@ -66,8 +71,9 @@ dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_sw
   ggsave(paste0(paste(dvs,collapse="&"), "_Outflow&Deliv_scwyt_Bars_r.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
   
   setwd(here()) 
+}
 
-
+{
 dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
   
   source("df_create.r")
@@ -79,8 +85,9 @@ dvs <- c( "c406", "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_sw
   ggsave(paste0(paste(dvs,collapse="&"), "_Outflow&Deliv_Scwyt_BarDiffs_r.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
   
   setwd(here()) 
+}
 
-
+{
 ### Ann sum ###
 dvs <- c( "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
   
@@ -93,8 +100,9 @@ dvs <- c( "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s"
   ggsave(paste0(paste(dvs,collapse="&"), "_Deliv_scwyt_Bars.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
   
   setwd(here()) 
+}
 
-
+{
 dvs <- c( "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s")
   
   source("df_create.r")
@@ -106,12 +114,12 @@ dvs <- c( "del_cvp_total_n", "del_cvp_total_s", "del_swp_tot_n", "del_swp_tot_s"
   ggsave(paste0(paste(dvs,collapse="&"), "_Deliv_Scwyt_BarDiffs.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
   
   setwd(here()) 
+}
 
 
 
 
-
-
+{
 ### Ann sum ###
 dvs <- c("del_swp_tot_s", "del_swp_tot_n")
 
@@ -129,7 +137,10 @@ setwd(here("plots", "june2018plots"))
 ggsave(paste0(paste(dvs,collapse="&"), "_annsumdenridge.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
 
 setwd(here()) 
+}
 
+
+{
 ### Ann sum ###
 dvs <- c("del_cvp_total_s", "del_cvp_total_n")
   
@@ -141,7 +152,7 @@ dvs <- c("del_cvp_total_s", "del_cvp_total_n")
   #scale_color_manual(values=df_cols) + scale_fill_manual(values=df_cols) 
   setwd(here("plots", "june2018plots"))
   ggsave(paste0(paste(dvs,collapse="&"), "_annsumdenridge.jpg"), dpi = 300, width = 13.333, height = 7.5, units = "in") 
-
+}
 
 
   setwd(here("plotexportscripts"))
