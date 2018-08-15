@@ -95,7 +95,7 @@ create_df_diff <-function(df){
   lastwyt_d <- df_diff %>% filter(yearmon == "Apr 2003") %>% select(scwyt2) #no baseline in df_diff, start w/df
   lastwyt_d <- lastwyt_d[1,]
   df_diff <- df_diff %>% mutate(scwyt2 = ifelse(scwyt2 == "NA_NA", lastwyt_d, scwyt2 ))
-
+  
 
 }
 
@@ -466,7 +466,7 @@ df %>% filter(!kind == "storage") %>% group_by(dv, scen) %>%  summarize(mnanntaf
     ylab("taf [difference]")  + geom_text(color = "dark blue", angle = 90, hjust = 1)+
     facet_grid(~dv) + 
     scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
-    #theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
     ggtitle("mean annual difference (82 yrs)") + scale_fill_manual(values=df_diff_cols)
 } 
 

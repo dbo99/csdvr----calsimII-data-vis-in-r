@@ -1,7 +1,7 @@
 ## block 1 ###  run first  ##   #call libraries, define functions, read-in csvs, build df_csv.
-{rm(list = ls())      #clear environment somewhat
+{rm(list = ls())      #clear environment (mostly)
 source("libs.r")      #library dependencies
-setwd(here())         #.here file in the top folder sets relative wd #rerun to reset to here
+setwd(here())         #with .here file in the top folder, sets relative wd #rerun to reset to here if other scripts aren't run completely
 #setwd("C:/yourfolder/another/perhapsanother/thisfolder") run if above setwd fails
 source("fun_defs.r")  #function definitions
 source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in csv_list.r, 
@@ -13,17 +13,16 @@ source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in 
 
 ##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one at a time:      ##########
 ##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow, use _native
-{dvs <- c(  "s4")                                                                                          
+{dvs <- c(  "c5")                                                                                          
 ########################################################           then apply individual functions  below                #####
 source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) (###### (original values also copied to df_diff)
 ##############################################################################################################################
-p_mon_ts_taf_d (df_diff, 1921, 2004)  
-p_mon_ts_taf(df, 1921, 2004)  #+ coord_cartesian(ylim=c(0, 500)) #+ geom_text() 
+
 
 #p_mon_ts_taf_d(df_diff, 1921, 2004)
 
 ##############################################################################################################################
-####    plotting functions    ################################ data summaries w/o plots toward bottom ########################
+####    plotting functions    ################################ data tables w/o plots toward bottom ###########################
 ##############################################################################################################################
 
 ##########################
