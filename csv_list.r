@@ -14,7 +14,7 @@ setwd(here("csv"))
 
 #csv#  <- read_csv ("filename.csv"   )  %>% mutate(scen = "nickname") %>% select(-id, -Timestep)
 
-# run to print file names in csv folder
+# run to print file names below for easy pasting here
 #list.files(path = here("csv"), pattern = NULL, all.files = FALSE, full.names = FALSE, recursive = FALSE, ignore.case = FALSE, include.dirs = FALSE, no.. = FALSE)
 
 ## Track 2 scens
