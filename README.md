@@ -20,7 +20,7 @@
 
 ## To Use ##
 
-**Download**  (~15.03 mb: ~15 mb of sample plots, ~30 kb of scripts)
+[**Download**](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r)  (~15.03 mb: ~15 mb of sample plots, ~30 kb of scripts)
 
 **Drop** your calsim csvs in `csv` folder (or write there directly from WRIMS2)
 
