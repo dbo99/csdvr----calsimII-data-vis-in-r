@@ -40,11 +40,11 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
 - `2a` will auto export batches of plots. functions are listed below for `2b`, for reference/new analysis/making new plot scripts
 - assumes DV name familiarity, eg Folsom Lake is `s8`. consult `.wresl`, `.dss`, [schematic](http://baydeltaoffice.water.ca.gov/modeling/hydrology/CalSim/Downloads/CalSimDownloads/BST_CALSIMII_schematic_040110.pdf), or report files as needed.  `varcodes.csv` identifies some dvname-commonname pairs. add more as desired. By default plots label the `df$dv`, the actual CalSim name not the `df$dv_name`
 - save new finished plot scripts in `plotexportscripts` folder to add to collection of templates & add folder in plots folder with name of new file name
-- currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
+- currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accommodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
 - tweaks needed around date functions and limits to work with CalSim 3.0's longer period of record
-- currently lacks any diagnostics on system controls - hoping to add key controls directly in `.wresl` files for ease in `csdvr` and in other post-processors
-- no geospatial plotting but planned for later versions, particularly for CalSim 3.0's groundwater data output
+- needs functions for diagnostics on system controls (or add to`.wresl` directly)
+- no geospatial plotting. planned for [CalSim 3.0](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-3)'s channels and aquifers
   
   Access CalSim benchmark studies and contact info for WRIMS software:
   
