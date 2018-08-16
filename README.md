@@ -3,7 +3,7 @@
  free calsim data visualizer (post-processor) in R | 
  version 1.01_8.15.2018 | 
  analyze calsim output for large numbers of variables or scenarios | 
- export report or presentation ready plot images (jpg, html, pdf, etc) | calsim is a water resources planning model
+ export report or presentation ready plot images (jpg, html, pdf, etc) | calsim is a california water resources planning model 
 
    key file  | use
 ------------ | -------------
@@ -16,7 +16,7 @@
 ## Uses ##
 
 - [WRIMS2](https://water.ca.gov/Library/Modeling-and-Analysis/Modeling-Platforms/Water-Resource-Integrated-Modeling-System) [CalSim]( https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2) decision variable ("DV") output in `.csv` format.
-   If csv file(s) needed, specify in 2018 or later versions of WRIMS2's GUI's field: `Dvar DSS file:`  `outputfilename.csv` instead of: `outputfilename.dss` (both will be created using `.csv` alone). [WRIMS2] is free from [California Dept. of Water Resources] - currently distrubuted via email list
+   If csv file(s) needed, specify in 2018 or later versions of WRIMS2's GUI's field: `Dvar DSS file:`  `outputfilename.csv` instead of: `outputfilename.[dss](http://www.hec.usace.army.mil/software/hec-dssvue/)` (both will be created using `.csv` alone). [WRIMS2] is free from [California Dept. of Water Resources] - currently distrubuted via email list
 - [R](https://www.r-project.org/), and R libraries specified in `libs.r`. Relies heavily on `dplyr` and `ggplot2` of the [`tidyverse`](https://www.tidyverse.org/). Instructions only tested with [RStudio](https://www.rstudio.com/) freeware
 
 ## To Use ##
