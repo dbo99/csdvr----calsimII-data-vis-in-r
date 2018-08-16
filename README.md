@@ -1,7 +1,7 @@
 # :earth_asia: **csdvr** :earth_americas: #  
  version 1.01_8.15.2018 
  
- calsim data visualizer (post-processor) in R | analyze calsim output for large numbers of variables or scenarios | 
+ calsim data visualizer (post-processor) in [R](https://www.r-project.org/) | analyze calsim output for large numbers of variables or scenarios | 
  export plots (jpg, interactive html, pdf, etc) | calsim is a california water resources planning model application developed jointly by [USBR](https://www.usbr.gov/) and [Ca-DWR](https://water.ca.gov/) to analyze limitations and possibilities of the [central valley project](https://www.usbr.gov/mp/cvp/) and [state water project](https://water.ca.gov/Programs/State-Water-Project) under alternative infrastructure, regulatory, operational, and climate scenarios.   calsim output is used to help answer engineering and scientific questions and is common input to state and federal economic, biologic, and hydropower models. 
 
    key file  | use
@@ -16,7 +16,7 @@
 
 - WRIMS2 [CalSim]( https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2) decision variable ("DV") output in `.csv` format.
    If csv file(s) needed, specify in 2018 or later versions of WRIMS2's GUI's field: `Dvar DSS file:`  `outputfilename.csv` instead of: `outputfilename.dss` ([.dss](http://www.hec.usace.army.mil/software/hec-dssvue/) and `.csv` will be created using `.csv` alone). [WRIMS2](https://water.ca.gov/Library/Modeling-and-Analysis/Modeling-Platforms/Water-Resource-Integrated-Modeling-System) is free from California Dept. of Water Resources - currently distributed via email list
-- [R](https://www.r-project.org/), and R libraries specified in `libs.r`. Relies heavily on `dplyr` and `ggplot2` of the [`tidyverse`](https://www.tidyverse.org/). Instructions only tested with [RStudio](https://www.rstudio.com/) freeware
+- Relies heavily on `dplyr` and `ggplot2` libraries of the [`tidyverse`](https://www.tidyverse.org/). Instructions only tested with [RStudio](https://www.rstudio.com/) freeware
 
 ## To Use ##
 
