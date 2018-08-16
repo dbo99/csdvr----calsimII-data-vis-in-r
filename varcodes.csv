@@ -1,0 +1,24 @@
+dv,dv_name
+s1,Trinity (CVP)
+s4,Shasta (CVP)
+s6,Oroville (SWP)
+s8,Folsom (CVP)
+s11,CVP San Luis
+s12,SWP San Luis
+c406,Delta Outflow
+del_cvp_total_n,CVP NOD
+del_cvp_total_s,CVP SOD
+del_swp_tot_n,SWP NOD
+del_swp_tot_s,SWP SOD
+del_cvp_total,CVP Total
+d418,Jones Pumping (CVP)
+d419,Banks Pumping (SWP)
+del_cvp_psc_n,NOD CVP Settlement
+del_cvp_pmi_n,NOD CVP M&I
+del_cvp_pag_n,NOD CVP Ag. Service
+del_cvp_prf_n,NOD CVP Refuge
+del_cvp_pex_s,SOD CVP Exchange
+del_cvp_pmi_s,SOD CVP M&I
+del_cvp_pag_s,SOD CVP Ag. Service
+del_cvp_prf_s,SOD CVP Refuge
+del_swp_total,SWP Total
