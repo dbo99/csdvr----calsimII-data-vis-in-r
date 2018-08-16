@@ -46,10 +46,6 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
 - needs functions for diagnostics on system controls (or add to`.wresl` directly)
 - no geospatial plotting. planned for [CalSim 3.0](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-3)'s channels and aquifers
   
-  Access CalSim benchmark studies and contact info for WRIMS software:
-  
-  https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2
-  
 # Functions
 #  Data Summary 
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
