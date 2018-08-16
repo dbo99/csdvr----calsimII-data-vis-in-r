@@ -140,19 +140,9 @@ scale_y_reordered <- function(..., sep = "___") {
 ### Misc. functions
 ###################
 
-# get actual Shasta volume for a raise scenario ##
 
-adds44tos4 <- function(df) {
-  s4  <- df %>% filter(Variable == "s4",  Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 to get 984 months (24-hr date-time)
-  s44 <- df %>% filter(Variable == "s44", Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 to get 984 months (24-hr date-time)
-  dfnos4 <- df %>% filter(!Variable == "s4")
-  s4$Value <- s4$Value + s44$Value
-  df <- rbind(s4, dfnos4)
-}
-
-addxtoy_csv <- function(csv, dvx, dvy) {
-  #############eg %>% addxdvtoydv_ony_csv("s44", "s4)
-
+addxtoy_csv <- function(csv, dvx, dvy) {  #overwrites y - addxtoy_asz, other derived timeseries operators coming soon - for df data.frame though, not df_csv
+ 
   assignxasy <- csv %>% filter(Variable == paste(dvx)) %>%
                         mutate(Variable = paste(dvy)) 
 
@@ -162,16 +152,6 @@ addxtoy_csv <- function(csv, dvx, dvy) {
   csv[assignxasy, Value := Value + i.Value, on=.(Date_Time, Variable, scen)]
   
 }
-  #setDF(df)
- #df
- #df <- data.frame(df)
- #df
- #df <- data.frame(df) 
- #df
- #rm(list = ls()[grep("^z", ls())]) #beware: removes variables beginning with z
- 
-
-
 
 
 #################################
