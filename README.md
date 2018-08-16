@@ -29,7 +29,7 @@
 
 **Point to files and ID scenarios** in **`csv_list.r`**: enter each csv file name (eg `040812_bo_y1a1.csv`) and give unique nickname to each (eg `Scen1_Y1A1`)
 
-**Specify plotting order of scenarios** (groupings to facilitate data vis): in **`scenfacts.r`** enter same nicknames in user-defined order: top to bottom in **`scenfacts.r`** produces top to bottom order in plot legend. Nickname spelling in **`csv_list.r`** must match **`scen_facts.r`**
+**Specify plotting order of scenarios** (groupings to facilitate data vis): in **`scenfacts.r`** enter same nicknames in user-defined order: top to bottom in **`scenfacts.r`** Nickname spelling in **`csv_list.r`** must match **`scen_facts.r`**
 
 `control.r`  | action
 ------------ | -------------
@@ -43,9 +43,9 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
 - save new finished plot scripts in `plotexportscripts` folder to add to collection of templates & add folder in plots folder with name of new file name
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
-- tweaks needed in dates to work with CalSim 3.0's longer period of record
+- tweaks needed around date functions and limits to work with CalSim 3.0's longer period of record
 - currently lacks any diagnostics on system controls - hoping to add key controls directly in `.wresl` files for ease in csdvr and in other post-processors
-- currently lacks any geospatial plotting
+- no geospatial plotting but planned for later versions, particularly for CalSim 3.0's groundwater data output
   
   Access CalSim benchmark studies and contact info for WRIMS software:
   
