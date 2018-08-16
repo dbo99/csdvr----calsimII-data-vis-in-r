@@ -3,7 +3,7 @@
  free calsim data visualizer (post-processor) in R | 
  version 1.01_8.15.2018 | 
  analyze calsim output for large numbers of variables or scenarios | 
- export report or presentation ready plot images (jpg, pdf, etc) or interactive `plotly`(html)
+ export report or presentation ready plot images (jpg, html, pdf, etc)
 
    key file  | use
 ------------ | -------------
