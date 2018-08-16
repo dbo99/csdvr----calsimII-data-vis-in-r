@@ -102,7 +102,7 @@ mn984_taf_d(df) | mean monthly difference
 sum984_taf(df) | sum of all months
 sum984_taf_d(df_diff) | sum of all differences
   
-#  Plotting - stats first then timeseries toward bottom #
+#  Plotting - summary statistics first, timeseries below #
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
 - use functions with suffix *`_d`* on `data.frame` `df_diff` for difference plots (ie unlike above a separate function assumed for each `df` (use function without *`_d`* suffix) and `df_diff` (use function with *`_d`* suffix )
 
