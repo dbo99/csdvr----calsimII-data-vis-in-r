@@ -1,26 +1,8 @@
 setwd(here()) 
-## Annual ##
-# Delta Outflow ## 
-
-#sample plot functions
-#prast_mon_ts_taf(df)
-#prast_ann_ts_sum_taf(df)
-#prast_ann_ts_mn_taf(df)
-##diff#
-#prast_mon_ts_taf_d(df_diff)
-#prast_ann_ts_sum_taf_d(df_diff)
-#prast_ann_ts_mn_taf_d(df_diff)
-#
-#ptile_mon_ts_taf(df)
-#ptile_ann_ts_sum_taf(df)
-#ptile_annmonmean_ts_mn_taf(df)
-###diff##
-#ptile_mon_ts_taf_d(df_diff)
-#ptile_ann_ts_sum_taf_d(df_diff)
-#ptile_annmonmean_ts_mn_taf_d(df_diff)
 
 
-## annual taf
+
+## annual taf bars
 {dvs <- c("c406")
 source("df_create.r") 
 
@@ -35,7 +17,7 @@ ggsave(paste0(paste(dvs,collapse="&"), "_meanannavgbars.jpg"), dpi = 300, width 
 setwd(here()) 
 }
 
-## monthly taf 
+## monthly taf  bar diffs
 {dvs <- c("c406")
   source("df_create.r") 
   
@@ -54,7 +36,7 @@ setwd(here())
 
 
 
-## annual taf
+## annual taf stripes
 {dvs <- c("c406")
   source("df_create.r") 
   
