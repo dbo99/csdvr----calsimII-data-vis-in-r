@@ -37,7 +37,7 @@ run-click `2a` | **generate plots in batches** with pre-defined templates for co
 run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,`.csv`) **or individual plots** for any DVs of interest by searching for DVs here and by running individual functions listed below
 
 ### notes ###
-- `2a` will export batches of plots. functions are listed below for `2b`, for reference/new analysis/making new plot scripts
+- `2a` will auto export batches of plots. functions are listed below for `2b`, for reference/new analysis/making new plot scripts
 - assumes DV name familiarity, eg Folsom Lake is `s8`. If not consult `.wresl` or `.dss` files.  `varcodes.csv` identifies some dvname-commonname pairs, add more as desired. By defaults plots label the `df$dv`, the actual CalSim name not the `df$dv_name`. For common name (if defined), add `+ facet_grid(~dv_name)` to plot function
 - save new finished plot scripts in `plotexportscripts` folder to add to collection of templates & add folder in plots folder with name of new file name
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
