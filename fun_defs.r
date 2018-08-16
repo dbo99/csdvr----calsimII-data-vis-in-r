@@ -2437,4 +2437,4 @@ theme_black3 = function(base_size = 12, base_family = "")
   )
 
 
-## USBR draft - D. O'Connor 2018 ##
+## d. o'connor 2018 ##
