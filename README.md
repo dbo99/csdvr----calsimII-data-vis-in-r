@@ -2,7 +2,7 @@
  version 1.01_8.15.2018 
  
  calsim data visualizer (post-processor) in R | analyze calsim output for large numbers of variables or scenarios | 
- export report or presentation ready plot images (jpg, html, pdf, etc) | calsim is a california water resources planning model 
+ export report or presentation ready plot images (jpg, interactive html, pdf, etc) | calsim is a california water resources planning model 
 
    key file  | use
 ------------ | -------------
