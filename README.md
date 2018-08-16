@@ -39,7 +39,7 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
 
 ### notes ###
 - `2a` will auto export batches of plots. functions are listed below for `2b`, for reference/new analysis/making new plot scripts
-- assumes DV name familiarity, eg Folsom Lake is `s8`. If not consult `.wresl` or `.dss` files.  `varcodes.csv` identifies some dvname-commonname pairs, add more as desired. By defaults plots label the `df$dv`, the actual CalSim name not the `df$dv_name`. For common name (if defined), add `+ facet_grid(~dv_name)` to plot function
+- assumes DV name familiarity, eg Folsom Lake is `s8`. consult `.wresl` or `.dss` files as needed.  `varcodes.csv` identifies some dvname-commonname pairs. add more as desired. By default plots label the `df$dv`, the actual CalSim name not the `df$dv_name`
 - save new finished plot scripts in `plotexportscripts` folder to add to collection of templates & add folder in plots folder with name of new file name
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
