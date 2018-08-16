@@ -1,6 +1,6 @@
 # **:earth_asia: csdvr :earth_americas:** #
  free calsim data visualizer (post-processor) in R | 
- version 1.0_8.10.2018 | 
+ version 1.01_8.15.2018 | 
  analyze calsim output for large numbers of variables or scenarios | 
  export report or presentation ready plot images (jpgs, pdfs, etc) or interactive html plots  
 
