@@ -44,7 +44,7 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accomodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`, `.html`)
 - tweaks needed around date functions and limits to work with CalSim 3.0's longer period of record
-- currently lacks any diagnostics on system controls - hoping to add key controls directly in `.wresl` files for ease in csdvr and in other post-processors
+- currently lacks any diagnostics on system controls - hoping to add key controls directly in `.wresl` files for ease in `csdvr` and in other post-processors
 - no geospatial plotting but planned for later versions, particularly for CalSim 3.0's groundwater data output
   
   Access CalSim benchmark studies and contact info for WRIMS software:
