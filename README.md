@@ -2,7 +2,7 @@
  version 1.01_8.15.2018 
  
  calsim data visualizer (post-processor) in R | analyze calsim output for large numbers of variables or scenarios | 
- export report or presentation ready plot images (jpg, interactive html, pdf, etc) | calsim is a california water resources planning model with a focus on operations of the central valley project and state water project
+ export report or presentation ready plot images (jpg, interactive html, pdf, etc) | calsim is a california water resources planning model with a focus on operations of the [central valley project](https://www.usbr.gov/mp/cvp/) and [state water project](https://water.ca.gov/Programs/State-Water-Project) developed jointly by USBR and Ca-DWR.
 
    key file  | use
 ------------ | -------------
