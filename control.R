@@ -11,15 +11,12 @@ source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in 
 {source("plotexport.r")}  #pick which plots/grps of plots in plotexport.r get saved in `plots` folder 
 ##############################################################################################################################                                                                                                                  ###############
 
-##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one at a time:      ##########
-##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow, use _native
-{dvs <- c(  "c5")                                                                                          
+##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one plot at a time:      ##########
+##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow DVs, use function with _native suffix 
+{dvs <- c(  "s4")                                                                                          
 ########################################################           then apply individual functions  below                #####
 source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) (###### (original values also copied to df_diff)
 ##############################################################################################################################
-
-
-#p_mon_ts_taf_d(df_diff, 1921, 2004)
 
 ##############################################################################################################################
 ####    plotting functions    ################################ data tables w/o plots toward bottom ###########################
