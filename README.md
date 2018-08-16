@@ -251,15 +251,14 @@ p_ann_monfacetw_excd_cfs_d(df_diff) | difference - 12 plots of individual months
 ## tukey box plots - pbp - plot box plots ## 
 
 ### monthly - box plots ###
-- pbly best for only one dv (too busy) 
-- good for plotly/ggplotly - medians/hinges/outliars hoverable
    function  | for
 ------------ | -------------
 pbp_mon_taf(df) |  monthly taf box plots      
 pbp_mon_taf_d(df_diff)  | monthly taf box plots of differences
 pbp_mon_scwyt_taf(df) |  monthly taf box plots by sacramento water year type
 pbp_mon_scwyt_taf_d(df_diff) |  monthly taf box plots of differences by sacramento water year type
-
+- pbly best for only one dv (too busy) 
+- good for plotly/ggplotly - medians/hinges/outliars hoverable
 
 ### annual - box plots ###
    function  | for
