@@ -25,9 +25,9 @@
 
 **Open RStudio and files** by double clicking on **`control.r`**, then open  **`csv_list.r`** and **`scen_facts.r`**
 
-**Point to files and ID scenarios** in **`csv_list.r`**: enter each csv file name (eg `040812_bo_y1a1.csv`) and give unique nickname to each (eg `Scen1_Y1A1`)
+**Point to files and ID scenarios** in `csv_list.r`: enter each csv file name (eg `040812_bo_y1a1.csv`) and give unique nickname to each (eg `Scen1_Y1A1`)
 
-**Specify plotting order of scenarios** (groupings to facilitate data vis): in **`scenfacts.r`** enter same nicknames in user-defined order: top to bottom in **`scenfacts.r`** Nickname spelling in **`csv_list.r`** must match **`scen_facts.r`**
+**Specify plotting order of scenarios** (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` Nickname spelling in `csv_list.r` must match `scen_facts.r`
 
 `control.r`  | action
 ------------ | -------------
