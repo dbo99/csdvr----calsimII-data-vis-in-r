@@ -18,7 +18,7 @@ setwd(here("csv"))
 #list.files(path = here("csv"), pattern = NULL, all.files = FALSE, full.names = FALSE, recursive = FALSE, ignore.case = FALSE, include.dirs = FALSE, no.. = FALSE)
 
 ## Track 2 scens
-#csv1  <- read_csv ("0_FO_04012018_b2fix.csv"   )  %>% mutate(scen = "baseline") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv1  <- read_csv ("0_FO_04012018_b2fix.csv"   )  %>% mutate(scen = "baseline") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 (24 hr date-time)
 #csv2  <- read_csv ("2_SHA_TF.csv"   )  %>% mutate(scen = "2_SHA_TF") %>% select(-ID, -Timestep)%>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )  %>% addxtoy_csv("s44", "s4") 
 #csv3  <- read_csv ("3_SHA_SL_TF_NDD.csv")  %>% mutate(scen = "3_SHA_SL_TF_NDD") %>% select(-ID, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30") %>% addxtoy_csv("s44", "s4")
 #csv4  <- read_csv ("4_SHA_TF_NDD.csv"   )  %>% mutate(scen = "4_SHA_TF_NDD") %>% select(-ID, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )%>% addxtoy_csv("s44", "s4")
