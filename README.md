@@ -110,8 +110,8 @@ sum984_taf(df) | sum of all months
 ### pb - plot bars - annual mean  ###
    function  | for
 ------------ | -------------
-pb_mn_ann_perav_taf(df) |   bars of mean annuals with vertical labels (good for many scenarios)
-pb_mn_ann_perav_taf_nolab(df) | bars of mean annuals without labels
+pb_mn_ann_perav_taf(df) |   bars of mean annuals with vertical labels (good for ~10 scenarios?)
+pb_mn_ann_perav_taf_nolab(df) | bars of mean annuals without labels (good for many scenarios)
 pb_mn_ann_perav_taf_nolab_rank(df) | bar of mean annuals without labels, ranked highest to lowest left to right
 pb_mn_ann_perav_taf_hlab(df) | bars of mean annuals with horizontal labels (good for few scenarios)
 pb_md_ann_perav_taf(df) | bars of annual medians with vertical labels 
