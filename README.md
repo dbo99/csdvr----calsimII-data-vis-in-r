@@ -3,7 +3,7 @@
  
  `csdvr` visualizes `calsim` output in [R](https://www.r-project.org/) | analyze output for large numbers of variables or scenarios | export plots (jpg, interactive [html](https://plot.ly/r/), pdf, etc) |
  
-[calsim](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools) is a california water resources planning model application developed jointly by [usbr](https://www.usbr.gov/) and [ca-dwr](https://water.ca.gov/) to help analyze limitations and possibilities of, and benefits and impacts from, the interconnected [central valley project](https://www.usbr.gov/mp/cvp/) and [state water project](https://water.ca.gov/Programs/State-Water-Project), under existing and alternative infrastructure, regulatory, operational, and climate scenarios.   calsim helps answer engineering and scientific questions and is common input to species-specific, ecosystem, economic, groundwater, and hydrodynamic models
+[calsim](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2) is a california water resources planning model application developed jointly by [usbr](https://www.usbr.gov/) and [ca-dwr](https://water.ca.gov/) to help analyze limitations and possibilities of, and benefits and impacts from, the interconnected [central valley project](https://www.usbr.gov/mp/cvp/) and [state water project](https://water.ca.gov/Programs/State-Water-Project), under existing and alternative infrastructure, regulatory, operational, and climate scenarios.   calsim helps answer engineering and scientific questions and is common input to species-specific, ecosystem, economic, groundwater, and hydrodynamic models
 
    key file  | use
 ------------ | -------------
