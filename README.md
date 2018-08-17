@@ -1,7 +1,7 @@
 # :earth_asia: **csdvr** :earth_americas: #  
  version 1.01
  
- `csdvr` summarizes `calsim` output in [R](https://www.r-project.org/) | quickly visualize output distributions or export plots in batches (jpg, interactive [html](https://plot.ly/r/), pdf, etc) | reasonably accommodates ~32 scenarios
+ `csdvr` summarizes `calsim` output in [R](https://www.r-project.org/) | quickly visualize output distributions of interest or export sets of plots in batches (jpg, interactive [html](https://plot.ly/r/), pdf, etc) | reasonably accommodates ~32 scenarios
  
 [calsim](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2) is a water resources planning model for a large part of california, developed jointly by [usbr](https://www.usbr.gov/) and [ca-dwr](https://water.ca.gov/) to help analyze the performance, limitations and possibilities of, and benefits and impacts from, the interconnected [central valley project](https://www.usbr.gov/mp/cvp/) and [state water project](https://water.ca.gov/Programs/State-Water-Project), under existing and alternative infrastructure, regulatory, operational, and climate scenarios.   calsim also helps address related engineering and scientific questions, with common biologic, economic, groundwater, and hydrodynamic models ingesting calsim output. `csdvr` is tailored for calsimII output (calsim 3.0 is in [beta](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-3))
 
