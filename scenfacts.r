@@ -3,39 +3,28 @@
 # run below to print scenarios to console for cutting and pasting
 #unique(df_csv$scen)
                                         
-df$scen <- factor(df$scen, levels = c(
+#df$scen <- factor(df$scen, levels = c(
  
-# track 2 
-#  "baseline"  ,
-#  "2_SHA_TF"  ,            
-# "3_SHA_SL_TF_NDD"))                
-# #"4_SHA_TF_NDD"   ,            
-# #"5_SHA_SL_NDD" ))          
-#"6_SL_NDD"   ,          
-# #"7_SL_TF_NDD"   ,         
-# #"8_SHA_NDD"   ,        
-# #"9_SHA_SL"     ,       
-#"10_TF_NDD"   ,  
-# #"11_SL_TF"  ,     
-# #"12_SHA_SL_TF",
-# #"OMRAct1OnlyMin2k"))
-# #"OMRAct1OnlyMin5k",
-# "oldT2Scen1"))
-# #))
-
- #track 1 
- "baseline"  ,
- "omr_act1_min2k"  ,            
- "omr_act1_min2k_11ie"   ,      
- "omr_act1_min5k"   ,          
- "omr_act1_min5k_11ie"   ,   
- "omrbyvern"   ,  
- "omrbyvern_11ie"))
+# project x scenarios
+#   proj x 
+#  "x_baseline"  ,
+#  "x_scen1  ,            
+#   x_scen2             
+#   x_scen2a  
+#   x_scen3 ))
+  
+  
+  
+# project y scenarios
+ #"y_baseline"  ,
+#  "y_scen1  ,              
+#  "y_scen1  ,       
+#  "y_scen1  ,          
+#  "y_scen1  ,     
+#  "y_scen1  ))
 
 
 
-
-    
 df$scwyt_scwytt <- factor(df$scwyt_scwytt, levels = c("1_wt", "2_an", "3_bn", "4_dr", "5_cr"))
 
 scendiffnames <- levels((df$scen))                             

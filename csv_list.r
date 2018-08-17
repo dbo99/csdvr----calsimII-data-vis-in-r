@@ -17,31 +17,24 @@ setwd(here("csv"))
 # run to print file names below for easy pasting here
 #list.files(path = here("csv"), pattern = NULL, all.files = FALSE, full.names = FALSE, recursive = FALSE, ignore.case = FALSE, include.dirs = FALSE, no.. = FALSE)
 
-## Track 2 scens
-#csv1  <- read_csv ("0_FO_04012018_b2fix.csv"   )  %>% mutate(scen = "baseline") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) #use 10-30 not 10-31 (24 hr date-time)
-#csv2  <- read_csv ("2_SHA_TF.csv"   )  %>% mutate(scen = "2_SHA_TF") %>% select(-ID, -Timestep)%>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )  %>% addxtoy_csv("s44", "s4") 
-#csv3  <- read_csv ("3_SHA_SL_TF_NDD.csv")  %>% mutate(scen = "3_SHA_SL_TF_NDD") %>% select(-ID, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30") %>% addxtoy_csv("s44", "s4")
-#csv4  <- read_csv ("4_SHA_TF_NDD.csv"   )  %>% mutate(scen = "4_SHA_TF_NDD") %>% select(-ID, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )%>% addxtoy_csv("s44", "s4")
-#csv5  <- read_csv ("5_SHA_SL_NDD.csv"   )  %>% mutate(scen = "5_SHA_SL_NDD") %>% select(-ID, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )  %>% addxtoy_csv("s44", "s4")
-#csv6  <- read_csv ("6_SL_NDD.csv"   )  %>% mutate(scen = "6_SL_NDD") %>% select(-ID, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )  %>% addxtoy_csv("s44", "s4")
-#csv7  <- read_csv ("7_SL_TF_NDD.csv"   )  %>% mutate(scen = "7_SL_TF_NDD") %>% select(-ID, -Timestep)%>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )
-#csv8  <- read_csv ("8_SHA_NDD.csv"   )  %>% mutate(scen = "8_SHA_NDD") %>% select(-ID, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) %>% addxtoy_csv("s44", "s4")
-#csv9  <- read_csv ("9_SHA_SL.csv"   )  %>% mutate(scen = "9_SHA_SL") %>% select(-ID, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) %>% addxtoy_csv("s44", "s4")addxtoy_newy_csv()
-#csv10 <- read_csv ("10_TF_NDD.csv"   )  %>% mutate(scen = "10_TF_NDD") %>% select(-ID, -Timestep)%>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )
-#csv11 <- read_csv ("11_SL_TF.csv"   )  %>% mutate(scen = "11_SL_TF") %>% select(-ID, -Timestep)%>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )
-#csv12 <- read_csv ("12_SHA_SL_TF.csv"   )  %>% mutate(scen = "12_SHA_SL_TF") %>% select(-ID, -Timestep ) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) %>% addxtoy_csv("s44", "s4")
-#csv13 <- read_csv ("omr_Act1only_min2k.csv"   )  %>% mutate(scen = "OMRAct1OnlyMin2k") %>% select(-id, -Timestep ) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) %>% addxtoy_csv("s44", "s4")
-#csv14 <- read_csv ("omr_Act1only_min5k.csv"   )  %>% mutate(scen = "OMRAct1OnlyMin5k") %>% select(-id, -Timestep ) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) %>% addxtoy_csv("s44", "s4")
-#csv15 <- read_csv ("Track2Scen1_DV.csv"   )  %>% mutate(scen = "oldT2Scen1") %>% select(-id, -Timestep )%>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" )  %>% addxtoy_csv("s44", "s4")
 
-## Track 1 scens
-csv16  <- read_csv ("0_FO_04012018_b2fix.csv"   )  %>% mutate(scen = "baseline") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
-csv17  <- read_csv ("omr_Act1only_min2k.csv"   )  %>% mutate(scen = "omr_act1_min2k") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
-csv18  <- read_csv ("omr_Act1only_min2k_11IE.csv"   )  %>% mutate(scen = "omr_act1_min2k_11ie") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
-csv19  <- read_csv ("omr_Act1only_min5k.csv"   )  %>% mutate(scen = "omr_act1_min5k") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
-csv20  <- read_csv ("omr_Act1only_min5k_11IE.csv" )  %>% mutate(scen = "omr_act1_min5k_11ie") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
-csv21  <- read_csv ("omrbyvern.csv"   )  %>% mutate(scen = "omrbyvern") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
-csv22  <- read_csv ("omrbyvern_11IE.csv"   )  %>% mutate(scen = "omrbyvern_11ie") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+## project xscens 
+#csv16  <- read_csv ("agencx_x_baseline.csv"   )  %>% mutate(scen = "x_baseline") %>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv17  <- read_csv ("agencyx_scenario1.csv"   )  %>% mutate(scen = "x_scen1") %>%    select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv18  <- read_csv ("agencyx_scenario2.csv"   )  %>% mutate(scen = "x_scen2") %>%    select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv19  <- read_csv ("agencyx_scenario3.csv"   )  %>% mutate(scen = "sx_cen2) %>%     select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+
+
+
+## project xscens 
+#csv16  <- read_csv ("agencx_x_baseline.csv")  %>% mutate(scen = "y_baseline")%>% select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv17  <- read_csv ("agency_scenario1.csv" )  %>% mutate(scen = "y_scen1") %>%   select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv18  <- read_csv ("agency_scenario2.csv"   )%>% mutate(scen = "y_scen2") %>%   select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv19  <- read_csv ("agency_scenario2a.csv"   %>% mutate(scen = "y_scen2a") %>%  select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv20  <- read_csv ("agency_scenario3.csv" )  %>% mutate(scen = "y_scen3") %>%   select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv21  <- read_csv ("agency_scenario4.csv"   )%>% mutate(scen = "y_scen4") %>%   select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+#csv22  <- read_csv ("agency_scenario5.csv"   )%>% mutate(scen = "y_scen5") %>%   select(-id, -Timestep) %>% filter(Date_Time >= "1921-10-30", Date_Time <= "2003-9-30" ) 
+
 
 df_csv <- mget(ls(pattern="^csv.*")) %>% bind_rows() # recognizes above new csv# data.frames and combines into one
 
