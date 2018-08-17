@@ -23,7 +23,7 @@
 
 [**Download**](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r)  (~20.03 mb: ~20 mb sample plots, ~30 kb scripts)
 
-**Drop** your calsim csvs in `csv` folder (or write there directly from WRIMS2)
+**Drop** your calsim csvs in `csv` folder (or write directly there from WRIMS2)
 
 **Open RStudio and files** by double clicking on **`control.r`**, then open  `csv_list.r` and `scen_facts.r`
 
