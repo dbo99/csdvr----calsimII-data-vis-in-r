@@ -1,3 +1,8 @@
+#Created on Aug 16 10:45:17 2018
+
+#@author: dbo
+#
+
 ## specify legend order (in certain order desired top to bottom or to match trends)
 
 # run below to print scenarios to console for cutting and pasting
