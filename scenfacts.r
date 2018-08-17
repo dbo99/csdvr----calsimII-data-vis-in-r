@@ -1,8 +1,5 @@
 #Created on Aug 16 10:45:17 2018
 
-#@author: dbo
-#
-
 ## specify legend order (in certain order desired top to bottom or to match trends)
 
 # run below to print scenarios to console for cutting and pasting
@@ -28,7 +25,9 @@
 #  "y_scen1  ,     
 #  "y_scen1  ))
 
-
+##############################
+##### leave below ############
+##############################
 
 df$scwyt_scwytt <- factor(df$scwyt_scwytt, levels = c("1_wt", "2_an", "3_bn", "4_dr", "5_cr"))
 
