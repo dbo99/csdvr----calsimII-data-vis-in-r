@@ -1,5 +1,5 @@
 # :earth_asia: **csdvr** :earth_americas: #  
- version 1.01_8.15.2018 
+ version 1.01@8.15.2018 
  
  `csdvr` summarizes `calsim` output in [R](https://www.r-project.org/) | analyze output for large numbers of variables or scenarios | batch export plots (jpg, interactive [html](https://plot.ly/r/), pdf, etc) |
  
