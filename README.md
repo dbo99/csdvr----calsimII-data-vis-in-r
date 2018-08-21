@@ -3,7 +3,7 @@
  
  `csdvr` uses [R](https://www.r-project.org/) to summarize `calsimII` output | quickly visualize or batch export plots (eg png, interactive [html](https://plot.ly/r/), pdf, etc) or data | easily apply popular data visualization functions on large amounts of calsim output
  
-[calsim](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2) is a water resources planning model for a large part of california, developed jointly by [usbr](https://www.usbr.gov/) and [ca-dwr](https://water.ca.gov/) to help analyze the limitations and possibilities of, and benefits and impacts from, the interconnected [central valley project](https://www.usbr.gov/mp/cvp/) and [state water project](https://water.ca.gov/Programs/State-Water-Project), under alternative infrastructure, regulatory, operational, or climate scenarios.   calsim also helps address related engineering and scientific questions, by its output commonly being used as input to popular biologic, economic, groundwater, and hydrodynamic models. `csdvr` is tailored for calsimII output (calsim 3.0 is in [beta](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-3))
+[calsim](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-2) is a water resources planning model for a large part of california, developed jointly by [usbr](https://www.usbr.gov/) and [ca-dwr](https://water.ca.gov/) to help analyze the limitations and possibilities of, and benefits and impacts from, the interconnected [central valley project](https://www.usbr.gov/mp/cvp/) and [state water project](https://water.ca.gov/Programs/State-Water-Project), under alternative infrastructure, regulatory, operational, or climate scenarios.   calsim also helps address related engineering and scientific questions, by its output commonly being used as input to popular biologic, economic, groundwater, and hydrodynamic models
 
    key file  | use
 ------------ | -------------
@@ -43,9 +43,9 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
 - save new finished plot scripts in `plotexportscripts` folder to add to collection of templates & add folder in plots folder with name of new file name
 - currently assumes all scenarios are under same climate scenario (tied to wyt.csv - adjustment needed to accommodate more for any water  year type functions - other functions still applicable as is if multiple climate scenarios used) (sample's uses Q5 Early Long Term)
 - default plot size is widescreen to exactly fit default `.pptx`. To change, search and replace all (from Ctrl-F) `width = 13.333, height = 7.5`, to desired dimensions, eg `width = 10, height = 6` , same with desired filetype, eg `.jpg`, `.pdf`)
-- tweaks needed around date functions and limits to work with CalSim 3.0's longer period of record
+- tweaks needed around date functions and limits to work with [CalSim 3.0](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-3)'s longer period of record
 - needs functions for diagnostics on system controls (or add to`.wresl` directly)
-- no geospatial plotting. planned for [CalSim 3.0](https://water.ca.gov/Library/Modeling-and-Analysis/Central-Valley-models-and-tools/CalSim-3)'s channels and aquifers
+- no geospatial plotting. planned for CalSim 3.0's channels and aquifers
   
 # Functions
 #  Data Summary - tabular
