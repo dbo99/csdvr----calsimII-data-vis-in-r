@@ -13,7 +13,7 @@ source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in 
 
 ##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one plot at a time:      ##########
 ##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow DVs, use function with _native suffix 
-{dvs <- c(  "s4")                                                                                          
+{dvs <- c(  "d418_cyc_mw", "d418up")                                                                                          
 ########################################################           then apply individual functions  below                #####
 source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) (###### (original values also copied to df_diff)
 ##############################################################################################################################
@@ -41,7 +41,6 @@ pb_mn_scwyt_perav_taf(df)
 pb_mn_scwyt_perav_taf_nolab(df)
 pb_mn_scwyt2_perav_taf(df) #scwyt2 breaks feb-jan water years - uses oct-seps like cwf hearings
 pb_mn_sjwyt_perav_taf(df)
-
 
 ### month specific storage ###
 

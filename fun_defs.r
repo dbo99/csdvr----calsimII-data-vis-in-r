@@ -1,8 +1,5 @@
 #Created on Aug 16 10:43:42 2018
 
-#@author: dbo
-#
-
 ### Function Definitions ###
 
 #####################################
@@ -1044,9 +1041,9 @@ df %>% filter(rawunit != "km")%>% group_by(scen, dv) %>% arrange(dv, desc(taf)) 
           ggtitle("984 months (taf)")
 }
 
-p_mon_excd2_taf <- function(df) { #remove linetype = scen
+p_mon_excd2_taf <- function(df) { 
   df %>% filter(rawunit != "km")%>% group_by(scen, dv) %>% arrange(dv, desc(taf)) %>% mutate(taf_dv_rank = row_number(),
-        excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = taf, color = scen, linetype = scen)) + geom_line() + labs(x = "probability of exceedance", y = "taf -- monthly")+theme_gray() +
+        excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = taf, color = scen)) + geom_line() + labs(x = "probability of exceedance", y = "taf -- monthly")+theme_gray() +
     guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
       ggtitle("984 months (taf)") + facet_grid(~dv) + scale_color_manual(values = df_cols)
 }
@@ -2243,6 +2240,27 @@ pdr2_ann_perav_wysum_taf_d <- function(df) {
     #geom_point(data = df_md, mapping = aes(x = median, y = scen, color = scen), shape = 124, size = 10) +
     geom_point(data = df_mn, mapping = aes(x = annmean, y = scen, fill = scen), color = "black", shape = 21) 
 }
+
+pdr3_ann_perav_wysum_taf_d <- function(df, scale) {
+  df_mn <- df %>% group_by(dv,scen) %>% summarize(annmean = 12*mean(taf))
+  df_md <- df %>% group_by(dv,scen,wy) %>% summarize(wysumtaf = sum(taf)) %>% group_by(scen, dv) %>% summarize(median = median(wysumtaf))
+  df %>% filter(kind != "storage") %>% group_by(scen, dv, wy) %>% summarize(wytafsum = sum(taf)) %>%
+    
+    ggplot( aes(x = `wytafsum`, y = `scen`, fill = ..x..)) +
+    geom_density_ridges_gradient(scale = scale, rel_min_height = 0.01, gradient_lwd = 1., calc_ecdf = TRUE, jittered_points=TRUE, scale = .95, rel_min_height = .01,
+    point_shape = "|", point_size = 3, size = 0.25, quantile_lines = TRUE, quantiles = 4,
+    position = position_points_jitter(height = 0), alpha = 0.5) +
+    scale_x_continuous(expand = c(0.01, 0)) +
+    scale_y_discrete(expand = c(0.01, 0)) +
+    scale_fill_viridis(name = "AnnualDiff", option = "C") +
+    theme_ridges(font_size = 13, grid = TRUE) + theme(axis.title.y = element_blank()) + 
+    #theme_gray() +
+    facet_grid(~dv) +
+    #geom_point(data = df_md, mapping = aes(x = median, y = scen, color = scen), shape = 124, size = 10) +
+    geom_point(data = df_mn, mapping = aes(x = annmean, y = `scen` ), color = "black", fill = "green", shape = 21) 
+}
+
+
 
 pdr_ann_perav_mfwysum_taf_d <- function(df) {
   df_mn <- df %>% filter(mfwy > 1921, mfwy < 2003) %>% group_by(dv,scen) %>% summarize(annmean = 12*mean(taf))
