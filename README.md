@@ -117,20 +117,6 @@ pb_mn_ann_perav_taf_nolab(df) | bars of mean annuals without labels (good for ma
 pb_mn_ann_perav_taf_hlab(df) | bars of mean annuals with horizontal labels (good for few scenarios)
 pb_md_ann_perav_taf(df) | bars of annual medians with vertical labels 
 
-### pb - plot bars - annual mean by water year type ###
-   function  | for
------------- | -------------
-[pb_mn_scwyt_perav_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/doplot_many/c406_sacwyt_bars.jpg) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
-pb_mn_scwyt_perav_taf_nolab(df) | label-less bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
-pb_mn_scwyt2_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
-pb_mn_sjwyt_perav_taf(df) | bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
-
-### pb - plot pars - monthly mean ###
-   function  | for
------------- | -------------
-pb_mn_eomay_stor_taf(df) | bars of mean end of may storage
-pb_mn_eosep_stor_taf(df) | bars of mean end of september storage
-
 ### pb - plot bars - annual mean differences   ###
    function  | for
 ------------ | -------------
@@ -138,6 +124,14 @@ pb_mn_eosep_stor_taf(df) | bars of mean end of september storage
 pb_mn_ann_perav_taf_d_hlab(df_diff) | difference bars of mean annuals with horizontal labels (good for few scenarios)
 pb_md_ann_perav_taf_d(df_diff) | difference bars of annual medians with vertical labels 
 pb_mn_ann_perav_taf_d_nolab_rank(df_diff) | label-less difference bars of mean annuals without labels, ranked highest to lowest left to right (good for very many scenarios)
+
+### pb - plot bars - annual mean by water year type ###
+   function  | for
+------------ | -------------
+[pb_mn_scwyt_perav_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/doplot_many/c406_sacwyt_bars.jpg) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
+pb_mn_scwyt_perav_taf_nolab(df) | label-less bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
+pb_mn_scwyt2_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
+pb_mn_sjwyt_perav_taf(df) | bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
 
 ### pb - plot bars - annual mean by wyt differences ###
    function  | for
@@ -147,12 +141,6 @@ pb_mn_scwyt_perav_taf_d_nolab(df_diff) | label-less difference bars of mean annu
 pb_mn_scwyt_perav_taf_d_hlab(df_diff) | horizontally labeled difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
 pb_mn_scwyt2_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
 pb_mn_sjwyt_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
-
-### month-specific mean differences ###
-   function  | for
------------- | -------------
-pb_eomay_stor_taf_d(df_diff)  | difference bars of mean end of may storage
-pb_eosep_stor_taf_d(df_diff) | difference bars of mean end of september storage
 
 ## bar plots - all years - ranked by water year type showing overall and wyt means ## 
    function  | for
@@ -165,6 +153,14 @@ pb_eomay_stor_scwyt_taf(df) | ranked bars of end of may storages by sacramento w
 pb_eosep_stor_scwyt_taf(df) | ranked bars of end of september storages by sacramento water year type
 pb_eomay_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
 pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of september storages by sacramento water year type
+
+### pb - plot pars - specific monthly mean ###
+   function  | for
+------------ | -------------
+pb_mn_eomay_stor_taf(df) | bars of mean end of may storage
+pb_mn_eosep_stor_taf(df) | bars of mean end of september storage
+pb_eomay_stor_taf_d(df_diff)  | difference bars of mean end of may storage
+pb_eosep_stor_taf_d(df_diff) | difference bars of mean end of september storage
 
 ## line plots - monthly and annual probability of exceedance ## 
 
