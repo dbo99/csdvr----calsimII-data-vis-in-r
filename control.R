@@ -5,7 +5,7 @@ setwd(here())         #with .here file in the top folder, sets relative wd #reru
 #setwd("C:/yourfolder/another/perhapsanother/thisfolder") run if above setwd fails
 source("fun_defs.r")  #function definitions
 source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in csv_list.r, 
-                      #then list preferred ordering of same nickmanes in scenfacts.r
+                      #then list preferred ordering of same nicknames in scenfacts.r
 }                     
 ## block 2a ####################################################   batch export plots with this block  #######################
 {source("plotexport.r")}  #pick which plots/grps of plots in plotexport.r get saved in `plots` folder 
@@ -13,7 +13,7 @@ source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in 
 
 ##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one plot at a time:      ##########
 ##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow DVs, use function with _native suffix 
-{dvs <- c(  "d418_cyc_mw", "d418up")                                                                                          
+{dvs <- c("c5")                                                                                          
 ########################################################           then apply individual functions  below                #####
 source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) (###### (original values also copied to df_diff)
 ##############################################################################################################################
