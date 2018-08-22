@@ -175,6 +175,14 @@ p_mon_excd2_cfs(df) | monthly exceedance in cfs, style 2
 [p_mon_excd_native(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/perdv_cvpmi_s_MayAlloc.jpg) |  monthly exceedance in calsim native units, eg EC, km get unit 'unassigned'
 p_mon_excd2_native(df) | monthly exceedance in calsim native units style 2 eg EC, km get unit 'unassigned'
 
+### monthly difference - line ###
+   function  | for
+------------ | -------------
+p_mon_excd_taf_d(df_diff) | monthly exceedance of differences in taf
+p_mon_excd2_taf_d(df_diff)| monthly exceedance of differences in taf, style 2 
+p_mon_excd_cfs_d(df_diff) | monthly exceedance of differences in cfs
+p_mon_excd2_cfs_d(df_diff)| monthly exceedance of differences in cfs, style 2
+
 ### annual - line ### 
    function  | for
 ------------ | -------------
@@ -190,13 +198,6 @@ p_ann_jdwysum_excd2_taf(df) | annual exceedance - 81 jan-dec totals (popular swp
 p_ann_wymn_excd_taf(df) |     annual exceedance -  82 oct-sep means
 p_ann_wymn_excd2_taf(df) |   annual exceedance -  82 oct-sep means, style 2 
 
-### monthly difference - line ###
-   function  | for
------------- | -------------
-p_mon_excd_taf_d(df_diff) | monthly exceedance of differences in taf
-p_mon_excd2_taf_d(df_diff)| monthly exceedance of differences in taf, style 2 
-p_mon_excd_cfs_d(df_diff) | monthly exceedance of differences in cfs
-p_mon_excd2_cfs_d(df_diff)| monthly exceedance of differences in cfs, style 2
 
 ### annual difference - line ### 
    function  | for
