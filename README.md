@@ -111,7 +111,7 @@ sum984_taf_d(df_diff) | sum of all differences
 ### pb - plot bars - annual mean  ###
    function  | for
 ------------ | -------------
-pb_mn_ann_perav_taf(df) |   bars of mean annuals with vertical labels (good for ~10 scenarios?)
+[pb_mn_ann_perav_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_n%26del_cvp_total_s_meanannperavbars.jpg) |   bars of mean annuals with vertical labels (good for ~10 scenarios?)
 pb_mn_ann_perav_taf_nolab(df) | bars of mean annuals without labels (good for many scenarios)
 pb_mn_ann_perav_taf_nolab_rank(df) | bar of mean annuals without labels, ranked highest to lowest left to right
 pb_mn_ann_perav_taf_hlab(df) | bars of mean annuals with horizontal labels (good for few scenarios)
