@@ -53,7 +53,7 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
 - use `samefunction(df)` for regular output and `samefunction(df_diff)` for the scenario minus baseline difference
 - add `%>% write.csv("processedDVsofinterest.csv")` after any to export `processedDVsofinterest.csv` to working directory
 
-### annual avgs  ###
+### annual means and medians  ###
    function  | for
 ------------ | -------------
 mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
@@ -65,7 +65,7 @@ mn_ann_eomstor_taf(df_diff) | mean annual diff. rel. to baseline for end of mont
 mn_ann_perav_native(df) | mean annual flow/delivery in calsim native units
 md_ann_perav_native(df) | median annual flow/delivery in calsim native units
 
-### water year type avgs ###
+### water year type means ###
    function  | for
 ------------ | -------------
 mn_ann_scwyt_perav_taf(df) | mean annual flow/delivery total by sacramento year type in taf
@@ -117,7 +117,7 @@ pb_mn_ann_perav_taf_nolab(df) | bars of mean annuals without labels (good for ma
 pb_mn_ann_perav_taf_hlab(df) | bars of mean annuals with horizontal labels (good for few scenarios)
 pb_md_ann_perav_taf(df) | bars of annual medians with vertical labels 
 
-### pb - plot bars - annual mean differences   ###
+### pb - plot bars - annual means and medians, differences   ###
    function  | for
 ------------ | -------------
 [pb_mn_ann_perav_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_n%26del_cvp_total_s_meanannperavbars_diff.jpg) | difference bars of mean annuals with vertical labels (good for many scenarios)
@@ -125,7 +125,7 @@ pb_mn_ann_perav_taf_d_hlab(df_diff) | difference bars of mean annuals with horiz
 pb_md_ann_perav_taf_d(df_diff) | difference bars of annual medians with vertical labels 
 pb_mn_ann_perav_taf_d_nolab_rank(df_diff) | label-less difference bars of mean annuals without labels, ranked highest to lowest left to right (good for very many scenarios)
 
-### pb - plot bars - annual mean by water year type ###
+### pb - plot bars - annual means by water year type  ###
    function  | for
 ------------ | -------------
 [pb_mn_scwyt_perav_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/doplot_many/c406_sacwyt_bars.jpg) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
@@ -133,7 +133,7 @@ pb_mn_scwyt_perav_taf_nolab(df) | label-less bars of mean annual flow/delivery t
 pb_mn_scwyt2_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
 pb_mn_sjwyt_perav_taf(df) | bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
 
-### pb - plot bars - annual mean by wyt differences ###
+### pb - plot bars - annual means by water year type, differences ###
    function  | for
 ------------ | -------------
 [pb_mn_scwyt_perav_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/doplot_many/c406_sacwyt_bars_diffs.jpg)| difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
