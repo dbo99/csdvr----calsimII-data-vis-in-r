@@ -177,7 +177,7 @@ p_mon_excd2_native(df) | monthly exceedance in calsim native units style 2 eg EC
 ### annual - line ### 
    function  | for
 ------------ | -------------
-[p_ann_wysum_excd_taf(df)]https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_n%26del_cvp_total_s_p_ann_wysum_excd_taf.jpg) |    annual exceedance - 82 oct-sep totals
+[p_ann_wysum_excd_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_n%26del_cvp_total_s_p_ann_wysum_excd_taf.jpg) |    annual exceedance - 82 oct-sep totals
 [p_ann_wysum_excd2_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_n%26del_cvp_total_s_p_ann_wysum_excd2_taf.jpg) |   annual exceedance - 82 oct-sep totals, in columns (style 2)
 [p_ann_wysum_excd3_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_n%26del_cvp_total_s_p_ann_wysum_excd3_taf.jpg) |   annual exceedance - 82 oct-sep totals, in rows (style 3)
 p_ann_fjwysum_excd_taf(df) |  annual exceedance - 81 feb-jan totals
