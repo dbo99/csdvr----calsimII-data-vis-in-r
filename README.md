@@ -120,7 +120,7 @@ pb_md_ann_perav_taf(df) | bars of annual medians with vertical labels
 ### pb - plot bars - annual mean by water year type ###
    function  | for
 ------------ | -------------
-pb_mn_scwyt_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
+[pb_mn_scwyt_perav_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/doplot_many/c406_sacwyt_bars.jpg) | bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
 pb_mn_scwyt_perav_taf_nolab(df) | label-less bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
 pb_mn_scwyt2_perav_taf(df) | bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
 pb_mn_sjwyt_perav_taf(df) | bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
