@@ -142,7 +142,7 @@ pb_mn_scwyt_perav_taf_d_hlab(df_diff) | horizontally labeled difference bars of 
 pb_mn_scwyt2_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
 pb_mn_sjwyt_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by san joaquin year type (feb-jan in calsim)
 
-## bar plots - all years - ranked by water year type showing overall and wyt means ## 
+## pb - plot pars - all years drawn - ranked by water year type showing overall and wyt means ## 
    function  | for
 ------------ | -------------
 pb_ann_fjwysum_scwyt_taf(df) | ranked bars of feb-jan totals by sacramento water year type
