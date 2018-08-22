@@ -234,7 +234,7 @@ p_ann_fjwysum_sjwyt_excd2_taf_d(df_diff)|  difference - 6 plots (5 wyts and 1 ov
 ### plot for each month, linear - line ###
    function  | for
 ------------ | -------------
-p_ann_monfacetg_excd_taf(df) | 12 plots of individual months in a line (Grid) in taf 
+[p_ann_monfacetg_excd_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/c408_mongridexcdgrid.jpg) | 12 plots of individual months in a line (Grid) in taf 
 p_ann_monfacetg_excd_taf_d(df_diff)| difference - 12 plots of individual months in a line in taf
 p_ann_monfacetg_excd_cfs(df) | 12 plots of individual months in a line in cfs
 p_ann_monfacetg_excd_cfs_d(df_diff)| difference - 12 plots of individual months in a line in cfs
@@ -245,7 +245,7 @@ p_ann_monfacetg_excd_cfs_d(df_diff)| difference - 12 plots of individual months 
 p_ann_monfacetw_excd_taf(df) | 12 plots of individual months in a matrix (Wrap) in taf
 p_ann_monfacetw_excd_taf_d(df_diff) | difference - 12 plots of individual months in a matrix in taf
 p_ann_monfacetw_excd_cfs(df) | 12 plots of individual months in a matrix in cfs
-p_ann_monfacetw_excd_cfs_d(df_diff) | difference - 12 plots of individual months in a matrix in cfs
+[p_ann_monfacetw_excd_cfs_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/c408_mongridexcdwrap_diff.jpg) | difference - 12 plots of individual months in a matrix in cfs
 
 ## tukey box plots - pbp - plot box plots ## 
 
