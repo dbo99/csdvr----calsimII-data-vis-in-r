@@ -57,7 +57,7 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
    function  | for
 ------------ | -------------
 mn_ann_perav_taf(df) |  mean annual for period avg (flow/delivery) in taf (if nothing: makes sure dv not storage)
-eg mn_ann_perav_taf(df_diff) |  mean annual diff. rel. to baseline for period avg (flow/delivery) in taf
+mn_ann_perav_taf(df_diff) |  mean annual diff. rel. to baseline for period avg (flow/delivery) in taf
 md_ann_perav_taf() |  median annual flow/delivery in taf
 md_ann_perav_taf(df_diff) |  median annual diff. rel. to baseline for flow/delivery in taf
 mn_ann_eomstor_taf(df) | mean annual end of month storage (if nothing: makes sure a storage term selected)
