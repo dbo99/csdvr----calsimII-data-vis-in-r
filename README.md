@@ -134,7 +134,7 @@ pb_mn_eosep_stor_taf(df) | bars of mean end of september storage
 ### pb - plot bars - annual mean differences   ###
    function  | for
 ------------ | -------------
-pb_mn_ann_perav_taf_d(df_diff) | difference bars of mean annuals with vertical labels (good for many scenarios)
+[pb_mn_ann_perav_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_n%26del_cvp_total_s_meanannperavbars_diff.jpg) | difference bars of mean annuals with vertical labels (good for many scenarios)
 pb_mn_ann_perav_taf_d_hlab(df_diff) | difference bars of mean annuals with horizontal labels (good for few scenarios)
 pb_md_ann_perav_taf_d(df_diff) | difference bars of annual medians with vertical labels 
 pb_mn_ann_perav_taf_d_nolab_rank(df_diff) | label-less difference bars of mean annuals without labels, ranked highest to lowest left to right (good for very many scenarios)
