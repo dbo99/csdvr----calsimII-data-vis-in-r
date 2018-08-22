@@ -296,37 +296,37 @@ pdr_ann_perav_mfwysum_taf_d(df_diff)| as above,  difference
 ## monthly - line ## 
    function  | for
 ------------ | -------------
-p_mon_ts_taf(df, 1921, 2004)  | monthly timeseries from start to end year, taf
-p_mon_ts_may_taf(df, 1929, 1937) | monthly timeseries of just mays from start to end year, taf
-p_mon_ts_sep_taf(df, 1929, 1937) | monthly timeseries of just seps from start to end year, taf
-p_mon_ts_taf_maysseps_taf(df, 1922, 2003) |  monthly timeseries of just mays & seps from start to end year, taf
-p_mon_ts_cfs(df, 1920, 2003) | monthly timeseries from start to end year, cfs
-p_mon_ts_native(df, 1930, 1935) | monthly timeseries from start to end year, native calsim unit
+p_mon_ts_taf(df, 1921, 2004)  | monthly timeseries from start, to end year, in taf
+p_mon_ts_may_taf(df, 1929, 1937) | monthly timeseries of just mays from start to end year, in taf
+p_mon_ts_sep_taf(df, 1929, 1937) | monthly timeseries of just seps from start to end year, in taf
+p_mon_ts_taf_maysseps_taf(df, 1922, 2003) |  monthly timeseries of just mays & seps from start to end year, in taf
+p_mon_ts_cfs(df, 1920, 2003) | monthly timeseries from start to end year, in cfs
+p_mon_ts_native(df, 1930, 1935) | monthly timeseries from start to end year, in native calsim unit
 
 ## annual - line ## 
    function  | for
 ------------ | -------------
-p_ann_ts_sum_taf(df, 1977, 1978) | timeseries of annual totals, taf
-p_ann_ts_sum_native(df, 1930, 1990)| timeseries of annual totals, native calsim unit
-p_annmean_ts_mn_taf (df, 1922, 1990) | timeseries of annual mean, taf
+p_ann_ts_sum_taf(df, 1977, 1978) | timeseries of annual totals, in taf
+p_ann_ts_sum_native(df, 1930, 1990)| timeseries of annual totals, in native calsim unit
+p_annmean_ts_mn_taf (df, 1922, 1990) | timeseries of annual mean, in taf
 
 
 ## monthly difference - line ## 
    function  | for
 ------------ | -------------
-p_mon_ts_taf_d (df_diff, 1922, 1925)| monthly timeseries of difference from start to end year, taf
-p_mon_ts2_taf_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, taf, style 2
-p_mon_ts3_taf_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, taf, style 3
-p_mon_ts_cfs_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, cfs
-p_mon_ts_native_d(df_diff, 1922, 1923)| monthly timeseries of difference from start to end year, native
-p_mon_ts2_native_d(df_diff, 1921, 1930)|monthly timeseries of difference from start to end year, native, style 2
+p_mon_ts_taf_d (df_diff, 1922, 1925)| monthly timeseries of difference from start to end year, in taf
+p_mon_ts2_taf_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, in taf, style 2
+p_mon_ts3_taf_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, in taf, style 3
+p_mon_ts_cfs_d (df_diff, 1922, 2003)| monthly timeseries of difference from start to end year, in cfs
+p_mon_ts_native_d(df_diff, 1922, 1923)| monthly timeseries of difference from start to end year, in native
+p_mon_ts2_native_d(df_diff, 1921, 1930)|monthly timeseries of difference from start to end year, in native, style 2
 
 ## annual difference - line and bar ##
    function  | for
 ------------ | -------------
-p_ann_ts_sum_taf_d (df_diff, 1975, 1978) | timeseries of differences of annual totals, taf
-p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)| timeseries of differences of annual means
-pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences of annual totals, taf
+p_ann_ts_sum_taf_d (df_diff, 1975, 1978) | timeseries of differences of annual totals, in taf
+p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)| timeseries of differences of annual means, in taf
+pb_ann_ts_sum_taf_d(df_diff, 1922, 2003)| bar plot - timeseries of differences of annual totals, in  taf
 
 
 ## timeseries ridges - pr - plot ridges - one dv only! ##
