@@ -226,8 +226,8 @@ p_ann_fjwysum_sjwyt_excd2_taf(df) |   6 plots (5 wyts and 1 overall) of feb-jan 
 ### annual by wyt grid, difference - line ###
    function  | for
 ------------ | -------------
-p_ann_fjwysum_scwyt_excd_taf_d(df_diff) |  difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt
-p_ann_fjwysum_scwyt_excd2_taf_d(df_diff) | difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt, style 2 
+[p_ann_fjwysum_scwyt_excd_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_s%26del_cvp_total_n_2x3excdgriddiff.jpg) |  difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt
+[p_ann_fjwysum_scwyt_excd2_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/del_cvp_total_s%26del_cvp_total_n_2x3excdgriddiff_style2.jpg) | difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sac wyt, style 2 
 p_ann_fjwysum_sjwyt_excd_taf_d(df_diff) | difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt
 p_ann_fjwysum_sjwyt_excd2_taf_d(df_diff)|  difference - 6 plots (5 wyts and 1 overall) of feb-jan totals by sj wyt, style 2
 
