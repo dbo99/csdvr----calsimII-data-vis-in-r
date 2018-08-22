@@ -1,5 +1,5 @@
 # :earth_asia: **csdvr** :earth_americas: #  
- version 1.01
+calsim data visualization in R
  
  `csdvr` uses [R](https://www.r-project.org/) to summarize `calsimII` output | quickly visualize or batch export data or plots (eg png, interactive [html](https://plot.ly/r/), pdf, etc) | easily apply popular data visualization functions on large amounts of calsim output
  
