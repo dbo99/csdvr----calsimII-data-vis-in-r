@@ -151,7 +151,7 @@ pb_ann_fjwysum_scwyt_taf_d(df_diff) | ranked difference bars of feb-jan totals b
 pb_ann_fjwysum_sjwyt_taf_d(df_diff) | ranked difference bars of feb-jan totals by san joaquin water year type
 pb_eomay_stor_scwyt_taf(df) | ranked bars of end of may storages by sacramento water year type
 pb_eosep_stor_scwyt_taf(df) | ranked bars of end of september storages by sacramento water year type
-pb_eomay_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of may storages by sacramento water year type
+[pb_eomay_stor_scwyt_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/s4_eosep_storagediffs.jpg) | ranked difference bars of end of may storages by sacramento water year type
 pb_eosep_stor_scwyt_taf_d(df_diff) | ranked difference bars of end of september storages by sacramento water year type
 
 ### pb - plot pars - specific monthly mean ###
