@@ -167,7 +167,7 @@ pb_eosep_stor_taf_d(df_diff) | difference bars of mean end of september storage
 ### monthly - line ### 
    function  | for
 ------------ | -------------
-p_mon_excd_taf(df) |   monthly exceedance in taf style 1 (dvs plotted on single plot, with linetype differences (eg solid vs. dash)
+[p_mon_excd_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/june2018plots/s4%26s1_storagemonthly.jpg) |   monthly exceedance in taf style 1 (dvs plotted on single plot, with linetype differences (eg solid vs. dash)
 ]p_mon_excd2_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/s1%26s4%26s6%26s8%26s11_storagemonthly.jpg) |  monthly exceedance in taf, style 2 (plot ("facet") for each dv)
 p_mon_excd_cfs(df) |   monthly exceedance in cfs
 p_mon_excd2_cfs(df) | monthly exceedance in cfs, style 2 
