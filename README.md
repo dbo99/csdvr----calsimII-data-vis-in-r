@@ -142,7 +142,7 @@ pb_mn_ann_perav_taf_d_nolab_rank(df_diff) | label-less difference bars of mean a
 ### pb - plot bars - annual mean by wyt differences ###
    function  | for
 ------------ | -------------
-pb_mn_scwyt_perav_taf_d(df_diff)| difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
+]pb_mn_scwyt_perav_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/doplot_many/c406_sacwyt_bars_diffs.jpg)| difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
 pb_mn_scwyt_perav_taf_d_nolab(df_diff) | label-less difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
 pb_mn_scwyt_perav_taf_d_hlab(df_diff) | horizontally labeled difference bars of mean annual flow/delivery total by sacramento year type (feb-jan in calsim)
 pb_mn_scwyt2_perav_taf_d(df_diff) | difference bars of mean annual flow/delivery total by sacramento year type in taf (coerced to oct-sep)
