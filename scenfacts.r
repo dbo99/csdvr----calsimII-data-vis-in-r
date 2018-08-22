@@ -1,33 +1,44 @@
-#Created on Aug 16 10:45:17 2018
-
 ## specify legend order (in certain order desired top to bottom or to match trends)
 
 # run below to print scenarios to console for cutting and pasting
 #unique(df_csv$scen)
                                         
-#df$scen <- factor(df$scen, levels = c(
+df$scen <- factor(df$scen, levels = c(
  
-# project x scenarios
-#   proj x 
-#  "x_baseline"  ,
-#  "x_scen1  ,            
-#   x_scen2             
-#   x_scen2a  
-#   x_scen3 ))
-  
-  
-  
-# project y scenarios
- #"y_baseline"  ,
-#  "y_scen1  ,              
-#  "y_scen1  ,       
-#  "y_scen1  ,          
-#  "y_scen1  ,     
-#  "y_scen1  ))
+# track 2 
+"baseline",         
+"CWF(CWF)" ))  
+#"NDD(NDD)",  
+#"SanLR(SL)", 
+#"ShasR(SH)",
+#"TF(TF)",   
+#"2_SH_TF",        
+#"3_SH_SL_TF_CWF",  
+#"3_SH_SL_TF_NDD",  
+#"4_SH_TF_CWF",     
+#"4_SH_TF_NDD",     
+#"5_SH_SL_CWF",    
+#"5_SH_SL_NDD",    
+#"6_SL_CWF",         
+#"6_SL_NDD",         
+#"7_SL_TF_CWF",      
+#"7_SL_TF_NDD",      
+#"8_SH_CWF",        
+#"8_SH_NDD",        
+#"9_SH_SL",        
+#"10_TF_CWF",        
+#"10_TF_NDD",        
+#"11_SL_TF",         
+#"12_SH_SL_TF") )    
 
-##############################
-##### leave below ############
-##############################
+# #track 1 
+# "baseline"  ,
+# "omr_act1_min2k"  ,            
+# "omr_act1_min2k_11ie"   ,      
+# "omr_act1_min5k"   ,          
+# "omr_act1_min5k_11ie"   ,   
+# "omrbyvern"   ,  
+# "omrbyvern_11ie"))
 
 df$scwyt_scwytt <- factor(df$scwyt_scwytt, levels = c("1_wt", "2_an", "3_bn", "4_dr", "5_cr"))
 
@@ -35,11 +46,11 @@ scendiffnames <- levels((df$scen))
 scendiffnames <- scendiffnames[scendiffnames != "baseline"]; 
 scendiffnames <- paste(scendiffnames, " - bl", sep ="")
 
-#df_diff$scen <- factor(df_diff$scen, levels = c(paste0(scendiffnames)))
+df_diff$scen <- factor(df_diff$scen, levels = c(paste0(scendiffnames)))
 
 
-numnonbaselinescens <- length(unique(df_diff$scen))+1
-df_diff_cols <- scales::hue_pal()(numnonbaselinescens)
+numscens <- length(unique(df_diff$scen)) + 1
+df_diff_cols <- scales::hue_pal()(numscens)
 black <- c("gray45") #gray55 
 df_cols <- c(black, df_diff_cols)
 
@@ -66,5 +77,3 @@ df_diff$scwyt_scwytt <- factor(df_diff$scwyt_scwytt, levels = c("1_wt", "2_an", 
 df$mon <- factor(df$mon, levels = c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"))
 df_diff$mon <- factor(df_diff$mon, levels = c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"))
 
-#df$dv <- factor(df$dv, levels = c("s1","s4", "s8", "s11"))
-#df_diff$dv <- factor(df_diff$dv, levels = c("s1","s4", "s8", "s11"))
