@@ -288,7 +288,7 @@ pdr2_ann_perav_wysum_taf(df) | bell curve with individual year distribution show
 pdr_ann_perav_mfwysum_taf(df) | bell curve with individual mar-feb year distribution shown, .25, .5, & .75 quantiles, w/mean (circle symbol)
 pdr_ann_perav_wysum_taf_d(df_diff)| as above, difference
 pdr2_ann_perav_wysum_taf_d(df_diff)|as above,  difference
-pdr3_ann_perav_wysum_taf_d(df_diff) | style 3, difference, color gradient for water year total
+[pdr3_ann_perav_wysum_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/june2018plots/del_swp_tot_s_annsumdenridgediff3.jpg) | style 3, difference, color gradient for water year total
 pdr_ann_perav_mfwysum_taf_d(df_diff)| as above,  difference
 
 # Timeseries #
