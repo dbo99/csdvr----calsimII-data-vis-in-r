@@ -269,7 +269,7 @@ pbp_ann_perav_fjwysum_taf_d(df_diff) | box plots of differences of feb-jan total
 pbp_ann_perav_fjwysum_scwyt_taf(df) | box plots of feb-jan totals by sacramento water year type
 pbp_ann_perav_fjwysum_scwyt_taf_d(df_diff)| box plots of differences of feb-jan totals by sacramento water year type
 pbp_ann_perav_mfwysum_taf(df) | box plots of mar-feb totals
-pbp_ann_perav_mfwysum_taf_d(df_diff) box plots of mar-feb totals
+pbp_ann_perav_mfwysum_taf_d(df_diff) | box plots of mar-feb totals
 
 ## tukey box plots with data points shown (and mean) - pdp - plot dot plots ## 
    function  | for
