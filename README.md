@@ -297,7 +297,7 @@ pdr_ann_perav_mfwysum_taf_d(df_diff)| as above,  difference
 ## monthly - line ## 
    function  | for
 ------------ | -------------
-p_mon_ts_taf(df, 1921, 2004)  | monthly timeseries from start, to end year, in taf
+[p_mon_ts_taf(df, 1921, 2004)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/s1_mon_timeseries_taf.jpg)  | monthly timeseries from start, to end year, in taf
 p_mon_ts_may_taf(df, 1929, 1937) | monthly timeseries of just mays from start to end year, in taf
 p_mon_ts_sep_taf(df, 1929, 1937) | monthly timeseries of just seps from start to end year, in taf
 p_mon_ts_taf_maysseps_taf(df, 1922, 2003) |  monthly timeseries of just mays & seps from start to end year, in taf
