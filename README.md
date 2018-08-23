@@ -257,7 +257,7 @@ pbp_mon_taf(df) |  monthly taf box plots
 pbp_mon_taf_d(df_diff)  | monthly taf box plots of differences
 pbp_mon_scwyt_taf(df) |  monthly taf box plots by sacramento water year type
 pbp_mon_scwyt_taf_d(df_diff) |  monthly taf box plots of differences by sacramento water year type
-- pbly best for only one dv (too busy) 
+- pbly best for only one dv (gets busy quickly) 
 - good for plotly/ggplotly - medians/hinges/outliars hoverable
 
 ### annual - box plots ###
