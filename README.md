@@ -52,6 +52,7 @@ run-click `2b` | **generate individual data summaries** (ie tabular as `tibble`,
 #### select DVs and run `df_create.r` to create `df` and `df_diff` `data.frame`s ####
 - use `samefunction(df)` for regular output and `samefunction(df_diff)` for the scenario minus baseline difference
 - add `%>% write.csv("processedDVsofinterest.csv")` after any to export `processedDVsofinterest.csv` to working directory
+- any reference to "difference" refers to the difference of baseline results subtracted from the scenario (eg, "scenario1 - bl")
 
 ### annual means and medians  ###
    function  | for
