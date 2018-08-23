@@ -350,7 +350,7 @@ prast_ann_ts_mn_taf(df) | timeseries raster (stripes) of water year means in taf
 [prast_mon_ts_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/d418_monrastdiffs.jpg)| timeseries raster of monthly difference in taf
 [prast_ann_ts_sum_taf_d(df_diff)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/july2018plots/d418_annrastdiffs.jpg)|timeseries raster of annual total difference in taf
 prast_ann_ts_mn_taf_d(df_diff)| timeseries raster of annual mean difference in taf
-ptile_mon_ts_taf(df) | timeseries tile of monthly in taf - tile adds ability to color cell outline, eg highlight Wet & AN only
+ptile_mon_ts_taf(df) | timeseries tile of monthly in taf - tile adds ability to color cell outline, eg highlight certain year types only
 ptile_ann_ts_sum_taf(df) | timeseries tile (stripes) of water year totals (sums) in taf
 prast_ann_ts_mn_taf(df) |  timeseries tile (stripes) of water year means in taf
 ptile_mon_ts_taf_d(df_diff)|timeseries tile of monthly difference in taf
