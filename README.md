@@ -284,7 +284,7 @@ pdp_ann_perav_mfwysum_taf_d(df_diff, 1,5)| dot plot of difference of mar-feb yea
    function  | for
 ------------ | -------------
 [pdr_ann_perav_wysum_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/june2018plots/del_cvp_total_s%26del_cvp_total_n_annsumdenridge.jpg) | bell curve with individual water year distribution shown (ticks), .25, .5, & .75 quantiles (vertical lines), w/mean (circle symbol)
-pdr2_ann_perav_wysum_taf(df) | bell curve with individual year distribution shown, .25, .5, & .75 quantiles, w/mean labelled, separate scenario colors
+[pdr2_ann_perav_wysum_taf(df)](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plots/june2018plots/del_cvp_total_s%26del_cvp_total_n_annsumdenridge2.jpg) | bell curve with individual year distribution shown, .25, .5, & .75 quantiles, w/mean labelled, subplot for each dv & separate scenario colors
 pdr_ann_perav_mfwysum_taf(df) | bell curve with individual mar-feb year distribution shown, .25, .5, & .75 quantiles, w/mean (circle symbol)
 pdr_ann_perav_wysum_taf_d(df_diff)| as above, difference
 pdr2_ann_perav_wysum_taf_d(df_diff)|as above,  difference
