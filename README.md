@@ -7,11 +7,11 @@ calsim data visualization in R
 
    key file  | use
 ------------ | -------------
-[`csv_list.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/Aug15/csv_list.r) | list csv file names and assign brief unique scenario nicknames
-[`fun_defs.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/Aug15/fun_defs.r) | function definitions - add to here as necessary
-[`scen_facts.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/Aug15/scenfacts.r) | list same nicknames top down to order the left to right position of scenarios in the plot (instead of alphabetic)
-[`plotexport.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/Aug15/plotexport.r) | select which plot scripts to run for export (wait 1-2 minutes for a comprehensive set or a few seconds for 20 or so?)
-[`control.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/Aug15/control.R) | main user interface - actually read-in data and analyze or batch export plots
+[`csv_list.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/csv_list.r) | list csv file names and assign brief unique scenario nicknames
+[`fun_defs.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/fun_defs.r) | function definitions - add to here as necessary
+[`scen_facts.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/scenfacts.r) | list same nicknames top down to order the left to right position of scenarios in the plot (instead of alphabetic)
+[`plotexport.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/plotexport.r) | select which plot scripts to run for export (wait 1-2 minutes for a comprehensive set or a few seconds for 20 or so?)
+[`control.r`](https://github.com/dbo99/csdvr----calsimII-data-vis-in-r/blob/1.01/control.R) | main user interface - actually read-in data and analyze or batch export plots
 
 ## Uses ##
 
