@@ -93,8 +93,8 @@ eo_sep_stor_taf(df_diff) | mean difference relative to baseline for mean end of 
 ------------ | -------------
 showtstepsallscensunder(df, 800) | shows all time steps all scenarios are under ("find first month all under x")
 showtstepsallscensunder(df_diff, 800) | shows all time steps all scenario differences are under x
-showtstepsallscensover(df, 10) | shows all time steps all scenarios are over
-showtstepsallscensover(df_diff, 10) | shows all time steps all differnces are over x
+showtstepsallscensover(df, 10) | shows all time steps all scenarios are over x (eg, 10)
+showtstepsallscensover(df_diff, 10) | shows all time steps all differences are over x
 
 ### Period of Record mean, total ###
    function  | for
