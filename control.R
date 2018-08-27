@@ -13,7 +13,7 @@ source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in 
 
 ##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one plot at a time:      ##########
 ##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow DVs, use function with _native suffix 
-{dvs <- c("c5")                                                                                          
+{dvs <- c("d418", "d419")                                                                                          
 ########################################################           then apply individual functions  below                #####
 source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) (###### (original values also copied to df_diff)
 ##############################################################################################################################
@@ -39,7 +39,7 @@ pb_mn_ann_eomstor_taf(df)  #if blank, verify not a non-storage (same for rest)
 ### WYT Avgs ###
 pb_mn_scwyt_perav_taf(df)
 pb_mn_scwyt_perav_taf_nolab(df)
-pb_mn_scwyt2_perav_taf(df) #scwyt2 breaks feb-jan water years - uses oct-seps like cwf hearings
+pb_mn_scwyt2_perav_taf(df) #scwyt2 breaks feb-jan water years - uses oct-seps like cwf hearing standard
 pb_mn_sjwyt_perav_taf(df)
 
 ### month specific storage ###
@@ -78,8 +78,8 @@ pb_eomay_stor_d_taf(df_diff)
 
 ## monthly ## 
 
-p_mon_excd_taf(df)          # no "2", dvs together
-p_mon_excd2_taf(df)         # with "2" - dvs apart (facetted) 
+p_mon_excd_taf(df)          # no "2": dvs together
+p_mon_excd2_taf(df)         # with "2": dvs apart (facetted) 
 p_mon_excd_cfs(df)
 p_mon_excd2_cfs(df)
 p_mon_excd_native(df)       # use for non cfs/taf terms, eg EC, km
@@ -128,8 +128,8 @@ p_ann_wymn_excd2_taf_d(df_diff)
 ## exceedance, WYT grid
 #########################
 
-p_ann_fjwysum_scwyt_excd_taf(df)    # no "2", dvs together
-p_ann_fjwysum_scwyt_excd2_taf(df)   # with "2" - dvs apart (facetted)  
+p_ann_fjwysum_scwyt_excd_taf(df)    # no "2": dvs together
+p_ann_fjwysum_scwyt_excd2_taf(df)   # with "2":dvs apart (facetted)  
 p_ann_fjwysum_sjwyt_excd_taf(df)    
 p_ann_fjwysum_sjwyt_excd2_taf(df)   
 
@@ -303,7 +303,7 @@ p_ann_ts_mn_taf_d (df_diff, 1955.2, 1956.5)
 
 
 #plot ridges (plots monthly y, colors by wy sum) (data, yrmin, yrmax, scaling factor). for one dv only (otherwise averaged)
-pr_ts_taf(df, 1921, 2007, 0.0003) #+ ggtitle("del_cvp_total_s 1922 - 2003")#will plot up to yrmax-1 (max yr not plotted, doesn't always fit) (ggridges bug)
+pr_ts_taf(df, 1921, 2007, 0.00008) #+ ggtitle("del_cvp_total_s 1922 - 2003")#will plot up to yrmax-1 (max yr not plotted, doesn't always fit) (ggridges bug)
 pr_ts_taf_d(df_diff, 1921, 2007, 0.009) #+ ggtitle("del_cvp_total_s 1922 - 2003 [difference from baseline]")
 
 pr_ts_eomstormean_taf(df, 1970, 1995, 0.00001) #will plot up to yrmax-1 (max yr not plotted, doesn't always fit) (ggridges bug)
