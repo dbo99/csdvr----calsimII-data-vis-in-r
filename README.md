@@ -29,7 +29,7 @@ calsim data visualization in R
 
 **Point to files and ID scenarios** in `csv_list.r`: enter each csv file name (eg `040812_bo_y1a1.csv`) and give unique nickname to each (eg `Scen1_Y1A1`)
 
-**Specify plotting order of scenarios** (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in user-defined order: top to bottom in `scenfacts.r` Nickname spelling in `csv_list.r` must match `scen_facts.r`
+**Specify plotting order of scenarios** (groupings to facilitate data vis): in `scenfacts.r` enter same nicknames in top to bottom order to define left to right plotting order. Nickname spelling in `csv_list.r` must match `scen_facts.r`
 
 `control.r`  | action
 ------------ | -------------
