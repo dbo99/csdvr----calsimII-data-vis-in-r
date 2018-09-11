@@ -86,7 +86,7 @@ min_mon_native(df) | minimum monthly value of all months
 eo_may_stor_taf(df) | mean end of may storage
 eo_sep_stor_taf(df) | mean end of septemeber storage
 eo_may_stor_taf(df_diff) | mean difference relative to baseline for mean end of may storage
-eo_sep_stor_taf(df_diff) | mean difference relative to baseline for mean end of septemeber storage
+eo_sep_stor_taf(df_diff) | mean difference relative to baseline for mean end of september storage
 
 ### find timesteps - for single DV only! ### 
    function  | for
