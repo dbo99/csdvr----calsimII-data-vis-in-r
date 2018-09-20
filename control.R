@@ -13,7 +13,7 @@ source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in 
 
 ##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one plot at a time:      ##########
 ##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow DVs, use function with _native suffix 
-{dvs <- c("d418", "d419")                                                                                          
+{dvs <- c("x2_prv")                                                                                          
 ########################################################           then apply individual functions  below                #####
 source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) (###### (original values also copied to df_diff)
 ##############################################################################################################################
@@ -24,7 +24,7 @@ source("df_create.r")} #create two data.frames: one for values (df), one for dif
 
 ##########################
 ## overall stats - bars ##
-##########################
+########################## 
 
 ### Ann Avgs ###
 
@@ -206,11 +206,14 @@ pb_eosep_stor_scwyt_taf_d(df_diff)
 
 #plot box plot monthly taf 
 pbp_mon_taf(df)        #pbly best for only one dv, (very busy) #good for plotly - medians/hinges/outliars hoverable
+pbp_mon_x2km(df)
+
 pbp_mon_scwyt_taf(df)  #pbly best for only one dv
 
 ## diff ##
 pbp_mon_taf_d(df_diff)  
 pbp_mon_scwyt_taf_d(df_diff)
+pbp_mon_x2km_d(df_diff)
 
 
 ##################################

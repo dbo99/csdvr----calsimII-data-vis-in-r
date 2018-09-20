@@ -1908,6 +1908,31 @@ pbp_mon_taf <- function(df) {
     scale_color_manual(values=df_cols)
 }
 
+pbp_mon_x2km <- function(df) {
+  df %>%  mutate(rawval = lead(rawval,1)) %>% mutate(dv = "x2_prv(adj)") %>%
+   group_by(wm, scen, dv)%>% mutate(scen_wm_dv= paste0(scen, "_", wm, "_", dv)) %>%
+    ggplot(aes(x = wm, y = rawval, color = scen, group = scen_wm_dv)) + geom_boxplot(outlier.alpha = 0.5)+
+    scale_x_continuous(expand = c(0.01, 0.01),limits = c(0.5,12.5), breaks = c(1:12),
+                       labels = c('O', 'N', 'D', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S'),sec.axis = dup_axis(name = NULL) ) +
+    labs(y = "km from gg bridge", x  = NULL) + facet_grid(~dv) +
+    scale_y_continuous(sec.axis = dup_axis(name = NULL))+
+    theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("monthly x2 (984 months)")+ 
+    scale_color_manual(values=df_cols)
+}
+
+pbp_mon_x2km_d <- function(df) {
+  df %>%  mutate(rawval = lead(rawval,1)) %>% mutate(dv = "x2_prv(adj)") %>%
+  group_by(wm, scen, dv)%>% mutate(scen_wm_dv= paste0(scen, "_", wm, "_", dv)) %>%
+    ggplot(aes(x = wm, y = rawval, color = scen, group = scen_wm_dv)) + geom_boxplot(outlier.alpha = 0.5)+
+    scale_x_continuous(expand = c(0.01, 0.01),limits = c(0.5,12.5), breaks = c(1:12),
+                       labels = c('O', 'N', 'D', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S'),sec.axis = dup_axis(name = NULL) ) +
+    labs(y = "km difference from baseline", x  = NULL) + facet_grid(~dv) +
+    scale_y_continuous(sec.axis = dup_axis(name = NULL))+
+    theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +ggtitle("monthly x2, difference from baseline (984 months)")+ 
+    scale_color_manual(values=df_diff_cols)
+}
+
+
 ## Monthly by Sac WYT ##
 
 pbp_mon_scwyt_taf <- function(df) {  #use for one dv only, otherwise too cluttered
@@ -1958,7 +1983,7 @@ pbp_mon_scwyt_taf_d <- function(df) {  #use for one dv only, otherwise too clutt
 
 pbp_ann_perav_wysum_taf <- function(df) {
   
-  df %>% filter(kind != "storage") %>% group_by(scen, dv, wy) %>% summarize(wytafsum =  sum(taf)) %>%
+  df %>% filter(kind != "storage") %>% group_by(scen, dv, wy, dv_name) %>% summarize(wytafsum =  sum(taf)) %>%
     ggplot(aes(x = scen, y = wytafsum, color = scen, group = scen)) + geom_boxplot() +
     scale_y_continuous(sec.axis = dup_axis(name = NULL) ) + facet_grid(~dv)+
     theme_gray() + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
@@ -2257,7 +2282,7 @@ pdr3_ann_perav_wysum_taf_d <- function(df, scale) {
     #theme_gray() +
     facet_grid(~dv) +
     #geom_point(data = df_md, mapping = aes(x = median, y = scen, color = scen), shape = 124, size = 10) +
-    geom_point(data = df_mn, mapping = aes(x = annmean, y = `scen` ), color = "black", fill = "green", shape = 21) 
+    geom_point(data = df_mn, mapping = aes(x = annmean, y = `scen` ), color = "black", fill = "green", shape = 21) #, size = 3) 
 }
 
 
