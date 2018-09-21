@@ -5,8 +5,8 @@ setwd(here("plotexportscripts"))
   
 
 
-source("june2018plots.r") #ten or so plots
-source("july2018plots.r") #thirty or so
+source("outflow&deliv(a).r") #ten or so plots
+source("outflow&deliv(b)&exports&omr&stor&alloc.r") #thirty or so
 
  ### deliveries ###
 
