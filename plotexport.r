@@ -1,25 +1,24 @@
 # choose what plots/plotgroups to run or turn off by commenting out
+setwd(here("plotexportscripts"))
 
-{setwd(here("plotexportscripts"))
+{
+  
 
-source("june2018plots.r") #all sorts, takes a minute takes 20 s?
-source("july2018plots.r") #all sorts, takes a minute takes 20 s?
+
+source("june2018plots.r") #ten or so plots
+source("july2018plots.r") #thirty or so
 
  ### deliveries ###
 
  ## bar plots #
-source("delivplot_cvpgrp_diffs.r") #one or a few plots, instant
-source("delivplot_cvpswp_n&s_rankedtots&diffs.r") #one or a few plots, instant
-source("do&cvpswp_n&sdelivs_plot_bardiffs.r")
+source("delivplot_cvpgrp_diffs.r") #not many
+source("delivplot_cvpswp_n&s_rankedtots&diffs.r") #not many
+source("do&cvpswp_n&sdelivs_plot_bardiffs.r") #not many
+#source("northbayaqueduct.r")
+#
+# #### delta outflow ###
+source("doplot_many.r") #thirty or so
 
- #### delta outflow ###
-source("doplot_many.r") #all sorts, takes 20 s?
-
-
-
-
-  
-  
 setwd(here())
 
 }

@@ -5,40 +5,18 @@
                                         
 df$scen <- factor(df$scen, levels = c(
  
-# track 2 
-"baseline",         
-"CWF(CWF)" ))  
-#"NDD(NDD)",  
-#"SanLR(SL)", 
-#"ShasR(SH)",
-#"TF(TF)",   
-#"2_SH_TF",        
-#"3_SH_SL_TF_CWF",  
-#"3_SH_SL_TF_NDD",  
-#"4_SH_TF_CWF",     
-#"4_SH_TF_NDD",     
-#"5_SH_SL_CWF",    
-#"5_SH_SL_NDD",    
-#"6_SL_CWF",         
-#"6_SL_NDD",         
-#"7_SL_TF_CWF",      
-#"7_SL_TF_NDD",      
-#"8_SH_CWF",        
-#"8_SH_NDD",        
-#"9_SH_SL",        
-#"10_TF_CWF",        
-#"10_TF_NDD",        
-#"11_SL_TF",         
-#"12_SH_SL_TF") )    
+ 
+ "baseline"  ,
+ "5678_dyRoe"  ,            
+ "5678_dyChp"   ,      
+ "5678_dyCnf" ,
+ "56_dyRoe_78dyChp" , 
+ "56_dyChp_78dyCnf",
+ "56_dyRoe_78dyCnf"     
 
-# #track 1 
-# "baseline"  ,
-# "omr_act1_min2k"  ,            
-# "omr_act1_min2k_11ie"   ,      
-# "omr_act1_min5k"   ,          
-# "omr_act1_min5k_11ie"   ,   
-# "omrbyvern"   ,  
-# "omrbyvern_11ie"))
+))
+
+
 
 df$scwyt_scwytt <- factor(df$scwyt_scwytt, levels = c("1_wt", "2_an", "3_bn", "4_dr", "5_cr"))
 
@@ -53,8 +31,6 @@ numscens <- length(unique(df_diff$scen)) + 1
 df_diff_cols <- scales::hue_pal()(numscens)
 black <- c("gray45") #gray55 
 df_cols <- c(black, df_diff_cols)
-
-
 
 
 #wyt_cols <- c("#3333CC", "#6666CC", "#FFCCCC", "#CC9999", "#996666")

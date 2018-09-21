@@ -597,6 +597,49 @@ pb_mn_scwyt2_perav_taf_d <- function(df) {
     theme(strip.text.y = element_text(angle = 0)) 
 }
 
+pb_mn_ann_perav_km_rank_d <- function(df) {
+  df %>% filter(rawunit == "km") %>% group_by(dv, scen) %>%  summarize(mnkm_perav =  mean(rawval))  %>%
+    ggplot(aes(x = reorder_within(scen, -mnkm_perav, dv), y = mnkm_perav, fill = scen, label = round(mnkm_perav, 1))) +
+    geom_bar(position = "dodge",stat = "identity") + 
+    theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
+    ylab("km [difference]") + geom_text(color = "dark blue", angle = 90, hjust = 1) + 
+    scale_x_reordered() +
+    facet_wrap(~dv, nrow = 1, scales = "free_x") +
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+    #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+    scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
+    scale_fill_manual(values=df_diff_cols) +
+    ggtitle("mean km, difference (984 months)")
+}
+
+pb_mn_ann_perav_km_rank <- function(df) {
+  df %>% filter(rawunit == "km") %>% group_by(dv, scen) %>%  summarize(mnkm_perav =  mean(rawval))  %>%
+    ggplot(aes(x = reorder_within(scen, -mnkm_perav, dv), y = mnkm_perav, fill = scen, label = round(mnkm_perav, 1))) +
+    geom_bar(position = "dodge",stat = "identity") + 
+    theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
+    ylab("km") + geom_text(color = "dark blue", angle = 90, hjust = 1) + 
+    scale_x_reordered() +
+    facet_wrap(~dv, nrow = 1, scales = "free_x") +
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+    #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+    scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
+    scale_fill_manual(values=df_cols) +
+    ggtitle("mean km (984 months)")
+}
+
+pb_mn_ann_perav_km <- function(df) {
+  df %>% filter(rawunit == "km") %>% group_by(dv, scen) %>%  summarize(mnkm_perav =  mean(rawval))  %>%
+    ggplot(aes(x =scen, y = mnkm_perav, fill = scen, label = round(mnkm_perav, 1))) +
+    geom_bar(position = "dodge",stat = "identity") + 
+    theme_gray()   + guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
+    ylab("km") + geom_text(color = "dark blue", angle = 90, hjust = 1) + 
+    facet_wrap(~dv, nrow = 1, scales = "free_x") +
+    theme(axis.title.x=element_blank(),axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
+    #theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+    scale_y_continuous(sec.axis = dup_axis(name = NULL) )+
+    scale_fill_manual(values=df_cols) +
+    ggtitle("mean km (984 months)")
+}
 
 #### month specific difference ####
 
@@ -1042,10 +1085,10 @@ df %>% filter(rawunit != "km")%>% group_by(scen, dv) %>% arrange(dv, desc(taf)) 
 }
 
 p_mon_excd2_taf <- function(df) { 
-  df %>% filter(rawunit != "km")%>% group_by(scen, dv) %>% arrange(dv, desc(taf)) %>% mutate(taf_dv_rank = row_number(),
+  df %>% filter(rawunit != "km")%>% group_by(scen, dv_name) %>% arrange(dv_name, desc(taf)) %>% mutate(taf_dv_rank = row_number(),
         excdxaxis = taf_dv_rank/(n()+1)) %>% ggplot(aes(x = excdxaxis, y = taf, color = scen)) + geom_line() + labs(x = "probability of exceedance", y = "taf -- monthly")+theme_gray() +
     guides(colour = guide_legend(override.aes = list(size=2))) + theme(plot.margin=grid::unit(c(8,8,8,8), "mm")) +
-      ggtitle("984 months (taf)") + facet_grid(~dv) + scale_color_manual(values = df_cols)
+      ggtitle("984 months (taf)") + facet_grid(~dv_name) + scale_color_manual(values = df_cols)
 }
 
 p_mon_excd_cfs <- function(df) {
@@ -1766,7 +1809,7 @@ p_monfacetw_excd_cfs <- function(df) {
     ggplot(aes(x = excdxaxis, y = cfs, color = scen)) + geom_line() + 
     labs(x = "probability of exceedance", y = "monthly average cfs") +
     facet_wrap(~mon, ncol =3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month") + theme_gray() + 
+    ggtitle("monthly exceedance") + theme_gray() + 
     scale_color_manual(values=df_cols) + guides(colour = guide_legend(override.aes = list(size=2)))
   p   
 }
@@ -1778,9 +1821,57 @@ p_monfacetw_excd_cfs_d <- function(df) {
     ggplot(aes(x = excdxaxis, y = cfs, color = scen)) + geom_line() +
     labs(x = "probability of exceedance", y = "monthly average cfs [difference]") +
     facet_wrap(~mon, ncol = 3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
-    ggtitle("monthly exceedance by month, difference from baseline") + theme_gray() +
+    ggtitle("monthly exceedance, difference from baseline") + theme_gray() +
     scale_color_manual(values=df_diff_cols) + 
     guides(colour = guide_legend(override.aes = list(size=2)))
+  p   
+}
+
+p_monfacetw_excd_km <- function(df) {
+  
+  p <- df %>% filter(rawunit == "km") %>% group_by(scen, dv, mon)  %>% 
+    arrange(dv, desc(rawval)) %>% mutate(km_dv_rank = row_number(),excdxaxis = km_dv_rank/(n()+1)) %>% 
+    ggplot(aes(x = excdxaxis, y = rawval, color = scen)) + geom_line() + 
+    labs(x = "probability of exceedance", y = "km") +
+    facet_wrap(~mon, ncol =3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
+    ggtitle("monthly exceedance") + theme_gray() + 
+    scale_color_manual(values=df_cols) + guides(colour = guide_legend(override.aes = list(size=2)))
+  p   
+}
+
+p_monfacetw_excd_km_d <- function(df) {
+  
+  p <- df %>% filter(rawunit == "km") %>% group_by(scen, dv, mon)  %>% 
+    arrange(dv, desc(rawval)) %>% mutate(km_dv_rank = row_number(),excdxaxis = km_dv_rank/(n()+1)) %>% 
+    ggplot(aes(x = excdxaxis, y = rawval, color = scen)) + geom_line() + 
+    labs(x = "probability of exceedance", y = "km [difference]") +
+    facet_wrap(~mon, ncol =3) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
+    ggtitle("monthly exceedance, difference from baseline") + theme_gray() + 
+    scale_color_manual(values=df_diff_cols) + guides(colour = guide_legend(override.aes = list(size=2)))
+  p   
+}
+
+p_monfacetg_excd_km <- function(df) {
+  
+  p <- df %>% filter(rawunit == "km") %>% group_by(scen, dv, mon)  %>% 
+    arrange(dv, desc(rawval)) %>% mutate(km_dv_rank = row_number(),excdxaxis = km_dv_rank/(n()+1)) %>% 
+    ggplot(aes(x = excdxaxis, y = rawval, color = scen)) + geom_line() + 
+    labs(x = "probability of exceedance", y = "km") +
+    facet_grid(~mon) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
+    ggtitle("monthly exceedance") + theme_gray() + 
+    scale_color_manual(values=df_cols) + guides(colour = guide_legend(override.aes = list(size=2)))
+  p   
+}
+
+p_monfacetg_excd_km_d <- function(df) {
+  
+  p <- df %>% filter(rawunit == "km") %>% group_by(scen, dv, mon)  %>% 
+    arrange(dv, desc(rawval)) %>% mutate(km_dv_rank = row_number(),excdxaxis = km_dv_rank/(n()+1)) %>% 
+    ggplot(aes(x = excdxaxis, y = rawval, color = scen)) + geom_line() + 
+    labs(x = "probability of exceedance", y = "km [difference]") +
+    facet_grid(~mon) +scale_x_continuous(sec.axis = dup_axis(name = NULL))+scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
+    ggtitle("monthly exceedance, difference from baseline") + theme_gray() + 
+    scale_color_manual(values=df_diff_cols) + guides(colour = guide_legend(override.aes = list(size=2)))
   p   
 }
 

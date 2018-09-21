@@ -13,7 +13,7 @@ source("csv_list.r")  #**step 0** - enter scenarios' filenames and nicknames in 
 
 ##  block 2b   ####### build df and df_diff   #############    analyze DV(s) here one plot at a time:      ##########
 ##############  pick variables, separate with comma eg(`dvs <- c("c5", "c9")`)  ## use all lowercase & run block ##if mixing storage and flow DVs, use function with _native suffix 
-{dvs <- c("x2_prv")                                                                                          
+{dvs <- c("x2_prv")                                                                                         
 ########################################################           then apply individual functions  below                #####
 source("df_create.r")} #create two data.frames: one for values (df), one for difference relative to baseline  (df_diff) (###### (original values also copied to df_diff)
 ##############################################################################################################################
@@ -35,6 +35,7 @@ pb_mn_ann_perav_taf_nolab_rank(df)
 pb_mn_ann_perav_taf_hlab(df)
 pb_md_ann_perav_taf(df) 
 pb_mn_ann_eomstor_taf(df)  #if blank, verify not a non-storage (same for rest)
+pb_mn_ann_perav_km_rank(df)
 
 ### WYT Avgs ###
 pb_mn_scwyt_perav_taf(df)
@@ -53,6 +54,7 @@ pb_mn_eosep_stor_taf(df)
 
 ### Ann Avgs ###
 pb_mn_ann_perav_taf_d(df_diff) 
+pb_mn_ann_perav_km_rank_d(df_diff)
 pb_mn_ann_perav_taf_d_hlab(df_diff)
 pb_md_ann_perav_taf_d(df_diff)
 pb_mn_ann_perav_taf_d_nolab_rank(df_diff)
@@ -150,6 +152,8 @@ p_monfacetg_excd_taf(df)
 p_monfacetg_excd_taf_d(df_diff)
 p_monfacetg_excd_cfs(df)
 p_monfacetg_excd_cfs_d(df_diff)
+p_monfacetg_excd_km(df)
+p_monfacetg_excd_km_d(df_diff)
 
 ###############################
 ## excd diff, month grid, matrix
@@ -159,6 +163,8 @@ p_monfacetw_excd_taf(df)
 p_monfacetw_excd_taf_d(df_diff)
 p_monfacetw_excd_cfs(df)
 p_monfacetw_excd_cfs_d(df_diff)
+p_monfacetw_excd_km(df)
+p_monfacetw_excd_km_d(df_diff)
 
 #######################################################################
 #######################################################################
@@ -207,7 +213,6 @@ pb_eosep_stor_scwyt_taf_d(df_diff)
 #plot box plot monthly taf 
 pbp_mon_taf(df)        #pbly best for only one dv, (very busy) #good for plotly - medians/hinges/outliars hoverable
 pbp_mon_x2km(df)
-
 pbp_mon_scwyt_taf(df)  #pbly best for only one dv
 
 ## diff ##
