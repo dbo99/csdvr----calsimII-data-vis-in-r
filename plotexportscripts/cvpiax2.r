@@ -105,7 +105,7 @@ ggsave(paste0(paste(dvs,collapse="&"), "_monthlyX2boxplotdiffs.jpg"), dpi = 300,
 #  setwd(here())
 #}
 
-## together ## 
+## above is separate plots of this three-plot plot below ## 
 
 {dvs <- c("x2_prv")
   
@@ -165,6 +165,64 @@ ggsave(paste0(paste(dvs,collapse="&"), "_monthlyX2boxplotdiffs.jpg"), dpi = 300,
   ggsave(paste0(paste(dvs,collapse="&"), "_storagemonthly.jpg"), dpi = 300, width = 17, height = 11, units = "in")
   setwd(here())
 }
+
+
+{dvs <- c("short_cvp_tot_n", "short_cvp_tot_s")
+  
+  source("df_create.r")
+ p1 <-  pb_mn_ann_perav_taf_hlab(df) + ggtitle("Annual mean CVP shortage (82 years; Q5e hydrology)")
+ 
+  
+ dvs <- c("short_swp_tot_n", "short_swp_tot_s")
+ source("df_create.r")
+ p2 <-  pb_mn_ann_perav_taf_hlab(df) + ggtitle("Annual mean SWP shortage (82 years; Q5e hydrology)")
+ 
+ plot_grid(p1, p2, nrow = 2)
+  setwd(here("plots", "cvpiax2"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_annmeanbars.jpg"), dpi = 300, width = 17, height = 11, units = "in") 
+  
+  setwd(here())
+}
+
+{dvs <- c("short_cvp_tot_n", "short_cvp_tot_s")
+  
+  source("df_create.r")
+  p1 <-  pb_mn_scwyt_perav_taf(df) + ggtitle("Annual mean CVP shortage (82 years; Q5e hydrology)")
+  
+  
+  dvs <- c("short_swp_tot_n", "short_swp_tot_s")
+  source("df_create.r")
+  p2 <-  pb_mn_scwyt_perav_taf(df) + ggtitle("Annual mean SWP shortage (82 years; Q5e hydrology)")
+  
+  plot_grid(p1, p2, nrow = 2)
+  setwd(here("plots", "cvpiax2"))
+  ggsave(paste0(paste(dvs,collapse="&"), "_annsacwytbars.jpg"), dpi = 300, width = 17, height = 11, units = "in") 
+  
+  setwd(here())
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ####### Keep as last row below to access next possible script ##############
